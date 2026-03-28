@@ -1,2 +1,2 @@
-def suma(c,d):
-    return c+d
+def resta(c,d):
+    return c-d
