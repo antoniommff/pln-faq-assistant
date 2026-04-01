@@ -24,7 +24,7 @@
 \fancyhead[RO]{\thepage} % Número de página a la derecha
     % Páginas pares
 \fancyhead[LE]{\thepage} % Número de página a la izquierda
-\fancyhead[RE]{\textbf{TSCD}}
+\fancyhead[RE]{\textbf{PLN}}
   % Pie de página
 \usepackage{chngcntr}
 \counterwithout{footnote}{section} % Numeración continua en todo el documento
@@ -117,41 +117,10 @@
 \usepackage{subcaption}
 \usepackage{float} % Colocación de tablas
 \usepackage{tcolorbox}
-\tcbuselibrary{skins, breakable, listings}
+\usepackage{listings}
 
-% Código ipynb
-\definecolor{jupyterblue}{HTML}{1f77b4}
-\definecolor{jupyterorange}{HTML}{ff7f0e}
-  % Caja de entrada (azul)
-\newtcolorbox{jupyterinput}[1][]{
-	colback=graybg,             
-	colframe=gray!40,           
-	coltitle=white,             
-	colbacktitle=jupyterblue,   
-	boxrule=0.5pt,               
-	arc=2pt,
-	outer arc=2pt,
-	left=6pt, right=6pt, top=-1pt, bottom=-2pt,
-	fonttitle=\ttfamily\small\bfseries,
-	title=In:\hspace{0.5em},
-	enhanced,
-	breakable,
-}
-  % Caja de salida (naranja)
-\newtcolorbox{jupyteroutput}[1][]{
-	colback=gray!7,
-	colframe=gray!70,
-	coltitle=white,
-	colbacktitle=jupyterorange,
-	boxrule=0.7pt,
-	arc=2pt,
-	outer arc=2pt,
-	left=6pt, right=6pt, top=-1pt, bottom=-2pt,
-	fonttitle=\ttfamily\small\bfseries,
-	title=Out:\hspace{0.5em},
-	enhanced,
-	breakable,
-}
+% Código
+% Habría que definir aquí un listings
 
 
 % PORTADA
@@ -166,7 +135,7 @@
 	\renewcommand{\headwidth}{\textwidth}
 	\fancyhf{}
 	\fancyhead[L]{
-		\includegraphics[height=1.4cm]{LogoTSCD.png}
+		\includegraphics[height=1.4cm]{LogoPLN.jpg}
 		\vspace{0.1pt}}
 	\fancyhead[R]{
 		\textbf{Procesamiento del} \\ 
@@ -177,17 +146,18 @@
 \thispagestyle{portada} 
 	
 \begin{LARGE}
-	\noindent \textbf{Título}
+	\noindent \textbf{Asistente de preguntas frecuentes}
 	\vspace{13pt}
 \end{LARGE}
 
 \begin{Large}
-	\noindent \textbf{Subtítulo}
+	\noindent \textbf{Proyecto longitudinal de diseño de sistemas PLN}
 	\vspace{25pt}
 \end{Large}
 
 \begin{small}
-	\noindent \textbf{Autores}
+	\noindent \textbf{Antonio Macías Ferrera, Elsa Domínguez González, Óscar Niño Robles\\ 
+	Nicolás Rodríguez Ruiz}
 	\vspace{2pt}
 \end{small}
 
@@ -206,16 +176,33 @@
 % Resumen
 \begin{normalsize}
 	\vspace{3pt}
-	\noindent Abstract guarro???
+	\noindent Abstract ...
 \end{normalsize}
 
 \vspace{-4pt}
 \noindent \rule{\textwidth}{0.4pt}
 
 % Índice
+\makeatletter
+\renewcommand*\l@section[2]{%
+	\addpenalty{-\@highpenalty}%
+	\addvspace{1.0em \@plus\p@}%
+	\setlength\@tempdima{2.0em}%       
+	\begingroup
+	\parindent\z@ \rightskip\@pnumwidth
+	\parfillskip-\@pnumwidth
+	\leavevmode \bfseries
+	\advance\leftskip\@tempdima
+	\hskip-\leftskip
+	#1\nobreak\hfil\nobreak
+	\hb@xt@\@pnumwidth{\hss#2}\par
+	\penalty\@highpenalty
+	\endgroup}
+\makeatother
+
 {
 \vspace{6pt}
-\footnotesize
+\small
 \tableofcontents
 }
 
@@ -226,13 +213,67 @@
 
 
 % CUERPO
-% Sección 1
-\section{Introducción}
+% ITERACIÓN 1
+\begin{Large}
+	\noindent \textbf{Entrega 1 --- Análisis y diseño inicial}
+\end{Large}
+
+\vspace{0.5pt}
+\noindent \rule{\textwidth}{1pt}
+
+% Primera entrega
+\section{Justificación del dominio}
+
+\section{Caracterización lingüística}
+
+\section{Descomposición en tareas PLN}
+
+\section{Restricciones no técnicas}
+
+\section{Hipótesis de diseño inicial}
 
 
-% Otras secciones
-\section{PUTAMADRE CALVA}
+\newpage
 
+% ITERACIÓN 2
+\begin{Large}
+	\noindent \textbf{Entrega 2 --- Diseño revisado}
+\end{Large}
+
+\vspace{0.5pt}
+\noindent \rule{\textwidth}{1pt}
+
+Comentar secciones antes de entregar. Están de referencia.
+
+% Segunda entrega
+\section{Revisiones respecto a la Entrega 1}
+
+\section{Decisiones de representación y modelado}
+
+\section{Datos y protocolo de evaluación}
+
+\section{Arquitectura final del sistema}
+
+
+\newpage
+
+% ITERACIÓN 3
+\begin{Large}
+	\noindent \textbf{Entrega 3 --- Prueba de concepto y reflexión}
+\end{Large}
+
+\vspace{0.5pt}
+\noindent \rule{\textwidth}{1pt}
+
+Comentar secciones antes de entregar. Están de referencia.
+% Tercera entrega
+\section{Implementación}
+
+\section{Evaluación y resultados}
+
+\section{Análisis de errores}
+
+\section{Reflexión crítica}
 
 
 \end{document}
