@@ -1,5 +1,5 @@
 % CLASE
-\documentclass[12pt,a4paper,twoside]{article}
+\documentclass[11pt,a4paper,twoside]{article}
 
 
 % PAQUETES
@@ -9,7 +9,7 @@
 \usepackage[spanish]{babel}
 
 % Tipografía 
-\usepackage{lmodern} % Letra de EDAN
+\usepackage{lmodern} 
 
 % Configuración de página
   % Encabezado
@@ -29,7 +29,7 @@
 \usepackage{chngcntr}
 \counterwithout{footnote}{section} % Numeración continua en todo el documento
   % Márgenes
-\usepackage[left=2.68cm,right=2.52cm,top=3.9cm,bottom=2.42cm]{geometry}
+\usepackage[left=2.75cm,right=2.65cm,top=4.1cm,bottom=2.6cm]{geometry}
   % Sangría
 \setlength{\parindent}{1.6em} 
   % Espaciado
@@ -145,30 +145,30 @@
 }
 \thispagestyle{portada} 
 	
-\begin{LARGE}
+\begin{huge}
 	\noindent \textbf{Asistente de preguntas frecuentes}
 	\vspace{13pt}
-\end{LARGE}
+\end{huge}
 
-\begin{Large}
+\begin{LARGE}
 	\noindent \textbf{Proyecto longitudinal de diseño de sistemas PLN}
 	\vspace{25pt}
-\end{Large}
+\end{LARGE}
 
-\begin{small}
+\begin{normalsize}
 	\noindent \textbf{Antonio Macías Ferrera, Elsa Domínguez González, Óscar Niño Robles\\ 
 	Nicolás Rodríguez Ruiz}
 	\vspace{2pt}
-\end{small}
-
-\begin{normalsize}
-	\noindent \textit{Máster Universitario en Lógica, Computación e Inteligencia Artificial}
 \end{normalsize}
 
-\begin{normalsize}
+\begin{large}
+	\noindent \textit{Máster Universitario en Lógica, Computación e Inteligencia Artificial}
+\end{large}
+
+\begin{large}
 	\vspace{-2pt}
 	\noindent \textit{Universidad de Sevilla} 
-\end{normalsize}
+\end{large}
 
 \vspace{12pt}
 \noindent \rule{\textwidth}{0.4pt}
@@ -202,7 +202,7 @@
 
 {
 \vspace{6pt}
-\small
+\normalsize
 \tableofcontents
 }
 
@@ -223,42 +223,51 @@
 
 % Primera entrega
 \section{Justificación del dominio}
+El creciente proceso de digitalización y globalización empresarial ha transformado la gestión de la atención al cliente hacia un modelo descentralizado, externalizado y digital. Sin embargo, las tendencias actuales en este ámbito no hacen más que ampliar la brecha entre grandes organizaciones y pequeñas empresas. Las grandes corporaciones pueden invertir en \textit{chatbots} basados en grandes modelos de lenguaje, mientras que las pymes se ven obligadas a gestionar manualmente un volumen elevado de consultas recurrentes. Esto conlleva un alto consumo de recursos humanos, tiempos de respuesta inconsistentes y una escasa escalabilidad. Como resultado, alguien siempre sale perjudicado: o el usuario final, que pierde el control y la confianza frente a su proveedor, o el pequeño empresario, incapaz de satisfacer la demanda de sus clientes.
 
-El creciente proceso de digitalización y globalización empresarial ha transformado la
-gestión de la atención al cliente hacia un modelo descentralizado, externalizado y digital. Sin embargo, las tendencias actuales
-en este ámbito no hacen más que ampliar la brecha entre grandes organizaciones y pequeñas empresas.
-Las grandes corporaciones pueden invertir en chatbots basados en grandes modelos de
-lenguaje, mientras que las \textbf{PYMEs} se ven obligadas a gestionar manualmente un
-volumen elevado de consultas recurrentes, con el consiguiente consumo de recursos humanos,
-tiempos de respuesta inconsistentes y una solución difícilmente escalable. El resultado es
-que, en ambos casos, alguien sale perjudicado: o el usuario final (que no se siente con
-control y confianza frente a su proveedor) o el pequeño empresario (que no es capaz de
-satisfacer la demanda de su cliente).\newline
+Para paliar esta situación, existen distintas soluciones automatizadas, pero solo resuelven el problema de forma parcial. Por un lado, los \textbf{sistemas basados en reglas y palabras clave} son más económicos y computacionalmente viables que los \textit{chatbots} y, además, otorgan más confianza y control al usuario final, pero son extremadamente frágiles ante variaciones léxicas triviales. Por otro, los \textbf{\textit{chatbots} comerciales de propósito general} no están preparados para dominios específicos ni para idiomas con recursos lingüísticos limitados.
 
-Para paliar esta situación, existen distintas soluciones automatizadas que resuelven el
-problema de forma parcial. Los \textbf{sistemas basados en reglas y palabras clave} son
-más económicos y computacionalmente viables que los chatbots y, además, otorgan más
-confianza y control al usuario final, pero son frágiles ante variaciones léxicas triviales.
-Los \textbf{chatbots comerciales de propósito general} no están preparados para dominios
-específicos ni para idiomas con recursos lingüísticos limitados.\newline
+Este proyecto aborda dicha problemática mediante el diseño de un \textbf{sistema de recuperación automática de respuestas} desde una base de FAQs estructurada, con soporte multilingüe nativo (español e inglés) enfocado al dominio de la cocina. Se trata estrictamente de un sistema de enrutamiento hacia información preexistente, no de un modelo generativo tipo RAG que redacte respuestas nuevas.
 
-Este proyecto aborda este problema mediante el diseño de un \textbf{sistema de recuperación
-automática de respuestas} desde una base de FAQs estructurada, con soporte multilingüe
-nativo (español e inglés). El dominio es especialmente adecuado para una tarea de
-\textit{Procesamiento del Lenguaje Natural} por dos razones fundamentales: en primer lugar,
-la variabilidad lingüística de las consultas de usuario es inherentemente alta, dado que el
-mismo problema puede formularse de muchas formas distintas en cada idioma y con distintos
-registros; y en segundo lugar, la tarea de asociar una consulta a una respuesta no es
-resoluble mediante búsqueda exacta, sino que requiere cierta comprensión semántica y
-\textbf{clasificación de la intención} del mensaje. Se implementará una PoC contextualizada en un conjunto de datos sobre cocina, ya que contiene consultas breves y variadas sobre recetas y preparación
-de alimentos, cercanas al tipo de preguntas recurrentes que aparecerían en un sistema FAQ
-real. Además, el dominio de la cocina es lo suficientemente amplio como para permitir una evaluación significativa de la capacidad del sistema para generalizar a consultas no vistas, y no tan específico como para requerir un conocimiento experto en la materia, lo que facilita el desarrollo y la evaluación del proyecto.
+El dominio elegido es especialmente adecuado para una tarea de Procesamiento del Lenguaje Natural (PLN) por dos razones fundamentales: en primer lugar, la \textbf{variabilidad lingüística} de las consultas de usuario es inherentemente alta, dado que el mismo problema puede formularse de muchas formas distintas en cada idioma y con distintos registros; y en segundo lugar, la tarea de asociar una consulta a una respuesta no es resoluble mediante búsqueda exacta, sino que requiere cierta comprensión semántica y \textbf{clasificación de la intención} del mensaje. 
 
+Se implementará una PoC contextualizada en un conjunto de datos sobre cocina, ya que contiene consultas breves y variadas sobre recetas y preparación de alimentos, cercanas al tipo de preguntas recurrentes que aparecerían en un sistema FAQ real. Además, el dominio de la cocina es lo suficientemente amplio como para permitir una evaluación significativa de la capacidad del sistema para generalizar a consultas no vistas, y no tan específico como para requerir un conocimiento experto en la materia, lo que facilita el desarrollo y la evaluación del proyecto.
 
 
 \section{Caracterización lingüística}
 
 \section{Descomposición en tareas PLN}
+Tras el análisis lingüístico del dominio, el sistema se estructura en cuatro tareas principales, cada una con requisitos técnicos y niveles de abstracción semántica propios.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{l p{7.5cm} l} % 'p{_cm}' permite que el texto baje de línea
+		\toprule
+		\textbf{Tarea} & \textbf{Descripción} & \textbf{Prioridad} \\
+		\midrule
+		T1: Identificación de idioma 
+		& Detección del idioma principal de entrada (español/inglés). Tarea habilitadora para el resto. 
+		& Alta \\ \addlinespace
+		
+		T2: Clasificación de intención 
+		& Determinación del propósito de la consulta (ej. búsqueda de receta).
+		& Alta \\ \addlinespace
+		
+		T3: Extracción de entidades 
+		& Identificación de conceptos clave de cocina (ingredientes, técnicas, utensilios).
+		& Alta \\ \addlinespace
+		
+		T4: Recuperación de FAQs  
+		& Emparejamiento semántico de la consulta procesada con la base de datos de FAQs para redirigir a la respuesta adecuada.
+		& Muy alta \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+Estas tareas no operan de forma aislada, sino que cada etapa condiciona a la siguiente. \textbf{T1} debe ejecutarse inicialmente para determinar qué modelos o recursos léxicos activar. Superada la barrera idiomática, \textbf{T2} y \textbf{T3} actúan (en paralelo o secuencialmente) para estructurar la consulta del usuario y comprender su objetivo, transformando el lenguaje ambiguo en variables concretas (por ejemplo, aislando la intención ``cocer'' del ingrediente ``huevo''). Por último, \textbf{T4} depende de la salida estructurada de T2 y T3; en lugar de buscar por palabras clave exactas, utiliza la intención y las entidades detectadas para recuperar la FAQ más relevante de la base de datos y redirigir al usuario hacia ella.
+
+Desde la perspectiva de la \textbf{arquitectura tecnológica} del Capítulo 2, esta descomposición encaja en el modelo de niveles interdependientes. T1 opera entre el preprocesamiento fundamental (Nivel 1) y la detección de idioma (Nivel 2). T2 (clasificación textual de intenciones) y T3 (extracción de entidades nombradas) conforman el componente semántico intermedio (Nivel 2). Finalmente, T4 se sitúa en el nivel superior de aplicaciones y servicios (Nivel 3), requiriendo una arquitectura de recuperación de información basada en similitud semántica. 
+
 
 \section{Restricciones no técnicas}
 
