@@ -197,9 +197,6 @@
 \tableofcontents
 }
 
-\vspace{-4pt}
-\noindent \rule{\textwidth}{0.4pt}
-
 \newpage
 
 
@@ -226,50 +223,44 @@ Se implementará una PoC contextualizada en un conjunto de datos sobre cocina, y
 
 
 \section{Caracterización lingüística}
-En esta sección vamos a exponer las dificultades que se presentan en el ámbito del lenguaje natural, haciendo el dominio difícil para el procesamiento automático.
+En esta sección se exponen las dificultades inherentes al lenguaje natural que complican el procesamiento automático en este dominio.
 
 \subsection{Ambigüedad en múltiples niveles}
-El lenguaje de las consultas de cocina presenta los diferentes tipos de ambigüedad documentados en la teoría lingüística, suponiendo un reto directo para las operaciones fundamentales del sistema:
+El lenguaje de las consultas de cocina presenta los diversos tipos de ambigüedad documentados en la teoría lingüística.
 \begin{itemize}
-    \item \textbf{Nivel léxico:} Ocurre cuando una misma palabra tiene más de un significado posible. En el ámbito culinario, la polisemia es constante. Por ejemplo, la palabra ``pasta'' puede referirse a la categoría de alimentos (macarrones) ``¿Cómo cocer pasta?'', a una masa ``Me ha quedado una pasta que se pega al mezclar los ingredientes, ¿qué hago?''. No es este el único término, la palabra ``yema'' puede hacer referencia tanto a la parte del huevo ``¿Cómo puedo gastar yemas?'' y también a la yema de un dedo ``¿Qué utensilio puedo usar para amasar sin tener que mancharme las yemas de los dedos?''.
+    \item \textbf{Nivel léxico:} Se produce cuando una misma palabra posee más de un significado. En gastronomía, la polisemia es constante. Por ejemplo, ``pasta'' puede referirse al alimento (``¿Cómo cocer pasta?'') o a una masa (``Me ha quedado una pasta que se pega, ¿qué hago?''). De igual forma, ``yema'' alude tanto a la parte del huevo (``¿Cómo puedo gastar yemas?'') como a la punta del dedo (``¿Qué utensilio uso para amasar sin mancharme las yemas?'').
 
-    \item \textbf{Nivel sintáctico:} Las consultas en un sistema FAQ suelen ser breves o elípticas, lo que permite diferentes interpretaciones de su estructura gramatical. En una consulta como ``Instrucciones para cocinar pescado sin aceite de oliva'', la ausencia de contexto no aclara si lo que se busca con recetas específicas de pescado que de por sí no llevan aceite, o más bien un enfoque en el que se den instrucciones generales para preparar pescado pero no tiene aceite y lo que busca es un sustituto.
+    \item \textbf{Nivel sintáctico:} La brevedad y el uso de elipsis, habituales en los sistemas FAQ, generan múltiples interpretaciones de la estructura gramatical. En una consulta como ``Instrucciones para cocinar pescado sin aceite de oliva'', la falta de contexto impide discernir si se buscan recetas de pescado que por defecto no llevan aceite, o si se solicitan alternativas para sustituir este ingrediente durante la preparación.
 
-    \item \textbf{Nivel semántico:} La semántica establece que el significado composicional emerge de la combinación de elementos. Sin embargo, la cocina está repleta de expresiones idiomáticas donde esta regla se rompe. Expresiones tales como ``baño María'' o ``punto de nieve'' no se puede deducir su significado sumando el significado literal de sus partes (¿Quién es ``María''?). Para evitar que un sistema de palabras clave falle al procesar estas consultas, se necesita  la detección de marcos semánticos que capturen la situación compleja en su conjunto.
+    \item \textbf{Nivel semántico:} La semántica establece que el significado composicional emerge de la combinación de elementos. Sin embargo, el ámbito culinario está repleto de expresiones idiomáticas donde esta regla se rompe. El sentido de ``baño María'' o ``punto de nieve'' no se deduce sumando el significado literal de sus partes (¿Quién es ``María''?). Para evitar que el sistema falle basándose solo en palabras clave, es necesario detectar marcos semánticos que capturen la acción compleja en su conjunto.
 
-    \item \textbf{Nivel pragmático:} El sistema debe procesar actos de habla indirectos. Una frase como ``Mi bizcocho parece una piedra'' o ``Me he quedado sin huevos'' no es una simple afirmación de un hecho, sino que pragmáticamente funciona como una petición de ayuda o de un ingrediente sustituto. %Los modelos tradicionales tienen problemas para mapear estas descripciones literales a la intención real del usuario (buscar un consejo o solución).
+    \item \textbf{Nivel pragmático:} El sistema debe interpretar actos de habla indirectos. Enunciados como ``Mi bizcocho parece una piedra'' o ``Me he quedado sin huevos'' no son meras descripciones de la realidad, sino que funcionan implícitamente como peticiones de ayuda o solicitudes de alternativas.
 \end{itemize}
 
 \subsection{Fenómenos específicos del género textual}
-Más allá de las ambigüedades puramente gramaticales, el género textual de la cocina presenta características semánticas y pragmáticas propias que exigen modelos de representación más avanzados:
-
+Más allá de las ambigüedades puramente gramaticales, el discurso culinario presenta características semánticas y pragmáticas propias que exigen modelos de representación avanzados.
 \begin{itemize}
-    \item \textbf{Subjetividad y carga connotativa:} La connotación evoca significados adicionales y subjetivos en las palabras. El lenguaje de cocina abusa de medidas subjetivas:``¿Le añado un chorrito de aceite?'' o ``Hay que picar finamente, ¿verdad?''. Para un sistema de IA, traducir un ``chorrito'' a una medida objetiva es un problema complejo, ya que la connotación semántica cambia mucho dependiendo de la receta (un chorrito de vinagre no tiene el mismo volumen que un chorrito de agua o incluso no es lo mismo un chorrito de aceite para una ensalada que para cocinar en una sartén que para freír).
+    \item \textbf{Subjetividad y carga connotativa:} La connotación evoca significados adicionales
+    y subjetivos en las palabras. El lenguaje de cocina recurre con frecuencia a medidas subjetivas: ``¿Le añado un chorrito de aceite?'' o ``Hay que picar el pimiento finamente, ¿verdad?''. Traducir un ``chorrito'' a una cantidad objetiva es un problema complejo, ya que la connotación semántica varía según la receta y el contexto (el volumen difiere si es vinagre, agua o aceite para una sartén frente a una ensalada).
+    
+    \item \textbf{Detección de metáforas y lenguaje figurado:} La jerga gastronómica emplea dominios conceptuales ajenos para describir técnicas propias (``sudar la cebolla'', ``montar las claras'', ``bañar el bizcocho''). Estas expresiones confundirían a un sistema de búsqueda exacta, requiriendo modelos capaces de capturar su semántica figurada.
 
-    \item \textbf{Detección de metáforas y lenguaje figurado:} La jerga culinaria utiliza constantemente dominios conceptuales ajenos para explicar técnicas propias. Expresiones como ``sudar la cebolla'', ``montar las claras a punto de nieve'' o ``bañar el bizcocho'' confundirían a un sistema basado únicamente en búsqueda exacta o palabras clave, requiriendo modelos capaces de capturar la composición semántica figurada.
-
-    %\item \textbf{Variación cultural:} La interpretación correcta de un enunciado depende fuertemente del contexto situacional o el conocimiento compartido. El multilingüismo y la variación dialectal provocan que términos idénticos tengan referentes físicos distintos según la procedencia del usuario. Por ejemplo, el término ``tortilla'' requiere respuestas operativas totalmente distintas si el sistema detecta que el usuario pertenece a una comunidad española (huevo y patata) frente a una mexicana (maíz o trigo).
-
-    \item \textbf{Variación léxica y préstamos lingüísticos:} La dimensión sociocultural del lenguaje nos indica que la globalización ha intensificado el contacto entre lenguas, produciendo fenómenos como los préstamos léxicos. En cocina, nos enfrentamos a una alta variabilidad: un usuario puede consultar por ``cupcake'' o ``magdalena'', ``airfryer'' o ``freidora de aire''. Esta variación exige estrategias robustas de normalización de texto para estandarizar la representación antes de procesarla.
-
-    \item \textbf{El impacto del contexto situacional en la actuación lingüística:} El entorno de la cocina impone un sentido de urgencia que moldea este género conversacional, priorizando la eficacia comunicativa sobre la corrección formal. Al escribir con prisas o las manos ocupadas, los usuarios generan una actuación lingüística  que se aleja radicalmente de su competencia lingüística ideal. Esto produce textos ruidosos que ignoran deliberadamente las reglas ortográficas prescriptivas, dando lugar a oraciones fragmentadas o palabras mal escritas por economía expresiva (ej. ``q hago se me kema el arro''). % EEEEE NO SE YO -> El reto computacional radica en que el sistema debe adoptar un enfoque basado en reglas descriptivas para procesar esta variación sistemática ligada al contexto situacional, logrando mapear estas formas irregulares a su significado correcto sin depender de una corrección ortográfica estrict.
-
+    \item \textbf{Variación léxica y préstamos lingüísticos:} En cuanto a la dimensión sociocultural del lenguaje, la globalización ha intensificado el contacto entre lenguas, produciendo fenómenos como los préstamos léxicos. En cocina, la variabilidad es alta: un usuario puede consultar por ``cupcake'' o ``magdalena'', ``airfryer'' o ``freidora de aire''. Esto exige estrategias robustas de normalización de texto para estandarizar la representación antes de procesarla.
+    
+    \item \textbf{El impacto del contexto situacional en la actuación lingüística:} El entorno de la cocina impone una urgencia que moldea este género conversacional, priorizando la eficacia comunicativa sobre la corrección formal. Al escribir con prisas o las manos ocupadas, los usuarios generan una actuación lingüística alejada de la norma ortográfica (``q hago se me kema el arro'') por pura economía expresiva.
     % actuación lingüística es el uso real del lenguaje en situaciones concretas
 \end{itemize}
 
-
 \subsection{Complejidad multilingüe}
-Dado que el asistente será bilingüe, el multilingüismo introduce una capa adicional de dificultad computacional.
+El carácter bilingüe del asistente introduce una capa adicional de dificultad computacional.
 \begin{itemize}
-    \item \textbf{\textit{Code-switching} intrafase:} Como se mencionó en el apartado de \textit{variación léxica y préstamos lingüísticos}, los usuarios pueden alternar el inglés y el español en la misma oración. Consultas como ``¿A qué temperatura pongo la \textit{airfryer} para el \textit{beacon}?''  o ``Hice una tarta pero el borde no quedó \textit{crunchy}'' obligan al sistema a procesar patrones sintácticos mixtos, algo que confunde a los modelos entrenados en un solo idioma.
+    \item \textbf{\textit{Code-switching} intrafase:} Como se mencionó en el apartado de \textit{Variación léxica y préstamos lingüísticos}, es habitual que los usuarios alternen entre español e inglés en una misma frase. Consultas como ``¿A qué temperatura pongo la \textit{airfryer} para el \textit{bacon}?'' o ``Hice una tarta pero el borde no quedó \textit{crunchy}'' obligan al sistema a procesar patrones sintácticos mixtos, algo que suele confundir a los modelos entrenados en un solo idioma.
 
-    %\item \textbf{Variación dialectal intralingüística e inconsistencias culturales:} El español presenta una fuerte variación léxica. El sistema computacional debe mapear términos como ``patata/papa'', ``zumo/jugo'', o ``melocotón/durazno'' a la misma representación semántica. Además, existe un reto cultural en los sistemas de medidas: el sistema debe ser capaz de procesar y convertir consultas que mezclan el sistema métrico (gramos) con el imperial (tazas, onzas), que es dominante en las recetas en inglés.
+    \item \textbf{Variación dialectal intralingüística e inconsistencias culturales:} El español presenta una fuerte diversidad léxica, por lo que el sistema debe mapear sinónimos (``patata/papa'', ``zumo/jugo'', ``melocotón/durazno'') a una misma representación semántica. Además, existen discrepancias culturales: el término ``tortilla'' requiere respuestas distintas si el usuario es de España (huevo y patata) o de México (maíz o trigo). Asimismo, surgen retos culturales asociados a los sistemas de medida: el asistente debe ser capaz de procesar, normalizar y convertir consultas que combinan el sistema métrico (gramos) con el imperial (tazas, onzas), frecuente en recetas anglosajonas.
 
-    \item \textbf{Variación dialectal intralingüística e inconsistencias culturales:} El español presenta una fuerte variación léxica, por lo que el sistema computacional debe mapear términos como ``patata/papa'', ``zumo/jugo'' o ``melocotón/durazno'' a una misma representación semántica. Además, por ejemplo, el término ``tortilla'' requiere respuestas operativas totalmente distintas si el sistema detecta que el usuario pertenece a una comunidad española (huevo y patata) frente a una mexicana (maíz o trigo). Asimismo, surgen retos culturales asociados a los sistemas de medida: el sistema debe ser capaz de procesar, normalizar y convertir consultas que combinan el sistema métrico (gramos) con el sistema imperial (tazas, onzas), frecuente en recetas en inglés, integrando ambas convenciones de manera coherente.
-
-    \item \textbf{Distribución muy desequilibrada de recursos lingüísticos:} los léxicos de cocina, los datos etiquetados y los modelos preentrenados están masivamente sesgados hacia el inglés.
-
+    \item \textbf{Distribución desequilibrada de recursos lingüísticos:} Existe un sesgo masivo hacia el inglés en la disponibilidad de recursos lingüísticos, tales como léxicos de cocina, bases de datos etiquetadas y modelos preentrenados.
 \end{itemize}
+
 
 \section{Descomposición en tareas PLN}
 Tras el análisis lingüístico del dominio, el sistema se estructura en cuatro tareas principales, cada una con requisitos técnicos y niveles de abstracción semántica propios.
