@@ -250,16 +250,16 @@ Tras el análisis lingüístico del dominio, el sistema se estructura en cuatro 
 		& Alta \\ \addlinespace
 		
 		T2: Clasificación de intención 
-		& Determinación del propósito de la consulta (ej. búsqueda de receta).
-		& Alta \\ \addlinespace
+		& Determinación del propósito de la consulta (ej. búsqueda de receta, sustitución de ingredientes).
+		& Muy alta \\ \addlinespace
 		
 		T3: Extracción de entidades 
-		& Identificación de conceptos clave de cocina (ingredientes, técnicas, utensilios).
-		& Alta \\ \addlinespace
+		& Contextualización de la intención detectada mediante la identificación de conceptos clave de cocina (ingredientes, técnicas, utensilios).
+		& Muy alta \\ \addlinespace
 		
 		T4: Recuperación de FAQs  
 		& Emparejamiento semántico de la consulta procesada con la base de datos de FAQs para redirigir a la respuesta adecuada.
-		& Muy alta \\
+		& Alta \\
 		\bottomrule
 	\end{tabular}
 \end{table}
@@ -268,8 +268,19 @@ Estas tareas no operan de forma aislada, sino que cada etapa condiciona a la sig
 
 Desde la perspectiva de la \textbf{arquitectura tecnológica} del Capítulo 2, esta descomposición encaja en el modelo de niveles interdependientes. T1 opera entre el preprocesamiento fundamental (Nivel 1) y la detección de idioma (Nivel 2). T2 (clasificación textual de intenciones) y T3 (extracción de entidades nombradas) conforman el componente semántico intermedio (Nivel 2). Finalmente, T4 se sitúa en el nivel superior de aplicaciones y servicios (Nivel 3), requiriendo una arquitectura de recuperación de información basada en similitud semántica. 
 
+\begin{nota}
+	Si bien el propósito pragmático del asistente es la recuperación de la FAQ adecuada (T4), se otorga prioridad máxima a T2 y T3 por constituir el núcleo del procesamiento lingüístico. Al ser un flujo secuencial, el éxito de la respuesta final depende estrictamente de que estas tareas intermedias logren estructurar y comprender con precisión la consulta del usuario.
+\end{nota}
+
 
 \section{Restricciones no técnicas}
+El análisis del dominio y del público objetivo (pymes y sus clientes) revela un conjunto de limitaciones operacionales, legales y éticas que condicionarán el diseño del sistema.
+\begin{itemize}
+	\item \textbf{Viabilidad económica:} La solución se orienta a pequeñas y medianas empresas, por lo que el diseño debe ser eficiente en costes. Esta premisa restringe el empleo de modelos o infraestructuras de inferencia con requisitos computacionales excesivos que comprometan la rentabilidad del servicio.
+	\item \textbf{Latencia:} Como interfaz interactiva de atención al cliente, el sistema exige una respuesta ágil, idealmente inferior a 200-300 ms. Un procesamiento lento degradaría la experiencia de usuario y restaría eficacia al asistente.
+	\item \textbf{Privacidad y cumplimiento normativo:} Aunque el ámbito principal es la cocina, es frecuente que los usuarios aporten información personal o de salud (por ejemplo, ``Soy diabético, ¿cómo sustituyo el azúcar?''). El sistema debe procesar intenciones y entidades garantizando la protección de esta información sensible y evitando su almacenamiento innecesario.
+	\item \textbf{Sesgo dialectal y asimetría de recursos:} El dominio culinario presenta una gran variación léxica (patata/papa, \textit{eggplant}/\textit{aubergine}). La fuerte orientación al inglés de la mayoría de los recursos preentrenados genera un riesgo de menor precisión en español. Resulta obligatorio, por tanto, desglosar las métricas de evaluación por idioma para asegurar un rendimiento equitativo en ambos.
+\end{itemize}
 
 \section{Hipótesis de diseño inicial}
 
