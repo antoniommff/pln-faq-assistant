@@ -309,6 +309,8 @@ El análisis del dominio y del público objetivo (pymes y sus clientes) revela u
 \end{itemize}
 
 
+\section{Hipótesis de diseño inicial}
+
 \subsection*{T1: Identificación de idioma}
 
 \textbf{Paradigma estadístico.} Para la detección del idioma de entrada (español o inglés),
@@ -352,7 +354,7 @@ tokens y un diccionario de entidades culinarias organizado por categorías.
 
 \textbf{Paradigma vectorial filtrado por intención.} Dado que T2 y T3 estructuran la
 consulta antes de que llegue a T4, el problema de recuperación puede resolverse en dos
-pasos: perimero, un \textbf{filtro por intención} que reduce el espacio de búsqueda
+pasos: primero, un \textbf{filtro por intención} que reduce el espacio de búsqueda
 al subconjunto de FAQs de la categoría correspondiente, seguido de una \textbf{búsqueda
 por similitud coseno} sobre los embeddings de ese subconjunto. Para la representación
 vectorial, y dado el tamaño previsible de la base FAQ, esto puede implementarse
