@@ -308,7 +308,60 @@ El análisis del dominio y del público objetivo (pymes y sus clientes) revela u
 	\item \textbf{Sesgo dialectal y asimetría de recursos:} El dominio culinario presenta una gran variación léxica (patata/papa, \textit{eggplant}/\textit{aubergine}). La fuerte orientación al inglés de la mayoría de los recursos preentrenados genera un riesgo de menor precisión en español. Resulta obligatorio, por tanto, desglosar las métricas de evaluación por idioma para asegurar un rendimiento equitativo en ambos.
 \end{itemize}
 
-\section{Hipótesis de diseño inicial}
+
+\subsection*{T1: Identificación de idioma}
+
+\textbf{Paradigma estadístico.} Para la detección del idioma de entrada (español o inglés),
+usaremos modelos basados en n-gramas de caracteres. Esta característica los hace especialmente adecuados para la tarea que debe resolverse antes
+que cualquier otra en el \emph{pipeline}. Antes de la detección propiamente dicha, T1 incorpora
+una etapa de \textbf{normalización de texto} que unifica sinónimos
+(\textit{``papa''} $\rightarrow$ \textit{``patata''}), préstamos léxicos
+(\textit{``airfryer''} $\rightarrow$ \textit{``freidora de aire''}) y errores ortográficos
+frecuentes. Esta normalización es transversal al pipeline: la consulta que sale de T1 ya
+está estandarizada y es la que reciben T2 y T3. La representación por n-gramas de caracteres es, además,
+robusta ante el \textit{code-switching} y los préstamos léxicos identificados en la
+Sección 2, ya que la distribución de patrones de caracteres a nivel de oración sigue siendo
+discriminativa incluso con vocabulario mixto.
+
+\subsection*{T2: Clasificación de intención}
+
+\textbf{Paradigma estadístico.} La clasificación de intención es la tarea de mayor
+complejidad lingüística del sistema. Para esta primera entrega, proponemos usar un
+clasificador estadístico (TF-IDF con LinearSVC o Regresión Logística) como
+\emph{baseline} sólida para un corpus de entrenamiento relativamente acotado. La
+literatura muestra que este tipo de clasificadores puede alcanzar precisiones superiores
+al 90\,\% en tareas de clasificación de texto cuando el vocabulario del dominio es
+consistente.
+
+Sin embargo, las dificultades identificadas en la Sección 2 (expresiones hechas como
+\textit{``sudar la cebolla''} o peticiones implícitas como \textit{``me ha quedado una
+pasta que se pega''}) sugieren que un modelo TF-IDF puede fallar ante reformulaciones
+semánticamente equivalentes pero léxicamente distantes. En esos casos habría que barajar
+modelos Transformer multilingües preentrenados, aunque la idea principal es mantener el paradigma estadístico, dada la restricción de latencia de la
+Sección 4.
+
+\subsection*{T3: Extracción de entidades}
+
+\textbf{Paradigma basado en vocabulario controlado.} T3 contextualiza la intención de T2:
+dos consultas con la misma intención pero entidades distintas (\textit{``huevo''} frente a
+\textit{``mantequilla''}) deben llegar a T4 con vectores diferenciados. Dado que la
+consulta ya llega normalizada desde T1, T3 se reduce a calcular la intersección entre sus
+tokens y un diccionario de entidades culinarias organizado por categorías.
+
+\subsection*{T4: Recuperación de FAQs}
+
+\textbf{Paradigma vectorial filtrado por intención.} Dado que T2 y T3 estructuran la
+consulta antes de que llegue a T4, el problema de recuperación puede resolverse en dos
+pasos: perimero, un \textbf{filtro por intención} que reduce el espacio de búsqueda
+al subconjunto de FAQs de la categoría correspondiente, seguido de una \textbf{búsqueda
+por similitud coseno} sobre los embeddings de ese subconjunto. Para la representación
+vectorial, y dado el tamaño previsible de la base FAQ, esto puede implementarse
+directamente usando \texttt{cosine\_similarity}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{flow_diagram_v1.pdf}
+\end{figure}
 
 
 \newpage
