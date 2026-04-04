@@ -263,7 +263,7 @@ El carácter bilingüe del asistente introduce una capa adicional de dificultad 
 
 
 \section{Descomposición en tareas PLN}
-Tras el análisis lingüístico del dominio, el sistema se estructura en cuatro tareas principales, cada una con requisitos técnicos y niveles de abstracción semántica propios.
+Tras el análisis lingüístico del dominio, el sistema se estructura en cuatro tareas principales, cada una con requisitos técnicos y niveles de abstracción propios.
 
 \begin{table}[H]
 	\centering
@@ -299,8 +299,8 @@ Desde la perspectiva de la \textbf{arquitectura tecnológica} del Capítulo 2, e
 \end{nota}
 
 
-\section{Restricciones no técnicas}
-El análisis del dominio y del público objetivo (pymes y sus clientes) revela un conjunto de limitaciones operacionales, legales y éticas que condicionarán el diseño del sistema.
+\section{Restricciones no técnicas} \label{sec4}
+El análisis del dominio y del público objetivo (pymes y sus clientes) revela un conjunto de limitaciones operacionales, legales y éticas que condicionan el diseño del sistema.
 \begin{itemize}
 	\item \textbf{Viabilidad económica:} La solución se orienta a pequeñas y medianas empresas, por lo que el diseño debe ser eficiente en costes. Esta premisa restringe el empleo de modelos o infraestructuras de inferencia con requisitos computacionales excesivos que comprometan la rentabilidad del servicio.
 	\item \textbf{Latencia:} Como interfaz interactiva de atención al cliente, el sistema exige una respuesta ágil, idealmente inferior a 200-300 ms. Un procesamiento lento degradaría la experiencia de usuario y restaría eficacia al asistente.
@@ -310,60 +310,17 @@ El análisis del dominio y del público objetivo (pymes y sus clientes) revela u
 
 
 \section{Hipótesis de diseño inicial}
+A partir del diagnóstico lingüístico y el marco de restricciones identificado, definimos las hipótesis de diseño que orientarán la implementación del sistema. Dada la naturaleza iterativa de este proyecto, estas propuestas son provisionales y serán revisadas en la Entrega 2.
+\begin{itemize}
+	\item \textbf{T1 (identificación de idioma):} Paradigma estadístico. Para la detección del idioma de entrada (español o inglés), utilizaremos modelos basados en $n$-gramas de caracteres. Esta característica los hace especialmente adecuados para la tarea, ya que permite operar con latencia mínima y sobre el texto crudo. La representación estadística por $n$-gramas de caracteres es altamente robusta ante errores ortográficos, el \textit{code-switching} y los préstamos léxicos identificados en la caracterización lingüística, dado que la distribución general de caracteres a nivel de oración sigue siendo discriminativa incluso con vocabulario mixto. Una vez que T1 clasifique el idioma, el mensaje será enrutado hacia un módulo de preprocesamiento y normalización específico para cada lengua (donde se abordarán cuestiones como la unificación de sinónimos tipo ``papa'' a ``patata''), garantizando que las tareas posteriores reciban una entrada estandarizada.
+	
+	\item \textbf{T2 (clasificación de intención):} Paradigma estadístico-vectorial. La clasificación de intención es la tarea de mayor complejidad lingüística del sistema. Para esta primera entrega, proponemos usar un clasificador estadístico-vectorial (combinando la representación TF-IDF con un modelo SVM o regresión logística) como \textit{baseline} sólida. Esta elección se justifica por la restricción de latencia identificada en la Sección \ref{sec4}, ya que estos modelos alcanzan precisiones competitivas con un coste computacional y tiempo de respuesta mínimos. Sin embargo, las dificultades identificadas en el análisis lingüístico (expresiones hechas como ``sudar la cebolla'' o peticiones implícitas como ``me ha quedado una pasta que se pega'') sugieren que un modelo TF-IDF puede fallar ante reformulaciones semánticamente equivalentes pero léxicamente distantes. En esos casos, habría que barajar modelos de tipo Transformer multilingües preentrenados, aunque la idea inicial es mantener un paradigma sencillo.
+	
+	\item \textbf{T3 (extracción de entidades):} Paradigma simbólico. Esta tarea actúa como un componente de contextualización para la intención detectada en T2. Se implementará mediante un vocabulario controlado (diccionarios culinarios organizados por categorías). Al recibir la consulta ya normalizada desde T1, el sistema realizará una extracción por coincidencia de \textit{tokens} para diferenciar casos con idéntica intención pero distintas entidades. Esta aproximación permite generar vectores de información estructurada para la resolución final en la siguiente etapa del \textit{pipeline}.
+	
+	\item \textbf{T4 (recuperación de FAQs):} Paradigma vectorial. Como la consulta llega estructurada por T2 y T3, la recuperación se resuelve en dos pasos: un filtro por intención que acota el espacio de búsqueda y una búsqueda por similitud coseno sobre las FAQs de esa categoría. Para la representación vectorial, y dado el tamaño previsible de la base FAQ, esto puede implementarse directamente usando \texttt{cosine\_similarity}.
+\end{itemize}
 
-\subsection*{T1: Identificación de idioma}
-
-\textbf{Paradigma estadístico.} Para la detección del idioma de entrada (español o inglés),
-usaremos modelos basados en n-gramas de caracteres. Esta característica los hace especialmente adecuados para la tarea que debe resolverse antes
-que cualquier otra en el \emph{pipeline}. Antes de la detección propiamente dicha, T1 incorpora
-una etapa de \textbf{normalización de texto} que unifica sinónimos
-(\textit{``papa''} $\rightarrow$ \textit{``patata''}), préstamos léxicos
-(\textit{``airfryer''} $\rightarrow$ \textit{``freidora de aire''}) y errores ortográficos
-frecuentes. Esta normalización es transversal al pipeline: la consulta que sale de T1 ya
-está estandarizada y es la que reciben T2 y T3. La representación por n-gramas de caracteres es, además,
-robusta ante el \textit{code-switching} y los préstamos léxicos identificados en la
-Sección 2, ya que la distribución de patrones de caracteres a nivel de oración sigue siendo
-discriminativa incluso con vocabulario mixto.
-
-\subsection*{T2: Clasificación de intención}
-
-\textbf{Paradigma estadístico.} La clasificación de intención es la tarea de mayor
-complejidad lingüística del sistema. Para esta primera entrega, proponemos usar un
-clasificador estadístico (TF-IDF con LinearSVC o Regresión Logística) como
-\emph{baseline} sólida para un corpus de entrenamiento relativamente acotado. La
-literatura muestra que este tipo de clasificadores puede alcanzar precisiones superiores
-al 90\,\% en tareas de clasificación de texto cuando el vocabulario del dominio es
-consistente.
-
-Sin embargo, las dificultades identificadas en la Sección 2 (expresiones hechas como
-\textit{``sudar la cebolla''} o peticiones implícitas como \textit{``me ha quedado una
-pasta que se pega''}) sugieren que un modelo TF-IDF puede fallar ante reformulaciones
-semánticamente equivalentes pero léxicamente distantes. En esos casos habría que barajar
-modelos Transformer multilingües preentrenados, aunque la idea principal es mantener el paradigma estadístico, dada la restricción de latencia de la
-Sección 4.
-
-\subsection*{T3: Extracción de entidades}
-
-\textbf{Paradigma basado en vocabulario controlado.} T3 contextualiza la intención de T2:
-dos consultas con la misma intención pero entidades distintas (\textit{``huevo''} frente a
-\textit{``mantequilla''}) deben llegar a T4 con vectores diferenciados. Dado que la
-consulta ya llega normalizada desde T1, T3 se reduce a calcular la intersección entre sus
-tokens y un diccionario de entidades culinarias organizado por categorías.
-
-\subsection*{T4: Recuperación de FAQs}
-
-\textbf{Paradigma vectorial filtrado por intención.} Dado que T2 y T3 estructuran la
-consulta antes de que llegue a T4, el problema de recuperación puede resolverse en dos
-pasos: primero, un \textbf{filtro por intención} que reduce el espacio de búsqueda
-al subconjunto de FAQs de la categoría correspondiente, seguido de una \textbf{búsqueda
-por similitud coseno} sobre los embeddings de ese subconjunto. Para la representación
-vectorial, y dado el tamaño previsible de la base FAQ, esto puede implementarse
-directamente usando \texttt{cosine\_similarity}.
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=0.8\textwidth]{flow_diagram_v1.pdf}
-\end{figure}
 
 
 \newpage
