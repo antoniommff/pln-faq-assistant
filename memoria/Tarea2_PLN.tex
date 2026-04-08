@@ -290,7 +290,7 @@ Tras el análisis lingüístico del dominio, el sistema se estructura en cuatro 
 	\end{tabular}
 \end{table}
 
-Estas tareas no operan de forma aislada, sino que cada etapa condiciona a la siguiente. \textbf{T1} debe ejecutarse inicialmente para determinar qué modelos o recursos léxicos activar. Superada la barrera idiomática, \textbf{T2} y \textbf{T3} actúan (en paralelo o secuencialmente) para estructurar la consulta del usuario y comprender su objetivo, transformando el lenguaje ambiguo en variables concretas (por ejemplo, aislando la intención ``cocer'' del ingrediente ``huevo''). Por último, \textbf{T4} depende de la salida estructurada de T2 y T3; en lugar de buscar por palabras clave exactas, utiliza la intención y las entidades detectadas para recuperar la FAQ más relevante de la base de datos y redirigir al usuario hacia ella.
+Estas tareas no operan de forma aislada, sino que cada etapa condiciona a la siguiente. \textbf{T1} debe ejecutarse inicialmente para determinar qué modelos o recursos léxicos activar. Superada la barrera idiomática, \textbf{T2} y \textbf{T3} actúan (en paralelo o secuencialmente) para estructurar la consulta del usuario y comprender su objetivo, transformando el lenguaje ambiguo en variables concretas (por ejemplo, extrayendo la intención ``receta'' y el ingrediente ``huevo''). Por último, \textbf{T4} depende de la salida estructurada de T2 y T3; en lugar de buscar por palabras clave exactas, utiliza la intención y las entidades detectadas para recuperar la FAQ más relevante de la base de datos y redirigir al usuario hacia ella.
 
 Desde la perspectiva de la \textbf{arquitectura tecnológica} del Capítulo 2, esta descomposición encaja en el modelo de niveles interdependientes. T1 opera entre el preprocesamiento fundamental (Nivel 1) y la detección de idioma (Nivel 2). T2 (clasificación textual de intenciones) y T3 (extracción de entidades nombradas) conforman el componente semántico intermedio (Nivel 2). Finalmente, T4 se sitúa en el nivel superior de aplicaciones y servicios (Nivel 3), requiriendo una arquitectura de recuperación de información basada en similitud semántica. 
 
@@ -318,11 +318,11 @@ A partir del diagnóstico lingüístico y el marco de restricciones identificado
 	
 	\item \textbf{T3 (extracción de entidades):} Paradigma simbólico. Esta tarea actúa como un componente de contextualización para la intención detectada en T2. Se implementará mediante un vocabulario controlado (diccionarios culinarios organizados por categorías). Al recibir la consulta ya normalizada desde T1, el sistema realizará una extracción por coincidencia de \textit{tokens} para diferenciar casos con idéntica intención pero distintas entidades. Esta aproximación permite generar vectores de información estructurada para la resolución final en la siguiente etapa del \textit{pipeline}.
 	
-	\item \textbf{T4 (recuperación de FAQs):} Paradigma vectorial. Como la consulta llega estructurada por T2 y T3, la recuperación se resuelve en dos pasos: un filtro por intención que acota el espacio de búsqueda y una búsqueda por similitud coseno sobre las FAQs de esa categoría. Para la representación vectorial, y dado el tamaño previsible de la base FAQ, esto puede implementarse directamente usando \texttt{cosine\_similarity}.
+	\item \textbf{T4 (recuperación de FAQs):} Paradigma vectorial. Como la consulta llega estructurada por T2 y T3, la recuperación se resuelve en dos pasos: un filtro por intención que acota el espacio de búsqueda y una búsqueda por similitud coseno sobre las FAQs de esa categoría. 
 \end{itemize}
 
 
-
+\begin{comment}
 \newpage
 
 % ITERACIÓN 2
@@ -364,6 +364,6 @@ Comentar secciones antes de entregar. Están de referencia.
 \section{Análisis de errores}
 
 \section{Reflexión crítica}
-
+\end{comment}
 
 \end{document}
