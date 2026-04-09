@@ -213,7 +213,7 @@
 \section{Justificación del dominio}
 El creciente proceso de digitalización y globalización empresarial ha transformado la gestión de la atención al cliente hacia un modelo descentralizado, externalizado y digital. Sin embargo, las tendencias actuales en este ámbito no hacen más que ampliar la brecha entre grandes organizaciones y pequeñas empresas. Las grandes corporaciones pueden invertir en \textit{chatbots} basados en grandes modelos de lenguaje, mientras que las pymes se ven obligadas a gestionar manualmente un volumen elevado de consultas recurrentes. Esto conlleva un alto consumo de recursos humanos, tiempos de respuesta inconsistentes y una escasa escalabilidad. Como resultado, alguien siempre sale perjudicado: o el usuario final, que pierde el control y la confianza frente a su proveedor, o el pequeño empresario, incapaz de satisfacer la demanda de sus clientes.
 
-Para paliar esta situación, existen distintas soluciones automatizadas, pero solo resuelven el problema de forma parcial. Por un lado, los \textbf{sistemas basados en reglas y palabras clave} son más económicos y computacionalmente viables que los \textit{chatbots} y, además, otorgan más confianza y control al usuario final, pero son extremadamente frágiles ante variaciones léxicas triviales. Por otro, los \textbf{\textit{chatbots} comerciales de propósito general} no están preparados para dominios específicos ni para idiomas con recursos lingüísticos limitados.
+Para paliar esta situación, existen distintas soluciones automatizadas, aunque solo resuelven el problema de forma parcial. Por un lado, los \textbf{sistemas basados en reglas y palabras clave} son más económicos y computacionalmente viables que los \textit{chatbots}; además, otorgan mayor control al usuario, pero resultan extremadamente frágiles ante variaciones léxicas mínimas. Por otro, los \textbf{\textit{chatbots} comerciales de propósito general} carecen de preparación para dominios específicos o para idiomas con recursos lingüísticos limitados.
 
 Este proyecto aborda dicha problemática mediante el diseño de un \textbf{sistema de recuperación automática de respuestas} desde una base de FAQs estructurada, con soporte multilingüe nativo (español e inglés) enfocado al dominio de la cocina. Se trata estrictamente de un sistema de enrutamiento hacia información preexistente, no de un modelo generativo tipo RAG que redacte respuestas nuevas.
 
@@ -230,7 +230,7 @@ El lenguaje de las consultas de cocina presenta los diversos tipos de ambigüeda
 \begin{itemize}
     \item \textbf{Nivel léxico:} Se produce cuando una misma palabra posee más de un significado. En gastronomía, la polisemia es constante. Por ejemplo, ``pasta'' puede referirse al alimento (``¿Cómo cocer pasta?'') o a una masa (``Me ha quedado una pasta que se pega, ¿qué hago?''). De igual forma, ``yema'' alude tanto a la parte del huevo (``¿Cómo puedo gastar yemas?'') como a la punta del dedo (``¿Qué utensilio uso para amasar sin mancharme las yemas?'').
 
-    \item \textbf{Nivel sintáctico:} La brevedad y el uso de elipsis, habituales en los sistemas FAQ, generan múltiples interpretaciones de la estructura gramatical. En una consulta como ``Instrucciones para cocinar pescado sin aceite de oliva'', la falta de contexto impide discernir si se buscan recetas de pescado que por defecto no llevan aceite, o si se solicitan alternativas para sustituir este ingrediente durante la preparación.
+    \item \textbf{Nivel sintáctico:} La brevedad y el uso de elipsis, habituales en los sistemas FAQ, generan múltiples interpretaciones de la estructura gramatical. En una consulta como ``Pollo con verduras al horno'', la configuración sintáctica impide discernir si el complemento ``al horno'' afecta solo a las ``verduras'' (como una guarnición específica) o si, por el contrario, define el método de cocción para todo el plato.
 
     \item \textbf{Nivel semántico:} La semántica establece que el significado composicional emerge de la combinación de elementos. Sin embargo, el ámbito culinario está repleto de expresiones idiomáticas donde esta regla se rompe. El sentido de ``baño María'' o ``punto de nieve'' no se deduce sumando el significado literal de sus partes (¿Quién es ``María''?). Para evitar que el sistema falle basándose solo en palabras clave, es necesario detectar marcos semánticos que capturen la acción compleja en su conjunto.
 
@@ -238,21 +238,21 @@ El lenguaje de las consultas de cocina presenta los diversos tipos de ambigüeda
 \end{itemize}
 
 \subsection{Fenómenos específicos del género textual}
-Más allá de las ambigüedades puramente gramaticales, el discurso culinario presenta características semánticas y pragmáticas propias que exigen modelos de representación avanzados.
+Más allá de las ambigüedades puramente gramaticales, el discurso culinario presenta características semánticas y pragmáticas propias.
 \begin{itemize}
     \item \textbf{Subjetividad y carga connotativa:} La connotación evoca significados adicionales
-    y subjetivos en las palabras. El lenguaje de cocina recurre con frecuencia a medidas subjetivas (``Recetas con un chorrito de aceite''). Traducir un ``chorrito'' a una cantidad objetiva es un problema complejo, ya que la connotación semántica varía según la receta y el contexto (el volumen difiere si es vinagre, agua o aceite para una sartén frente a una ensalada). 
+    y subjetivos en las palabras. El lenguaje de cocina recurre con frecuencia a medidas imprecisas (``Recetas con un chorrito de aceite''). Traducir un ``chorrito'' a una cantidad objetiva es un problema complejo, ya que la connotación semántica varía según la receta y el contexto (el volumen difiere si es vinagre, agua o aceite para una sartén frente a una ensalada). 
      
-    \item \textbf{Detección de metáforas y lenguaje figurado:} La jerga gastronómica emplea dominios conceptuales ajenos para describir técnicas propias (``sudar la cebolla'', ``montar las claras'', ``bañar el bizcocho''). Estas expresiones confundirían a un sistema de búsqueda exacta, requiriendo modelos capaces de capturar su semántica figurada.
+    \item \textbf{Detección de metáforas y lenguaje figurado:} La jerga gastronómica emplea dominios conceptuales ajenos para describir técnicas propias (``sudar la cebolla'', ``montar las claras'', ``bañar el bizcocho''). Estas expresiones pueden confundir a un sistema de búsqueda exacta, requiriendo modelos capaces de capturar su semántica figurada.
     
-    \item \textbf{Variación léxica y préstamos lingüísticos:} En cuanto a la dimensión sociocultural del lenguaje, la globalización ha intensificado el contacto entre lenguas, produciendo fenómenos como los préstamos léxicos. En cocina, la variabilidad es alta: un usuario puede consultar por ``cupcake'' o ``magdalena'', ``airfryer'' o ``freidora de aire''. Esto exige estrategias robustas de normalización de texto para estandarizar la representación antes de procesarla.
+    \item \textbf{Variación léxica y préstamos lingüísticos:} En cuanto a la dimensión sociocultural del lenguaje, la globalización ha intensificado el contacto entre lenguas, produciendo fenómenos como los préstamos léxicos. En cocina, la variabilidad es alta: un usuario puede consultar por ``\textit{cupcake}'' o ``magdalena'', ``\textit{airfryer}'' o ``freidora de aire''. Esto exige estrategias robustas de normalización de texto para estandarizar la representación antes de procesarla.
     
     \item \textbf{Impacto del contexto situacional en la actuación lingüística:} El entorno de la cocina impone una urgencia que moldea este género conversacional, priorizando la eficacia comunicativa sobre la corrección formal. Al escribir con prisas o las manos ocupadas, los usuarios generan una actuación lingüística alejada de la norma ortográfica (``q hago se me kema el arro'') por pura economía expresiva.
     % actuación lingüística es el uso real del lenguaje en situaciones concretas
 \end{itemize}
 
 \subsection{Complejidad multilingüe}
-El carácter bilingüe del asistente introduce una capa adicional de dificultad computacional.
+El carácter bilingüe del asistente introduce una capa adicional de dificultad.
 \begin{itemize}
     \item \textbf{\textit{Code-switching} intrafase:} Como se mencionó en el apartado de \textit{Variación léxica y préstamos lingüísticos}, es habitual que los usuarios alternen entre español e inglés en una misma frase. Consultas como ``¿A qué temperatura pongo la \textit{airfryer} para el \textit{bacon}?'' o ``Hice una tarta pero el borde no quedó \textit{crunchy}'' obligan al sistema a procesar patrones sintácticos mixtos, algo que suele confundir a los modelos entrenados en un solo idioma.
 
