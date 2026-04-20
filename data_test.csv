@@ -1,0 +1,481 @@
+text,intent,intent_name,language
+tell me nutritional info for brocoli,5,nutrition_info,en
+tell me nutritional info for lettuce,5,nutrition_info,en
+tell me nutritional info for fish,5,nutrition_info,en
+tell me nutritional info for burger,5,nutrition_info,en
+tell me nutritional info for beans,5,nutrition_info,en
+how healthy is blueberrys,5,nutrition_info,en
+how healthy is tacos,5,nutrition_info,en
+how healthy is mcdonalds,5,nutrition_info,en
+how healthy is a cheeseburger,5,nutrition_info,en
+how healthy is rice,5,nutrition_info,en
+find the nutrition info for whole milk for me,5,nutrition_info,en
+what are the nutrition facts for greek yogurt,5,nutrition_info,en
+find the nutrition info for ketchup for me,5,nutrition_info,en
+what are the nutrition facts for cucumbers,5,nutrition_info,en
+what are the nutrition facts for apple sauce,5,nutrition_info,en
+what are the nutrition facts for peanut butter,5,nutrition_info,en
+find the nutrition info for bell peppers for me,5,nutrition_info,en
+find the nutrition info for cheese fries for me,5,nutrition_info,en
+find the nutrition info for cucumbers for me,5,nutrition_info,en
+what are the nutrition facts for carrots,5,nutrition_info,en
+please give me the nutritional information for an egg,5,nutrition_info,en
+what's the nutrition info for a pound of chicken,5,nutrition_info,en
+tell me the nutrition info for a cup of milk,5,nutrition_info,en
+what's the nutrition info for a cucumber,5,nutrition_info,en
+give me the nutritional details for a cup of yogurt,5,nutrition_info,en
+i need the nutrition facts for ramen,5,nutrition_info,en
+tell me the nutrition facts for shepherd's pie,5,nutrition_info,en
+i would like nutrition facts for spaghetti carbonara,5,nutrition_info,en
+tell me spaghetti bolognese's nutrition facts,5,nutrition_info,en
+i want the nutrition facts for buttered spaghetti,5,nutrition_info,en
+how soon milk expires,8,food_last,en
+when does milk will go bad,8,food_last,en
+how many days milk can be preserved,8,food_last,en
+what is expire of milk,8,food_last,en
+when is the milk date before used,8,food_last,en
+when does the jerky expire,8,food_last,en
+what is the expiration date for honey,8,food_last,en
+when is the egg expired,8,food_last,en
+when does the honey expire,8,food_last,en
+what is the expiration date for those eg,8,food_last,en
+how long can i freeze tofu before it goes bad,8,food_last,en
+how much time do i have to keep tofu in the freezer before it goes bad,8,food_last,en
+when will tofu expire if i keep it in the freezer,8,food_last,en
+how long will tofu last in the freezer before it expires,8,food_last,en
+does tofu last long in the freezer before it goes bad,8,food_last,en
+how many days later is it okay to eat curry that was in the fridge,8,food_last,en
+within what time is is fine to eat cooked tilapia kept in the fridge,8,food_last,en
+what is the most amount of time that is considered safe to store uncooked chicken in the fridge,8,food_last,en
+what length of time is safe for consuming leftover meatloaf stored in the fridge,8,food_last,en
+what is the longest i can leave meatballs in sauce in the freezer before it is no longer safe to eat,8,food_last,en
+can i store bread in the freezer indefinitely and it will still be okay,8,food_last,en
+after how much time is it still safe to drink milk that is in the fridge,8,food_last,en
+what is the most time i can keep a burrito frozen for before it's no good to eat,8,food_last,en
+roughly how long can i leave bananas in the freezer before i have to throw them out,8,food_last,en
+how long does chicken curry last in the freezer before it's spoiled,8,food_last,en
+milk can stay in my fridge for how long,8,food_last,en
+milk will go bad in my fridge when,8,food_last,en
+what is the amount of time to keep milk refrigerated,8,food_last,en
+tell me how long milk stays good in the fridge,8,food_last,en
+how long can i keep milk in the fridge,8,food_last,en
+how long to grill thick steaks,7,cook_time,en
+how long does pizza take,7,cook_time,en
+lasagna takes how long to cook,7,cook_time,en
+bake time for brownies,7,cook_time,en
+how many minutes are involved in the preparation of curry,7,cook_time,en
+what's the preparation time for this dish,7,cook_time,en
+what is the proper cooking time for this,7,cook_time,en
+how long do i cook this for,7,cook_time,en
+look up recipe time for this,7,cook_time,en
+how many minutes should i put meal the cake in the oven,7,cook_time,en
+what's the average cooking time for cooking wings,7,cook_time,en
+how many minutes should i set an alarm for this bake,7,cook_time,en
+when can i expect meal of salmon to be finished,7,cook_time,en
+how long does it take to cook meal of tuscan,7,cook_time,en
+tell me how long it will take to prepare a lasagna,7,cook_time,en
+i want to cook a lasagna please tell me how long it will take,7,cook_time,en
+how long will it take to cook a lasagna,7,cook_time,en
+can you tell me how long it will take to cook a lasagna,7,cook_time,en
+how long does it take to prepare a lasagna,7,cook_time,en
+how long do i need to cook chicken,7,cook_time,en
+how long should i boil eggs,7,cook_time,en
+how long should i bake a cake,7,cook_time,en
+how long does it take to cook steaks,7,cook_time,en
+how long does it take to bake a cake,7,cook_time,en
+how long should i cook the cookie dough,7,cook_time,en
+how long should i cook my turkey,7,cook_time,en
+how long do i boil eggs,7,cook_time,en
+how long does it take to make mashed potatoes,7,cook_time,en
+how long will it take to make an omelet,7,cook_time,en
+what are the minutes needed to cook the meal,7,cook_time,en
+can i swap chili for sloppy joe mix in the recipe,4,ingredient_substitution,en
+can i use sugar instead of salt,4,ingredient_substitution,en
+can i use apples instead of oranges in this recipe,4,ingredient_substitution,en
+can i use skim milk instead of 2% in the recipe,4,ingredient_substitution,en
+is it ok to use bananas instead of oranges in the recipe,4,ingredient_substitution,en
+can i use lettuce instead of rice,4,ingredient_substitution,en
+will peas work instead of carrots,4,ingredient_substitution,en
+is it possible to use baking soda instead of flour,4,ingredient_substitution,en
+can i just use oil instead of vinegar,4,ingredient_substitution,en
+can i use mayo instead of miracle whip,4,ingredient_substitution,en
+will this recipe still be good if i use milk instead of eggs,4,ingredient_substitution,en
+can i use oil instead of vinegar,4,ingredient_substitution,en
+can i sub bacon for ham,4,ingredient_substitution,en
+can i use pasta sauce instead of tomato paste,4,ingredient_substitution,en
+can i use regular olive oil instead of virgin,4,ingredient_substitution,en
+is it possible to use starch instead of flour,4,ingredient_substitution,en
+is it okay to use butter instead of margarine,4,ingredient_substitution,en
+will it be ok to sub turkey for beef,4,ingredient_substitution,en
+can i use butter instead of margarine,4,ingredient_substitution,en
+is it okay to use applesauce instead of oil,4,ingredient_substitution,en
+"if i use applesauce instead of oil, will that mess it up",4,ingredient_substitution,en
+can i swap applesauce for oil,4,ingredient_substitution,en
+is it alright to switch applesauce for oil,4,ingredient_substitution,en
+will it still work if i use applesauce instead of oil,4,ingredient_substitution,en
+would it be ok to use butter instead of oil,4,ingredient_substitution,en
+is it ok to use oil spray instead of canola oil,4,ingredient_substitution,en
+could steak be used instead of chicken,4,ingredient_substitution,en
+can i substitute butter for oil,4,ingredient_substitution,en
+can i use red onions instead of white,4,ingredient_substitution,en
+can i get peppers instead of onions,4,ingredient_substitution,en
+number of calories in coke,6,calories,en
+what kind of calories do chicken tenders have,6,calories,en
+calorie content of dr pepper,6,calories,en
+what's the calorie content of chicken nuggets,6,calories,en
+how many calories are in hamburgers,6,calories,en
+what is the calorie count for this milkshake,6,calories,en
+how many calories does an orange have,6,calories,en
+what is the total number of calories in this pizza,6,calories,en
+how many calories are in a burger,6,calories,en
+rolls have how many calories,6,calories,en
+what is the calorie content in bananas,6,calories,en
+what is the calorie content in peanut butter,6,calories,en
+what is the calorie content in french fries,6,calories,en
+what is the calorie content in potatoes,6,calories,en
+what is the calorie content in spaghetti,6,calories,en
+i need to know the calorie content of spaghetti,6,calories,en
+how many calories are in a sandwich,6,calories,en
+what number of calories are in a pizza,6,calories,en
+what is the number of calories in a steak,6,calories,en
+how many calories are in a cheeseburger,6,calories,en
+can you check the amount of calories in a chicken sandwich,6,calories,en
+what is the calorie count of a burrito,6,calories,en
+"calorie check, cheese burger",6,calories,en
+how many calories are in a taco,6,calories,en
+can you see how many calories are in cream of mushroom soup,6,calories,en
+the intake of calories it it bad,6,calories,en
+how much is alorie intake,6,calories,en
+hoq many calories does pasta have,6,calories,en
+how many calories can i expect to be in fries,6,calories,en
+what's the calorie content of french fries,6,calories,en
+what food do you need to make lasagna,3,ingredients_list,en
+what ingredients do you need to make lasagna,3,ingredients_list,en
+what ingredients are needed to make lasgana,3,ingredients_list,en
+what is needed to make lasagna,3,ingredients_list,en
+what is needed to cook lasagna,3,ingredients_list,en
+give me a recipe for tacos,3,ingredients_list,en
+what ingredients are in tacos,3,ingredients_list,en
+tell me what's in tacos,3,ingredients_list,en
+what's a good recipe foe tacos,3,ingredients_list,en
+tell me the ingredients for making tom yum,3,ingredients_list,en
+i want to know the ingredients for making pizza,3,ingredients_list,en
+let me know the ingredients i will need for pasta making,3,ingredients_list,en
+what ingredients are necessary to make spaghetti carbonara,3,ingredients_list,en
+what do i need to use to make lasagna,3,ingredients_list,en
+how much flour do i need for a strawberry cake,3,ingredients_list,en
+tell me the ingredients to make an apple pie,3,ingredients_list,en
+what ingredients are in beef jerkey,3,ingredients_list,en
+what ingredients does agor agor need,3,ingredients_list,en
+what do i need to make authentic kimchi,3,ingredients_list,en
+what do i need to make macaroni,3,ingredients_list,en
+what do i need to buy for spaghetti,3,ingredients_list,en
+what am i gonna need for sushi,3,ingredients_list,en
+what ingredients do i use for pork belly,3,ingredients_list,en
+what ingredients are in filet mignon,3,ingredients_list,en
+let me know what ingredients i need to make pasta,3,ingredients_list,en
+what do i need to make pasta,3,ingredients_list,en
+give me a list of ingredients for making pasta,3,ingredients_list,en
+pull up everything i need to make a pasta dish,3,ingredients_list,en
+tell me all the things i need to buy to make pasta,3,ingredients_list,en
+what do i need to make brownies,3,ingredients_list,en
+what's a good italian meal,1,meal_suggestion,en
+i'm looking for a meal that's from the asian cuisine,1,meal_suggestion,en
+i'm feeling like a greek meal and need some suggestions,1,meal_suggestion,en
+"indian cuisine suits me and i'd like a meal suggestion, please",1,meal_suggestion,en
+"what's a good, popular american meal",1,meal_suggestion,en
+i'd like a meal suggestion from thailand,1,meal_suggestion,en
+tell me what meal to eat from texas,1,meal_suggestion,en
+can you give me a meal suggestion from the south,1,meal_suggestion,en
+i want to try a meal from ireland,1,meal_suggestion,en
+i want a meal from vietnam to be suggested to me,1,meal_suggestion,en
+what are good thai dishes,1,meal_suggestion,en
+i would like thai food,1,meal_suggestion,en
+can you recommend thai food,1,meal_suggestion,en
+i need a thai food suggestion,1,meal_suggestion,en
+thai food suggestions,1,meal_suggestion,en
+i need options or italian tonight,1,meal_suggestion,en
+do you have any recommendations for korean,1,meal_suggestion,en
+do you have any ideas for a mexican meal,1,meal_suggestion,en
+what kind of indian would you recommend,1,meal_suggestion,en
+what would you suggest for japanese,1,meal_suggestion,en
+i need to know what's good for chinese around here,1,meal_suggestion,en
+i want to make something from ethiopia for dinner,1,meal_suggestion,en
+i need some ideas for a mexican meal,1,meal_suggestion,en
+i want to eat something from turkey,1,meal_suggestion,en
+i need a good italian dish,1,meal_suggestion,en
+i need a good meal idea from italy,1,meal_suggestion,en
+do you have any suggested roman recipes,1,meal_suggestion,en
+can you give me a american dinner suggestion,1,meal_suggestion,en
+tell me what to make for dinner,1,meal_suggestion,en
+do you know what is for dinner,1,meal_suggestion,en
+what do i need to do to cook a chicken,2,recipe,en
+how do i go about cooking a 10lb turkey,2,recipe,en
+how do i get started making homemade pizza dough,2,recipe,en
+what instructions do i need to bake a cake from scratch,2,recipe,en
+how do i make lasagna,2,recipe,en
+how do you make pasta,2,recipe,en
+how do you prepare omelet,2,recipe,en
+how do you prepare taco,2,recipe,en
+how do you make fried rice,2,recipe,en
+how do you cooked eggs,2,recipe,en
+what's a good chili recipe,2,recipe,en
+i need a recipe for chili,2,recipe,en
+search for chili recipes,2,recipe,en
+search for a chili recipe for me,2,recipe,en
+find me a recipe for chili,2,recipe,en
+show me ideas for hamburger,2,recipe,en
+can you get me recipes for eggs please,2,recipe,en
+show me how to make tuna casserole please,2,recipe,en
+recipes for garlic bread please,2,recipe,en
+please tell me a recipe for this meal,2,recipe,en
+can you find me a pork recipe,2,recipe,en
+can you find me a brisket recipe,2,recipe,en
+can you find me a rice recipe,2,recipe,en
+can you find me a salsa recipe,2,recipe,en
+scan you find me a chicken recipe,2,recipe,en
+i need a pasta recipe,2,recipe,en
+i want a recipe for roasted veggies,2,recipe,en
+what is in a burrito recipe,2,recipe,en
+give me a tuna salad recipe,2,recipe,en
+find a recipe for baked ziti,2,recipe,en
+dime información nutricional del brócoli,5,nutrition_info,es
+dime información nutricional de la lechuga,5,nutrition_info,es
+dime información nutricional del pescado,5,nutrition_info,es
+dime información nutricional de la hamburguesa,5,nutrition_info,es
+dime información nutricional de los frijoles,5,nutrition_info,es
+¿Qué tan saludables son los arándanos?,5,nutrition_info,es
+que tan saludables son los tacos,5,nutrition_info,es
+¿Qué tan saludable es McDonald's?,5,nutrition_info,es
+¿Qué tan saludable es una hamburguesa con queso?,5,nutrition_info,es
+que tan saludable es el arroz,5,nutrition_info,es
+Encuentra la información nutricional de la leche entera para mí.,5,nutrition_info,es
+¿Cuáles son los datos nutricionales del yogur griego?,5,nutrition_info,es
+encuentra la información nutricional del ketchup para mí,5,nutrition_info,es
+¿Cuáles son los datos nutricionales de los pepinos?,5,nutrition_info,es
+¿Cuáles son los datos nutricionales de la salsa de manzana?,5,nutrition_info,es
+¿Cuáles son los datos nutricionales de la mantequilla de maní?,5,nutrition_info,es
+Encuentra la información nutricional de los pimientos morrones para mí.,5,nutrition_info,es
+Encuentra la información nutricional de las patatas fritas con queso para mí.,5,nutrition_info,es
+Encuentra la información nutricional de los pepinos para mí.,5,nutrition_info,es
+¿Cuáles son los datos nutricionales de las zanahorias?,5,nutrition_info,es
+por favor dame la información nutricional de un huevo,5,nutrition_info,es
+¿Cuál es la información nutricional de una libra de pollo?,5,nutrition_info,es
+dime la información nutricional de una taza de leche,5,nutrition_info,es
+¿Cuál es la información nutricional de un pepino?,5,nutrition_info,es
+dame los detalles nutricionales de una taza de yogurt,5,nutrition_info,es
+necesito la información nutricional del ramen,5,nutrition_info,es
+dime la información nutricional del pastel de pastor,5,nutrition_info,es
+Me gustaría información nutricional de los espaguetis a la carbonara.,5,nutrition_info,es
+Cuéntame la información nutricional de los espaguetis a la boloñesa.,5,nutrition_info,es
+Quiero la información nutricional de los espaguetis con mantequilla.,5,nutrition_info,es
+qué tan pronto caduca la leche,8,food_last,es
+cuando se echa a perder la leche,8,food_last,es
+cuantos dias se puede conservar la leche,8,food_last,es
+que es caducar de leche,8,food_last,es
+¿Cuándo es la fecha de la leche antes de usarla?,8,food_last,es
+cuando caduca la cecina,8,food_last,es
+cual es la fecha de vencimiento de la miel,8,food_last,es
+cuando expiró el óvulo,8,food_last,es
+cuando caduca la miel,8,food_last,es
+"¿Cuál es la fecha de vencimiento de esos, por ejemplo?",8,food_last,es
+¿Cuánto tiempo puedo congelar el tofu antes de que se eche a perder?,8,food_last,es
+¿Cuánto tiempo tengo que conservar el tofu en el congelador antes de que se eche a perder?,8,food_last,es
+¿Cuándo caducará el tofu si lo guardo en el congelador?,8,food_last,es
+¿Cuánto tiempo durará el tofu en el congelador antes de que caduque?,8,food_last,es
+¿El tofu dura mucho en el congelador antes de estropearse?,8,food_last,es
+¿Cuántos días después está bien comer curry que estaba en el frigorífico?,8,food_last,es
+¿A qué hora está bien comer tilapia cocida guardada en el refrigerador?,8,food_last,es
+¿Cuál es la cantidad máxima de tiempo que se considera seguro para almacenar pollo crudo en el refrigerador?,8,food_last,es
+¿Cuánto tiempo es seguro consumir el pastel de carne sobrante almacenado en el refrigerador?,8,food_last,es
+¿Cuánto tiempo puedo dejar las albóndigas en salsa en el congelador antes de que ya no sea seguro comerlas?,8,food_last,es
+¿Puedo guardar pan en el congelador indefinidamente y seguirá estando bien?,8,food_last,es
+¿Después de cuánto tiempo todavía es seguro beber leche que está en el refrigerador?,8,food_last,es
+¿Cuál es el máximo tiempo que puedo mantener un burrito congelado antes de que no sirva para comer?,8,food_last,es
+¿Cuánto tiempo aproximadamente puedo dejar los plátanos en el congelador antes de tener que tirarlos?,8,food_last,es
+¿Cuánto tiempo dura el pollo al curry en el congelador antes de que se eche a perder?,8,food_last,es
+¿Cuánto tiempo puede permanecer la leche en mi refrigerador?,8,food_last,es
+La leche se echará a perder en mi refrigerador cuando,8,food_last,es
+¿Cuál es la cantidad de tiempo para mantener la leche refrigerada?,8,food_last,es
+dime cuanto tiempo dura la leche en buen estado en el frigorífico,8,food_last,es
+cuanto tiempo puedo conservar la leche en el frigorífico,8,food_last,es
+cuánto tiempo asar filetes gruesos,7,cook_time,es
+cuanto tiempo tarda la pizza,7,cook_time,es
+lasaña tarda en cocinarse,7,cook_time,es
+tiempo de horneado para brownies,7,cook_time,es
+¿Cuántos minutos se necesitan para preparar el curry?,7,cook_time,es
+¿Cuál es el tiempo de preparación de este plato?,7,cook_time,es
+¿Cuál es el tiempo de cocción adecuado para esto?,7,cook_time,es
+¿Cuánto tiempo cocino esto?,7,cook_time,es
+busque el tiempo de la receta para esto,7,cook_time,es
+¿Cuántos minutos debo poner el pastel en el horno?,7,cook_time,es
+¿Cuál es el tiempo promedio de cocción de las alitas?,7,cook_time,es
+¿Cuántos minutos debo configurar una alarma para este horneado?,7,cook_time,es
+¿Cuándo puedo esperar que termine la harina de salmón?,7,cook_time,es
+¿Cuánto tiempo se tarda en cocinar la comida toscana?,7,cook_time,es
+dime cuanto tiempo se tarda en preparar una lasaña,7,cook_time,es
+Quiero cocinar una lasaña por favor dime cuánto tiempo tomará.,7,cook_time,es
+¿Cuánto tiempo se tarda en cocinar una lasaña?,7,cook_time,es
+¿Puedes decirme cuánto tiempo se tarda en cocinar una lasaña?,7,cook_time,es
+cuanto tiempo se tarda en preparar una lasaña,7,cook_time,es
+¿Cuánto tiempo necesito para cocinar el pollo?,7,cook_time,es
+¿Cuánto tiempo debo hervir los huevos?,7,cook_time,es
+¿Cuánto tiempo debo hornear un pastel?,7,cook_time,es
+¿Cuánto tiempo se tarda en cocinar los filetes?,7,cook_time,es
+cuanto tiempo se tarda en hornear un pastel,7,cook_time,es
+¿Cuánto tiempo debo cocinar la masa para galletas?,7,cook_time,es
+¿Cuánto tiempo debo cocinar mi pavo?,7,cook_time,es
+¿Cuánto tiempo hiervo los huevos?,7,cook_time,es
+¿Cuánto tiempo se tarda en hacer puré de patatas?,7,cook_time,es
+¿Cuánto tiempo tomará hacer una tortilla?,7,cook_time,es
+¿Cuáles son los minutos necesarios para cocinar la comida?,7,cook_time,es
+¿Puedo cambiar el chile por la mezcla Sloppy Joe en la receta?,4,ingredient_substitution,es
+¿Puedo usar azúcar en lugar de sal?,4,ingredient_substitution,es
+¿Puedo usar manzanas en lugar de naranjas en esta receta?,4,ingredient_substitution,es
+¿Puedo usar leche descremada en lugar de 2% en la receta?,4,ingredient_substitution,es
+¿Está bien usar plátanos en lugar de naranjas en la receta?,4,ingredient_substitution,es
+¿Puedo usar lechuga en lugar de arroz?,4,ingredient_substitution,es
+¿Funcionarán los guisantes en lugar de las zanahorias?,4,ingredient_substitution,es
+¿Es posible utilizar bicarbonato de sodio en lugar de harina?,4,ingredient_substitution,es
+¿Puedo usar aceite en lugar de vinagre?,4,ingredient_substitution,es
+¿Puedo usar mayonesa en lugar de látigo milagroso?,4,ingredient_substitution,es
+¿Esta receta seguirá siendo buena si uso leche en lugar de huevos?,4,ingredient_substitution,es
+¿Puedo usar aceite en lugar de vinagre?,4,ingredient_substitution,es
+¿Puedo sustituir el tocino por jamón?,4,ingredient_substitution,es
+¿Puedo usar salsa para pasta en lugar de pasta de tomate?,4,ingredient_substitution,es
+¿Puedo usar aceite de oliva normal en lugar de virgen?,4,ingredient_substitution,es
+¿Es posible utilizar almidón en lugar de harina?,4,ingredient_substitution,es
+¿Está bien usar mantequilla en lugar de margarina?,4,ingredient_substitution,es
+¿Estará bien sustituir el pavo por carne?,4,ingredient_substitution,es
+¿Puedo usar mantequilla en lugar de margarina?,4,ingredient_substitution,es
+¿Está bien usar puré de manzana en lugar de aceite?,4,ingredient_substitution,es
+"Si uso puré de manzana en lugar de aceite, ¿se estropeará?",4,ingredient_substitution,es
+¿Puedo cambiar puré de manzana por aceite?,4,ingredient_substitution,es
+¿Está bien cambiar el puré de manzana por aceite?,4,ingredient_substitution,es
+¿Seguirá funcionando si uso puré de manzana en lugar de aceite?,4,ingredient_substitution,es
+¿Estaría bien usar mantequilla en lugar de aceite?,4,ingredient_substitution,es
+¿Está bien usar aceite en aerosol en lugar de aceite de canola?,4,ingredient_substitution,es
+¿Se podría usar bistec en lugar de pollo?,4,ingredient_substitution,es
+¿Puedo sustituir la mantequilla por aceite?,4,ingredient_substitution,es
+¿Puedo usar cebollas rojas en lugar de blancas?,4,ingredient_substitution,es
+¿Puedo conseguir pimientos en lugar de cebollas?,4,ingredient_substitution,es
+número de calorías en coca cola,6,calories,es
+¿Qué tipo de calorías tienen los filetes de pollo?,6,calories,es
+contenido calórico de dr pepper,6,calories,es
+¿Cuál es el contenido calórico de los nuggets de pollo?,6,calories,es
+cuantas calorias tienen las hamburguesas,6,calories,es
+¿Cuál es la cantidad de calorías de este batido?,6,calories,es
+cuantas calorias tiene una naranja,6,calories,es
+¿Cuál es el número total de calorías en esta pizza?,6,calories,es
+cuantas calorias tiene una hamburguesa,6,calories,es
+los panecillos tienen cuantas calorias,6,calories,es
+¿Cuál es el contenido calórico de los plátanos?,6,calories,es
+¿Cuál es el contenido calórico de la mantequilla de maní?,6,calories,es
+¿Cuál es el contenido calórico de las patatas fritas?,6,calories,es
+¿Cuál es el contenido calórico de las patatas?,6,calories,es
+¿Cuál es el contenido calórico de los espaguetis?,6,calories,es
+necesito saber el contenido calórico de los espaguetis,6,calories,es
+cuantas calorias tiene un sandwich,6,calories,es
+cuantas calorias tiene una pizza,6,calories,es
+¿Cuál es la cantidad de calorías en un bistec?,6,calories,es
+cuantas calorias tiene una hamburguesa con queso,6,calories,es
+¿Puedes comprobar la cantidad de calorías en un sándwich de pollo?,6,calories,es
+¿Cuál es la cantidad de calorías de un burrito?,6,calories,es
+"control de calorías, hamburguesa con queso",6,calories,es
+cuantas calorias tiene un taco,6,calories,es
+¿Puedes ver cuántas calorías tiene la crema de champiñones?,6,calories,es
+La ingesta de calorías es mala.,6,calories,es
+cuanto es la ingesta de aloria,6,calories,es
+cuantas calorias tiene la pasta,6,calories,es
+¿Cuántas calorías puedo esperar que tengan las papas fritas?,6,calories,es
+¿Cuál es el contenido calórico de las papas fritas?,6,calories,es
+¿Qué comida necesitas para hacer lasaña?,3,ingredients_list,es
+¿Qué ingredientes necesitas para hacer lasaña?,3,ingredients_list,es
+¿Qué ingredientes se necesitan para hacer lasgana?,3,ingredients_list,es
+que se necesita para hacer lasaña,3,ingredients_list,es
+¿Qué se necesita para cocinar lasaña?,3,ingredients_list,es
+dame una receta de tacos,3,ingredients_list,es
+que ingredientes llevan los tacos,3,ingredients_list,es
+dime que hay en los tacos,3,ingredients_list,es
+¿Cuál es una buena receta de tacos enemigos?,3,ingredients_list,es
+dime los ingredientes para hacer tom yum,3,ingredients_list,es
+quiero saber los ingredientes para hacer pizza,3,ingredients_list,es
+déjame saber los ingredientes que necesitaré para hacer pasta,3,ingredients_list,es
+¿Qué ingredientes son necesarios para hacer espaguetis a la carbonara?,3,ingredients_list,es
+¿Qué necesito usar para hacer lasaña?,3,ingredients_list,es
+¿Cuánta harina necesito para un pastel de fresa?,3,ingredients_list,es
+dime los ingredientes para hacer una tarta de manzana,3,ingredients_list,es
+¿Qué ingredientes tiene la cecina de res?,3,ingredients_list,es
+¿Qué ingredientes necesita Agor Agor?,3,ingredients_list,es
+¿Qué necesito para hacer kimchi auténtico?,3,ingredients_list,es
+¿Qué necesito para hacer macarrones?,3,ingredients_list,es
+¿Qué necesito comprar para espaguetis?,3,ingredients_list,es
+¿Qué voy a necesitar para sushi?,3,ingredients_list,es
+¿Qué ingredientes uso para la panceta de cerdo?,3,ingredients_list,es
+¿Qué ingredientes hay en el filet mignon?,3,ingredients_list,es
+Déjame saber qué ingredientes necesito para hacer pasta.,3,ingredients_list,es
+¿Qué necesito para hacer pasta?,3,ingredients_list,es
+dame una lista de ingredientes para hacer pasta,3,ingredients_list,es
+Saca todo lo que necesito para hacer un plato de pasta.,3,ingredients_list,es
+dime todas las cosas que necesito comprar para hacer pasta,3,ingredients_list,es
+¿Qué necesito para hacer brownies?,3,ingredients_list,es
+¿Qué es una buena comida italiana?,1,meal_suggestion,es
+Estoy buscando una comida que sea de cocina asiática.,1,meal_suggestion,es
+Me apetece una comida griega y necesito algunas sugerencias.,1,meal_suggestion,es
+"La cocina india me conviene y me gustaría una sugerencia de comida, por favor.",1,meal_suggestion,es
+¿Qué es una comida americana buena y popular?,1,meal_suggestion,es
+Me gustaría una sugerencia de comida de Tailandia.,1,meal_suggestion,es
+dime que comida comer de texas,1,meal_suggestion,es
+¿Puedes darme una sugerencia de comida del sur?,1,meal_suggestion,es
+quiero probar una comida de irlanda,1,meal_suggestion,es
+Quiero que me sugieran una comida de Vietnam.,1,meal_suggestion,es
+¿Cuáles son buenos platos tailandeses?,1,meal_suggestion,es
+me gustaria comida tailandesa,1,meal_suggestion,es
+¿Puedes recomendar comida tailandesa?,1,meal_suggestion,es
+Necesito una sugerencia de comida tailandesa.,1,meal_suggestion,es
+sugerencias de comida tailandesa,1,meal_suggestion,es
+Necesito opciones o italiano esta noche,1,meal_suggestion,es
+¿Tienes alguna recomendación para coreano?,1,meal_suggestion,es
+¿Tienes alguna idea para una comida mexicana?,1,meal_suggestion,es
+¿Qué tipo de indio recomendarías?,1,meal_suggestion,es
+¿Qué sugerirías para japonés?,1,meal_suggestion,es
+Necesito saber qué es bueno para los chinos por aquí.,1,meal_suggestion,es
+Quiero hacer algo de Etiopía para cenar.,1,meal_suggestion,es
+necesito algunas ideas para una comida mexicana,1,meal_suggestion,es
+quiero comer algo de pavo,1,meal_suggestion,es
+necesito un buen plato italiano,1,meal_suggestion,es
+Necesito una buena idea de comida de Italia,1,meal_suggestion,es
+¿Tienes alguna receta romana sugerida?,1,meal_suggestion,es
+¿Puedes darme una sugerencia para una cena americana?,1,meal_suggestion,es
+dime que hacer para cenar,1,meal_suggestion,es
+¿sabes qué hay para cenar?,1,meal_suggestion,es
+¿Qué necesito hacer para cocinar un pollo?,2,recipe,es
+¿Cómo hago para cocinar un pavo de 10 libras?,2,recipe,es
+¿Cómo empiezo a hacer masa de pizza casera?,2,recipe,es
+¿Qué instrucciones necesito para hornear un pastel desde cero?,2,recipe,es
+¿Cómo hago lasaña?,2,recipe,es
+¿Cómo se hace la pasta?,2,recipe,es
+¿Cómo se prepara la tortilla?,2,recipe,es
+¿Cómo se prepara el taco?,2,recipe,es
+¿Cómo se hace arroz frito?,2,recipe,es
+¿Cómo se cocinan los huevos?,2,recipe,es
+¿Cuál es una buena receta de chile?,2,recipe,es
+necesito una receta de chile,2,recipe,es
+buscar recetas de chile,2,recipe,es
+busca una receta de chile para mí,2,recipe,es
+buscame una receta de chili,2,recipe,es
+muéstrame ideas para hamburguesas,2,recipe,es
+¿Puedes darme recetas de huevos por favor?,2,recipe,es
+Muéstrame cómo hacer cazuela de atún por favor.,2,recipe,es
+recetas de pan de ajo por favor,2,recipe,es
+por favor dime una receta para esta comida,2,recipe,es
+¿Puedes encontrarme una receta de cerdo?,2,recipe,es
+¿Puedes encontrarme una receta de pechuga?,2,recipe,es
+¿Puedes encontrarme una receta de arroz?,2,recipe,es
+¿Puedes encontrarme una receta de salsa?,2,recipe,es
+escanea me encuentras una receta de pollo,2,recipe,es
+necesito una receta de pasta,2,recipe,es
+quiero una receta de verduras asadas,2,recipe,es
+¿Qué hay en una receta de burrito?,2,recipe,es
+dame una receta de ensalada de atún,2,recipe,es
+encontrar una receta de ziti al horno,2,recipe,es
