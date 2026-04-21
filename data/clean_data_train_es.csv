@@ -1,0 +1,961 @@
+text,intent,intent_name,n_tokens,language,clean_text,n_orig,n_clean,reduccion
+¿Cuál es la información nutricional de los espaguetis?,5,nutrition_info,6.0,es,ser informacion nutricional espaguetis,8,4,50.0
+¿Cuál es la información nutricional de la pizza?,5,nutrition_info,6.0,es,ser informacion nutricional pizza,8,4,50.0
+¿Qué tan saludables son las pieles de papa?,5,nutrition_info,5.0,es,saludable ser piel patata,8,4,50.0
+¿Qué tan saludables son los espaguetis?,5,nutrition_info,4.0,es,saludable ser espaguetis,6,3,50.0
+comparte conmigo la información nutricional de los brownies,5,nutrition_info,8.0,es,compartir informacion nutricional browni,8,4,50.0
+comparte conmigo la información nutricional de las papas fritas,5,nutrition_info,9.0,es,compartir informacion nutricional patata fritas,9,5,44.44444444444444
+¿Cuál es la información nutricional de la piel de papa?,5,nutrition_info,7.0,es,ser informacion nutricional piel patata,10,5,50.0
+¿Cuál es la información nutricional de lasaña?,5,nutrition_info,6.0,es,ser informacion nutricional lasana,7,4,42.857142857142854
+que tan saludables son las papas fritas,5,nutrition_info,5.0,es,saludable ser patata fritas,7,4,42.857142857142854
+comparte conmigo la información nutricional de los espaguetis,5,nutrition_info,8.0,es,compartir informacion nutricional espaguetis,8,4,50.0
+comparte conmigo la información nutricional del pastel,5,nutrition_info,8.0,es,compartir informacion nutricional pastel,7,4,42.857142857142854
+cual es la información nutricional de las papas fritas,5,nutrition_info,7.0,es,ser informacion nutricional patata fritas,9,5,44.44444444444444
+¿Qué tan saludable es la sopa de tomate?,5,nutrition_info,5.0,es,saludable ser sopa tomate,8,4,50.0
+comparte conmigo la información nutricional de la pizza,5,nutrition_info,8.0,es,compartir informacion nutricional pizza,8,4,50.0
+¿Cuál sabes que es la información nutricional de los futuros macarrones con queso?,5,nutrition_info,15.0,es,ser informacion nutricional futuro macarron queso,13,6,53.84615384615385
+la información nutricional de los macarrones con queso es lo que,5,nutrition_info,9.0,es,informacion nutricional macarron queso ser,11,5,54.54545454545454
+¿Puedes leerme la información nutricional de los macarrones con queso?,5,nutrition_info,12.0,es,leermar informacion nutricional macarron queso,10,5,50.0
+¿Conoces la información nutricional de los macarrones con queso?,5,nutrition_info,10.0,es,conoces informacion nutricional macarron queso,9,5,44.44444444444444
+¿Puedes recordar la información nutricional de los macarrones con queso?,5,nutrition_info,10.0,es,recordar informacion nutricional macarron queso,10,5,50.0
+¿Es saludable comer pizza?,5,nutrition_info,6.0,es,ser saludable comer pizza,4,4,0.0
+¿La pizza es saludable?,5,nutrition_info,3.0,es,pizza ser saludable,4,3,25.0
+¿Qué tan saludable es la pizza?,5,nutrition_info,4.0,es,saludable ser pizza,6,3,50.0
+¿Podría la pizza ser saludable?,5,nutrition_info,4.0,es,pizza ser saludable,5,3,40.0
+¿La pizza se considera saludable?,5,nutrition_info,4.0,es,pizza considerar saludable,5,3,40.0
+Me gustaría saber el contenido nutricional del huevo por favor.,5,nutrition_info,10.0,es,gustar contenido nutricional huevo favor,10,5,50.0
+¿Cuál es el contenido nutricional de los nuggets de pollo?,5,nutrition_info,7.0,es,ser contenido nutricional nugget pollo,10,5,50.0
+dame la información nutricional de la pechuga de pollo,5,nutrition_info,8.0,es,damar informacion nutricional pechuga pollo,9,5,44.44444444444444
+¿Cuál es la información nutricional del bistec?,5,nutrition_info,6.0,es,ser informacion nutricional bistec,7,4,42.857142857142854
+¿Puedes decirme el contenido nutricional de los nuggets de pollo?,5,nutrition_info,10.0,es,decir yo contenido nutricional nugget pollo,10,6,40.0
+¿Cuál es la información nutricional de la lechuga iceberg?,5,nutrition_info,7.0,es,ser informacion nutricional lechuga iceberg,9,5,44.44444444444444
+¿Qué tipo de contenido nutricional tienen las zanahorias?,5,nutrition_info,8.0,es,tipo contenido nutricional zanahoria,8,4,50.0
+información nutricional del apio,5,nutrition_info,4.0,es,informacion nutricional apio,4,3,25.0
+¿Cuáles son los datos nutricionales de los gofres?,5,nutrition_info,7.0,es,ser dato nutricional gofr,8,4,50.0
+¿Puedes decirme la información nutricional de la salchicha de cerdo?,5,nutrition_info,10.0,es,decir yo informacion nutricional salchicha cerdo,10,6,40.0
+¿Cuál es la información nutricional de una manzana?,5,nutrition_info,7.0,es,ser informacion nutricional manzana,8,4,50.0
+¿Cuál es la información nutricional de la pechuga de pollo?,5,nutrition_info,7.0,es,ser informacion nutricional pechuga pollo,10,5,50.0
+¿Cuál es la información nutricional de un plátano?,5,nutrition_info,7.0,es,ser informacion nutricional platano,8,4,50.0
+¿Cuál es la información nutricional de una hamburguesa con queso?,5,nutrition_info,7.0,es,ser informacion nutricional hamburguesa queso,10,5,50.0
+¿Cuál es la información nutricional de una barra de pan?,5,nutrition_info,9.0,es,ser informacion nutricional barra pan,10,5,50.0
+nutrición del puré de papa,5,nutrition_info,3.0,es,nutricion pure patata,5,3,40.0
+información nutricional del puré de patatas,5,nutrition_info,5.0,es,informacion nutricional pure patata,6,4,33.33333333333333
+¿Cuáles son los datos nutricionales del puré de patatas?,5,nutrition_info,8.0,es,ser dato nutricional pure patata,9,5,44.44444444444444
+¿El puré de patatas es una buena nutrición?,5,nutrition_info,5.0,es,pure patata ser buen nutricion,8,5,37.5
+dame la información nutricional del puré de papa,5,nutrition_info,8.0,es,damar informacion nutricional pure patata,8,5,37.5
+¿Qué tan saludables son las manzanas?,5,nutrition_info,4.0,es,saludable ser manzana,6,3,50.0
+quiero saber si la pizza es saludable,5,nutrition_info,8.0,es,querer pizza ser saludable,7,4,42.857142857142854
+¿Puedes decirme qué tan saludables son las manzanas?,5,nutrition_info,8.0,es,decir yo saludable ser manzana,8,5,37.5
+¿Son saludables los platos de pasta?,5,nutrition_info,4.0,es,ser saludable plato pasta,6,4,33.33333333333333
+¿Conoces la información nutricional de las uvas?,5,nutrition_info,8.0,es,conoces informacion nutricional uva,7,4,42.857142857142854
+Debo saber la información nutricional de las uvas.,5,nutrition_info,8.0,es,deber informacion nutricional uva,8,4,50.0
+¿Qué tipo de datos nutricionales tienen las uvas?,5,nutrition_info,7.0,es,tipo dato nutricional uva,8,4,50.0
+dime la nutrición de las uvas,5,nutrition_info,6.0,es,dimir nutricion uva,6,3,50.0
+¿Puedes mostrarme la información nutricional de las uvas?,5,nutrition_info,9.0,es,mostrarme informacion nutricional uva,8,4,50.0
+Quiero saber la información nutricional de los nuggets de pollo.,5,nutrition_info,10.0,es,querer informacion nutricional nugget pollo,10,5,50.0
+dime la información nutricional de los nuggets de pollo,5,nutrition_info,8.0,es,dimir informacion nutricional nugget pollo,9,5,44.44444444444444
+"información nutricional para nuggets de pollo, por favor",5,nutrition_info,6.0,es,informacion nutricional nugget pollo favor,8,5,37.5
+¿Puedes decirme la información nutricional de los nuggets de pollo?,5,nutrition_info,10.0,es,decir yo informacion nutricional nugget pollo,10,6,40.0
+Me gustaría que compartieras conmigo la información nutricional de los nuggets de pollo.,5,nutrition_info,14.0,es,gustar compartiera informacion nutricional nugget pollo,13,6,53.84615384615385
+Quiero saber qué tan nutritivo suele ser un aguacate.,5,nutrition_info,10.0,es,querer nutritivo soler ser aguacate,9,5,44.44444444444444
+¿Puedes darme información nutricional de las naranjas?,5,nutrition_info,8.0,es,dar yo informacion nutricional naranja,7,5,28.57142857142857
+¿Puedes decirme cuántas calorías tiene una manzana?,5,nutrition_info,11.0,es,decir yo caloria manzana,7,4,42.857142857142854
+Me gustaría saber cuánta grasa hay en una cucharada de aceite de oliva.,5,nutrition_info,14.0,es,gustar grasa cucharada aceite oliva,13,5,61.53846153846154
+¿Puedes dar la información nutricional de la pasta?,5,nutrition_info,9.0,es,informacion nutricional pasta,8,3,62.5
+dejame ver el contenido nutricional de los tacos de pollo,5,nutrition_info,10.0,es,dejamir contenido nutricional taco pollo,10,5,50.0
+necesito ver la información nutricional de la ensalada de pollo,5,nutrition_info,9.0,es,necesitar informacion nutricional ensalada pollo,10,5,50.0
+Necesito saber todo sobre la nutrición del taco de res.,5,nutrition_info,12.0,es,necesitar nutricion taco,10,3,70.0
+quiero ver el contenido nutricional de la hamburguesa,5,nutrition_info,10.0,es,querer contenido nutricional hamburguesa,8,4,50.0
+¿Qué tipo de nutrientes tiene un bistec?,5,nutrition_info,8.0,es,tipo nutrient bistec,7,3,57.14285714285714
+¿Cuáles son los hechos sobre los nutrientes en la leche de arroz?,5,nutrition_info,8.0,es,ser nutrient leche arroz,12,4,66.66666666666666
+¿Qué tipo de nutrición tienen los espaguetis?,5,nutrition_info,7.0,es,tipo nutricion espagueti,7,3,57.14285714285714
+cuantos tipos de nutrientes tiene un vaso de leche de arroz,5,nutrition_info,12.0,es,cuanto tipo nutrient vaso leche arroz,11,6,45.45454545454545
+¿Puedes darme información sobre la información nutricional del apio?,5,nutrition_info,11.0,es,dar yo informacion informacion nutricional apio,9,6,33.33333333333333
+¿Cuáles son los nutrientes que contiene un plato de espaguetis?,5,nutrition_info,10.0,es,ser nutrient contener plato espaguetis,10,5,50.0
+¿Cuál es la información nutricional de una dona?,5,nutrition_info,7.0,es,ser informacion nutricional dona,8,4,50.0
+¿Cuál es la información nutricional de una barra de ganola?,5,nutrition_info,8.0,es,ser informacion nutricional barra ganola,10,5,50.0
+¿Puedes hablarme sobre los nutrientes de la gelatina?,5,nutrition_info,9.0,es,hablar yo nutrient gelatina,8,4,50.0
+cuantos nutrientes hay en un plato de cereal,5,nutrition_info,10.0,es,cuanto nutrient plato cereal,8,4,50.0
+Necesito saber qué tan saludable es el pastel de carne,5,nutrition_info,8.0,es,necesitar saludable ser pastel carne,10,5,50.0
+¿Cuáles son los datos nutricionales del pollo a la parrilla?,5,nutrition_info,8.0,es,ser dato nutricional pollo parrilla,10,5,50.0
+¿Cuáles son los datos nutricionales de los macarrones con queso?,5,nutrition_info,9.0,es,ser dato nutricional macarron queso,10,5,50.0
+"Por favor, infórmeme sobre la información nutricional de las gambas al ajillo.",5,nutrition_info,11.0,es,favor informemir informacion nutricional gamba ajillo,12,6,50.0
+¿Los espaguetis son saludables?,5,nutrition_info,3.0,es,espagueti ser saludable,4,3,25.0
+dime qué tan saludables son los macarrones con queso,5,nutrition_info,8.0,es,dime saludable ser macarron queso,9,5,44.44444444444444
+por favor dame la información nutricional del pollo a la parmesana,5,nutrition_info,9.0,es,favor dame informacion nutricional pollo parmesana,11,6,45.45454545454545
+¿Qué tan saludable es el pollo a la parrilla?,5,nutrition_info,5.0,es,saludable ser pollo parrilla,9,4,55.55555555555556
+quiero saber la información nutricional de la pizza,5,nutrition_info,9.0,es,querer informacion nutricional pizza,8,4,50.0
+¿Tienes información nutricional de Cheerios?,5,nutrition_info,7.0,es,informacion nutricional cheerios,5,3,40.0
+¿Dónde está la información nutricional de los Cheerios?,5,nutrition_info,7.0,es,estar informacion nutricional cheerios,8,4,50.0
+que nutritivos son los cheerios,5,nutrition_info,4.0,es,nutritivo ser cheerio,5,3,40.0
+¿Dónde en la caja de Cheerios está la información nutricional?,5,nutrition_info,9.0,es,caja cheerios estar informacion nutricional,10,5,50.0
+¿La caja tiene información nutricional de Cheerios?,5,nutrition_info,10.0,es,caja informacion nutricional cheerios,7,4,42.857142857142854
+¿Cuáles son los datos nutricionales de un mcdoble en mcdonalds?,5,nutrition_info,10.0,es,ser dato nutricional mcdoble mcdonalds,10,5,50.0
+¿Qué tan saludables son los almuerzos?,5,nutrition_info,4.0,es,saludable ser almuerzo,6,3,50.0
+¿Cuáles son los datos nutricionales de una palomita mediana en el cine?,5,nutrition_info,12.0,es,ser dato nutricional palomita mediano cine,12,6,50.0
+¿Cuál es la información nutricional de un sándwich de pollo tipo metro?,5,nutrition_info,9.0,es,ser informacion nutricional sandwich pollo tipo metro,12,7,41.66666666666667
+¿Cuáles son los datos nutricionales de una hamburguesa con queso de rodeo en Burger King?,5,nutrition_info,13.0,es,ser dato nutricional hamburguesa queso rodeo burger king,15,8,46.666666666666664
+¿Qué tan saludable es el pho?,5,nutrition_info,4.0,es,saludable ser pho,6,3,50.0
+¿Cuál es el valor nutricional de una pizza para el almuerzo?,5,nutrition_info,8.0,es,ser valor nutricional pizza almuerzo,11,5,54.54545454545454
+¿Qué tan saludables son los chips Stax?,5,nutrition_info,5.0,es,saludable ser chip stax,7,4,42.857142857142854
+¿Cuál es la información nutricional de una taza de sopa de fideos?,5,nutrition_info,10.0,es,ser informacion nutricional taza sopa fideo,12,6,50.0
+La gelatina debe permanecer en el refrigerador por cuánto tiempo.,8,food_last,9.0,es,gelatina deber permanecer refrigerador cuanto tiempo,10,6,40.0
+cuando mi leche no estará buena,8,food_last,7.0,es,cuando leche no estar buen,6,5,16.666666666666664
+¿cuándo se echarán a perder mis óvulos?,8,food_last,6.0,es,cuando echar perder ovulo,7,4,42.857142857142854
+¿Por cuánto tiempo estarán buenos mis óvulos?,8,food_last,8.0,es,cuanto tiempo estar buen ovulo,7,5,28.57142857142857
+¿En qué fecha vence mi jugo de manzana?,8,food_last,7.0,es,fecha vence zumo manzana,8,4,50.0
+¿Cuánto tiempo hasta que mi cereal se arruine?,8,food_last,7.0,es,cuanto tiempo cereal arruinar,8,4,50.0
+¿Cuál es el tiempo máximo que puedo dejar un pimiento verde en el frigorífico?,8,food_last,13.0,es,ser tiempo maximo dejar pimiento verde frigorifico,14,7,50.0
+¿Cuál es el plazo para que una hamburguesa almacenada en el congelador se eche a perder?,8,food_last,13.0,es,ser plazo hamburguesa almacenado congelador echir perder,16,7,56.25
+¿Cuánto tiempo puedo mantener la carne de venado en el congelador antes de que no sea comestible?,8,food_last,13.0,es,cuanto tiempo mantener carne venado congelador antes no ser comestible,17,10,41.17647058823529
+¿Se ha echado a perder la hamburguesa que sobró del sábado pasado?,8,food_last,9.0,es,echar perder hamburguesa sobrar sabado,12,5,58.333333333333336
+¿Existe un límite de tiempo que se puede almacenar el pan en el congelador?,8,food_last,14.0,es,existir limite tiempo almacenar pan congelador,14,6,57.14285714285714
+"He tenido huevos en el frigorífico desde el lunes, ¿todavía son seguros?",8,food_last,12.0,es,huevo frigorifico lunes ser seguro,12,5,58.333333333333336
+¿Cuánto tiempo se puede mantener el pollo congelado antes de que se eche a perder?,8,food_last,13.0,es,cuanto tiempo mantener pollo congelado antes echar perder,15,8,46.666666666666664
+¿El tofu que puse en el frigorífico el martes todavía es comestible hoy?,8,food_last,12.0,es,tofu frigorifico martes ser comestible,13,5,61.53846153846154
+¿Cuánto tiempo se conserva el requesón en el frigorífico?,8,food_last,9.0,es,cuanto tiempo conservar requeson frigorifico,9,5,44.44444444444444
+¿Cuál es la vida útil del guacamole en el refrigerador?,8,food_last,9.0,es,ser vida util guacamole refrigerador,10,5,50.0
+¿Cuánto tiempo tarda en descongelarse la masa en el congelador?,8,food_last,13.0,es,cuanto tiempo tardar descongelar el masa congelador,10,7,30.0
+¿Me enfermaré si como la ensalada de atún del viernes?,8,food_last,12.0,es,enfermacer como ensalada atun viernes,10,5,50.0
+Puse un poco de guiso sobrante en el frigorífico y quiero saber cuánto durará.,8,food_last,16.0,es,puse guiso sobrante frigorifico querer cuanto durar,14,7,50.0
+¿Cuánto tiempo puedo dejar la cazuela de atún en el frigorífico?,8,food_last,10.0,es,cuanto tiempo dejar cazuela atun frigorifico,11,6,45.45454545454545
+¿Aún es seguro consumir el pastel que ella respaldó el jueves pasado?,8,food_last,12.0,es,ser seguro consumir pastel respaldar jueves,12,6,50.0
+¿Puedo comer con seguridad pollo que tengo en mi refrigerador desde el lunes?,8,food_last,13.0,es,comer seguridad pollo refrigerador lunes,13,5,61.53846153846154
+¿Puedo comer pollo si ha estado en el frigorífico desde el lunes?,8,food_last,12.0,es,comer pollo estar frigorifico lunes,12,5,58.333333333333336
+¿Es seguro comer pollo que ha estado en el frigorífico desde el lunes?,8,food_last,14.0,es,ser seguro comer pollo estar frigorifico lunes,13,7,46.15384615384615
+¿Se habrá echado a perder el pollo si lleva en el frigorífico desde el lunes?,8,food_last,14.0,es,echar perder pollo frigorifico lunes,15,5,66.66666666666666
+¿Está bien comer pollo que puse en el frigorífico el lunes?,8,food_last,14.0,es,estar comer pollo frigorifico lunes,11,5,54.54545454545454
+¿Qué tan pronto hasta que caduque la leche?,8,food_last,6.0,es,caducar leche,8,2,75.0
+la leche caducará cuando,8,food_last,5.0,es,leche caducar cuando,4,3,25.0
+dime cuando caducará la leche,8,food_last,7.0,es,dime cuando caducar leche,5,4,20.0
+cual es la fecha de caducidad de la leche,8,food_last,8.0,es,ser fecha caducidad leche,9,4,55.55555555555556
+¿Me parece bien beber la leche que tengo en la nevera desde el martes?,8,food_last,17.0,es,parecer beber leche nevera martes,14,5,64.28571428571429
+¿Cuál es la vida útil de la carne en el congelador?,8,food_last,10.0,es,ser vida util carne congelador,11,5,54.54545454545454
+¿Puedo comer los huevos que tengo en el frigorífico desde el 21/02?,8,food_last,12.0,es,comer huevo frigorifico 21/02,12,4,66.66666666666666
+cuanto tiempo puedo conservar un jamon en el congelador,8,food_last,10.0,es,cuanto tiempo conservar jamon congelador,9,5,44.44444444444444
+¿Cuánto tiempo durará el pollo en el congelador?,8,food_last,8.0,es,cuanto tiempo durar pollo congelador,8,5,37.5
+¿Puedo beber leche que tengo guardada en el frigorífico desde el miércoles?,8,food_last,11.0,es,beber leche guardada frigorifico miercoles,12,5,58.333333333333336
+¿Cuánto tiempo durarán los filetes en el congelador?,8,food_last,8.0,es,cuanto tiempo durar filete congelador,8,5,37.5
+¿Cuál es la vida útil de los huevos en el frigorífico?,8,food_last,9.0,es,ser vida util huevo frigorifico,11,5,54.54545454545454
+¿Cuánto tiempo puedo guardar los huevos en el frigorífico?,8,food_last,9.0,es,cuanto tiempo guardar huevo frigorifico,9,5,44.44444444444444
+¿Estará bien que me coma el pavo que me sobró del lunes y que está en mi refrigerador?,8,food_last,18.0,es,estar comar pavo sobrar lunes estar refrigerador,18,7,61.111111111111114
+¿Cuánto tiempo puedo conservar el pescado en el congelador antes de que se arruine?,8,food_last,13.0,es,cuanto tiempo conservar pescado congelador antes arruinar,14,7,50.0
+¿Cuánto tiempo estará buena mi leche en el refrigerador?,8,food_last,10.0,es,cuanto tiempo estar buen leche refrigerador,9,6,33.33333333333333
+¿Cuánto tiempo duran los huevos en el frigorífico?,8,food_last,8.0,es,cuanto tiempo durar huevo frigorifico,8,5,37.5
+"He tenido huevos en el refrigerador desde el lunes, ¿son seguros para comer?",8,food_last,12.0,es,huevo refrigerador lunes ser seguro comer,13,6,53.84615384615385
+¿Todavía está bueno el pastel de carne? Lo tengo en el frigorífico desde el lunes pasado.,8,food_last,16.0,es,estar pastel carne frigorifico lunes,16,5,68.75
+las manzanas caducan en cuanto tiempo,8,food_last,5.0,es,manzana caducar cuanto tiempo,6,4,33.33333333333333
+Los pepinos cortados pueden permanecer en el frigorífico durante cuánto tiempo antes de estropearse.,8,food_last,12.0,es,pepino cortado permanecer frigorifico cuanto tiempo antes estropear el,14,9,35.714285714285715
+Las costillas pueden permanecer en el refrigerador durante cuánto tiempo antes de que se den la vuelta.,8,food_last,12.0,es,costilla permanecer refrigerador cuanto tiempo antes vuelta,17,7,58.82352941176471
+cuando caducan las costillas,8,food_last,4.0,es,cuando caducar costilla,4,3,25.0
+los bananos caducan en cuanto tiempo,8,food_last,5.0,es,banano caducar cuanto tiempo,6,4,33.33333333333333
+cuanto tardan los tomates en caducar,8,food_last,8.0,es,cuanto tardar tomate caducar,6,4,33.33333333333333
+¿Cuánto tiempo puedo conservar los aguacates en el frigorífico antes de que se echen a perder?,8,food_last,13.0,es,cuanto tiempo conservar aguacat frigorifico antes echar perder,16,8,50.0
+¿Cuánto tiempo puedo conservar los macarrones en el frigorífico antes de que se echen a perder?,8,food_last,12.0,es,cuanto tiempo conservar macarron frigorifico antes echar perder,16,8,50.0
+las naranjas caducan en cuanto tiempo,8,food_last,5.0,es,naranja caducar cuanto tiempo,6,4,33.33333333333333
+las zanahorias cortadas pueden permanecer en el refrigerador durante cuánto tiempo antes de estropearse,8,food_last,13.0,es,zanahoria cortado permanecer refrigerador cuanto tiempo antes estropear el,14,9,35.714285714285715
+Quiero saber cuánto tiempo puedo conservar la pizza en el congelador antes de que se eche a perder.,8,food_last,17.0,es,querer cuanto tiempo conservar pizza congelador antes echar perder,18,9,50.0
+¿Cuánto tiempo puedo mantener la pizza en el congelador antes de que se eche a perder?,8,food_last,14.0,es,cuanto tiempo mantener pizza congelador antes echar perder,16,8,50.0
+"Parece ser que tengo pizza en el refrigerador desde el lunes, ¿es seguro comerla?",8,food_last,20.0,es,parecer ser pizza refrigerador lunes ser seguro comer el,14,9,35.714285714285715
+¿Cuánto tiempo puede estar la pizza en el frigorífico?,8,food_last,8.0,es,cuanto tiempo estar pizza frigorifico,9,5,44.44444444444444
+¿Cuánto tiempo puede durar la pizza en el frigorífico?,8,food_last,9.0,es,cuanto tiempo durar pizza frigorifico,9,5,44.44444444444444
+"Resulta que tengo pizza en el refrigerador desde el lunes, entonces, ¿es seguro comerla?",8,food_last,18.0,es,resultar pizza refrigerador lunes ser seguro comer el,14,8,42.857142857142854
+Tengo que saber cuánto tiempo puedo mantener la pizza en el congelador antes de que se eche a perder.,8,food_last,18.0,es,cuanto tiempo mantener pizza congelador antes echar perder,19,8,57.89473684210527
+"Parece que tengo pizza en el refrigerador desde el lunes, ¿es seguro comerla?",8,food_last,18.0,es,parecer pizza refrigerador lunes ser seguro comer el,13,8,38.46153846153847
+cuanto tiempo puedo dejar la pizza en el frigorífico,8,food_last,9.0,es,cuanto tiempo dejar pizza frigorifico,9,5,44.44444444444444
+dime cuanto tiempo puedo conservar la pizza en el congelador antes de que se eche a perder,8,food_last,16.0,es,dimir cuanto tiempo conservar pizza congelador antes echar perder,17,9,47.05882352941176
+¿Cuánto tiempo puedo tener pizza en el refrigerador?,8,food_last,9.0,es,cuanto tiempo pizza refrigerador,8,4,50.0
+"He tenido pizza en el refrigerador desde el lunes, ¿es seguro comerla?",8,food_last,15.0,es,pizza refrigerador lunes ser seguro comer el,12,7,41.66666666666667
+"He tenido pizza en el refrigerador desde el lunes, ¿es seguro comerla?",8,food_last,16.0,es,pizza refrigerador lunes ser seguro comer el,12,7,41.66666666666667
+Necesito saber cuánto tiempo puedo conservar la pizza en el congelador antes de que se eche a perder.,8,food_last,18.0,es,necesitar cuanto tiempo conservar pizza congelador antes echar perder,18,9,50.0
+¿Cuánto tiempo puedo poner la pizza en el frigorífico?,8,food_last,9.0,es,cuanto tiempo pizza frigorifico,9,4,55.55555555555556
+¿Cuánto tiempo puedo dejar la carne de cerdo en el frigorífico?,8,food_last,13.0,es,cuanto tiempo dejar carne cerdo frigorifico,11,6,45.45454545454545
+¿Cuánto tiempo hasta que la carne de cerdo se eche a perder en el refrigerador?,8,food_last,8.0,es,cuanto tiempo carne cerdo echar perder refrigerador,15,7,53.333333333333336
+¿Cuánto tiempo se conserva la carne de cerdo en el frigorífico?,8,food_last,8.0,es,cuanto tiempo conservar carne cerdo frigorifico,11,6,45.45454545454545
+¿Existe un límite de tiempo para dejar la carne de cerdo en el frigorífico?,8,food_last,11.0,es,existir limite tiempo dejar carne cerdo frigorifico,14,7,50.0
+¿Cuándo se echa a perder la carne de cerdo en el frigorífico?,8,food_last,8.0,es,cuando echar perder carne cerdo frigorifico,12,6,50.0
+cuando caduca la leche,8,food_last,4.0,es,cuando caducar leche,4,3,25.0
+¿Cuánto tiempo tardan los filetes congelados en echarse a perder?,8,food_last,10.0,es,cuanto tiempo tardar filete congelado echar el perder,10,8,20.0
+cuanto tiempo dura el pan en el congelador,8,food_last,8.0,es,cuanto tiempo durar pan congelador,8,5,37.5
+cuanto dura el pan,8,food_last,5.0,es,cuanto durar pan,4,3,25.0
+¿Cuánto tiempo puedo esperar que la pechuga de pollo esté buena antes de que caduque?,8,food_last,13.0,es,cuanto tiempo esperar pechuga pollo estar buen antes caduque,15,9,40.0
+¿Cuánto tiempo se conservarán los huevos en el congelador?,8,food_last,8.0,es,cuanto tiempo conservar huevo congelador,9,5,44.44444444444444
+¿Cuánto tiempo tengo antes de que el pollo congelado se eche a perder?,8,food_last,11.0,es,cuanto tiempo antes pollo congelado echar perder,13,7,46.15384615384615
+¿Por cuánto tiempo son buenos los huevos?,8,food_last,6.0,es,cuanto tiempo ser buen huevo,7,5,28.57142857142857
+¿Cuánto tiempo puedo esperar mantener el bistec en el congelador?,8,food_last,11.0,es,cuanto tiempo esperar mantener bistec congelador,10,6,40.0
+cual es la caducidad del bistec,8,food_last,5.0,es,ser caducidad bistec,6,3,50.0
+¿Está bien comer Alfredo que ha estado en el frigorífico desde el domingo pasado?,8,food_last,14.0,es,estar comer alfredo estar frigorifico domingo,14,6,57.14285714285714
+"Mi comida china ha estado en el refrigerador desde el viernes, pero ¿todavía puedo comerla?",8,food_last,16.0,es,comida chino estar refrigerador viernes comer el,15,7,53.333333333333336
+¿Cuánto tiempo es seguro dejar una hamburguesa en el frigorífico?,8,food_last,12.0,es,cuanto tiempo ser seguro dejar hamburguesa frigorifico,10,7,30.0
+¿Cuál es la vida útil del refrigerador de los espaguetis?,8,food_last,7.0,es,ser vida util refrigerador espaguetis,10,5,50.0
+Comprueba si está bien comer queso que lleva en el frigorífico desde el pasado martes.,8,food_last,17.0,es,comprueba estar comer queso frigorifico martes,15,6,60.0
+Dame el tiempo que puedo dejar la leche en mi nevera.,8,food_last,14.0,es,dame tiempo dejar leche nevera,11,5,54.54545454545454
+¿Cuánto tiempo es seguro dejar los camarones en el frigorífico?,8,food_last,11.0,es,cuanto tiempo ser seguro dejar gamba frigorifico,10,7,30.0
+"Tengo pasta en el frigorífico desde el lunes, la puedo hasta consumirla.",8,food_last,14.0,es,pasta frigorifico lunes consumir el,12,5,58.333333333333336
+¿Puedo comerme esta hamburguesa del refrigerador que compré hace dos lunes?,8,food_last,16.0,es,comer yo hamburguesa refrigerador comprar hacer lunes,11,7,36.36363636363637
+¿Cuándo se echa a perder la lechuga en el frigorífico?,8,food_last,8.0,es,cuando echar perder lechuga frigorifico,10,5,50.0
+"Tengo algunas patatas fritas del lunes, ¿todavía estarán bien para comer?",8,food_last,13.0,es,patata frito lunes estar comer,11,5,54.54545454545454
+"Tengo patatas en el armario desde el miércoles, ¿están bien?",8,food_last,11.0,es,patata armario miercoles estar,10,4,60.0
+"Tengo tomates del martes, ¿crees que todavía están buenos?",8,food_last,12.0,es,tomate martes crear estar buen,9,5,44.44444444444444
+"He tenido estas hamburguesas en el congelador desde el sábado, ¿todavía están bien para cocinar?",8,food_last,16.0,es,hamburguesa congelador sabado estar cocinar,15,5,66.66666666666666
+"Si tengo ajo del domingo, ¿todavía está bien usarlo?",8,food_last,12.0,es,ajo domingo estar usar el,9,5,44.44444444444444
+¿Cuánto tiempo tardará en cocinarse el pavo?,7,cook_time,8.0,es,cuanto tiempo tardar cocinar el pavo,7,6,14.285714285714285
+¿Cuánto tiempo crees que tardará el pollo?,7,cook_time,10.0,es,cuanto tiempo crees tardar pollo,7,5,28.57142857142857
+¿cuanto tiempo tarda en cocinarse la pizza?,7,cook_time,7.0,es,cuanto tiempo tardar cocinar el pizza,7,6,14.285714285714285
+¿Cuánto tiempo tardará el pollo?,7,cook_time,7.0,es,cuanto tiempo tardar pollo,5,4,20.0
+¿Cuánto tiempo tardará en cocinarse el pollo?,7,cook_time,8.0,es,cuanto tiempo tardar cocinar el pollo,7,6,14.285714285714285
+¿Cuánto tiempo se tarda en cocinar la carne asada?,7,cook_time,9.0,es,cuanto tiempo tardar cocinar carne asado,9,6,33.33333333333333
+cuanto tiempo se tarda en hervir un huevo,7,cook_time,9.0,es,cuanto tiempo tardar hervir huevo,8,5,37.5
+cuanto tiempo se tarda en hornear un lomo de cerdo,7,cook_time,10.0,es,cuanto tiempo tardar hornear lomo cerdo,10,6,40.0
+cuanto tiempo se tarda en hacer pollo asado,7,cook_time,9.0,es,cuanto tiempo tardar hacer pollo asado,8,6,25.0
+cuanto tiempo se tarda en cocinar una chuleta de cerdo,7,cook_time,10.0,es,cuanto tiempo tardar cocinar chuleta cerdo,10,6,40.0
+cuanto tiempo necesito para hacer el pollo,7,cook_time,10.0,es,cuanto tiempo necesitar hacer pollo,7,5,28.57142857142857
+¿Cuál es el tiempo de preparación y cocción de la masa de pizza?,7,cook_time,9.0,es,ser tiempo preparacion coccion masa pizza,13,6,53.84615384615385
+cuanto tiempo se tarda en hacer lasaña,7,cook_time,8.0,es,cuanto tiempo tardar hacer lasana,7,5,28.57142857142857
+¿Cuánto tiempo tomará hacer las alas?,7,cook_time,9.0,es,cuanto tiempo tomar hacer ala,6,5,16.666666666666664
+¿Cuál es el tiempo de cocción del pastel?,7,cook_time,7.0,es,ser tiempo coccion pastel,8,4,50.0
+el bistec debe estar debajo del asador por cuánto tiempo,7,cook_time,10.0,es,bistec deber estar asador cuanto tiempo,10,6,40.0
+cuanto tiempo pongo la cazuela,7,cook_time,8.0,es,cuanto tiempo cazuela,5,3,40.0
+Si cocino la pizza a 400 grados ¿cuánto tiempo debe estar a fuego lento?,7,cook_time,15.0,es,cocino pizza 400 grado cuanto tiempo deber estar fuego lento,14,10,28.57142857142857
+¿Cuánto tiempo necesitas poner el cuish?,7,cook_time,11.0,es,cuanto tiempo necesita cuish,6,4,33.33333333333333
+la salsa debe hervir a fuego lento y luego ir al horno pero ¿por cuánto tiempo?,7,cook_time,13.0,es,salso deber hervir fuego lento horno cuanto tiempo,16,8,50.0
+necesito el tiempo de cocción para un pavo,7,cook_time,8.0,es,necesitar tiempo coccion pavo,8,4,50.0
+¿Cuántos minutos cocino ziti al horno?,7,cook_time,8.0,es,minuto cocino ziti horno,6,4,33.33333333333333
+cuanto tiempo se tarda en cocinar el jamon,7,cook_time,8.0,es,cuanto tiempo tardar cocinar jamon,8,5,37.5
+Necesito saber cuánto tiempo se debe hacer un asado en una olla de cocción lenta.,7,cook_time,15.0,es,necesitar cuanto tiempo deber hacer asado olla coccion lento,15,9,40.0
+cuanto tiempo dura un asado,7,cook_time,6.0,es,cuanto tiempo durar asado,5,4,20.0
+¿Cuánto tiempo es aceptable caramelizar las cebollas?,7,cook_time,8.0,es,cuanto tiempo ser aceptable caramelizar cebolla,7,6,14.285714285714285
+¿Cuándo debo sacar una tarta de manzana?,7,cook_time,8.0,es,cuando deber sacar tarta manzana,7,5,28.57142857142857
+¿Cuánto tiempo cocinas un salmón?,7,cook_time,7.0,es,cuanto tiempo cocina salmon,5,4,20.0
+cuanto tiempo se tarda en hervir un huevo,7,cook_time,10.0,es,cuanto tiempo tardar hervir huevo,8,5,37.5
+cuanto tiempo deben estar las galletas en el horno,7,cook_time,12.0,es,cuanto tiempo deber estar galleta horno,9,6,33.33333333333333
+aproximadamente ¿cuánto tiempo debes cocinar lasaña?,7,cook_time,7.0,es,cuanto tiempo deber cocinar lasano,6,5,16.666666666666664
+¿Cuál es el tiempo de preparación para un pavo de 10 libras?,7,cook_time,10.0,es,ser tiempo preparacion pavo 10 libra,12,6,50.0
+cuantos minutos para derretir el queso,7,cook_time,6.0,es,cuanto minuto derretir queso,6,4,33.33333333333333
+¿Cuánto tiempo para recalentar la comida china?,7,cook_time,6.0,es,cuanto tiempo recalentar comida chino,7,5,28.57142857142857
+¿Cuánto tiempo cocinas la pasta?,7,cook_time,7.0,es,cuanto tiempo cocina pasta,5,4,20.0
+¿Cuánto tiempo se debe cocinar un pavo de 10 libras?,7,cook_time,10.0,es,cuanto tiempo deber cocinar pavo 10 libra,10,7,30.0
+¿Cuánto tiempo se tarda en preparar el asado?,7,cook_time,9.0,es,cuanto tiempo tardar preparar asado,8,5,37.5
+¿Cuánto tiempo para calentar una pizza en el microondas?,7,cook_time,6.0,es,cuanto tiempo calentar pizza microonda,9,5,44.44444444444444
+¿Cuánto tiempo debo cocinar un jamón glaseado?,7,cook_time,8.0,es,cuanto tiempo deber cocinar jamon glaseado,7,6,14.285714285714285
+¿Cuánto tiempo debo cocinar un jamón en espiral?,7,cook_time,8.0,es,cuanto tiempo deber cocinar jamon espiral,8,6,25.0
+¿Cuánto tiempo tienen que cocinarse los brownies?,7,cook_time,8.0,es,cuanto tiempo cocinar el browni,7,5,28.57142857142857
+¿Cuánto tiempo horneo los brownies?,7,cook_time,7.0,es,cuanto tiempo horneo browni,5,4,20.0
+¿Cuánto tiempo debo hornear los brownies?,7,cook_time,8.0,es,cuanto tiempo deber hornear browni,6,5,16.666666666666664
+¿Por cuánto tiempo debo hornear los brownies?,7,cook_time,8.0,es,cuanto tiempo deber hornear browni,7,5,28.57142857142857
+cuanto tiempo deben estar los brownies en el horno,7,cook_time,11.0,es,cuanto tiempo deber estar browni horno,9,6,33.33333333333333
+cuanto tiempo debe estar este plato en el horno,7,cook_time,11.0,es,cuanto tiempo deber estar plato horno,9,6,33.33333333333333
+¿Cuánto tiempo necesita cocinarse?,7,cook_time,8.0,es,cuanto tiempo necesitar cocinar el,4,5,-25.0
+¿Para qué configuro el cronómetro si estoy haciendo gyoza?,7,cook_time,11.0,es,configuro cronometro estar hacer gyoza,9,5,44.44444444444444
+¿Qué debo poner en el cronómetro para cocinar este plato?,7,cook_time,11.0,es,debo cronometro cocinar plato,10,4,60.0
+¿Cuánto tiempo cocino este plato de arroz?,7,cook_time,9.0,es,cuanto tiempo cocino plato arroz,7,5,28.57142857142857
+¿Cuánto tiempo debe hornearse un pastel?,7,cook_time,6.0,es,cuanto tiempo deber hornear el pastel,6,6,0.0
+¿Cuánto tiempo para calentar una cena congelada en el microondas?,7,cook_time,7.0,es,cuanto tiempo calentar cena congelado microonda,10,6,40.0
+¿Cuál es el tiempo de preparación de los espaguetis?,7,cook_time,6.0,es,ser tiempo preparacion espaguetis,9,4,55.55555555555556
+¿Cuánto tiempo debe estar en el horno?,7,cook_time,8.0,es,cuanto tiempo deber estar horno,7,5,28.57142857142857
+cuanto tiempo cocinar una pizza congelada,7,cook_time,7.0,es,cuanto tiempo cocinar pizza congelado,6,5,16.666666666666664
+"Quiero hornear brownies, ¿cuánto tiempo se hornean?",7,cook_time,11.0,es,querer hornear browni cuanto tiempo horneir,7,6,14.285714285714285
+¿Cuánto tiempo horneas un pastel?,7,cook_time,7.0,es,cuanto tiempo hornea pastel,5,4,20.0
+¿Cuánto tiempo se tarda en hacer gambas al ajillo?,7,cook_time,9.0,es,cuanto tiempo tardar hacer gamba ajillo,9,6,33.33333333333333
+por cuanto tiempo cocinar el bistec,7,cook_time,6.0,es,cuanto tiempo cocinar bistec,6,4,33.33333333333333
+¿Cuánto tiempo cocinas una hamburguesa?,7,cook_time,8.0,es,cuanto tiempo cocina hamburguesa,5,4,20.0
+¿Cuánto tiempo debo esperar para que se prepare el stroganoff de carne?,7,cook_time,9.0,es,cuanto tiempo deber esperar preparar stroganoff carne,12,7,41.66666666666667
+¿Cuánto tiempo cocino el bistec?,7,cook_time,6.0,es,cuanto tiempo cocino bistec,5,4,20.0
+¿Cuál es el tiempo de cocción del pollo Alfredo?,7,cook_time,7.0,es,ser tiempo coccion pollo alfredo,9,5,44.44444444444444
+¿Cuánto tiempo se tarda en cocinar la carne de cerdo?,7,cook_time,8.0,es,cuanto tiempo tardar cocinar carne cerdo,10,6,40.0
+¿Cuánto tiempo necesito para preparar el pollo?,7,cook_time,9.0,es,cuanto tiempo necesitar preparar pollo,7,5,28.57142857142857
+los fideos necesitan cocinarse por cuánto tiempo,7,cook_time,7.0,es,fideo necesitar cocinar el cuanto tiempo,7,6,14.285714285714285
+¿Cuánto tiempo debo hervir los fideos?,7,cook_time,7.0,es,cuanto tiempo deber hervir fideo,6,5,16.666666666666664
+¿Cuánto tiempo necesitan cocinarse los fideos?,7,cook_time,7.0,es,cuanto tiempo necesitar cocinar el fideo,6,6,0.0
+¿A qué hora debo cocinar los fideos?,7,cook_time,7.0,es,hora deber cocinar fideo,7,4,42.857142857142854
+¿Cuánto tiempo necesito para hacer lasaña?,7,cook_time,8.0,es,cuanto tiempo necesitar hacer lasana,6,5,16.666666666666664
+¿Cuánto tiempo me llevará hacer pollo al horno?,7,cook_time,10.0,es,cuanto tiempo hacer pollo horno,8,5,37.5
+¿Cuánto tiempo llevará preparar el pastel de carne?,7,cook_time,9.0,es,cuanto tiempo preparar pastel carne,8,5,37.5
+¿Cuánto tiempo tardan en hacerse las hamburguesas con queso?,7,cook_time,7.0,es,cuanto tiempo tardar hacer el hamburguesa queso,9,7,22.22222222222222
+¿Cuánto tiempo debo cocinar el jamón?,7,cook_time,8.0,es,cuanto tiempo deber cocinar jamon,6,5,16.666666666666664
+¿Cuánto tiempo debo cocinar los huevos?,7,cook_time,8.0,es,cuanto tiempo deber cocinar huevo,6,5,16.666666666666664
+¿Cuánto tiempo debo cocinar los espárragos?,7,cook_time,8.0,es,cuanto tiempo deber cocinar esparrago,6,5,16.666666666666664
+¿Cuánto tiempo debo cocinar la pasta?,7,cook_time,8.0,es,cuanto tiempo deber cocinar pasta,6,5,16.666666666666664
+¿Cuánto tiempo debo cocinar el bistec?,7,cook_time,8.0,es,cuanto tiempo deber cocinar bistec,6,5,16.666666666666664
+¿Cuál es la cantidad de tiempo necesaria para preparar el asado?,7,cook_time,12.0,es,ser cantidad tiempo necesario preparar asado,11,6,45.45454545454545
+¿Cuánto tiempo se supone que debo cocinar el lomo de cerdo?,7,cook_time,9.0,es,cuanto tiempo suponer deber cocinar lomo cerdo,11,7,36.36363636363637
+¿Cuánto tiempo debo cocinar los espaguetis?,7,cook_time,7.0,es,cuanto tiempo deber cocinar espagueti,6,5,16.666666666666664
+Dime cuánto tiempo tendré que dedicar a preparar un plato de pastel de carne.,7,cook_time,14.0,es,dime cuanto tiempo tendre dedicar preparar plato pastel carne,14,9,35.714285714285715
+Necesito saber el tiempo de preparación del pollo frito.,7,cook_time,11.0,es,necesitar tiempo preparacion pollo frito,9,5,44.44444444444444
+¿Cuánto tiempo debo dedicar a preparar rosbif?,7,cook_time,8.0,es,cuanto tiempo deber dedicar preparar rosbif,7,6,14.285714285714285
+¿Cuánto tiempo necesito para cocinar la langosta?,7,cook_time,11.0,es,cuanto tiempo necesitar cocinar langosta,7,5,28.57142857142857
+¿Cuál es el momento adecuado para cocinar el bistec?,7,cook_time,9.0,es,ser momento adecuado cocinar bistec,9,5,44.44444444444444
+¿Cuánto tiempo debo cocinar el pollo?,7,cook_time,6.0,es,cuanto tiempo deber cocinar pollo,6,5,16.666666666666664
+dime cuanto tiempo debo dedicar a preparar fajitas,7,cook_time,10.0,es,dimir cuanto tiempo deber dedicar preparar fajita,8,7,12.5
+¿Cuánto tiempo debo cocinar los muslos de pollo?,7,cook_time,7.0,es,cuanto tiempo deber cocinar muslo pollo,8,6,25.0
+¿Cuánto tiempo debo cocinar un filete?,7,cook_time,8.0,es,cuanto tiempo deber cocinar filete,6,5,16.666666666666664
+¿Cuánto tiempo cocino la carne de cerdo?,7,cook_time,6.0,es,cuanto tiempo cocino carne cerdo,7,5,28.57142857142857
+¿Cuánto tiempo cocino el pollo asado?,7,cook_time,8.0,es,cuanto tiempo cocino pollo asado,6,5,16.666666666666664
+¿Cuánto tiempo cocino pechuga de pollo?,7,cook_time,7.0,es,cuanto tiempo cocino pechuga pollo,6,5,16.666666666666664
+¿Cuánto tiempo se tarda en hacer una tortilla decente?,7,cook_time,10.0,es,cuanto tiempo tardar hacer tortilla decente,9,6,33.33333333333333
+¿Cuánto tiempo debo freír un huevo?,7,cook_time,8.0,es,cuanto tiempo deber freir huevo,6,5,16.666666666666664
+¿Cuál es el tiempo de preparación para una ensalada de la huerta?,7,cook_time,8.0,es,ser tiempo preparacion ensalada huerta,12,5,58.333333333333336
+¿Cuál es el horario habitual para la cazuela de atún?,7,cook_time,7.0,es,ser horario habitual cazuela atun,10,5,50.0
+¿Cuánto tiempo necesitas hornear el pollo para que sea seguro comerlo?,7,cook_time,15.0,es,cuanto tiempo necesita hornear pollo ser seguro comer el,11,9,18.181818181818183
+¿Cuánto tiempo debo cocinar un bistec?,7,cook_time,8.0,es,cuanto tiempo deber cocinar bistec,6,5,16.666666666666664
+¿Cuánto tiempo debo esperar antes de poder hornear pan con masa casera?,7,cook_time,13.0,es,cuanto tiempo deber esperar antes hornear pan masa casera,12,9,25.0
+¿Qué tal cambiar el azúcar por bicarbonato de sodio?,4,ingredient_substitution,8.0,es,cambiar azucar bicarbonato sodio,9,4,55.55555555555556
+¿Puedo cambiar el azúcar por sal?,4,ingredient_substitution,6.0,es,cambiar azucar sal,6,3,50.0
+¿Sería posible sustituir la sal por bicarbonato de sodio?,4,ingredient_substitution,11.0,es,ser sustituir sal bicarbonato sodio,9,5,44.44444444444444
+en lugar de pimienta puedo usar sal,4,ingredient_substitution,7.0,es,lugar pimienta sal,7,3,57.14285714285714
+¿Puedo quitar el aceite de oliva y usar manteca de cerdo?,4,ingredient_substitution,10.0,es,quitar aceite oliva manteca cerdo,11,5,54.54545454545454
+¿Puedo usar agua en lugar de leche?,4,ingredient_substitution,7.0,es,agua lugar leche,7,3,57.14285714285714
+está bien usar agua en lugar de leche,4,ingredient_substitution,10.0,es,estar agua lugar leche,8,4,50.0
+está bien reemplazar el agua en lugar de la leche,4,ingredient_substitution,9.0,es,estar reemplazar agua lugar leche,10,5,50.0
+¿Está bien cambiar agua por leche?,4,ingredient_substitution,8.0,es,estar cambiar agua leche,6,4,33.33333333333333
+¿Estará bien si uso agua en lugar de leche?,4,ingredient_substitution,11.0,es,estar agua lugar leche,9,4,55.55555555555556
+¿Puedo sustituir el ajo por jengibre?,4,ingredient_substitution,6.0,es,sustituir ajo jengibre,6,3,50.0
+¿Puedo sustituir el arroz por patatas?,4,ingredient_substitution,6.0,es,sustituir arroz patata,6,3,50.0
+¿Puedo sustituir la albahaca por orégano?,4,ingredient_substitution,6.0,es,sustituir albahaca oregano,6,3,50.0
+¿Puedo sustituir el tocino por salchicha?,4,ingredient_substitution,6.0,es,sustituir tocino salchicha,6,3,50.0
+¿Puedo sustituir el azúcar por miel?,4,ingredient_substitution,6.0,es,sustituir azucar miel,6,3,50.0
+¿Puedo cambiar la nata por la leche en una receta?,4,ingredient_substitution,9.0,es,cambiar nata leche receta,10,4,60.0
+¿Puedo cambiar leche por nata en recetas?,4,ingredient_substitution,8.0,es,cambiar leche nata receta,7,4,42.857142857142854
+¿Es la leche un buen sustituto de la nata?,4,ingredient_substitution,7.0,es,ser leche buen sustituto nata,9,5,44.44444444444444
+¿Puedo usar leche en lugar de crema?,4,ingredient_substitution,7.0,es,leche lugar crema,7,3,57.14285714285714
+¿Puedo cambiar la nata por leche?,4,ingredient_substitution,7.0,es,cambiar nata leche,6,3,50.0
+¿Puedo sustituir la leche desnatada por leche entera?,4,ingredient_substitution,8.0,es,sustituir leche desnatado leche entero,8,5,37.5
+¿Está bien sustituir la albahaca por orégano?,4,ingredient_substitution,8.0,es,estar sustituir albahaca oregano,7,4,42.857142857142854
+¿Puedo usar queso colby jack en lugar de cheddar en una receta?,4,ingredient_substitution,12.0,es,queso colby jack lugar cheddar receta,12,6,50.0
+¿Puedo usar azúcar moreno oscuro en lugar de azúcar moreno?,4,ingredient_substitution,10.0,es,azucar moreno oscuro lugar azucar moreno,10,6,40.0
+¿Puedo sustituir el jugo de limón por vinagre?,4,ingredient_substitution,7.0,es,sustituir zumo limon vinagre,8,4,50.0
+¿Puedo usar jugo de manzana en lugar de jugo de uva?,4,ingredient_substitution,9.0,es,zumo manzana lugar zumo uva,11,5,54.54545454545454
+¿Puedo sustituir el vino por jugo de manzana?,4,ingredient_substitution,7.0,es,sustituir vino zumo manzana,8,4,50.0
+¿Puedo sustituir el vinagre de manzana por vinagre?,4,ingredient_substitution,8.0,es,sustituir vinagre manzana vinagre,8,4,50.0
+¿Puedo sustituir el jugo de limón por jugo de lima?,4,ingredient_substitution,8.0,es,sustituir zumo limon zumo lima,10,5,50.0
+¿Puedo usar crema agria en lugar de yogur?,4,ingredient_substitution,8.0,es,crema agrio lugar yogur,8,4,50.0
+¿Es posible sustituir el vinagre de manzana por limones?,4,ingredient_substitution,10.0,es,ser sustituir vinagre manzana limon,9,5,44.44444444444444
+necesito saber si puedo sustituir la salsa de manzana por huevo,4,ingredient_substitution,12.0,es,necesitar sustituir salsa manzana huevo,11,5,54.54545454545454
+¿Es la miel un buen sustituto del azúcar?,4,ingredient_substitution,6.0,es,ser miel buen sustituto azucar,8,5,37.5
+¿Puedo usar aceite de oliva en lugar de aceite de semilla de uva?,4,ingredient_substitution,10.0,es,aceite oliva lugar aceite semilla uva,13,6,53.84615384615385
+¿Puedo usar harina como sustituto del pan rallado?,4,ingredient_substitution,10.0,es,harina como sustituto pan rallado,8,5,37.5
+Necesito cambiar la sal por bicarbonato de sodio.,4,ingredient_substitution,8.0,es,necesitar cambiar sal bicarbonato sodio,8,5,37.5
+quiero cambiar la sal por bicarbonato de sodio,4,ingredient_substitution,7.0,es,querer cambiar sal bicarbonato sodio,8,5,37.5
+necesito sustituir el azúcar por sal,4,ingredient_substitution,7.0,es,necesitar sustituir azucar sal,6,4,33.33333333333333
+¿Puedo sustituir el azúcar por sal?,4,ingredient_substitution,6.0,es,sustituir azucar sal,6,3,50.0
+¿Está bien sustituir el azúcar por sal?,4,ingredient_substitution,8.0,es,estar sustituir azucar sal,7,4,42.857142857142854
+déjame cambiar la sal por bicarbonato de sodio,4,ingredient_substitution,7.0,es,dejamir cambiar sal bicarbonato sodio,8,5,37.5
+por favor permítanme cambiar la sal por bicarbonato de sodio,4,ingredient_substitution,9.0,es,favor permitanmar cambiar sal bicarbonato sodio,10,6,40.0
+¿Es aceptable cambiar la sal por bicarbonato de sodio?,4,ingredient_substitution,9.0,es,ser aceptable cambiar sal bicarbonato sodio,9,6,33.33333333333333
+tengo que sustituir el azúcar por la sal,4,ingredient_substitution,6.0,es,sustituir azucar sal,8,3,62.5
+quiero substituir azúcar por sal,4,ingredient_substitution,6.0,es,querer substituir azucar sal,5,4,20.0
+¿Puedo usar harina en lugar de maicena para hacer salsa?,4,ingredient_substitution,10.0,es,harina lugar maicena hacer salso,10,5,50.0
+¿Puedo sustituir la crema agria por yogur?,4,ingredient_substitution,7.0,es,sustituir crema agrio yogur,7,4,42.857142857142854
+"Si una receta requiere crema agria, ¿puedo usar yogur?",4,ingredient_substitution,11.0,es,receta requerir crema agrio yogur,9,5,44.44444444444444
+¿Puedo usar crema agria en lugar de crema fresca?,4,ingredient_substitution,10.0,es,crema agrio lugar crema fresco,9,5,44.44444444444444
+¿Puedo usar yogur en lugar de crema agria?,4,ingredient_substitution,9.0,es,yogur lugar crema agrio,8,4,50.0
+¿Puedo usar crema agria en lugar de leche?,4,ingredient_substitution,8.0,es,crema agrio lugar leche,8,4,50.0
+"No tengo crema agria, ¿puedo usar yogur en su lugar?",4,ingredient_substitution,10.0,es,no crema agrio yogur lugar,10,5,50.0
+¿Puedo cambiar el yogur por crema agria?,4,ingredient_substitution,7.0,es,cambiar yogur crema agrio,7,4,42.857142857142854
+¿Se puede usar yogur para crema agria?,4,ingredient_substitution,7.0,es,yogur crema agrio,7,3,57.14285714285714
+¿Está bien sustituir la harina de pan por harina para todo uso?,4,ingredient_substitution,10.0,es,estar sustituir harina pan harina,12,5,58.333333333333336
+¿Puedes sustituir el azúcar blanco por azúcar moreno?,4,ingredient_substitution,10.0,es,sustituir azucar blanco azucar moreno,8,5,37.5
+¿Puedes sustituir mitad y mitad por crema batida espesa?,4,ingredient_substitution,10.0,es,sustituir mitad mitad crema batido espeso,9,6,33.33333333333333
+¿Puedo usar levadura en polvo en lugar de bicarbonato de sodio?,4,ingredient_substitution,9.0,es,levadura polvo lugar bicarbonato sodio,11,5,54.54545454545454
+¿Crees que puedo sustituir la miel por azúcar?,4,ingredient_substitution,9.0,es,crees sustituir miel azucar,8,4,50.0
+apropiado sustituir el comino por cúrcuma,4,ingredient_substitution,6.0,es,apropiado sustituir comino curcuma,6,4,33.33333333333333
+Se puede sustituir el comino por cúrcuma.,4,ingredient_substitution,5.0,es,sustituir comino curcuma,7,3,57.14285714285714
+el comino se puede sustituir por cúrcuma,4,ingredient_substitution,6.0,es,comino sustituir curcuma,7,3,57.14285714285714
+¿Es la leche de almendras un sustituto aceptable de la leche?,4,ingredient_substitution,8.0,es,ser leche almendra sustituto aceptable leche,11,6,45.45454545454545
+¿Puedo cambiar la leche de coco por leche condensada?,4,ingredient_substitution,8.0,es,cambiar leche coco leche condensado,9,5,44.44444444444444
+¿Puedo sustituir los huevos por leche en una receta?,4,ingredient_substitution,9.0,es,sustituir huevo leche receta,9,4,55.55555555555556
+¿Puedo usar vino blanco en lugar de vino tinto en una receta?,4,ingredient_substitution,12.0,es,vino blanco lugar vino tinto receta,12,6,50.0
+¿Puedo sustituir la mostaza por ketchup?,4,ingredient_substitution,6.0,es,sustituir mostaza ketchup,6,3,50.0
+¿Puedo sustituir la leche por leche de almendras?,4,ingredient_substitution,7.0,es,sustituir leche leche almendra,8,4,50.0
+¿Es aceptable cambiar la leche por agua?,4,ingredient_substitution,8.0,es,ser aceptable cambiar leche agua,7,5,28.57142857142857
+¿Es aceptable cambiar pollo por cerdo?,4,ingredient_substitution,8.0,es,ser aceptable cambiar pollo cerdo,6,5,16.666666666666664
+¿Es aceptable cambiar Marinara por Alfredo?,4,ingredient_substitution,8.0,es,ser aceptable cambiar marinara alfredo,6,5,16.666666666666664
+¿Puedo sustituir la leche por agua?,4,ingredient_substitution,6.0,es,sustituir leche agua,6,3,50.0
+¿Es aceptable cambiar arroz por quinua?,4,ingredient_substitution,8.0,es,ser aceptable cambiar arroz quinua,6,5,16.666666666666664
+¿Puedo sustituir la mantequilla por margarina?,4,ingredient_substitution,6.0,es,sustituir mantequilla margarina,6,3,50.0
+¿Es aceptable cambiar la carne por tempeh?,4,ingredient_substitution,8.0,es,ser aceptable cambiar carne tempeh,7,5,28.57142857142857
+¿Puedo sustituir la sal por pimienta?,4,ingredient_substitution,6.0,es,sustituir sal pimienta,6,3,50.0
+¿Está bien usar azúcar moreno en lugar de azúcar en polvo?,4,ingredient_substitution,11.0,es,estar azucar moreno lugar azucar polvo,11,6,45.45454545454545
+¿Puedo usar margarina en lugar de mantequilla?,4,ingredient_substitution,7.0,es,margarina lugar mantequilla,7,3,57.14285714285714
+¿Puedo cambiar mantequilla de almendras por mantequilla de maní?,4,ingredient_substitution,9.0,es,cambiar mantequilla almendra mantequilla cacahuete,9,5,44.44444444444444
+¿Puedo usar sal en lugar de bicarbonato de sodio?,4,ingredient_substitution,8.0,es,sal lugar bicarbonato sodio,9,4,55.55555555555556
+¿Puedo sustituir la nata por leche?,4,ingredient_substitution,6.0,es,sustituir nata leche,6,3,50.0
+¿Puedo usar bicarbonato de sodio en lugar de polvo para hornear?,4,ingredient_substitution,9.0,es,bicarbonato sodio lugar polvo hornear,11,5,54.54545454545454
+¿Qué puedo usar como sustituto de la levadura?,4,ingredient_substitution,9.0,es,como sustituto levadura,8,3,62.5
+sustituto de la leche en panqueques,4,ingredient_substitution,5.0,es,sustituto leche panquequ,6,3,50.0
+alternativas al vino blanco en la comida,4,ingredient_substitution,6.0,es,alternativa vino blanco comida,7,4,42.857142857142854
+¿Puedo usar otra cosa si no tengo huevos?,4,ingredient_substitution,10.0,es,cosa no huevo,8,3,62.5
+¿Puedo usar pimiento verde en lugar de pimiento rojo?,4,ingredient_substitution,11.0,es,pimiento verde lugar pimiento rojo,9,5,44.44444444444444
+¿Es posible utilizar salchichas en lugar de hot dog?,4,ingredient_substitution,10.0,es,ser utilizar salchicha lugar hot dog,9,6,33.33333333333333
+¿Está bien sustituir la lechuga por espinacas?,4,ingredient_substitution,8.0,es,estar sustituir lechuga espinaca,7,4,42.857142857142854
+es ajo machacado igual que ajo en polvo para una salsa de espagueti,4,ingredient_substitution,12.0,es,ser ajo machacar ajo polvo salso espagueti,13,7,46.15384615384615
+¿Puedo usar leche de almendras en lugar de leche de arroz?,4,ingredient_substitution,9.0,es,leche almendra lugar leche arroz,11,5,54.54545454545454
+¿Puedo cambiar la pimienta de cayena por pimienta negra?,4,ingredient_substitution,8.0,es,cambiar pimienta cayena pimienta negro,9,5,44.44444444444444
+¿Puedo usar harina normal si no tengo harina de pan?,4,ingredient_substitution,11.0,es,harina normal no harina pan,10,5,50.0
+¿Puedo usar aceite de oliva en lugar de mantequilla?,4,ingredient_substitution,8.0,es,aceite oliva lugar mantequilla,9,4,55.55555555555556
+¿Puedo usar aceite de coco en lugar de aceite de oliva?,4,ingredient_substitution,9.0,es,aceite coco lugar aceite oliva,11,5,54.54545454545454
+¿Puedes usar leche normal en lugar de suero de leche?,4,ingredient_substitution,9.0,es,leche normal lugar suero leche,10,5,50.0
+¿Puedo usar fresas en lugar de piñas para esto?,4,ingredient_substitution,9.0,es,fresa lugar pina,9,3,66.66666666666666
+¿Puedo usar queso cheddar fuerte en lugar de muenster?,4,ingredient_substitution,8.0,es,queso cheddar fuerte lugar muenster,9,5,44.44444444444444
+¿Puedo usar mayonesa en lugar de látigo milagroso?,4,ingredient_substitution,8.0,es,mayonesa lugar latigo milagroso,8,4,50.0
+¿Puedo sustituir la leche de arroz por leche?,4,ingredient_substitution,7.0,es,sustituir leche arroz leche,8,4,50.0
+¿Puedes darme las calorías del batido?,6,calories,9.0,es,dar yo caloria batido,6,4,33.33333333333333
+¿Puedes decirme las calorías de la hamburguesa con queso?,6,calories,9.0,es,decir yo caloria hamburguesa queso,9,5,44.44444444444444
+Me gustaría saber las calorías de esta pechuga de pollo.,6,calories,8.0,es,gustar caloria pechuga pollo,10,4,60.0
+cuantas calorias tiene esta porcion de pizza,6,calories,8.0,es,caloria porcion pizza,7,3,57.14285714285714
+¿Qué pasa con las calorías de esta ensalada de pollo?,6,calories,8.0,es,pasar caloria ensalada pollo,10,4,60.0
+cuantas calorias tiene una fritura grande,6,calories,8.0,es,caloria fritura,6,2,66.66666666666666
+una papa frita grande tiene cuantas calorias,6,calories,8.0,es,patata frito caloria,7,3,57.14285714285714
+¿Cuál es el contenido calórico de una bola de helado de chocolate?,6,calories,12.0,es,ser contenido calorico bola helado chocolate,12,6,50.0
+cuantas calorias tiene una bola de helado de chocolate,6,calories,9.0,es,caloria bola helado chocolate,9,4,55.55555555555556
+dime cuantas calorias tiene una manzana mediana,6,calories,10.0,es,dime caloria manzana mediano,7,4,42.857142857142854
+cuantas calorias tiene una bola de helado de chocolate,6,calories,11.0,es,caloria bola helado chocolate,9,4,55.55555555555556
+cuantas calorias tiene una lata de coca cola,6,calories,9.0,es,caloria lata coca cola,8,4,50.0
+¿Cuál es la cantidad de calorías en una pepsi?,6,calories,8.0,es,ser cantidad caloria pepsi,9,4,55.55555555555556
+¿Cuál es el contenido calórico de una bolsa pequeña de patatas fritas Lay's?,6,calories,13.0,es,ser contenido calorico bolsa pequeno patata frito lay's,13,8,38.46153846153847
+cuantas calorias tiene un kitkat,6,calories,7.0,es,caloria kitkat,5,2,60.0
+cuantas calorias tiene una bola de helado de chocolate,6,calories,12.0,es,caloria bola helado chocolate,9,4,55.55555555555556
+cuantas calorias contiene una bola de helado de chocolate,6,calories,11.0,es,caloria contener bola helado chocolate,9,5,44.44444444444444
+¿Cuáles son las calorías esperadas en una galleta rellena de crema?,6,calories,9.0,es,ser caloria esperado galleta relleno crema,11,6,45.45454545454545
+¿Cuál es la cantidad de calorías en una tortilla con queso?,6,calories,9.0,es,ser cantidad caloria tortilla queso,11,5,54.54545454545454
+¿Puedes decirme la cantidad de calorías en una dona glaseada?,6,calories,11.0,es,decir yo cantidad caloria dona glaseado,10,6,40.0
+¿Cuál es la cantidad de calorías para la cazuela de atún?,6,calories,7.0,es,ser cantidad caloria cazuela atun,11,5,54.54545454545454
+cuantas calorias tienen los waffles,6,calories,6.0,es,caloria waffl,5,2,60.0
+¿Cuál es el contenido calórico de los huevos fritos?,6,calories,7.0,es,ser contenido calorico huevo frito,9,5,44.44444444444444
+¿Cuál es la cantidad de calorías en una galleta de avena rellena de crema?,6,calories,11.0,es,ser cantidad caloria galleta avena relleno crema,14,7,50.0
+cuantas calorias tiene el pastel de chocolate,6,calories,7.0,es,caloria pastel chocolate,7,3,57.14285714285714
+¿Qué tan alto en calorías tiene la carne de cerdo?,6,calories,6.0,es,alto caloria carne cerdo,10,4,60.0
+cuantas calorias tiene un panecillo de miel,6,calories,8.0,es,caloria panecillo miel,7,3,57.14285714285714
+¿Qué tiene un sándwich de salchicha en calorías?,6,calories,8.0,es,sandwich salchicha caloria,8,3,62.5
+¿Cuál es la cantidad de calorías en una coca cola?,6,calories,8.0,es,ser cantidad caloria coca cola,10,5,50.0
+¿Cuáles son las calorías totales de dos porciones de pasta?,6,calories,10.0,es,ser caloria porcion pasta,10,4,60.0
+¿Cuántas calorías debo planear tener en una dona?,6,calories,11.0,es,caloria deber planear dona,8,4,50.0
+¿Cuántas calorías estimaría para fettuccine alfredo?,6,calories,9.0,es,caloria estimar fettuccine alfredo,6,4,33.33333333333333
+cuantas calorias tiene un big mac,6,calories,8.0,es,caloria big mac,6,3,50.0
+¿Cuál es el contenido calórico si comes carne asada?,6,calories,9.0,es,ser contenido calorico comes carnir asado,9,6,33.33333333333333
+¿Cuántas calorías consumiría si me comiera un hot dog cargado?,6,calories,12.0,es,caloria consumir comierar hot dog cargado,10,6,40.0
+¿Cuál es la carga calórica esperada de un sándwich de mantequilla de maní y mermelada?,6,calories,12.0,es,ser carga calorico esperado sandwich mantequilla cacahuete mermelada,15,8,46.666666666666664
+¿Qué contiene en calorías un tazón grande de helado?,6,calories,10.0,es,contener caloria tazon helado,9,4,55.55555555555556
+¿Los cheetos tienen muchas calorías?,6,calories,7.0,es,cheeto caloria,5,2,60.0
+¿Cuál es el contenido calórico de los cheetos?,6,calories,6.0,es,ser contenido calorico cheeto,8,4,50.0
+busca las calorías en cheetos,6,calories,6.0,es,buscar caloria cheeto,5,3,40.0
+recuento de calorías de cheetos,6,calories,4.0,es,recuento caloria cheeto,5,3,40.0
+cuantas calorias tienen los cheetos,6,calories,6.0,es,caloria cheeto,5,2,60.0
+cuantas calorias tiene una taza de arroz blanco,6,calories,10.0,es,caloria taza arroz blanco,8,4,50.0
+cuantas calorias tiene el helado de vainilla,6,calories,8.0,es,caloria helado vainilla,7,3,57.14285714285714
+una taza de almendras tiene cuantas calorias,6,calories,8.0,es,taza almendra caloria,7,3,57.14285714285714
+¿Cuál es la información calórica de 2 tazas de mezcla chex regular?,6,calories,11.0,es,ser informacion calorico taza mezcla chex regular,12,7,41.66666666666667
+¿Cuál es el contenido calórico de un plato de crocantes de arroz con leche?,6,calories,12.0,es,ser contenido calorico plato crocant arroz leche,14,7,50.0
+un plato de cheerios con leche tiene cuantas calorias,6,calories,10.0,es,plato cheerio leche caloria,9,4,55.55555555555556
+cuantas calorias tiene una bolsa de doritos normales,6,calories,10.0,es,caloria bolsa dorito normal,8,4,50.0
+cuantas calorias tiene el helado de chocolate,6,calories,8.0,es,caloria helado chocolate,7,3,57.14285714285714
+2 tazas de uvas tienen cuantas calorias,6,calories,8.0,es,taza uva caloria,7,3,57.14285714285714
+¿Cuántas calorías tienen los espaguetis con salsa de carne?,6,calories,9.0,es,caloria espagueti salsa carne,9,4,55.55555555555556
+en una galleta cuantas calorias encontraria,6,calories,9.0,es,galleta caloria encontrario,6,3,50.0
+¿Cuál es la cantidad de calorías para una galleta?,6,calories,8.0,es,ser cantidad caloria galleta,9,4,55.55555555555556
+si me comiera una galleta cuantas calorias estaría ingiriendo,6,calories,12.0,es,comierar galleta caloria estar ingerir,9,5,44.44444444444444
+las galletas tienen cuantas calorias,6,calories,5.0,es,galleta caloria,5,2,60.0
+cuantas calorias tiene una galleta,6,calories,7.0,es,caloria galleta,5,2,60.0
+cuantas calorias tiene el chicle,6,calories,5.0,es,caloria chicle,5,2,60.0
+cuantas calorias tiene el pollo,6,calories,5.0,es,caloria pollo,5,2,60.0
+cuantas calorias tiene el pastel de carne,6,calories,5.0,es,caloria pastel carne,7,3,57.14285714285714
+cuantas calorias tiene la pechuga de pollo,6,calories,7.0,es,caloria pechuga pollo,7,3,57.14285714285714
+cuantas calorias tiene el maní,6,calories,5.0,es,caloria cacahuete,5,2,60.0
+¿Cuál es la cantidad total de calorías en una bolsa de papas fritas?,6,calories,13.0,es,ser cantidad caloria bolsa patata fritas,13,6,53.84615384615385
+¿Puedes decirme la cantidad de calorías que puedo esperar que contenga un sándwich de atún?,6,calories,16.0,es,decir yo cantidad caloria esperar contener sandwich atun,15,8,46.666666666666664
+dame la cantidad esperada de calorías en un burrito de desayuno,6,calories,10.0,es,damar cantidad esperado caloria burrito desayuno,11,6,45.45454545454545
+¿Puedes decirme la cantidad de calorías que tiene una porción de anacardos enteros?,6,calories,14.0,es,decir yo cantidad caloria porcion anacardo entero,13,7,46.15384615384615
+por favor dígame el total de calorías que se espera que contenga una sola porción de helado de chocolate,6,calories,17.0,es,favor digame caloria esperar contener porcion helado chocolate,19,8,57.89473684210527
+Necesito saber las calorías totales de una ensalada césar con pollo.,6,calories,12.0,es,necesitar caloria ensalada cesar pollo,11,5,54.54545454545454
+por favor dime cuantas calorias contiene una barra de chocolate,6,calories,10.0,es,favor dime caloria contener barra chocolate,10,6,40.0
+¿Cuál es el número promedio de calorías en una taza de sopa de tomate?,6,calories,12.0,es,ser numero promedio caloria taza sopa tomate,14,7,50.0
+¿Sabes cuántas calorías tiene una sola pechuga de pollo?,6,calories,12.0,es,caloria pechuga pollo,9,3,66.66666666666666
+Necesito saber la cantidad de calorías en promedio en un puñado de pistachos.,6,calories,15.0,es,necesitar cantidad caloria promedio punado pistacho,13,6,53.84615384615385
+¿Cuál es el valor calórico de una galleta?,6,calories,8.0,es,ser valor calorico galleta,8,4,50.0
+cuantas calorias tienen las galletas,6,calories,6.0,es,caloria galleta,5,2,60.0
+¿Puedes decirme cuántas calorías tienen las galletas?,6,calories,10.0,es,decir yo caloria galleta,7,4,42.857142857142854
+¿Cuál es la cantidad de calorías en una galleta?,6,calories,8.0,es,ser cantidad caloria galleta,9,4,55.55555555555556
+¿Cuáles son las calorías en una galleta?,6,calories,7.0,es,ser caloria galleta,7,3,57.14285714285714
+¿Cuál es la cantidad de calorías para los muffins?,6,calories,7.0,es,ser cantidad caloria muffins,9,4,55.55555555555556
+¿Hay muchas calorías en los muffins?,6,calories,8.0,es,caloria muffins,6,2,66.66666666666666
+dime la cantidad de calorías en muffins,6,calories,8.0,es,dimir cantidad caloria muffins,7,4,42.857142857142854
+¿Cuál es el total calórico de estos muffins?,6,calories,8.0,es,ser calorico muffin,8,3,62.5
+¿Qué cantidad de calorías hay en un panecillo?,6,calories,8.0,es,cantidad caloria panecillo,8,3,62.5
+buscar las calorías en una manzana,6,calories,7.0,es,buscar caloria manzana,6,3,50.0
+dime el contenido calórico de una manzana,6,calories,8.0,es,dimir contenido calorico manzana,7,4,42.857142857142854
+¿Cuál es el contenido calórico de una manzana?,6,calories,7.0,es,ser contenido calorico manzana,8,4,50.0
+dime el contenido calórico de una manzana,6,calories,8.0,es,dimir contenido calorico manzana,7,4,42.857142857142854
+Necesito saber el contenido calórico de un trozo de pizza de pepperoni.,6,calories,13.0,es,necesitar contenido calorico trozo pizza pepperoni,12,6,50.0
+cuantas calorias tiene una manzana,6,calories,7.0,es,caloria manzana,5,2,60.0
+quiero el contenido calórico de un plátano,6,calories,8.0,es,querer contenido calorico platano,7,4,42.857142857142854
+dime la cantidad de calorías que tiene un plátano,6,calories,9.0,es,dimir cantidad caloria platano,9,4,55.55555555555556
+¿Cómo se ven las calorías en las manzanas?,6,calories,8.0,es,como caloria manzana,8,3,62.5
+¿Cuáles serán las calorías si como cereal?,6,calories,11.0,es,ser caloria como cereal,7,4,42.857142857142854
+sumar las calorias de los tacos,6,calories,6.0,es,sumar caloria taco,6,3,50.0
+cuantas calorias tienen los cheerios,6,calories,6.0,es,caloria cheerio,5,2,60.0
+¿Qué tipo de calorías hay en las cebollas?,6,calories,8.0,es,tipo caloria cebolla,8,3,62.5
+Necesito saber el número de calorías de una hamburguesa con queso y tocino.,6,calories,11.0,es,necesitar numero caloria hamburguesa queso tocino,13,6,53.84615384615385
+¿Cuál es el contenido calórico de la avena?,6,calories,6.0,es,ser contenido calorico avena,8,4,50.0
+¿Cuál es la cantidad de calorías de una manzana?,6,calories,8.0,es,ser cantidad caloria manzana,9,4,55.55555555555556
+¿Cuántas calorías en promedio tiene un hot dog?,6,calories,10.0,es,caloria promedio hot dog,8,4,50.0
+cuantas calorias tiene un trozo de tocino,6,calories,9.0,es,caloria trozo tocino,7,3,57.14285714285714
+¿Qué se pone en la cazuela de pollo con fideos?,3,ingredients_list,8.0,es,cazuela pollo fideo,10,3,70.0
+¿Qué contiene la cazuela de pollo con fideos?,3,ingredients_list,6.0,es,contener cazuela pollo fideo,8,4,50.0
+¿Qué necesito para hacer una cazuela de pollo con fideos?,3,ingredients_list,9.0,es,necesitar hacer cazuela pollo fideo,10,5,50.0
+¿Cómo se hace una cazuela de pollo con fideos?,3,ingredients_list,7.0,es,como hacer cazuela pollo fideo,9,5,44.44444444444444
+La cazuela de pollo con fideos está hecha de lo que,3,ingredients_list,7.0,es,cazuela pollo fideo estar,11,4,63.63636363636363
+dime qué ingredientes necesitaré para hacer esta comida,3,ingredients_list,11.0,es,dime ingrediente necesitar hacer comida,8,5,37.5
+¿Cuáles son los ingredientes de los espaguetis?,3,ingredients_list,6.0,es,ser ingrediente espaguetis,7,3,57.14285714285714
+¿Qué ingredientes están presentes en los malvaviscos?,3,ingredients_list,6.0,es,ingrediente estar presente malvavisco,7,4,42.857142857142854
+dime los ingredientes de la pizza,3,ingredients_list,6.0,es,dimir ingrediente pizza,6,3,50.0
+¿Qué ingredientes se encuentran en el pollo Hunan?,3,ingredients_list,7.0,es,ingrediente encontrar pollo hunan,8,4,50.0
+necesito saber los ingredientes de una hamburguesa,3,ingredients_list,9.0,es,necesitar ingrediente hamburguesa,7,3,57.14285714285714
+muéstrame los ingredientes que necesito para el ceviche,3,ingredients_list,9.0,es,muestramir ingrediente necesitar ceviche,8,4,50.0
+¿Tienes una lista de ingredientes que necesitaré para las rubias?,3,ingredients_list,12.0,es,lista ingrediente necesitar rubia,10,4,60.0
+dame una lista de ingredientes necesarios para la masa de pizza,3,ingredients_list,10.0,es,damar lista ingrediente necesario masa pizza,11,6,45.45454545454545
+dime que ingredientes necesito para la carne asada,3,ingredients_list,9.0,es,dime ingrediente necesitar carne asado,8,5,37.5
+¿Qué ingredientes se necesitan para la sopa de pollo con fideos?,3,ingredients_list,8.0,es,ingrediente necesitar sopa pollo fideo,11,5,54.54545454545454
+¿Qué ingredientes tiene la salsa?,3,ingredients_list,5.0,es,ingrediente salso,5,2,60.0
+¿Qué ingredientes tiene la tarta de queso?,3,ingredients_list,6.0,es,ingrediente tarta queso,7,3,57.14285714285714
+¿Qué ingredientes tienen las galletas de azúcar?,3,ingredients_list,6.0,es,ingrediente galleta azucar,7,3,57.14285714285714
+¿Qué ingredientes hay en la salsa de espinacas?,3,ingredients_list,6.0,es,ingrediente salsa espinaca,8,3,62.5
+¿Qué ingredientes hay en las tortas de café?,3,ingredients_list,6.0,es,ingrediente torta cafe,8,3,62.5
+¿Qué ingredientes necesito para hacer ensalada de huevo?,3,ingredients_list,9.0,es,ingrediente necesitar hacer ensalada huevo,8,5,37.5
+¿Qué necesitaría si quisiera hacer pollo marsala?,3,ingredients_list,11.0,es,necesitar querer hacer pollo marsala,7,5,28.57142857142857
+¿Qué ingredientes hay en la ensalada de antipasto?,3,ingredients_list,6.0,es,ingrediente ensalada antipasto,8,3,62.5
+¿Qué necesito para hacer ensalada de pollo?,3,ingredients_list,8.0,es,necesitar hacer ensalada pollo,7,4,42.857142857142854
+¿Qué tipo de cosas hay en la ensalada de patatas?,3,ingredients_list,8.0,es,tipo cosa ensalada patata,10,4,60.0
+Ingredientes necesarios para hacer una lasaña mexicana.,3,ingredients_list,7.0,es,ingrediente necesario hacer lasana mexicano,7,5,28.57142857142857
+¿Cuáles son todos los ingredientes para los brownies desde cero?,3,ingredients_list,10.0,es,ser ingrediente browni cero,10,4,60.0
+¿Cómo puedo hacer mis propios donuts/qué ingredientes?,3,ingredients_list,8.0,es,como hacer donuts ingrediente,7,4,42.857142857142854
+¿Qué cosas necesitaría para hacer tortellini?,3,ingredients_list,8.0,es,cosa necesitar hacer tortellini,6,4,33.33333333333333
+¿Qué necesito para hacer un pastel?,3,ingredients_list,8.0,es,necesitar hacer pastel,6,3,50.0
+¿Qué hay en Gumbo?,3,ingredients_list,5.0,es,gumbo,4,1,75.0
+¿Qué ingredientes necesito para gumbo?,3,ingredients_list,7.0,es,ingrediente necesitar gumbo,5,3,40.0
+¿Qué ingredientes tiene gumbo?,3,ingredients_list,5.0,es,ingrediente gumbo,4,2,50.0
+¿Cuáles son los ingredientes del gumbo?,3,ingredients_list,6.0,es,ser ingrediente gumbo,6,3,50.0
+¿De qué está hecho el gumbo?,3,ingredients_list,5.0,es,estar gumbo,6,2,66.66666666666666
+¿Qué ingredientes necesito para hornear un pastel?,3,ingredients_list,9.0,es,ingrediente necesitar hornear pastel,7,4,42.857142857142854
+Quiero preparar un desayuno rápido ¿Qué ingredientes necesito?,3,ingredients_list,12.0,es,querer preparar desayuno rapido ingrediente necesitar,8,6,25.0
+¿Qué ingredientes se necesitan para el cóctel de camarones?,3,ingredients_list,7.0,es,ingrediente necesitar coctel gamba,9,4,55.55555555555556
+Estoy haciendo espaguetis ¿Qué ingredientes necesito?,3,ingredients_list,8.0,es,estar hacer espaguetis ingrediente necesitar,6,5,16.666666666666664
+quiero hacer un guiso de carne que ingredientes necesito,3,ingredients_list,12.0,es,querer hacer guiso carne ingrediente necesitar,9,6,33.33333333333333
+¿Qué lleva la sopa de brócoli y queso cheddar?,3,ingredients_list,6.0,es,sopa brocoli queso cheddar,9,4,55.55555555555556
+muéstrame la receta de sopa de brócoli y queso cheddar,3,ingredients_list,8.0,es,muestramir receta sopa brocoli queso cheddar,10,6,40.0
+por favor indique los ingredientes para la sopa de brócoli y queso cheddar,3,ingredients_list,7.0,es,favor indique ingrediente sopa brocoli queso cheddar,13,7,46.15384615384615
+¿Qué ingredientes necesito para hacer sopa de brócoli y queso cheddar?,3,ingredients_list,10.0,es,ingrediente necesitar hacer sopa brocoli queso cheddar,11,7,36.36363636363637
+"Estoy haciendo sopa de brócoli y queso cheddar, ¿qué ingredientes necesito?",3,ingredients_list,11.0,es,estar hacer sopa brocoli queso cheddar ingrediente necesitar,11,8,27.27272727272727
+¿Qué ingredientes necesito para los filetes de queso Filadelfia?,3,ingredients_list,8.0,es,ingrediente necesitar filete queso filadelfia,9,5,44.44444444444444
+¿Qué necesito para cocinar sopa de pollo?,3,ingredients_list,8.0,es,necesitar cocinar sopa pollo,7,4,42.857142857142854
+¿Qué necesito para hacer lasaña?,3,ingredients_list,9.0,es,necesitar hacer lasana,5,3,40.0
+¿Qué debo comprar para hacer burritos esta noche?,3,ingredients_list,8.0,es,deber comprar hacer burrito noche,8,5,37.5
+¿Qué ingredientes necesito para los tacos?,3,ingredients_list,7.0,es,ingrediente necesitar taco,6,3,50.0
+¿Cuáles son los ingredientes para hacer pastel de pastor?,3,ingredients_list,8.0,es,ser ingrediente hacer pastel pastor,9,5,44.44444444444444
+¿Qué necesito comprar para hacer un espagueti?,3,ingredients_list,10.0,es,necesitar comprar hacer espagueti,7,4,42.857142857142854
+¿Qué necesito para hacer espaguetis?,3,ingredients_list,7.0,es,necesitar hacer espaguetis,5,3,40.0
+¿Cuál es la lista de ingredientes para una tortilla?,3,ingredients_list,8.0,es,ser lista ingrediente tortilla,9,4,55.55555555555556
+¿Qué necesito si quiero hacer lasaña?,3,ingredients_list,10.0,es,necesitar querer hacer lasana,6,4,33.33333333333333
+¿Qué necesito para hacer un chile cajún?,3,ingredients_list,9.0,es,necesitar hacer chile cajun,7,4,42.857142857142854
+¿Qué contiene un batido de fresa?,3,ingredients_list,6.0,es,contener batido fresa,6,3,50.0
+¿Qué debo tomar para hacer un pastel de chocolate alemán?,3,ingredients_list,10.0,es,deber tomar hacer pastel chocolate aleman,10,6,40.0
+¿Qué le pones al chile?,3,ingredients_list,6.0,es,chile,5,1,80.0
+¿Qué necesitas para hacer panqueques?,3,ingredients_list,7.0,es,necesita hacer panquequ,5,3,40.0
+¿Qué cosas se echan en una tortilla?,3,ingredients_list,8.0,es,cosa echar tortilla,7,3,57.14285714285714
+¿Qué usas cuando haces una ensalada del chef?,3,ingredients_list,10.0,es,cuando hacer ensalada chef,8,4,50.0
+¿Qué compras para poner en un pastel de pastor?,3,ingredients_list,10.0,es,compra pastel pastor,9,3,66.66666666666666
+¿Qué se pone en una tortilla tibetana?,3,ingredients_list,8.0,es,tortilla tibetan,7,2,71.42857142857143
+¿Qué se mezcla para hacer un pastel de chocolate?,3,ingredients_list,9.0,es,mezclar hacer pastel chocolate,9,4,55.55555555555556
+¿Qué usa el metro para hacer un combo de fiambre?,3,ingredients_list,10.0,es,metro hacer combo fiambre,10,4,60.0
+¿Qué necesitas para hacer el pollo del general tsao?,3,ingredients_list,9.0,es,necesita hacer pollo general tsao,9,5,44.44444444444444
+¿Qué le pones a la salsa de aguacate?,3,ingredients_list,7.0,es,pones salsa aguacate,8,3,62.5
+¿Qué ingredientes hay en el sushi?,3,ingredients_list,5.0,es,ingrediente sushi,6,2,66.66666666666666
+¿Qué se necesita para hacer panqueques de suero de leche?,3,ingredients_list,8.0,es,necesitar hacer panquequ suero leche,10,5,50.0
+¿Qué necesito comprar para hacer pierogi?,3,ingredients_list,9.0,es,necesitar comprar hacer pierogi,6,4,33.33333333333333
+¿Qué necesito conseguir para poner en tortillas caseras?,3,ingredients_list,11.0,es,necesitar tortilla casero,8,3,62.5
+¿Qué alimentos pones en el desayuno inglés?,3,ingredients_list,9.0,es,alimento pon desayuno ingles,7,4,42.857142857142854
+¿Qué alimentos compro para incluir en una cena coreana?,3,ingredients_list,11.0,es,alimento compro incluir cena coreano,9,5,44.44444444444444
+¿Qué necesitas para hacer vino de diente de león correctamente?,3,ingredients_list,9.0,es,necesita hacer vino diente leon correctamente,10,6,40.0
+¿Qué ingredientes hay en el pastel?,3,ingredients_list,5.0,es,ingrediente pastel,6,2,66.66666666666666
+que ingredientes llevan las tortillas,3,ingredients_list,5.0,es,ingrediente tortilla,5,2,60.0
+¿Qué ingredientes hay en el puré de papas?,3,ingredients_list,6.0,es,ingrediente pure patata,8,3,62.5
+¿Qué ingredientes hay en la masa?,3,ingredients_list,5.0,es,ingrediente masa,6,2,66.66666666666666
+¿Qué ingredientes hay en las patatas fritas?,3,ingredients_list,5.0,es,ingrediente patata frito,7,3,57.14285714285714
+los ingredientes de la pizza son lo que,3,ingredients_list,6.0,es,ingrediente pizza ser,8,3,62.5
+enumera los ingredientes de la pizza,3,ingredients_list,5.0,es,enumera ingrediente pizza,6,3,50.0
+¿Qué ingredientes hay en la pizza?,3,ingredients_list,5.0,es,ingrediente pizza,6,2,66.66666666666666
+¿Qué ingredientes tiene la pizza?,3,ingredients_list,4.0,es,ingrediente pizza,5,2,60.0
+los ingredientes de la pizza son cuales,3,ingredients_list,7.0,es,ingrediente pizza ser,7,3,57.14285714285714
+¿Qué ingredientes necesito para hacer ensalada de salmón?,3,ingredients_list,9.0,es,ingrediente necesitar hacer ensalada salmon,8,5,37.5
+¿Qué ingredientes van en los espaguetis?,3,ingredients_list,5.0,es,ingrediente espaguetis,6,2,66.66666666666666
+¿Qué ingredientes necesito para hacer pizza?,3,ingredients_list,8.0,es,ingrediente necesitar hacer pizza,6,4,33.33333333333333
+¿Qué ingredientes necesito para hacer panqueques?,3,ingredients_list,8.0,es,ingrediente necesitar hacer panquequ,6,4,33.33333333333333
+¿Qué ingredientes necesito para hacer cáscaras de papa?,3,ingredients_list,9.0,es,ingrediente necesitar hacer cascara patata,8,5,37.5
+¿Qué ingredientes van en el puré de papa?,3,ingredients_list,6.0,es,ingrediente pure patata,8,3,62.5
+¿Qué ingredientes van en la piel de las patatas?,3,ingredients_list,6.0,es,ingrediente piel patata,9,3,66.66666666666666
+¿Qué ingredientes necesito para hacer espaguetis?,3,ingredients_list,8.0,es,ingrediente necesitar hacer espaguetis,6,4,33.33333333333333
+¿Qué ingredientes van en forma láctea?,3,ingredients_list,7.0,es,ingrediente forma lactear,6,3,50.0
+que ingredientes van en la pizza,3,ingredients_list,5.0,es,ingrediente pizza,6,2,66.66666666666666
+¿Qué ingredientes son necesarios para un bistec?,3,ingredients_list,7.0,es,ingrediente ser necesario bistec,7,4,42.857142857142854
+para hacer una tortilla que ingredientes necesito,3,ingredients_list,9.0,es,hacer tortilla ingrediente necesitar,7,4,42.857142857142854
+"En cuanto a hacer huevos revueltos, ¿qué ingredientes necesito?",3,ingredients_list,11.0,es,cuanto hacer huevo revuelto ingrediente necesitar,9,6,33.33333333333333
+¿Qué ingredientes necesito para la pechuga de pollo?,3,ingredients_list,8.0,es,ingrediente necesitar pechuga pollo,8,4,50.0
+¿Puedes darme una sugerencia para una cena francesa?,1,meal_suggestion,8.0,es,dar yo sugerencia cena frances,8,5,37.5
+"Sugiérame una comida de Laos, por favor.",1,meal_suggestion,8.0,es,sugieramir comida laos favor,7,4,42.857142857142854
+¿Puedes darme una sugerencia de comida vietnamita?,1,meal_suggestion,8.0,es,dar yo sugerencia comida vietnamita,7,5,28.57142857142857
+sugiérame una comida de birmania,1,meal_suggestion,7.0,es,sugieramir comida birmania,5,3,40.0
+¿Puedes darme una sugerencia para una cena vietnamita?,1,meal_suggestion,8.0,es,dar yo sugerencia cena vietnamita,8,5,37.5
+"sugiérame una comida de Tailandia, por favor.",1,meal_suggestion,8.0,es,sugieramir comida tailandia favor,7,4,42.857142857142854
+"¿Puedes darme una sugerencia de comida tailandesa, por favor?",1,meal_suggestion,9.0,es,dar yo sugerencia comida tailandes favor,9,6,33.33333333333333
+"¿Puedes darme una sugerencia de comida vietnamita, por favor?",1,meal_suggestion,9.0,es,dar yo sugerencia comida vietnamita favor,9,6,33.33333333333333
+"¿Puedes darme una sugerencia de comida birmana, por favor?",1,meal_suggestion,9.0,es,dar yo sugerencia comida birman favor,9,6,33.33333333333333
+"Sugiérame una comida de Birmania, por favor.",1,meal_suggestion,8.0,es,sugieramir comida birmania favor,7,4,42.857142857142854
+¿Puedes darme una sugerencia para una cena birmana?,1,meal_suggestion,8.0,es,dar yo sugerencia cena birman,8,5,37.5
+¿Puedes darme una sugerencia de comida tailandesa?,1,meal_suggestion,8.0,es,dar yo sugerencia comida tailandes,7,5,28.57142857142857
+¿Puedes darme una sugerencia para una cena tailandesa?,1,meal_suggestion,8.0,es,dar yo sugerencia cena tailandes,8,5,37.5
+sugiérame una comida de Tailandia,1,meal_suggestion,7.0,es,sugieramir comida tailandia,5,3,40.0
+Dame ideas de comida italiana.,1,meal_suggestion,5.0,es,dame idea comida italiano,5,4,20.0
+sugiérame una comida italiana,1,meal_suggestion,6.0,es,sugieramir comida italiano,4,3,25.0
+¿Puedes sugerirme comidas de Italia?,1,meal_suggestion,8.0,es,sugerir yo comida italia,5,4,20.0
+¿Puedes sugerirme una comida italiana?,1,meal_suggestion,9.0,es,sugerir yo comida italiano,5,4,20.0
+Por favor sugiérame comidas de Italia.,1,meal_suggestion,7.0,es,favor sugierame comida italia,6,4,33.33333333333333
+¿Puedes decirme un buen plato indio para hacer?,1,meal_suggestion,10.0,es,decir yo buen plato indio hacer,8,6,25.0
+¿Tienes alguna buena idea para la cena?,1,meal_suggestion,5.0,es,buen idea cena,7,3,57.14285714285714
+¿Cuál es una receta china sencilla para la cena?,1,meal_suggestion,7.0,es,ser receta chino sencillo cena,9,5,44.44444444444444
+¿Conoces buenos platos de pasta?,1,meal_suggestion,7.0,es,conoces buen plato pasta,5,4,20.0
+¿Qué puedo hacer para cenar con carne molida?,1,meal_suggestion,9.0,es,hacer cenar carne molido,8,4,50.0
+necesito nuevas ideas para la cena,1,meal_suggestion,5.0,es,necesitar idea cena,6,3,50.0
+¿Qué puedo hacer para cenar?,1,meal_suggestion,6.0,es,hacer cenar,5,2,60.0
+¿Conoces algún plato griego que pueda preparar para la cena?,1,meal_suggestion,11.0,es,conoces plato griego preparar cena,10,5,50.0
+¿Cuál crees que sería una buena cena?,1,meal_suggestion,9.0,es,crees ser buen cena,7,4,42.857142857142854
+¿Qué estaría bien para cenar?,1,meal_suggestion,6.0,es,estar cenar,5,2,60.0
+¿Qué debería cenar?,1,meal_suggestion,6.0,es,deber cenar,3,2,33.33333333333333
+Me gustaría recibir sugerencias para cenar comida tailandesa.,1,meal_suggestion,9.0,es,gustar recibir sugerencia cenar comida tailandes,8,6,25.0
+Dame sugerencias para cenas de cocina italiana.,1,meal_suggestion,6.0,es,dame sugerencia cena cocina italiano,7,5,28.57142857142857
+¿Podrías darme sugerencias para cenar con cocina italiana?,1,meal_suggestion,9.0,es,darmir sugerencia cenar cocina italiano,8,5,37.5
+Necesito sugerencias para cenar comida mexicana.,1,meal_suggestion,7.0,es,necesitar sugerencia cenar comida mexicano,6,5,16.666666666666664
+¿Cómo es la pizza por aquí?,1,meal_suggestion,6.0,es,como ser pizza,6,3,50.0
+¿Cuál es la mejor pizzería por aquí?,1,meal_suggestion,7.0,es,ser pizzeria,7,2,71.42857142857143
+que rica es la pizza aqui,1,meal_suggestion,6.0,es,ricar ser pizza,6,3,50.0
+¿Qué sugerirías para cenar?,1,meal_suggestion,6.0,es,sugeriria cenar,4,2,50.0
+necesito ideas para la cena,1,meal_suggestion,4.0,es,necesitar idea cena,5,3,40.0
+Necesito una sugerencia de comida mexicana,1,meal_suggestion,6.0,es,necesitar sugerencia comida mexicano,6,4,33.33333333333333
+Ayúdame a decidir qué comida mexicana quiero.,1,meal_suggestion,8.0,es,ayudame decidir comida mexicano quiero,7,5,28.57142857142857
+¿Qué tipo de comida mexicana debería comer?,1,meal_suggestion,8.0,es,tipo comida mexicano deber comer,7,5,28.57142857142857
+¿Qué comida mexicana sería buena?,1,meal_suggestion,6.0,es,comida mexicano ser buen,5,4,20.0
+"Necesito cocinar, ¿qué debo hacer?",1,meal_suggestion,8.0,es,necesitar cocinar deber hacer,5,4,20.0
+"No puedo decidirme por la cena, ¿qué sugieres?",1,meal_suggestion,9.0,es,no decidir yo cena sugier,8,5,37.5
+sugiérame una buena comida mexicana,1,meal_suggestion,7.0,es,sugieramir buen comida mexicano,5,4,20.0
+¿Tiene alguna sugerencia para una comida de Australia?,1,meal_suggestion,10.0,es,sugerencia comida australia,8,3,62.5
+Me gustaría que me dieras una idea para una comida islandia.,1,meal_suggestion,13.0,es,gustar dierar idea comida islandio,11,5,54.54545454545454
+¿Puedes sugerir alguna buena comida de Chicago?,1,meal_suggestion,8.0,es,sugerir buen comida chicago,7,4,42.857142857142854
+por favor sugiérame una comida de italia,1,meal_suggestion,8.0,es,favor sugierame comida italia,7,4,42.857142857142854
+¿Puedes sugerirme alguna comida de Nigeria?,1,meal_suggestion,9.0,es,sugerir yo comida nigeria,6,4,33.33333333333333
+¿Puedes darme una sugerencia de comida para la cocina sueca?,1,meal_suggestion,10.0,es,dar yo sugerencia comida cocina sueco,10,6,40.0
+¿Tiene alguna buena recomendación para la cocina suiza?,1,meal_suggestion,9.0,es,buen recomendacion cocina suizo,8,4,50.0
+Estoy buscando una buena sugerencia para la cocina nórdica.,1,meal_suggestion,9.0,es,estar buscar buen sugerencia cocina nordico,9,6,33.33333333333333
+¿Qué es una buena comida francesa?,1,meal_suggestion,5.0,es,ser buen comida frances,6,4,33.33333333333333
+Estoy buscando sugerencias de comida italiana.,1,meal_suggestion,6.0,es,estar buscar sugerencia comida italiano,6,5,16.666666666666664
+quiero que me des una sugerencia sobre que hacer para cenar,1,meal_suggestion,14.0,es,querer des sugerencia hacer cenar,11,5,54.54545454545454
+quiero una sugerencia de comida italiana,1,meal_suggestion,6.0,es,querer sugerencia comida italiano,6,4,33.33333333333333
+necesito una sugerencia de comida italiana,1,meal_suggestion,6.0,es,necesitar sugerencia comida italiano,6,4,33.33333333333333
+Por favor dame una sugerencia sobre qué hacer para la cena.,1,meal_suggestion,11.0,es,favor dame sugerencia hacer cena,11,5,54.54545454545454
+Me gustaría una sugerencia de comida italiana.,1,meal_suggestion,6.0,es,gustar sugerencia comida italiano,7,4,42.857142857142854
+Necesito que me des una sugerencia sobre qué hacer para cenar.,1,meal_suggestion,14.0,es,necesitar des sugerencia hacer cenar,11,5,54.54545454545454
+Me encantaría una sugerencia de comida italiana.,1,meal_suggestion,7.0,es,encantar sugerencia comida italiano,7,4,42.857142857142854
+adelante y dame una sugerencia sobre qué hacer para la cena,1,meal_suggestion,13.0,es,dar yo sugerencia hacer cena,11,5,54.54545454545454
+Realmente quiero una sugerencia de comida italiana.,1,meal_suggestion,7.0,es,realmente querer sugerencia comida italiano,7,5,28.57142857142857
+sugerirme comida de italia,1,meal_suggestion,6.0,es,sugerir yo comida italia,4,4,0.0
+sugiérame una comida italiana,1,meal_suggestion,6.0,es,sugieramir comida italiano,4,3,25.0
+¿Qué comida de Italia sugieres?,1,meal_suggestion,7.0,es,comida italia sugier,5,3,40.0
+¿Qué comida de Italia sugieres?,1,meal_suggestion,7.0,es,comida italia sugier,5,3,40.0
+sugerirme una comida de italia,1,meal_suggestion,7.0,es,sugerir yo comida italia,5,4,20.0
+necesito una sugerencia para una receta de cena,1,meal_suggestion,8.0,es,necesitar sugerencia receta cena,8,4,50.0
+sugiérame una comida que venga de México,1,meal_suggestion,9.0,es,sugieramir comida venir mexico,7,4,42.857142857142854
+¿Puedes sugerirme una comida irlandesa?,1,meal_suggestion,9.0,es,sugerir yo comida irlandes,5,4,20.0
+sugiérame algo para preparar para la cena,1,meal_suggestion,9.0,es,sugieramir preparar cena,7,3,57.14285714285714
+¿Puedes recomendarme un plato de Etiopía?,1,meal_suggestion,9.0,es,recomendarme plato etiopia,6,3,50.0
+¿Qué crees que debería preparar para mi cena?,1,meal_suggestion,10.0,es,crees deber preparar cena,8,4,50.0
+¿Tienes algún plato sureño para recomendar?,1,meal_suggestion,8.0,es,plato sureno recomendar,6,3,50.0
+busca una receta para cenar para sugerirme,1,meal_suggestion,10.0,es,buscar receta cenar sugerir yo,7,5,28.57142857142857
+¿Qué debo hacer para la cena?,1,meal_suggestion,6.0,es,debo hacer cena,6,3,50.0
+por favor sugiérame una comida británica,1,meal_suggestion,7.0,es,favor sugierame comida britanico,6,4,33.33333333333333
+¿Qué tipo de comida griega es buena para cenar?,1,meal_suggestion,9.0,es,tipo comida griego ser buen cenar,9,6,33.33333333333333
+¿Qué tipo de pizzas hay disponibles para la cena?,1,meal_suggestion,8.0,es,tipo pizza disponible cena,9,4,55.55555555555556
+Necesito algunas buenas ideas para la cena.,1,meal_suggestion,5.0,es,necesitar idea cena,7,3,57.14285714285714
+"Pensando en preparar la cena, ¿qué debo hacer?",1,meal_suggestion,8.0,es,pensar preparar cena deber hacer,8,5,37.5
+dame algunas opciones sobre qué cocinar para la cena,1,meal_suggestion,10.0,es,dame opcion cocinar cena,9,4,55.55555555555556
+Por favor proporcione una opción para la cena.,1,meal_suggestion,6.0,es,favor proporcionir opcion cena,8,4,50.0
+Me gustaría saber qué ideas tienes sobre cómo preparar la cena esta noche.,1,meal_suggestion,13.0,es,gustar idea como preparar cena noche,13,6,53.84615384615385
+¿Tiene alguna sugerencia sobre lo que debería cocinar para la cena?,1,meal_suggestion,13.0,es,sugerencia deber cocinar cena,11,4,63.63636363636363
+sugiérame una comida de Dinamarca,1,meal_suggestion,7.0,es,sugieramir comida dinamarca,5,3,40.0
+sugiérame una comida de corea,1,meal_suggestion,7.0,es,sugieramir comida corea,5,3,40.0
+sugerirme una comida de Alemania,1,meal_suggestion,7.0,es,sugerir yo comida alemania,5,4,20.0
+sugiérame una comida de la india,1,meal_suggestion,7.0,es,sugieramir comida india,6,3,50.0
+sugiérame una comida de nueva york,1,meal_suggestion,8.0,es,sugieramir comida york,6,3,50.0
+¿Qué crees que debería hacer para cenar?,1,meal_suggestion,9.0,es,crees deber hacer cenar,7,4,42.857142857142854
+¿Qué piensas sobre preparar la cena esta noche?,1,meal_suggestion,9.0,es,pensar preparar cena noche,8,4,50.0
+Déjame elegir tu cerebro ¿Qué crees que deberíamos hacer para cenar esta noche?,1,meal_suggestion,15.0,es,dejamir elegir cerebro crees debeer hacer cenar noche,13,8,38.46153846153847
+alguna sugerencia para una comida peruana,1,meal_suggestion,6.0,es,sugerencia comida peruano,6,3,50.0
+¿Qué plato peruano debo hacer?,1,meal_suggestion,6.0,es,plato peruano deber hacer,5,4,20.0
+¿Qué debería comer en un restaurante mexicano?,1,meal_suggestion,8.0,es,deber comer restaurante mexicano,7,4,42.857142857142854
+sugiérame una comida de Perú,1,meal_suggestion,7.0,es,sugieramir comida peru,5,3,40.0
+¿Cuál es la mejor manera de asar un pollo?,2,recipe,8.0,es,ser asar pollo,9,3,66.66666666666666
+¿Cómo hago masa para pastel?,2,recipe,6.0,es,como hacer masa pastel,5,4,20.0
+encuentra una receta de pastel de chocolate alemán,2,recipe,7.0,es,encontrar receta pastel chocolate aleman,8,5,37.5
+¿Cómo frito chuletas de cerdo?,2,recipe,6.0,es,como fritir chuleta cerdo,5,4,20.0
+¿Cómo cocino huevos duros?,2,recipe,6.0,es,como cocinar huevo duro,4,4,0.0
+"Encuentra una receta de chow mein para mí, por favor.",2,recipe,8.0,es,encontrar receta chow mein favor,10,5,50.0
+¿Sabes hacer chow mein?,2,recipe,8.0,es,hacer chow mein,4,3,25.0
+¿Puedes encontrar una receta sobre cómo hacer chow mein?,2,recipe,11.0,es,encontrar receta como hacer chow mein,9,6,33.33333333333333
+dime como hacer chow mein,2,recipe,7.0,es,dime como hacer chow mein,5,5,0.0
+Me gustaría que me ayudaran a encontrar una receta de chow mein.,2,recipe,12.0,es,gustar ayudarar encontrar receta chow mein,12,6,50.0
+muéstrame una receta de carne,2,recipe,5.0,es,muestramir receta carne,5,3,40.0
+¿Cuál es una buena receta de carne?,2,recipe,6.0,es,ser buen receta carne,7,4,42.857142857142854
+necesito una receta de carne,2,recipe,6.0,es,necesitar receta carne,5,3,40.0
+dame una receta de carne,2,recipe,5.0,es,damar receta carne,5,3,40.0
+¿Dónde hay una receta de carne?,2,recipe,5.0,es,receta carne,6,2,66.66666666666666
+ya sabes procedimiento para cocinar pastel de manzana,2,recipe,7.0,es,procedimiento cocinar pastel manzana,8,4,50.0
+¿Qué se necesita para cocinar pastel de manzana?,2,recipe,8.0,es,necesitar cocinar pastel manzana,8,4,50.0
+¿Sabes cuáles son los ingredientes para hacer tarta de manzana?,2,recipe,11.0,es,ser ingrediente hacer tarta manzana,10,5,50.0
+¿Conoces la receta para hacer tarta de manzana?,2,recipe,8.0,es,conoces receta hacer tarta manzana,8,5,37.5
+¿Cómo se cocina el pastel de manzana?,2,recipe,6.0,es,como cocinar pastel manzana,7,4,42.857142857142854
+¿Cómo hago pastel de calabaza?,2,recipe,6.0,es,como hacer pastel calabaza,5,4,20.0
+hacer salsa de espagueti a la perfección se hace cómo,2,recipe,7.0,es,hacer salso espagueti perfeccion hacer como,10,6,40.0
+hacer costillas perfectamente se hace como,2,recipe,6.0,es,hacer costilla perfectamente hacer como,6,5,16.666666666666664
+¿Cómo hago pastel de merengue de limón?,2,recipe,7.0,es,como hacer pastel merengue limon,7,5,28.57142857142857
+¿Cómo hago lasaña?,2,recipe,5.0,es,como hacer lasana,3,3,0.0
+buscar una receta de macarrones con queso,2,recipe,7.0,es,buscar receta macarron queso,7,4,42.857142857142854
+¿Puedes conseguirme una receta de puré de patatas?,2,recipe,9.0,es,conseguirmar receta pure patata,8,4,50.0
+Necesito instrucciones sobre cómo hacer pastel de pastor por favor.,2,recipe,10.0,es,necesitar instruccion como hacer pastel pastor favor,10,7,30.0
+por favor ayúdenme con instrucciones sobre cómo hacer pollo al curry,2,recipe,9.0,es,favor ayudenme instruccion como hacer pollo curry,11,7,36.36363636363637
+¿Cuáles son los pasos que debo seguir para hacer golosinas de arroz krispies masticables?,2,recipe,14.0,es,ser paso deber seguir hacer golosina arroz krispies masticabl,14,9,35.714285714285715
+¿Cuál es la mejor manera de hacer pollo salteado?,2,recipe,9.0,es,ser hacer pollo salteado,9,4,55.55555555555556
+¿Cómo hago ensalada de atún?,2,recipe,6.0,es,como hacer ensalado atun,5,4,20.0
+¿Puedes darme una receta de pastel de chocolate alemán?,2,recipe,10.0,es,dar yo receta pastel chocolate aleman,9,6,33.33333333333333
+necesito una receta de como hacer estofado de carne,2,recipe,10.0,es,necesitar receta como hacer estofado carne,9,6,33.33333333333333
+Quiero una buena receta que me muestre cómo hornear galletas con chispas de chocolate desde cero.,2,recipe,16.0,es,querer buen receta mostrar como hornear galleta chispa chocolate cero,16,10,37.5
+busque una receta de brownies de chocolate y dulce de azúcar,2,recipe,8.0,es,buscar receta browni chocolate dulce azucar,11,6,45.45454545454545
+¿Me darías alguna orientación sobre cómo hacer ceviche?,2,recipe,11.0,es,dariar orientacion como hacer ceviche,8,5,37.5
+"¿Puedes buscar las mejores recetas de tarta de queso al estilo de Nueva York, por favor?",2,recipe,12.0,es,buscar receta tarta queso estilo york favor,16,7,56.25
+busque recetas fáciles de seguir para costillas de res,2,recipe,9.0,es,buscar receta facil seguir costilla,9,5,44.44444444444444
+necesito la mejor receta de puré de patatas,2,recipe,8.0,es,necesitar receta pure patata,8,4,50.0
+¿Puedes encontrarme una receta de pastel?,2,recipe,8.0,es,puedes encontrar yo receta pastel,6,5,16.666666666666664
+¿Puedes encontrarme una receta de quiche?,2,recipe,8.0,es,puedes encontrar yo receta quiche,6,5,16.666666666666664
+¿Puedes encontrarme una receta de pasta?,2,recipe,8.0,es,puedes encontrar yo receta pasta,6,5,16.666666666666664
+¿Puedes encontrarme una receta de costillas?,2,recipe,8.0,es,puedes encontrar yo receta costil el,6,6,0.0
+¿Puedes encontrarme una receta para el pastel?,2,recipe,8.0,es,puedes encontrar yo receta pastel,7,5,28.57142857142857
+¿Qué pasos hay que seguir para hacer lasaña?,2,recipe,7.0,es,paso seguir hacer lasana,8,4,50.0
+¿Cómo puedo hacer pastel de pollo?,2,recipe,7.0,es,como hacer pastel pollo,6,4,33.33333333333333
+cómo hacer macarrones con queso,2,recipe,6.0,es,como hacer macarron queso,5,4,20.0
+¿Cómo se hace el asado?,2,recipe,6.0,es,como hacer asado,5,3,40.0
+¿Puedes encontrar una receta abundante de lasaña?,2,recipe,7.0,es,encontrar receta abundante lasana,7,4,42.857142857142854
+encuentra una buena receta de pastel de carne,2,recipe,6.0,es,encontrar buen receta pastel carne,8,5,37.5
+Estoy buscando una receta de pasta italiana vegana.,2,recipe,10.0,es,estar buscar receta pasta italiano vegano,8,6,25.0
+¿Cómo se cocina el pastel de carne?,2,recipe,5.0,es,como cocinar pastel carne,7,4,42.857142857142854
+necesito una receta de lasaña vegetariana,2,recipe,6.0,es,necesitar receta lasana vegetarian,6,4,33.33333333333333
+necesito una receta rapida de jamon en espiral,2,recipe,8.0,es,necesitar receta rapido jamon espiral,8,5,37.5
+cual es la receta de fideos de arroz,2,recipe,6.0,es,ser receta fideo arroz,8,4,50.0
+¿Puedes ayudarme a encontrar una receta de lasaña?,2,recipe,8.0,es,ayudar yo encontrar receta lasana,8,5,37.5
+necesito una receta de pastel de pollo,2,recipe,8.0,es,necesitar receta pastel pollo,7,4,42.857142857142854
+ayúdame a encontrar una receta para una cazuela de carne,2,recipe,9.0,es,ayudame encontrar receta cazuela carne,10,5,50.0
+Necesito ayuda para encontrar una receta de enchiladas.,2,recipe,8.0,es,necesitar ayuda encontrar receta enchilada,8,5,37.5
+Necesito saber cómo hacer filetes de queso Filadelfia.,2,recipe,9.0,es,necesitar como hacer filete queso filadelfia,8,6,25.0
+necesito una receta de pastel de moras,2,recipe,6.0,es,necesitar receta pastel mora,7,4,42.857142857142854
+¿Qué necesito hacer para hacer pastel de moras?,2,recipe,10.0,es,necesitar hacer hacer pastel mora,8,5,37.5
+instrucciones de pastel de moras,2,recipe,3.0,es,instruccion pastel mora,5,3,40.0
+¿Cómo se hace el pastel de moras?,2,recipe,6.0,es,como hacer pastel mora,7,4,42.857142857142854
+¿Cómo horneo un pastel de moras?,2,recipe,7.0,es,como horneo pastel mora,6,4,33.33333333333333
+¿Tienes un libro de cocina que pueda enseñarme a hacer sushi?,2,recipe,12.0,es,libro cocina ensenar yo hacer sushi,11,6,45.45454545454545
+¿Puedes enseñarme a hacer sushi?,2,recipe,8.0,es,ensenar yo hacer sushi,5,4,20.0
+donde puedo buscar para aprender a hacer sushi,2,recipe,9.0,es,buscar aprender hacer sushi,8,4,50.0
+¿Qué necesitas hacer para hacer sushi?,2,recipe,9.0,es,necesita hacer hacer sushi,6,4,33.33333333333333
+¿Existe algún buen sitio web que me enseñe a hacer sushi?,2,recipe,12.0,es,existir buen sitio web ensenir hacer sushi,11,7,36.36363636363637
+dime como hacer ternera Wellington,2,recipe,7.0,es,dime como hacer ternero wellington,5,5,0.0
+¿Cuál es una buena receta para el diván de pollo?,2,recipe,7.0,es,ser buen receta divan pollo,10,5,50.0
+buscame una receta de pollo teriyaki,2,recipe,7.0,es,buscame receta pollo teriyaki,6,4,33.33333333333333
+descubre cómo hacer pollo tikka masala,2,recipe,8.0,es,descubrir como hacer pollo tikkar masala,6,6,0.0
+¿Cómo hago stroganoff de carne?,2,recipe,6.0,es,como hacer stroganoff carne,5,4,20.0
+por favor muéstrame una receta de chile,2,recipe,7.0,es,favor muestramir receta chile,7,4,42.857142857142854
+¿Cuál es una buena receta de chile?,2,recipe,6.0,es,ser buen receta chile,7,4,42.857142857142854
+Necesito que me encuentres una receta de camarones fritos,2,recipe,11.0,es,necesitar encuentres receta gamba frito,9,5,44.44444444444444
+¿Puedes encontrarme una receta de pasteles de café?,2,recipe,9.0,es,puedes encontrar yo receta pastel cafe,8,6,25.0
+¿Puedes encontrarme una receta de salsa?,2,recipe,8.0,es,puedes encontrar yo receta salsa,6,5,16.666666666666664
+¿Puedes encontrarme una receta de jamón con miel?,2,recipe,9.0,es,puedes encontrar yo receta jamon miel,8,6,25.0
+¿Puedes encontrarme una receta de pastel de queso?,2,recipe,9.0,es,puedes encontrar yo receta pastel queso,8,6,25.0
+¿Puedes encontrarme una receta de galletas de azúcar?,2,recipe,9.0,es,puedes encontrar yo receta galleta azucar,8,6,25.0
+¿Puedes encontrarme una receta de pastel de zanahoria?,2,recipe,9.0,es,puedes encontrar yo receta pastel zanahoria,8,6,25.0
+¿Cómo se hace Benedict Arnold?,2,recipe,6.0,es,como hacer benedict arnold,5,4,20.0
+¿Cómo se crea el chile de cerdo?,2,recipe,6.0,es,como creer chile cerdo,7,4,42.857142857142854
+¿Cuál es la mejor manera de hacer una ensalada de brócoli?,2,recipe,9.0,es,ser hacer ensalada brocoli,11,4,63.63636363636363
+¿Hay instrucciones sobre cómo hacer panqueques de suero de leche?,2,recipe,9.0,es,instruccion como hacer panquequ suero leche,10,6,40.0
+¿Cuál es la manera de hacer pastel de manzana?,2,recipe,7.0,es,ser hacer pastel manzana,9,4,55.55555555555556
+¿Cuál es el proceso de hacer un burrito?,2,recipe,7.0,es,ser proceso hacer burrito,8,4,50.0
+¿Cómo hago un taco que valga la pena comer?,2,recipe,9.0,es,como hacer taco valer pena comer,9,6,33.33333333333333
+¿Cómo hago ese plato escocés con toda la sangre y salchichas?,2,recipe,13.0,es,como hacer plato escoces sangre salchicha,11,6,45.45454545454545
+¿Hay alguna receta de chile que pueda usar?,2,recipe,9.0,es,receta chile,8,2,75.0
+por favor dame instrucciones sobre cómo hacer pastel de arándanos,2,recipe,8.0,es,favor dame instruccion como hacer pastel arandano,10,7,30.0
+¿Puedes explicarme cómo hacer pastel de chocolate alemán?,2,recipe,11.0,es,explicar yo como hacer pastel chocolate aleman,8,7,12.5
+¿Cómo hago la tortilla perfecta?,2,recipe,7.0,es,como hacer tortilla perfecto,5,4,20.0
+"Quiero hacer pan de masa agria, por favor encuentra una buena receta para mí.",2,recipe,14.0,es,querer hacer pan masa agrio favor encontrar buen receta,14,9,35.714285714285715
+necesito una muy buena receta para hacer donas,2,recipe,9.0,es,necesitar buen receta hacer dona,8,5,37.5
+por favor búscame una receta de espaguetis ahora,2,recipe,8.0,es,favor buscame receta espaguetis,8,4,50.0
+¿Qué tan saludable es el pastel de Shepard?,5,nutrition_info,,es,saludable ser pastel shepard,8,4,50.0
+¿Qué tan saludable es el pastel de nueces?,5,nutrition_info,,es,saludable ser pastel nuez,8,4,50.0
+que tan saludable es el hummus,5,nutrition_info,,es,saludable ser hummus,6,3,50.0
+que tan saludable es la ensalada,5,nutrition_info,,es,saludable ser ensalado,6,3,50.0
+¿Qué tan saludable es el pastel de calabaza?,5,nutrition_info,,es,saludable ser pastel calabaza,8,4,50.0
+¿El chocolate es bueno para ti?,5,nutrition_info,,es,chocolate ser,6,2,66.66666666666666
+dime que tan saludable es el chocolate,5,nutrition_info,,es,dime saludable ser chocolate,7,4,42.857142857142854
+¿Cuál es la información nutricional de los macarrones con queso kraft?,5,nutrition_info,,es,ser informacion nutricional macarron queso kraft,11,6,45.45454545454545
+¿El chocolate es malo o bueno para ti?,5,nutrition_info,,es,chocolate ser malo,8,3,62.5
+¿Puedes decirme la información nutricional de un Big Mac?,5,nutrition_info,,es,decir yo informacion nutricional big mac,9,6,33.33333333333333
+¿Las papas fritas son saludables o no?,5,nutrition_info,,es,patata fritas ser saludable no,7,5,28.57142857142857
+dime la información nutricional de un plátano normal,5,nutrition_info,,es,dimir informacion nutricional platano normal,8,5,37.5
+léeme la información nutricional de una bolsa de patatas chips lay's,5,nutrition_info,,es,leeme informacion nutricional bolsa patata chips lay's,11,7,36.36363636363637
+Obtenga la información nutricional de una Coca-Cola de 12 oz.,5,nutrition_info,,es,obtener informacion nutricional coca-cola 12 oz,10,6,40.0
+¿Es el chocolate saludable?,5,nutrition_info,,es,ser chocolate saludable,4,3,25.0
+dime cuanta grasa tiene la hamburguesa,5,nutrition_info,,es,dime grasa hamburguesa,6,3,50.0
+¿Cuál es la información nutricional de las gambas al ajillo?,5,nutrition_info,,es,ser informacion nutricional gamba ajillo,10,5,50.0
+cuantos gramos de sodio hay en las papas fritas,5,nutrition_info,,es,cuanto gramo sodio patata fritas,9,5,44.44444444444444
+¿El arroz es bueno para mí?,5,nutrition_info,,es,arroz ser,6,2,66.66666666666666
+¿Es saludable comer zanahoria cruda?,5,nutrition_info,,es,ser saludable comer zanahorio crudo,5,5,0.0
+¿Es segura mi leche para beber después de estar en el refrigerador durante una semana?,8,food_last,,es,ser seguro leche beber despues estar refrigerador semana,15,8,46.666666666666664
+"La sidra de manzana ha estado en mi refrigerador durante cuatro meses, así que todavía puedo beberla.",8,food_last,,es,sidra manzana estar refrigerador mes beber el,17,7,58.82352941176471
+"La mayonesa ha estado en mi refrigerador durante tres años, ¿todavía es buena para comer?",8,food_last,,es,mayonesa estar refrigerador ano ser buen comer,15,7,53.333333333333336
+¿El pollo cocido sigue estando bueno después de haber estado refrigerado durante dos semanas?,8,food_last,,es,pollo cocido seguir estar despues estar refrigerado semana,14,8,42.857142857142854
+"He tenido huevos frescos de granja en el refrigerador durante algunos meses, ¿todavía se pueden ingerir?",8,food_last,,es,huevo fresco granja refrigerador mes ingerir,16,6,62.5
+cuantos dias faltan para que caduque la leche,8,food_last,,es,cuanto faltar caducar leche,8,4,50.0
+¿Estará bien el arroz en el frigorífico durante 3 días?,8,food_last,,es,estar arroz frigorifico,10,3,70.0
+¿Está bien el arroz después de 3 días en el refrigerador?,8,food_last,,es,estar arroz despues refrigerador,11,4,63.63636363636363
+"Después de 3 días en el refrigerador, ¿el arroz es seguro para comer?",8,food_last,,es,despues refrigerador arroz ser seguro comer,13,6,53.84615384615385
+¿El arroz está malo después de 3 días en el frigorífico?,8,food_last,,es,arroz estar malo despues frigorifico,11,5,54.54545454545454
+¿Puedo guardar el arroz en el frigorífico durante 3 días?,8,food_last,,es,guardar arroz frigorifico,10,3,70.0
+cuando se me acaba la leche,8,food_last,,es,cuando acabar leche,6,3,50.0
+cuanto tiempo tarda en caducar la leche,8,food_last,,es,cuanto tiempo tardar caducar leche,7,5,28.57142857142857
+¿Cómo sé si mi leche está vencida?,8,food_last,,es,como leche estar vencido,7,4,42.857142857142854
+cual es la fecha de vencimiento de mi leche,8,food_last,,es,ser fecha vencimiento leche,9,4,55.55555555555556
+cuanto falta para que se me acabe la leche,8,food_last,,es,cuanto faltar acabar leche,9,4,55.55555555555556
+¿Cuánto tiempo puedo mantener la carne de cerdo en el congelador antes de que se queme?,8,food_last,,es,cuanto tiempo mantener carne cerdo congelador antes quemar,16,8,50.0
+¿Cuánto tiempo puedo mantener la carne en el congelador antes de que se ponga fea?,8,food_last,,es,cuanto tiempo mantener carne congelador antes feo,15,7,53.333333333333336
+¿Cuánto tiempo puedo mantener el pollo en el congelador antes de que se ponga asqueroso?,8,food_last,,es,cuanto tiempo mantener pollo congelador antes asqueroso,15,7,53.333333333333336
+¿Cuánto tiempo puedo mantener el bisonte en el congelador antes de que se eche a perder?,8,food_last,,es,cuanto tiempo mantener bisonte congelador antes echar perder,16,8,50.0
+¿Cuánto tiempo necesito para cocinar el pot au feu?,7,cook_time,,es,cuanto tiempo necesitar cocinar pot au feu,9,7,22.22222222222222
+¿Cuánto tiempo necesito para cocinar el chile?,7,cook_time,,es,cuanto tiempo necesitar cocinar chile,7,5,28.57142857142857
+¿Cuánto tiempo necesito para cocinar lasaña?,7,cook_time,,es,cuanto tiempo necesitar cocinar lasana,6,5,16.666666666666664
+¿Cuánto tiempo necesito para cocinar la cazuela de atún?,7,cook_time,,es,cuanto tiempo necesitar cocinar cazuela atun,9,6,33.33333333333333
+¿Cuánto tiempo necesito para cocinar estofado de carne?,7,cook_time,,es,cuanto tiempo necesitar cocinar estofado carne,8,6,25.0
+¿Cuánto tiempo debo cocinar patatas fritas campestres?,7,cook_time,,es,cuanto tiempo deber cocinar patata frito campestr,7,7,0.0
+¿Cuánto tiempo debo cocinar pho?,7,cook_time,,es,cuanto tiempo deber cocinar pho,5,5,0.0
+¿Cuánto tiempo debo cocinar el bistec?,7,cook_time,,es,cuanto tiempo deber cocinar bistec,6,5,16.666666666666664
+¿Cuánto tiempo debo cocinar el asado?,7,cook_time,,es,cuanto tiempo deber cocinar asado,6,5,16.666666666666664
+necesito saber por cuanto tiempo se cocina el pollo,7,cook_time,,es,necesitar cuanto tiempo cocinar pollo,9,5,44.44444444444444
+¿Cuánto tiempo pongo las galletas de azúcar?,7,cook_time,,es,cuanto tiempo galleta azucar,7,4,42.857142857142854
+¿Cuánto tiempo debo cocinar las carnitas?,7,cook_time,,es,cuanto tiempo deber cocinar carnita,6,5,16.666666666666664
+¿Cuánto tiempo debo cocinar el jamón?,7,cook_time,,es,cuanto tiempo deber cocinar jamon,6,5,16.666666666666664
+¿Cuánto tiempo se tarda en hacer pho?,7,cook_time,,es,cuanto tiempo tardar hacer pho,7,5,28.57142857142857
+¿Cuánto tiempo necesito para cocinar el asado?,7,cook_time,,es,cuanto tiempo necesitar cocinar asado,7,5,28.57142857142857
+¿Cuánto tiempo debo calentar los bolsillos en el microondas?,7,cook_time,,es,cuanto tiempo deber calentar bolsillo microonda,9,6,33.33333333333333
+¿Cuánto tiempo se tarda en cocinar bolsillos calientes?,7,cook_time,,es,cuanto tiempo tardar cocinar bolsillo caliente,8,6,25.0
+¿Cuál es el tiempo de cocción recomendado para el bistec?,7,cook_time,,es,ser tiempo coccion recomendado bistec,10,5,50.0
+¿Debo cocinar esto por mucho tiempo?,7,cook_time,,es,deber cocinar tiempo,6,3,50.0
+¿A qué hora debo dejar esto en el horno?,7,cook_time,,es,hora deber dejar horno,9,4,55.55555555555556
+¿Sería un problema incluir patatas fritas en lugar de patatas fritas?,4,ingredient_substitution,,es,ser problema incluir patata frito lugar patata frito,11,8,27.27272727272727
+déjame saber si puedo usar ketchup en lugar de mostaza,4,ingredient_substitution,,es,dejamir ketchup lugar mostaza,10,4,60.0
+¿Está bien usar ketchup en lugar de mostaza?,4,ingredient_substitution,,es,estar ketchup lugar mostaza,8,4,50.0
+¿Es normal usar mayonesa en lugar de queso?,4,ingredient_substitution,,es,ser normal mayonesa lugar queso,8,5,37.5
+¿Puedo sustituir la mostaza por ketchup?,4,ingredient_substitution,,es,sustituir mostaza ketchup,6,3,50.0
+Me pregunto si sería posible pasar de las manzanas a las uvas.,4,ingredient_substitution,,es,preguntar ser pasar manzana uva,12,5,58.333333333333336
+¿Se permite cambiar manzanas por uvas?,4,ingredient_substitution,,es,permitir cambiar manzana uva,6,4,33.33333333333333
+¿Está bien cambiar manzanas por uvas?,4,ingredient_substitution,,es,estar cambiar manzana uva,6,4,33.33333333333333
+¿Puedo modificar las manzanas por uvas?,4,ingredient_substitution,,es,modificar manzana uva,6,3,50.0
+¿Podría cambiar manzanas por uvas?,4,ingredient_substitution,,es,cambiar manzana uva,5,3,40.0
+no tengo mantequilla puedo usar aceite,4,ingredient_substitution,,es,no mantequilla aceite,6,3,50.0
+¿La mantequilla es un sustituto del aceite?,4,ingredient_substitution,,es,mantequilla ser sustituto aceite,7,4,42.857142857142854
+¿Está bien usar mantequilla en lugar de aceite?,4,ingredient_substitution,,es,estar mantequilla lugar aceite,8,4,50.0
+son mantequilla y aceite intercambiables,4,ingredient_substitution,,es,ser mantequilla aceite intercambiabl,5,4,20.0
+¿Puedes cambiar la mantequilla y el aceite?,4,ingredient_substitution,,es,puedes cambiar mantequilla aceite,7,4,42.857142857142854
+¿Sabes si puedo usar pimienta y no sal?,4,ingredient_substitution,,es,pimienta no sal,8,3,62.5
+¿Funcionará la pimienta en lugar de la sal?,4,ingredient_substitution,,es,funcionar pimienta lugar sal,8,4,50.0
+¿La pimienta reemplaza la sal?,4,ingredient_substitution,,es,pimienta reemplazar sal,5,3,40.0
+¿Estaría bien si tuviera pimienta y no sal?,4,ingredient_substitution,,es,estar pimienta no sal,8,4,50.0
+¿Puedo usar pimienta en lugar de sal?,4,ingredient_substitution,,es,pimienta lugar sal,7,3,57.14285714285714
+¿Cuál es el contenido calórico de las patatas fritas?,6,calories,,es,ser contenido calorico patata frito,9,5,44.44444444444444
+¿Sabes el contenido calórico de una tira de tocino?,6,calories,,es,contenido calorico tira tocino,9,4,55.55555555555556
+cuantas calorias se encuentran en los bagels,6,calories,,es,caloria encontrar bagels,7,3,57.14285714285714
+dime el contenido calórico de los copos helados,6,calories,,es,dimir contenido calorico copo helado,8,5,37.5
+infórmame del contenido calórico del helado de vainilla.,6,calories,,es,informame contenido calorico helado vainilla,8,5,37.5
+cuantas calorias tienen las manzanas,6,calories,,es,caloria manzana,5,2,60.0
+cuantas calorias tienen las naranjas,6,calories,,es,caloria naranja,5,2,60.0
+cuantas calorias tiene el helado,6,calories,,es,caloria helado,5,2,60.0
+cuantas calorias tiene el pastel,6,calories,,es,caloria pastel,5,2,60.0
+cuantas calorias tienen las oreos,6,calories,,es,caloria oreo,5,2,60.0
+cuantas calorias tienen dos bananos,6,calories,,es,caloria banano,5,2,60.0
+en un huevo frito cuantas calorias tiene,6,calories,,es,huevo frito caloria,7,3,57.14285714285714
+palitos de pocki tiene cuantas calorias,6,calories,,es,palito pocki caloria,6,3,50.0
+¿Cuál es la cantidad de calorías que tienen los huevos revueltos?,6,calories,,es,ser cantidad caloria huevo revuelto,11,5,54.54545454545454
+cuantas calorias hay en un agujero sin cobertura,6,calories,,es,caloria agujero sin cobertura,8,4,50.0
+¿Cuántas calorías tiene un caramelo de caramelo con sal marina Ghirardelli?,6,calories,,es,caloria caramelo caramelo sal marina ghirardelli,11,6,45.45454545454545
+cuantas calorias tiene un intestino de trigo,6,calories,,es,caloria intestino trigo,7,3,57.14285714285714
+¿Cuántas calorías tiene una porción de salsa de cebolla francesa Deans?,6,calories,,es,caloria porcion salsa cebolla frances deans,11,6,45.45454545454545
+cuantas calorias tiene el puré de papas,6,calories,,es,caloria pure patata,7,3,57.14285714285714
+cuantas calorias tienen las donas en polvo,6,calories,,es,caloria dona polvo,7,3,57.14285714285714
+Necesito una lista de ingredientes necesarios para hacer estofado de cordero.,3,ingredients_list,,es,necesitar lista ingrediente necesario hacer estofado cordero,11,7,36.36363636363637
+busque los ingredientes necesarios incluidos en las albóndigas,3,ingredients_list,,es,buscar ingrediente necesario incluido albondiga,8,5,37.5
+¿Puedes decirme los ingredientes utilizados en la salsa para pasta?,3,ingredients_list,,es,decir yo ingrediente utilizado salso pasta,10,6,40.0
+¿Conoces los ingredientes utilizados en la sopa de pollo casera?,3,ingredients_list,,es,conoces ingrediente utilizado sopa pollo casera,10,6,40.0
+Necesito saber qué ingredientes lleva una baguette francesa.,3,ingredients_list,,es,necesitar ingrediente baguette frances,8,4,50.0
+encuentre la lista de ingredientes que necesitaría para hornear un pastel de embudo,3,ingredients_list,,es,encontrar lista ingrediente necesitar hornear pastel embudo,13,7,46.15384615384615
+¿Cuáles son los ingredientes utilizados en el pollo al curry?,3,ingredients_list,,es,ser ingrediente utilizado pollo curry,10,5,50.0
+¿Puedes decirme qué ingredientes se necesitan para los bollos de canela?,3,ingredients_list,,es,decir yo ingrediente necesitar bollo canela,11,6,45.45454545454545
+por favor dame una lista de los ingredientes que contienen los cupcakes de chocolate,3,ingredients_list,,es,favor dame lista ingrediente contener cupcak chocolate,14,7,50.0
+¿Qué ingredientes necesito para hacer pan con pasas?,3,ingredients_list,,es,ingrediente necesitar hacer pan pasa,8,5,37.5
+¿Qué debo conseguir para hacer las hamburguesas jamaicanas?,3,ingredients_list,,es,deber hacer hamburguesa jamaicano,8,4,50.0
+¿Qué necesito para hacer masa de pizza?,3,ingredients_list,,es,necesitar hacer masa pizza,7,4,42.857142857142854
+¿Qué tipo de ingredientes lleva el pollo a la king?,3,ingredients_list,,es,tipo ingrediente pollo king,10,4,60.0
+¿Qué necesito para hacer lasaña?,3,ingredients_list,,es,necesitar hacer lasana,5,3,40.0
+Dónde están los ingredientes para el salteado,3,ingredients_list,,es,estar ingrediente salteado,7,3,57.14285714285714
+"Para la pasta primavera, ¿qué ingredientes usaré?",3,ingredients_list,,es,pasta primavera ingrediente,7,3,57.14285714285714
+¿Qué ingredientes necesito para las gambas al ajillo?,3,ingredients_list,,es,ingrediente necesitar gamba ajillo,8,4,50.0
+necesito que ingredientes para el pastel de carne,3,ingredients_list,,es,necesitar ingrediente pastel carne,8,4,50.0
+¿Qué ingredientes usaré para lasaña?,3,ingredients_list,,es,ingrediente lasana,5,2,60.0
+"Para el bistec a la pimienta, ¿qué ingredientes necesito?",3,ingredients_list,,es,bistec pimienta ingrediente necesitar,9,4,55.55555555555556
+¿Puedes darme una sugerencia de comida china?,1,meal_suggestion,,es,dar yo sugerencia comida chino,7,5,28.57142857142857
+Me gustaría que sugirieras un plato chino.,1,meal_suggestion,,es,gustar sugirierar plato chino,7,4,42.857142857142854
+por favor sugiera una comida china,1,meal_suggestion,,es,favor sugiera comida chino,6,4,33.33333333333333
+Me gustaría que me dieras una sugerencia para una comida mexicana.,1,meal_suggestion,,es,gustar dierar sugerencia comida mexicano,11,5,54.54545454545454
+¿Puedes sugerir un plato mexicano?,1,meal_suggestion,,es,sugerir plato mexicano,5,3,40.0
+Necesito algunas buenas sugerencias para la cocina peruana.,1,meal_suggestion,,es,necesitar sugerencia cocina peruano,8,4,50.0
+ayúdame a encontrar algunas recetas nuevas para la cena,1,meal_suggestion,,es,ayudame encontrar receta cena,9,4,55.55555555555556
+¿Cuál dirías que es una buena idea para una cena alemana?,1,meal_suggestion,,es,diria ser buen idea cena aleman,11,6,45.45454545454545
+Necesito una idea para una cena italiana.,1,meal_suggestion,,es,necesitar idea cena italiano,7,4,42.857142857142854
+alguna recomendación para una cena griega,1,meal_suggestion,,es,recomendacion cena griego,6,3,50.0
+¿Cuál dirías que es la mejor comida para cenar?,1,meal_suggestion,,es,diria ser comida cenar,9,4,55.55555555555556
+Estoy aburrido y necesito nuevas recomendaciones para cenar.,1,meal_suggestion,,es,estar aburrido necesitar recomendacion cenar,8,5,37.5
+necesito una idea para una cena francesa,1,meal_suggestion,,es,necesitar idea cena frances,7,4,42.857142857142854
+¿Cuál es una buena sugerencia para una cena china?,1,meal_suggestion,,es,ser buen sugerencia cena chino,9,5,44.44444444444444
+¿Qué sugerirías cenar?,1,meal_suggestion,,es,sugeriria cenar,3,2,33.33333333333333
+Necesito sugerencias para una cena rápida.,1,meal_suggestion,,es,necesitar sugerencia cena rapido,6,4,33.33333333333333
+¿Qué tipo de comida debo comer de Tailandia?,1,meal_suggestion,,es,tipo comida deber comer tailandia,8,5,37.5
+Sugiera una comida de Tailandia por favor.,1,meal_suggestion,,es,sugiera comida tailandia favor,7,4,42.857142857142854
+sugerencias de comida tailandesa,1,meal_suggestion,,es,sugerencia comida tailandes,4,3,25.0
+dar recomendaciones de comida tailandesa,1,meal_suggestion,,es,recomendacion comida tailandes,5,3,40.0
+me gustaria aprender a hacer galletas,2,recipe,,es,gustariar aprender hacer galleta,6,4,33.33333333333333
+muéstrame recetas populares de sushi,2,recipe,,es,muestramir receta popular sushi,5,4,20.0
+necesito una receta de panqueques,2,recipe,,es,necesitar receta panquequ,5,3,40.0
+encuentre instrucciones para hornear pastel de limón,2,recipe,,es,encontrar instruccion hornear pastel limon,7,5,28.57142857142857
+¿Puedes darme instrucciones sobre cómo hacer alfredo?,2,recipe,,es,darme instruccion como hacer alfredo,7,5,28.57142857142857
+¿Cómo hago camarones?,2,recipe,,es,como hacer gamba,3,3,0.0
+cual es una buena receta de bistec,2,recipe,,es,ser buen receta bistec,7,4,42.857142857142854
+encontrar una receta para hamburguesas,2,recipe,,es,encontrar receta hamburguesa,5,3,40.0
+saca recetas de ramen por favor,2,recipe,,es,sacar receta ramen favor,6,4,33.33333333333333
+¿Cómo se hacen las albóndigas?,2,recipe,,es,como hacer albondiga,5,3,40.0
+¿Cómo se hace el aderezo de queso azul?,2,recipe,,es,como hacer aderezo queso azul,8,5,37.5
+necesito una receta de pollo cordon bleu,2,recipe,,es,necesitar receta pollo cordon bleu,7,5,28.57142857142857
+receta de rosbif tradicional y salsa,2,recipe,,es,receta rosbif tradicional salso,6,4,33.33333333333333
+Quiero hacer asado de cerdo pero no se como,2,recipe,,es,querer hacer asado cerdo no como,9,6,33.33333333333333
+dame una buena receta de pollo parmesano,2,recipe,,es,damar buen receta pollo parmesano,7,5,28.57142857142857
+¿Tienes alguna buena manera de hacer sopa de tomate?,2,recipe,,es,buen hacer sopa tomate,9,4,55.55555555555556
+como hago pollo alfredo,2,recipe,,es,como hacer pollo alfredo,4,4,0.0
+receta de stroganoff de ternera,2,recipe,,es,receta stroganoff ternera,5,3,40.0
+Necesito encontrar una buena manera de hacer sopa de pollo.,2,recipe,,es,necesitar encontrar buen hacer sopa pollo,10,6,40.0
+dime como hacer ramen,2,recipe,,es,dime como hacer ramen,4,4,0.0
