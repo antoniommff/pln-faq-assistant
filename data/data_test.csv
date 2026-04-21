@@ -263,7 +263,7 @@ por favor dame la información nutricional de un huevo,5,nutrition_info,es
 ¿Cuál es la información nutricional de una libra de pollo?,5,nutrition_info,es
 dime la información nutricional de una taza de leche,5,nutrition_info,es
 ¿Cuál es la información nutricional de un pepino?,5,nutrition_info,es
-dame los detalles nutricionales de una taza de yogurt,5,nutrition_info,es
+dame los detalles nutricionales de una taza de yogur,5,nutrition_info,es
 necesito la información nutricional del ramen,5,nutrition_info,es
 dime la información nutricional del pastel de pastor,5,nutrition_info,es
 Me gustaría información nutricional de los espaguetis a la carbonara.,5,nutrition_info,es
@@ -283,8 +283,8 @@ cuando caduca la miel,8,food_last,es
 ¿Cuánto tiempo tengo que conservar el tofu en el congelador antes de que se eche a perder?,8,food_last,es
 ¿Cuándo caducará el tofu si lo guardo en el congelador?,8,food_last,es
 ¿Cuánto tiempo durará el tofu en el congelador antes de que caduque?,8,food_last,es
-¿El tofu dura mucho en el congelador antes de estropearse?,8,food_last,es
-¿Cuántos días después está bien comer curry que estaba en el frigorífico?,8,food_last,es
+¿El tofu dura mucho tiempo en el congelador antes de estropearse?,8,food_last,es
+¿Cuántos días después está bien comer curry que estaba en el refrigerador?,8,food_last,es
 ¿A qué hora está bien comer tilapia cocida guardada en el refrigerador?,8,food_last,es
 ¿Cuál es la cantidad máxima de tiempo que se considera seguro para almacenar pollo crudo en el refrigerador?,8,food_last,es
 ¿Cuánto tiempo es seguro consumir el pastel de carne sobrante almacenado en el refrigerador?,8,food_last,es
@@ -294,7 +294,7 @@ cuando caduca la miel,8,food_last,es
 ¿Cuál es el máximo tiempo que puedo mantener un burrito congelado antes de que no sirva para comer?,8,food_last,es
 ¿Cuánto tiempo aproximadamente puedo dejar los plátanos en el congelador antes de tener que tirarlos?,8,food_last,es
 ¿Cuánto tiempo dura el pollo al curry en el congelador antes de que se eche a perder?,8,food_last,es
-¿Cuánto tiempo puede permanecer la leche en mi refrigerador?,8,food_last,es
+¿Cuánto tiempo puede permanecer la leche en mi frigorífico?,8,food_last,es
 La leche se echará a perder en mi refrigerador cuando,8,food_last,es
 ¿Cuál es la cantidad de tiempo para mantener la leche refrigerada?,8,food_last,es
 dime cuanto tiempo dura la leche en buen estado en el frigorífico,8,food_last,es
