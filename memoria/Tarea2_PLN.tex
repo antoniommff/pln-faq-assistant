@@ -321,9 +321,8 @@ A partir del diagnóstico lingüístico y el marco de restricciones identificado
 	\item \textbf{T4 (recuperación de FAQs):} Paradigma vectorial. Como la consulta llega estructurada por T2 y T3, la recuperación se resuelve en dos pasos: un filtro por intención que acota el espacio de búsqueda y una búsqueda por similitud coseno sobre las FAQs de esa categoría. 
 \end{itemize}
 
-
-\begin{comment}
 \newpage
+
 
 % ITERACIÓN 2
 \begin{Large}
@@ -333,18 +332,59 @@ A partir del diagnóstico lingüístico y el marco de restricciones identificado
 \vspace{0.5pt}
 \noindent \rule{\textwidth}{1pt}
 
-Comentar secciones antes de entregar. Están de referencia.
-
-% Segunda entrega
 \section{Revisiones respecto a la Entrega 1}
+ÓSCAR
 
+
+\newpage
 \section{Decisiones de representación y modelado}
+ANTONIO
 
+\subsection{Representación textual}
+
+\subsection{Selección de modelo para ...}
+
+
+\newpage
 \section{Datos y protocolo de evaluación}
+\subsection{Dataset seleccionado para la PoC}
+Para la PoC se utilizará el dataset \textbf{CLINC150} (Larson et al., 2019) en su configuración \texttt{plus}, disponible a través de la librería Datasets de Hugging Face. Este corpus es un estándar en la industria para evaluar sistemas de clasificación de intenciones en múltiples dominios.
 
+Dado que el proyecto se centra en un asistente de FAQs de cocina, se ha realizado un filtrado estricto para aislar este dominio, reduciendo el problema a \textbf{8 intenciones} (ej. \textit{recipe}, \textit{cook\_time}, \textit{ingredient\_substitution}). Este filtrado define las siguientes condiciones operativas para el diseño experimental.
+\begin{itemize}
+	\item \textbf{Escasez de datos:} Al acotar el dominio, el volumen del corpus disminuye significativamente. Para garantizar la reproducibilidad, se han respetado las particiones oficiales de \texttt{train}/\texttt{val}/\texttt{test}, pero fusionando \texttt{train} y \texttt{val} ante la falta de muestras. El conjunto final consta de 960 ejemplos de entrenamiento y 240 de prueba. Esta limitación justifica el uso de arquitecturas eficientes y robustas frente al sobreajuste (como TF-IDF) en lugar de modelos neuronales profundos.
+	\item \textbf{Clases balanceadas:} Las 8 intenciones presentan un equilibrio perfecto en el número de ejemplos.
+	\item \textbf{Soporte bilingüe:} CLINC150 es un corpus nativo en inglés. Como nuestro sistema debe soportar peticiones en español, se emplearán librerías de traducción automática para generar los datos correspondientes. Se asume el riesgo de introducir traducciones demasiado literales.
+	\item \textbf{Ajuste de cobertura:} En la caracterización lingüística de la Entrega 1, se identificó que las consultas sobre equivalencia de medidas son frecuentes. Al no existir una intención que cubra esta casuística en CLINC150, este aspecto quedará fuera de la PoC, limitando el alcance respecto al diseño teórico inicial. 
+\end{itemize}
+
+\subsection{Métricas y criterio de éxito}
+El objetivo final de la arquitectura es actuar como un asistente de preguntas frecuentes de cocina. El sistema debe detectar la intención del usuario y redirigirlo a la respuesta adecuada. Sin embargo, no disponemos de una base de datos real de FAQs estructuradas para este dominio. Por tanto, la evaluación de la PoC no será \textit{end-to-end} (extremo a extremo), sino que se limitará a reportar métricas exclusivas del módulo de \textbf{clasificación de intención}.
+
+Dado el equilibrio perfecto de las clases, se utilizará la \textbf{tasa de aciertos} (\textit{accuracy}) como métrica global. Adicionalmente, se calcularán la precisión, la exhaustividad (\textit{recall}) y el \textbf{F1-score} por clase para detectar confusiones interclase (por ejemplo, si el modelo confunde ``pedir una receta'' con ``buscar información nutricional''). Las \textbf{matrices de confusión} nos ayudarán a visualizar y analizar estas desviaciones de forma detallada. 
+
+Como \textbf{referencia mínima}, se empleará un clasificador uniforme (\textit{dummy}) que, al tener 8 clases balanceadas, partirá de un rendimiento trivial del 12.5 \%. 
+
+Todos los resultados se desglosarán por idioma. 
+
+\subsubsection*{Criterios de éxito de la PoC}
+Para considerar que la prueba de concepto es exitosa, se deben cumplir los siguientes hitos.
+\begin{enumerate}
+	\item \textbf{Superar holgadamente la línea base:} El modelo de clasificación de intención debe mejorar significativamente el 12.5 \% del clasificador trivial en ambos idiomas.
+	\item \textbf{Análisis de errores fundamentado:} Identificar los fallos de clasificación y conectarlos directamente con el análisis lingüístico de la entrega anterior.
+	\item\textbf{Extracción empírica y propuesta teórica de enrutamiento:} Como se expuso en la charla de PLN del 14 de abril, ``la intención es necesaria pero no suficiente''. Saber que el usuario busca una receta es inútil si no se extraen los alimentos o términos clave de su consulta. Por ello, el éxito práctico de la PoC consistirá en someter el sistema a consultas de prueba para comprobar que es capaz de procesar el texto y devolver correctamente la tupla de información \texttt{[Idioma, Intención, Entidades]}. A partir de este resultado empírico, y al carecer de una base de datos real de FAQs, se propondrá a nivel teórico el diseño de la fase final de enrutamiento. Concretamente, se plantearán y compararán dos estrategias para cruzar estos datos con un hipotético corpus de respuestas: una vía léxica (mediante motores de indexación como Whoosh) y una vía semántica (mediante la generación de \textit{embeddings} y el cálculo de similitud coseno).
+\end{enumerate}
+
+
+\newpage
 \section{Arquitectura final del sistema}
+NICO
 
 
+
+
+
+\begin{comment}
 \newpage
 
 % ITERACIÓN 3
