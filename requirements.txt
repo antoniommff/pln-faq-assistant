@@ -23,9 +23,13 @@ seaborn>=0.12.0
 # Recuperación de información
 whoosh>=2.7.4
 
-# Embeddings semánticos
+# Embeddings semánticos (esto probablemente va fuera porque no lo vamos a usar)
 sentence-transformers>=2.2.0
 
 # Modelos de spaCy (instalar con):
 #   python -m spacy download es_core_news_sm
 #   python -m spacy download en_core_web_sm
+
+# Librerías estándar de Python (no requieren instalación adicional)
+# os           
+# collections   
