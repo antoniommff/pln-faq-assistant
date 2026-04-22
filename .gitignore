@@ -105,3 +105,6 @@ dmypy.json
 
 # macOS
 .DS_Store
+
+# PDFs
+*Tarea2_PLN.pdf
