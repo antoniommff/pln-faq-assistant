@@ -27,9 +27,10 @@ whoosh>=2.7.4
 sentence-transformers>=2.2.0
 
 # Modelos de spaCy (instalar con):
-#   python -m spacy download es_core_news_sm
-#   python -m spacy download en_core_web_sm
+#   python -m spacy download es_core_news_md
+#   python -m spacy download en_core_web_md
 
 # Librerías estándar de Python (no requieren instalación adicional)
 # os           
-# collections   
+# collections  
+# warnings 
