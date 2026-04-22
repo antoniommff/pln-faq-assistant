@@ -1148,7 +1148,7 @@ cual es la caducidad del bistec,8,food_last,5.0,es
 "Mi comida china ha estado en el refrigerador desde el viernes, pero ¿todavía puedo comerla?",8,food_last,16.0,es
 ¿Cuánto tiempo es seguro dejar una hamburguesa en el frigorífico?,8,food_last,12.0,es
 ¿Cuál es la vida útil del refrigerador de los espaguetis?,8,food_last,7.0,es
-Comprueba si está bien comer queso que lleva en el frigorífico desde el pasado martes.,8,food_last,17.0,es
+Comprueba si está bien comer queso que ha estado en el frigorífico desde el pasado martes.,8,food_last,17.0,es
 Dame el tiempo que puedo dejar la leche en mi nevera.,8,food_last,14.0,es
 ¿Cuánto tiempo es seguro dejar los camarones en el frigorífico?,8,food_last,11.0,es
 "Tengo pasta en el frigorífico desde el lunes, la puedo hasta consumirla.",8,food_last,14.0,es
@@ -1279,7 +1279,7 @@ está bien reemplazar el agua en lugar de la leche,4,ingredient_substitution,9.0
 ¿Es la leche un buen sustituto de la nata?,4,ingredient_substitution,7.0,es
 ¿Puedo usar leche en lugar de crema?,4,ingredient_substitution,7.0,es
 ¿Puedo cambiar la nata por leche?,4,ingredient_substitution,7.0,es
-¿Puedo sustituir la leche desnatada por leche entera?,4,ingredient_substitution,8.0,es
+¿Puedo sustituir la leche descremada por leche entera?,4,ingredient_substitution,8.0,es
 ¿Está bien sustituir la albahaca por orégano?,4,ingredient_substitution,8.0,es
 ¿Puedo usar queso colby jack en lugar de cheddar en una receta?,4,ingredient_substitution,12.0,es
 ¿Puedo usar azúcar moreno oscuro en lugar de azúcar moreno?,4,ingredient_substitution,10.0,es
@@ -1628,7 +1628,7 @@ sugerirme comida de italia,1,meal_suggestion,6.0,es
 sugiérame una comida italiana,1,meal_suggestion,6.0,es
 ¿Qué comida de Italia sugieres?,1,meal_suggestion,7.0,es
 ¿Qué comida de Italia sugieres?,1,meal_suggestion,7.0,es
-sugerirme una comida de italia,1,meal_suggestion,7.0,es
+sugiérame una comida de italia,1,meal_suggestion,7.0,es
 necesito una sugerencia para una receta de cena,1,meal_suggestion,8.0,es
 sugiérame una comida que venga de México,1,meal_suggestion,9.0,es
 ¿Puedes sugerirme una comida irlandesa?,1,meal_suggestion,9.0,es
@@ -1718,7 +1718,7 @@ cual es la receta de fideos de arroz,2,recipe,6.0,es
 ¿Puedes ayudarme a encontrar una receta de lasaña?,2,recipe,8.0,es
 necesito una receta de pastel de pollo,2,recipe,8.0,es
 ayúdame a encontrar una receta para una cazuela de carne,2,recipe,9.0,es
-Necesito ayuda para encontrar una receta de enchiladas.,2,recipe,8.0,es
+necesito ayuda para encontrar una receta de enchiladas,2,recipe,8.0,es
 Necesito saber cómo hacer filetes de queso Filadelfia.,2,recipe,9.0,es
 necesito una receta de pastel de moras,2,recipe,6.0,es
 ¿Qué necesito hacer para hacer pastel de moras?,2,recipe,10.0,es
@@ -1788,7 +1788,7 @@ cuantos dias faltan para que caduque la leche,8,food_last,,es
 ¿Estará bien el arroz en el frigorífico durante 3 días?,8,food_last,,es
 ¿Está bien el arroz después de 3 días en el refrigerador?,8,food_last,,es
 "Después de 3 días en el refrigerador, ¿el arroz es seguro para comer?",8,food_last,,es
-¿El arroz está malo después de 3 días en el frigorífico?,8,food_last,,es
+¿El arroz está malo después de 3 días en el refrigerador?,8,food_last,,es
 ¿Puedo guardar el arroz en el frigorífico durante 3 días?,8,food_last,,es
 cuando se me acaba la leche,8,food_last,,es
 cuanto tiempo tarda en caducar la leche,8,food_last,,es
@@ -1823,7 +1823,7 @@ necesito saber por cuanto tiempo se cocina el pollo,7,cook_time,,es
 déjame saber si puedo usar ketchup en lugar de mostaza,4,ingredient_substitution,,es
 ¿Está bien usar ketchup en lugar de mostaza?,4,ingredient_substitution,,es
 ¿Es normal usar mayonesa en lugar de queso?,4,ingredient_substitution,,es
-¿Puedo sustituir la mostaza por ketchup?,4,ingredient_substitution,,es
+¿Puedo sustituir el ketchup por mostaza?,4,ingredient_substitution,,es
 Me pregunto si sería posible pasar de las manzanas a las uvas.,4,ingredient_substitution,,es
 ¿Se permite cambiar manzanas por uvas?,4,ingredient_substitution,,es
 ¿Está bien cambiar manzanas por uvas?,4,ingredient_substitution,,es
