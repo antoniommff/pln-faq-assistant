@@ -28,7 +28,7 @@ i need the nutrition facts for ramen,5,nutrition_info,en,need nutrition fact ram
 tell me the nutrition facts for shepherd's pie,5,nutrition_info,en,tell nutrition fact shepherd pie
 i would like nutrition facts for spaghetti carbonara,5,nutrition_info,en,like nutrition fact spaghetti carbonara
 tell me spaghetti bolognese's nutrition facts,5,nutrition_info,en,tell spaghetti bolognese nutrition fact
-i want the nutrition facts for buttered spaghetti,5,nutrition_info,en,want nutrition fact buttered spaghetti
+i want the nutrition facts for buttered spaghetti,5,nutrition_info,en,want nutrition fact butter spaghetti
 how soon milk expires,8,food_last,en,how soon milk expire
 when does milk will go bad,8,food_last,en,when milk bad
 how many days milk can be preserved,8,food_last,en,how day milk preserve
@@ -45,7 +45,7 @@ when will tofu expire if i keep it in the freezer,8,food_last,en,when tofu expir
 how long will tofu last in the freezer before it expires,8,food_last,en,how long tofu freezer before expire
 does tofu last long in the freezer before it goes bad,8,food_last,en,tofu long freezer before bad
 how many days later is it okay to eat curry that was in the fridge,8,food_last,en,how day later okay eat curry fridge
-within what time is is fine to eat cooked tilapia kept in the fridge,8,food_last,en,time fine eat cook tilapia fridge
+within what time is is fine to eat cooked tilapia kept in the fridge,8,food_last,en,time fine eat cooked tilapia fridge
 what is the most amount of time that is considered safe to store uncooked chicken in the fridge,8,food_last,en,time consider safe store uncooked chicken fridge
 what length of time is safe for consuming leftover meatloaf stored in the fridge,8,food_last,en,length time safe consume leftover meatloaf store fridge
 what is the longest i can leave meatballs in sauce in the freezer before it is no longer safe to eat,8,food_last,en,long leave meatball sauce freezer before no long safe eat
@@ -95,7 +95,7 @@ can i use apples instead of oranges in this recipe,4,ingredient_substitution,en,
 can i use skim milk instead of 2% in the recipe,4,ingredient_substitution,en,use skim milk instead recipe
 is it ok to use bananas instead of oranges in the recipe,4,ingredient_substitution,en,ok use banana instead orange recipe
 can i use lettuce instead of rice,4,ingredient_substitution,en,use lettuce instead rice
-will peas work instead of carrots,4,ingredient_substitution,en,peas work instead carrot
+will peas work instead of carrots,4,ingredient_substitution,en,pea work instead carrot
 is it possible to use baking soda instead of flour,4,ingredient_substitution,en,possible use bake soda instead flour
 can i just use oil instead of vinegar,4,ingredient_substitution,en,use oil instead vinegar
 can i use mayo instead of miracle whip,4,ingredient_substitution,en,use mayo instead miracle whip
@@ -160,7 +160,7 @@ tell me what's in tacos,3,ingredients_list,en,tell taco
 what's a good recipe foe tacos,3,ingredients_list,en,good recipe foe taco
 tell me the ingredients for making tom yum,3,ingredients_list,en,tell ingredient make tom yum
 i want to know the ingredients for making pizza,3,ingredients_list,en,want know ingredient make pizza
-let me know the ingredients i will need for pasta making,3,ingredients_list,en,let know ingredient need pasta make
+let me know the ingredients i will need for pasta making,3,ingredients_list,en,let know ingredient need pasta making
 what ingredients are necessary to make spaghetti carbonara,3,ingredients_list,en,ingredient necessary make spaghetti carbonara
 what do i need to use to make lasagna,3,ingredients_list,en,need use make lasagna
 how much flour do i need for a strawberry cake,3,ingredients_list,en,how flour need strawberry cake
@@ -217,7 +217,7 @@ how do i make lasagna,2,recipe,en,how make lasagna
 how do you make pasta,2,recipe,en,how make pasta
 how do you prepare omelet,2,recipe,en,how prepare omelet
 how do you prepare taco,2,recipe,en,how prepare taco
-how do you make fried rice,2,recipe,en,how make fried rice
+how do you make fried rice,2,recipe,en,how make fry rice
 how do you cooked eggs,2,recipe,en,how cook egg
 what's a good chili recipe,2,recipe,en,good chili recipe
 i need a recipe for chili,2,recipe,en,need recipe chili
