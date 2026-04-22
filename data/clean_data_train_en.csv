@@ -1,4 +1,4 @@
-text,intent,intent_name,n_tokens,language,clean_text,n_orig,n_clean,reduccion
+text,intent,intent_name,n_tokens,language,clean_text,n_orig,n_clean,reduction
 what's the nutritional info for spaghetti,5,nutrition_info,6.0,en,nutritional info spaghetti,6,3,50.0
 what's the nutritional info for pizza,5,nutrition_info,6.0,en,nutritional info pizza,6,3,50.0
 how healthy are potato skins,5,nutrition_info,5.0,en,how healthy potato skin,5,4,20.0
@@ -38,10 +38,10 @@ what's the nutritional info for chicken breast,5,nutrition_info,7.0,en,nutrition
 what's the nutritional info for a banana,5,nutrition_info,7.0,en,nutritional info banana,7,3,57.14285714285714
 what's the nutritional info for a cheeseburger,5,nutrition_info,7.0,en,nutritional info cheeseburger,7,3,57.14285714285714
 what's the nutritional info for a loaf of bread,5,nutrition_info,9.0,en,nutritional info loaf bread,9,4,55.55555555555556
-mashed potato's nutrition,5,nutrition_info,3.0,en,mashed potato nutrition,3,3,0.0
+mashed potato's nutrition,5,nutrition_info,3.0,en,mash potato nutrition,3,3,0.0
 nutrition information of mashed potatoes,5,nutrition_info,5.0,en,nutrition information mashed potato,5,4,20.0
 what are the nutritional data for mashed potatoes,5,nutrition_info,8.0,en,nutritional datum mashed potato,8,4,50.0
-are mashed potatoes good nutrition,5,nutrition_info,5.0,en,mashed potato good nutrition,5,4,20.0
+are mashed potatoes good nutrition,5,nutrition_info,5.0,en,mash potato good nutrition,5,4,20.0
 give me the nutritional information for mashed potatoes,5,nutrition_info,8.0,en,nutritional information mashed potato,8,4,50.0
 how healthy are apples,5,nutrition_info,4.0,en,how healthy apple,4,3,25.0
 i want to know if pizza is healthy,5,nutrition_info,8.0,en,want know pizza healthy,8,4,50.0
@@ -88,7 +88,7 @@ i want to know the nutrition facts for pizza,5,nutrition_info,9.0,en,want know n
 do you have nutrition facts for cheerios,5,nutrition_info,7.0,en,nutrition fact cheerio,7,3,57.14285714285714
 where are the nutrition facts for cheerios,5,nutrition_info,7.0,en,nutrition fact cheerio,7,3,57.14285714285714
 how nutritious are cheerios,5,nutrition_info,4.0,en,how nutritious cheerio,4,3,25.0
-where on the cheerios box are the nutrition facts,5,nutrition_info,9.0,en,cheerio box nutrition fact,9,4,55.55555555555556
+where on the cheerios box are the nutrition facts,5,nutrition_info,9.0,en,cheerios box nutrition fact,9,4,55.55555555555556
 does the box have nutrition facts for cheerios on it,5,nutrition_info,10.0,en,box nutrition fact cheerio,10,4,60.0
 what are the nutrition facts for a mcdouble at mcdonalds,5,nutrition_info,10.0,en,nutrition fact mcdouble mcdonald,10,4,60.0
 how healthy are lunchables,5,nutrition_info,4.0,en,how healthy lunchable,4,3,25.0
@@ -135,7 +135,7 @@ can i eat the eggs i've had in the fridge since 2/21,8,food_last,12.0,en,eat egg
 how long can i keep a ham in the freezer,8,food_last,10.0,en,how long ham freezer,10,4,60.0
 how long will chicken last in the freezer,8,food_last,8.0,en,how long chicken freezer,8,4,50.0
 can i drink milk i've kept in the fridge since wednesday,8,food_last,11.0,en,drink milk fridge wednesday,11,4,63.63636363636363
-how long will steaks last in the freezer,8,food_last,8.0,en,how long steak freezer,8,4,50.0
+how long will steaks last in the freezer,8,food_last,8.0,en,how long steaks freezer,8,4,50.0
 what's the shelf life for eggs in the fridge,8,food_last,9.0,en,shelf life egg fridge,9,4,55.55555555555556
 how long can i store eggs in the fridge,8,food_last,9.0,en,how long store egg fridge,9,5,44.44444444444444
 will it be okay for me to eat my leftover turkey from monday that's been in my fridge,8,food_last,18.0,en,okay eat leftover turkey monday fridge,18,6,66.66666666666666
@@ -213,7 +213,7 @@ how much time do i need to make the chicken,7,cook_time,10.0,en,how time need ma
 what's the prep and cooking time on pizza dough,7,cook_time,9.0,en,prep cooking time pizza dough,9,5,44.44444444444444
 how long does it take to make lasagna,7,cook_time,8.0,en,how long make lasagna,8,4,50.0
 how long will it take to make the wings,7,cook_time,9.0,en,how long make wing,9,4,55.55555555555556
-what's the cooking time for the cake,7,cook_time,7.0,en,cook time cake,7,3,57.14285714285714
+what's the cooking time for the cake,7,cook_time,7.0,en,cooking time cake,7,3,57.14285714285714
 the steak must go under the broiler for how long,7,cook_time,10.0,en,steak broiler how long,10,4,60.0
 how long do i put the casserole in,7,cook_time,8.0,en,how long casserole,8,3,62.5
 if i cook the pizza at 400 degrees how long must it be in for,7,cook_time,15.0,en,cook pizza 400 degree how long,15,6,60.0
@@ -261,7 +261,7 @@ how long to cook steak for,7,cook_time,6.0,en,how long cook steak,6,4,33.3333333
 how long do you cook a hamburger for,7,cook_time,8.0,en,how long cook hamburger,8,4,50.0
 how long should i expect beef stroganoff to prepare,7,cook_time,9.0,en,how long expect beef stroganoff prepare,9,6,33.33333333333333
 how long do i cook steak,7,cook_time,6.0,en,how long cook steak,6,4,33.33333333333333
-what's the cooking time for chicken alfredo,7,cook_time,7.0,en,cook time chicken alfredo,7,4,42.857142857142854
+what's the cooking time for chicken alfredo,7,cook_time,7.0,en,cooking time chicken alfredo,7,4,42.857142857142854
 how long does it take pork to cook,7,cook_time,8.0,en,how long pork cook,8,4,50.0
 how much time do i need to prepare chicken,7,cook_time,9.0,en,how time need prepare chicken,9,5,44.44444444444444
 noodles need to cook for how long,7,cook_time,7.0,en,noodle need cook how long,7,5,28.57142857142857
@@ -281,7 +281,7 @@ what is the necessary amount of time required to prepare pot roast,7,cook_time,1
 how long am i supposed to cook pork loin,7,cook_time,9.0,en,how long suppose cook pork loin,9,6,33.33333333333333
 how long must i cook spaghetti for,7,cook_time,7.0,en,how long cook spaghetti,7,4,42.857142857142854
 tell me how long i will need to spend preparing a meat loaf dish,7,cook_time,14.0,en,tell how long need spend prepare meat loaf dish,14,9,35.714285714285715
-i need to know the preparation time required for fried chicken,7,cook_time,11.0,en,need know preparation time require fried chicken,11,7,36.36363636363637
+i need to know the preparation time required for fried chicken,7,cook_time,11.0,en,need know preparation time require fry chicken,11,7,36.36363636363637
 how long should i spend preparing roast beef,7,cook_time,8.0,en,how long spend prepare roast beef,8,6,25.0
 what amount of time do i need to cook lobster for,7,cook_time,11.0,en,time need cook lobster,11,4,63.63636363636363
 what is the proper time to cook steak for,7,cook_time,9.0,en,proper time cook steak,9,4,55.55555555555556
@@ -301,7 +301,7 @@ how long should i cook a steak for,7,cook_time,8.0,en,how long cook steak,8,4,50
 how long should i wait before i can bake bread with homemade dough,7,cook_time,13.0,en,how long wait before bake bread homemade dough,13,8,38.46153846153847
 what about changing the sugar for baking soda,4,ingredient_substitution,8.0,en,change sugar bake soda,8,4,50.0
 can i swap sugar for salt,4,ingredient_substitution,6.0,en,swap sugar salt,6,3,50.0
-would it be possible to replace the salt with baking soda,4,ingredient_substitution,11.0,en,possible replace salt bake soda,11,5,54.54545454545454
+would it be possible to replace the salt with baking soda,4,ingredient_substitution,11.0,en,possible replace salt baking soda,11,5,54.54545454545454
 "instead of pepper, can i use salt",4,ingredient_substitution,7.0,en,instead pepper use salt,7,4,42.857142857142854
 can i take out the olive oil and use lard,4,ingredient_substitution,10.0,en,olive oil use lard,10,4,60.0
 can i use water instead of milk,4,ingredient_substitution,7.0,en,use water instead milk,7,4,42.857142857142854
@@ -355,14 +355,14 @@ can i swap yogurt for sour cream,4,ingredient_substitution,7.0,en,swap yogurt so
 can yogurt be used for sour cream,4,ingredient_substitution,7.0,en,yogurt use sour cream,7,4,42.857142857142854
 is it fine to sub bread flour with all-purpose flour,4,ingredient_substitution,10.0,en,fine sub bread flour purpose flour,10,6,40.0
 are you able to sub white sugar for brown sugar,4,ingredient_substitution,10.0,en,able sub white sugar brown sugar,10,6,40.0
-can you sub half and half for heavy whipping cream,4,ingredient_substitution,10.0,en,sub half half heavy whipping cream,10,6,40.0
-can i use baking powder instead of baking soda,4,ingredient_substitution,9.0,en,use bake powder instead bake soda,9,6,33.33333333333333
+can you sub half and half for heavy whipping cream,4,ingredient_substitution,10.0,en,sub half half heavy whip cream,10,6,40.0
+can i use baking powder instead of baking soda,4,ingredient_substitution,9.0,en,use baking powder instead bake soda,9,6,33.33333333333333
 do you think i can sub honey for sugar,4,ingredient_substitution,9.0,en,think sub honey sugar,9,4,55.55555555555556
 proper to substitute cumin for tumeric,4,ingredient_substitution,6.0,en,proper substitute cumin tumeric,6,4,33.33333333333333
 can substitute cumin for tumeric,4,ingredient_substitution,5.0,en,substitute cumin tumeric,5,3,40.0
 cumin may be substituted for tumeric,4,ingredient_substitution,6.0,en,cumin substitute tumeric,6,3,50.0
 is almond milk an acceptable substitute for milk,4,ingredient_substitution,8.0,en,almond milk acceptable substitute milk,8,5,37.5
-can i swap coconut milk for condensed milk,4,ingredient_substitution,8.0,en,swap coconut milk condensed milk,8,5,37.5
+can i swap coconut milk for condensed milk,4,ingredient_substitution,8.0,en,swap coconut milk condense milk,8,5,37.5
 can i substitute eggs for milk in a recipe,4,ingredient_substitution,9.0,en,substitute egg milk recipe,9,4,55.55555555555556
 could i use white wine instead of red wine in a recipe,4,ingredient_substitution,12.0,en,use white wine instead red wine recipe,12,7,41.66666666666667
 can i substitute ketchup for mustard,4,ingredient_substitution,6.0,en,substitute ketchup mustard,6,3,50.0
@@ -418,10 +418,10 @@ how many calories are there in a scoop of chocolate ice cream,6,calories,12.0,en
 how many calories does a scoop of chocolate ice cream contain,6,calories,11.0,en,how calorie scoop chocolate ice cream contain,11,7,36.36363636363637
 what's the expected calories in a cream filled cookie,6,calories,9.0,en,expect calorie cream fill cookie,9,5,44.44444444444444
 what's the amount of calories in a cheesy omelette,6,calories,9.0,en,calorie cheesy omelette,9,3,66.66666666666666
-can you tell me the calorie count in a glazed donut,6,calories,11.0,en,tell calorie count glaze donut,11,5,54.54545454545454
+can you tell me the calorie count in a glazed donut,6,calories,11.0,en,tell calorie count glazed donut,11,5,54.54545454545454
 what's the calorie count for tuna casserole,6,calories,7.0,en,calorie count tuna casserole,7,4,42.857142857142854
 how many calories are in waffles,6,calories,6.0,en,how calorie waffle,6,3,50.0
-what's the calorie content for fried eggs,6,calories,7.0,en,calorie content fried egg,7,4,42.857142857142854
+what's the calorie content for fried eggs,6,calories,7.0,en,calorie content fry egg,7,4,42.857142857142854
 what's the amount of calories in an cream filled oatmeal cookie,6,calories,11.0,en,calorie cream fill oatmeal cookie,11,5,54.54545454545454
 how many calories are in chocolate cake,6,calories,7.0,en,how calorie chocolate cake,7,4,42.857142857142854
 how high in calories is pork,6,calories,6.0,en,how high calorie pork,6,4,33.33333333333333
@@ -433,7 +433,7 @@ how many calories should i plan to be in a donut,6,calories,11.0,en,how calorie 
 how many calories would i estimate for fettuccine alfredo,6,calories,9.0,en,how calorie estimate fettuccine alfredo,9,5,44.44444444444444
 how many calories does a big mac have,6,calories,8.0,en,how calorie big mac,8,4,50.0
 what's the caloric content if you eat roast beef,6,calories,9.0,en,caloric content eat roast beef,9,5,44.44444444444444
-how many calories would i consume if i ate a loaded hotdog,6,calories,12.0,en,how calorie consume eat loaded hotdog,12,6,50.0
+how many calories would i consume if i ate a loaded hotdog,6,calories,12.0,en,how calorie consume eat load hotdog,12,6,50.0
 what's the expected calorie load of a peanut butter and jelly sandwich,6,calories,12.0,en,expect calorie load peanut butter jelly sandwich,12,7,41.66666666666667
 what's a big bowl of ice cream contain in calories,6,calories,10.0,en,big bowl ice cream contain calorie,10,6,40.0
 do cheetos have a lot of calories,6,calories,7.0,en,cheeto lot calorie,7,3,57.14285714285714
@@ -491,7 +491,7 @@ i want the calorie content for a banana,6,calories,8.0,en,want calorie content b
 tell me the number of calories in a banana,6,calories,9.0,en,tell number calorie banana,9,4,55.55555555555556
 what is the calorie look like in apples,6,calories,8.0,en,calorie look like apple,8,4,50.0
 what is the calorie going to be if i'm eating cereal,6,calories,11.0,en,calorie eat cereal,11,3,72.72727272727273
-add up the calories in tacos,6,calories,6.0,en,add calorie tacos,6,3,50.0
+add up the calories in tacos,6,calories,6.0,en,add calorie taco,6,3,50.0
 how many calories are in cheerios,6,calories,6.0,en,how calorie cheerio,6,3,50.0
 what type of calorie numbers are in onions,6,calories,8.0,en,type calorie number onion,8,4,50.0
 i need to know the calorie count of a bacon cheeseburger,6,calories,11.0,en,need know calorie count bacon cheeseburger,11,6,45.45454545454545
@@ -548,7 +548,7 @@ what ingredients do i need to make broccoli cheddar soup,3,ingredients_list,10.0
 what ingredients do i need for philly cheesesteaks,3,ingredients_list,8.0,en,ingredient need philly cheesesteak,8,4,50.0
 what do i need to cook chicken soup,3,ingredients_list,8.0,en,need cook chicken soup,8,4,50.0
 what do i need to get to make lasagne,3,ingredients_list,9.0,en,need make lasagne,9,3,66.66666666666666
-what should i buy to make burritos tonight,3,ingredients_list,8.0,en,buy make burritos tonight,8,4,50.0
+what should i buy to make burritos tonight,3,ingredients_list,8.0,en,buy make burrito tonight,8,4,50.0
 what ingredients do i need for tacos,3,ingredients_list,7.0,en,ingredient need taco,7,3,57.14285714285714
 what are the ingredients to make shepherd's pie,3,ingredients_list,8.0,en,ingredient make shepherd pie,8,4,50.0
 what do i need to buy to make a spaghetti,3,ingredients_list,10.0,en,need buy make spaghetti,10,4,60.0
@@ -576,7 +576,7 @@ what food items do you put in english breakfast,3,ingredients_list,9.0,en,food i
 what foods do i buy to put into a korean dinner,3,ingredients_list,11.0,en,food buy korean dinner,11,4,63.63636363636363
 what do you need to make dandelion wine properly,3,ingredients_list,9.0,en,need make dandelion wine properly,9,5,44.44444444444444
 what ingredients are in cake,3,ingredients_list,5.0,en,ingredient cake,5,2,60.0
-what ingredients are in tortillas,3,ingredients_list,5.0,en,ingredient tortillas,5,2,60.0
+what ingredients are in tortillas,3,ingredients_list,5.0,en,ingredient tortilla,5,2,60.0
 what ingredients are in mashed potatoes,3,ingredients_list,6.0,en,ingredient mashed potato,6,3,50.0
 what ingredients are in dough,3,ingredients_list,5.0,en,ingredient dough,5,2,60.0
 what ingredients are in chips,3,ingredients_list,5.0,en,ingredient chip,5,2,60.0
@@ -597,7 +597,7 @@ what ingredients go in a milky way,3,ingredients_list,7.0,en,ingredient milky wa
 what ingredients go in pizza,3,ingredients_list,5.0,en,ingredient pizza,5,2,60.0
 what ingredients are necessary for a steak,3,ingredients_list,7.0,en,ingredient necessary steak,7,3,57.14285714285714
 "in making an omelette, what ingredients do i need",3,ingredients_list,9.0,en,make omelette ingredient need,9,4,55.55555555555556
-"in terms of making scrambled eggs, what ingredients do i need",3,ingredients_list,11.0,en,term make scrambled egg ingredient need,11,6,45.45454545454545
+"in terms of making scrambled eggs, what ingredients do i need",3,ingredients_list,11.0,en,term make scramble egg ingredient need,11,6,45.45454545454545
 what ingredients do i need for chicken breast,3,ingredients_list,8.0,en,ingredient need chicken breast,8,4,50.0
 can you give me a french dinner suggestion,1,meal_suggestion,8.0,en,french dinner suggestion,8,3,62.5
 "suggest a meal from laos to me, please",1,meal_suggestion,8.0,en,suggest meal laos,8,3,62.5
@@ -682,7 +682,7 @@ please suggest a british meal for me,1,meal_suggestion,7.0,en,suggest british me
 what kind of greek food is good for dinner,1,meal_suggestion,9.0,en,kind greek food good dinner,9,5,44.44444444444444
 what type of pizzas are available for dinner,1,meal_suggestion,8.0,en,type pizza available dinner,8,4,50.0
 need some good dinner ideas,1,meal_suggestion,5.0,en,need good dinner idea,5,4,20.0
-"thinking about cooking dinner, what should i make",1,meal_suggestion,8.0,en,think cook dinner make,8,4,50.0
+"thinking about cooking dinner, what should i make",1,meal_suggestion,8.0,en,think cooking dinner make,8,4,50.0
 give me some options on what to cook for dinner,1,meal_suggestion,10.0,en,option cook dinner,10,3,70.0
 please provide an option for dinner,1,meal_suggestion,6.0,en,provide option dinner,6,3,50.0
 i would like to hear what ideas you have about making dinner tonight,1,meal_suggestion,13.0,en,like hear idea make dinner tonight,13,6,53.84615384615385
@@ -777,7 +777,7 @@ find out how to make chicken tikka masala,2,recipe,8.0,en,find how make chicken 
 how do i make beef stroganoff,2,recipe,6.0,en,how make beef stroganoff,6,4,33.33333333333333
 please show me a recipe for chili,2,recipe,7.0,en,recipe chili,7,2,71.42857142857143
 what is a good chili recipe,2,recipe,6.0,en,good chili recipe,6,3,50.0
-i need you to find me a recipe for fried shrimp,2,recipe,11.0,en,need find recipe fried shrimp,11,5,54.54545454545454
+i need you to find me a recipe for fried shrimp,2,recipe,11.0,en,need find recipe fry shrimp,11,5,54.54545454545454
 can you find me a recipe for coffee cakes,2,recipe,9.0,en,find recipe coffee cake,9,4,55.55555555555556
 can you find me a recipe for salsa,2,recipe,8.0,en,find recipe salsa,8,3,62.5
 can you find me a recipe for honey ham,2,recipe,9.0,en,find recipe honey ham,9,4,55.55555555555556
@@ -890,7 +890,7 @@ how many calories are in ice cream,6,calories,,en,how calorie ice cream,7,4,42.8
 how many calories are in cake,6,calories,,en,how calorie cake,6,3,50.0
 how many calories are in oreos,6,calories,,en,how calorie oreo,6,3,50.0
 how many calories does two bananas have,6,calories,,en,how calorie banana,7,3,57.14285714285714
-"in a fried egg, how many calories are there",6,calories,,en,fried egg how calorie,9,4,55.55555555555556
+"in a fried egg, how many calories are there",6,calories,,en,fry egg how calorie,9,4,55.55555555555556
 pocki sticks has how many calories,6,calories,,en,pocki stick how calorie,6,4,33.33333333333333
 what is the amount of calories that scrambled eggs has,6,calories,,en,calorie scramble egg,10,3,70.0
 how many calories are in a donut hole,6,calories,,en,how calorie donut hole,8,4,50.0
@@ -907,7 +907,7 @@ i need to know what ingredients are in a french baguette,3,ingredients_list,,en,
 find list of ingredients i would need to bake a funnel cake,3,ingredients_list,,en,find list ingredient need bake funnel cake,12,7,41.66666666666667
 what are the ingredients used in chicken curry,3,ingredients_list,,en,ingredient use chicken curry,8,4,50.0
 can you tell me what ingredients are needed for cinnamon buns,3,ingredients_list,,en,tell ingredient need cinnamon bun,11,5,54.54545454545454
-please give me a list of the ingredients contained in chocolate cupcakes,3,ingredients_list,,en,list ingredient contain chocolate cupcake,12,5,58.333333333333336
+please give me a list of the ingredients contained in chocolate cupcakes,3,ingredients_list,,en,list ingredient contain chocolate muffin,12,5,58.333333333333336
 what ingredients do i need to make raisin bread,3,ingredients_list,,en,ingredient need make raisin bread,9,5,44.44444444444444
 what should i get to make the jamaican patties,3,ingredients_list,,en,make jamaican patty,9,3,66.66666666666666
 what do you i need to make pizza dough,3,ingredients_list,,en,need make pizza dough,9,4,55.55555555555556
