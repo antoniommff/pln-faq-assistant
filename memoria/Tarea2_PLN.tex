@@ -343,60 +343,64 @@ Esta sección detalla las decisiones tomadas sobre la representación del texto 
 
 \subsection{Representación textual}
 
-La representación vectorial de las consultas se construye a partir de un \textit{pipeline} de preprocesamiento y normalización que actúa como capa intermedia entre el texto original del usuario y el modelo de clasificación. El \textit{pipeline} aplica los siguientes pasos en orden:
+La representación vectorial de las consultas se construirá a partir de un \textit{pipeline} de preprocesamiento y normalización que actúe como capa intermedia entre el texto original del usuario y el modelo de clasificación. El propuesto \textit{pipeline} aplica los siguientes pasos en orden:
 \begin{enumerate}
-    \item \textbf{Expansión de contracciones y \textit{slang}:} en el caso del inglés se expanden formas contraídas (\textit{I'm} $\rightarrow$ \textit{I am}) con la librería \texttt{contractions}. Para el español, se normalizan abreviaturas coloquiales mediante reglas (\textit{kiero} $\rightarrow$ \textit{quiero}, \textit{q} $\rightarrow$ \textit{que}).
-    \item \textbf{Lematización con excepciones:} Se aplica el lematizador de spaCy, protegiendo del lema incorrecto a términos técnico-culinarios (\textit{gluten}, \textit{pizza}, \textit{aove}) mediante un diccionario de excepciones.
-    \item \textbf{Normalización:} Eliminación de tildes y conversión a minúsculas mediante \texttt{unidecode}, eliminación de palabras funcionales vacías de contenido léxico.
-	\item \textbf{Sustitución de sinónimos y regionalismos:} sustituyendo \textit{papa} $\rightarrow$ \textit{patata}; \textit{palta} $\rightarrow$ \textit{aguacate}; \textit{prawn} $\rightarrow$ \textit{shrimp}, abordando de esta forma la variación dialectal señalada en la Sección~\ref{sec2}.
+    \item \textbf{Expansión de contracciones y \textit{slang}:} en el caso del inglés, expansión de formas contraídas (\textit{I'm} $\rightarrow$ \textit{I am}). % con la librería \texttt{contractions}.
+	Para el español, se normalización de abreviaturas coloquiales (\textit{kiero} $\rightarrow$ \textit{quiero}, \textit{q} $\rightarrow$ \textit{que}).
+    \item \textbf{Lematización con excepciones:} Se propone usar el lematizador de spaCy, protegiendo del lema incorrecto a términos técnico-culinarios (\textit{gluten}, \textit{pizza}, \textit{aove}) mediante un diccionario de excepciones.
+    \item \textbf{Normalización:} Eliminación de tildes y conversión a minúsculas % mediante \texttt{unidecode}
+	, eliminación de palabras funcionales vacías de contenido léxico (artículos, preposiciones...).
+	\item \textbf{Sustitución de sinónimos y regionalismos:} por ejemplo, \textit{papa} $\rightarrow$ \textit{patata}; \textit{palta} $\rightarrow$ \textit{aguacate}; \textit{prawn} $\rightarrow$ \textit{shrimp}, abordando de esta forma la variación dialectal señalada en la Sección~\ref{sec2}.
 \end{enumerate}
 
-Esta normalización inicial de los textos de entrada se traduce en unareducción significativa del vocabulario: de 855 a 628 tipos únicos en inglés y de 1\,212 a 679 en español, con una reducción media de la longitud de consulta de aproximadamente el 35\% en ambos idiomas.
-Este compactado del vocabulario favorece la generalización del modelo de clasificación.
+% Esta normalización inicial de los textos de entrada se traduce en unareducción significativa del vocabulario: de 855 a 628 tipos únicos en inglés y de 1\,212 a 679 en español, con una reducción media de la longitud de consulta de aproximadamente el 35\% en ambos idiomas.
+% Este compactado del vocabulario favorece la generalización del modelo de clasificación.
 
-Sobre el corpus normalizado, la representación vectorial empleada para T2 es \textbf{TF-IDF} (\textit{Term Frequency-Inverse Document Frequency}). Esta elección de este modelo en específico se ha considerado la más adecuada para la tarea de clasicación de la intención por dos razones: primero, porque permite captura los términos discriminativos por intención (por ejemplo, \textit{sustituir} para \textit{ingredient\_substitution} o \textit{caduca}/\textit{last} para \textit{food\_last}); y luego, porque a nivel de implementación se puede integrar directamente en el \textit{pipeline} con el clasificador \textbf{LinearSVC}. Se entrena un modelo independiente por idioma, en coherencia con la arquitectura de T1: tras detectar el idioma, la consulta se enruta al vectorizador y clasificador correspondiente.
+Una vez tengamos el corpus normalizado, se empleará la medida \textbf{TF-IDF} (\textit{Term Frequency-Inverse Document Frequency}) como representación vectorial para T2.
+% Esta elección de este modelo en específico se ha considerado la más adecuada para la tarea de clasicación de la intención porque permite captura los términos discriminativos por intención (por ejemplo, \textit{sustituir} para \textit{ingredient\_substitution} o \textit{caduca}/\textit{last} para \textit{food\_last}).
+% Se entrena un modelo independiente por idioma, en coherencia con la arquitectura de T1: tras detectar el idioma, la consulta se enruta al vectorizador y clasificador correspondiente.
 
 \subsection{Selección de modelos}
 
 \subsubsection*{T1 - Identificación de idioma}
 
-Para la detección de idioma se utiliza \textbf{lingua}, librería basada en modelos estadísticos de $n$-gramas\footnote{Toda la arquitectura técnica de Lingua, incluyendo la sección \textit{«How does it work under the hood?»}, está documentada en los repositorios oficiales: \url{https://github.com/pemistahl/lingua} (implementación original en Java) y \url{https://github.com/pemistahl/lingua-py} (implementación en Python).}. La evaluación sobre los 480 ejemplos del conjunto de prueba bilingüe ofrece una tasa de aciertos del \textbf{100\,\%}. 
-
-Lingua usa un procesamiento comprendido en dos fases: primero, un \textbf{motor basado en reglas} examina el alfabeto y los caracteres exclusivos del texto para descartar idiomas incompatibles y podar el espacio de candidatos; después, un \textbf{clasificador Naive Bayes} calcula la probabilidad de cada idioma restante a partir de $n$-gramas de caracteres de longitud variable (de 1 a 5). A diferencia de los detectores tradicionales que se limitan a trigramas, el uso de unigramas hasta quintigramas hace a Lingua especialmente robusto en textos cortos.
+Para la detección de idioma se propone utilizar la librería \textbf{lingua}, librería basada en modelos estadísticos de $n$-gramas.
+% La evaluación sobre los 480 ejemplos del conjunto de prueba bilingüe ofrece una tasa de aciertos del \textbf{100\,\%}.
+Se ha considerado esta librería en primer lugar por su rendimiento y su forma de detectar los idiomas con n-gramas variables. Usa un procesamiento comprendido en dos fases: primero, un \textbf{motor basado en reglas} examina el alfabeto y los caracteres exclusivos del texto para descartar idiomas incompatibles y podar el espacio de candidatos; después, un \textbf{clasificador Naive Bayes} calcula la probabilidad de cada idioma restante a partir de $n$-gramas de caracteres de longitud variable (de 1 a 5). A diferencia de los detectores tradicionales que se limitan a trigramas, el uso de unigramas hasta quintigramas hace a Lingua especialmente robusto en textos cortos.
 
 \subsubsection*{T2 - Clasificación de intención}
 
-La clasificación de intención se implementa mediante una cadena de dos componentes: un vectorizador \textbf{TF-IDF} y un clasificador \textbf{LinearSVC}. Se entrena un modelo independiente por idioma: una vez que T1 determina la lengua de la consulta, ésta se enruta al par vectorizador-clasificador correspondiente.
+La clasificación de intención se implementará mediante dos componentes: un vectorizador \textbf{TF-IDF} y un clasificador. % \textbf{LinearSVC}. Se entrena un modelo independiente por idioma: una vez que T1 determina la lengua de la consulta, ésta se enruta al par vectorizador-clasificador correspondiente.
 
-\textbf{TF-IDF} (\textit{Term Frequency-Inverse Document Frequency}) transforma cada consulta de texto en un vector. La componente TF (\textit{term frequency}) pondera cada término en proporción a su frecuencia dentro del documento, y la componente IDF (\textit{inverse document frequency}) penaliza los términos que aparecen en muchos documentos del corpus reduciendo el peso de palabras comunes.
+\textbf{TF-IDF} (\textit{Term Frequency-Inverse Document Frequency}) transformará cada consulta de texto en un vector de dimensión fija. La componente TF (\textit{term frequency}) corresponde a la frecuencia de un término dentro del documento, favoreciendo los términos más representativos de cada consulta. La componente IDF (\textit{inverse document frequency}) penaliza los términos que aparecen en muchos documentos del corpus.
 
-\textbf{LinearSVC} (\textit{Support Vector Classifier} lineal) busca el hiperplano que separa las clases en el espacio vectorial generado por TF-IDF. El parámetro de regularización se fija en $C = 1$, valor que equilibra margen y tolerancia a errores de entrenamiento dado el reducido tamaño del corpus.
+Para el componente de clasificación se evaluarán distintas alternativas. En particular, el \textbf{LinearSVC} (\textit{Support Vector Classifier} lineal) es el principal candidato. Este modelo busca el hiperplano de máximo margen que separa las clases en el espacio vectorial generado por TF-IDF. % El parámetro de regularización se fijará inicialmente en $C = 1$, valor que equilibra margen y tolerancia a errores de entrenamiento.
 
-Los primeros resultados sobre el conjunto de prueba muestran una \textit{accuracy} del \textbf{93\,\%} en inglés y \textbf{94\,\%} en español, con F1 macro de 0,93 y 0,94 respectivamente, superando ampliamente el 12,5\,\% del clasificador trivial. Los errores residuales se concentran en los pares \textit{recipe}/\textit{ingredients\_list} y \textit{calories}/\textit{nutrition\_info}, cuyo solapamiento léxico dificulta la separación mediante representación de bolsa de palabras.
+% Los primeros resultados sobre el conjunto de prueba muestran una \textit{accuracy} del \textbf{93\,\%} en inglés y \textbf{94\,\%} en español, con F1 macro de 0,93 y 0,94 respectivamente, superando ampliamente el 12,5\,\% del clasificador trivial. Los errores residuales se concentran en los pares \textit{recipe}/\textit{ingredients\_list} y \textit{calories}/\textit{nutrition\_info}, cuyo solapamiento léxico dificulta la separación mediante representación de bolsa de palabras.
 
 \subsubsection*{T3 - Extracción de entidades}
 
 La tarea de extracción de entidades se ha contemplado desde dos enfoques distintos:
 
-\textbf{Vía 1 - Diccionarios controlados.} Se realiza una extracción por intersección de los \textit{tokens} normalizados de la consulta con vocabularios culinarios organizados por categoría: ingredientes, técnicas culinarias y utensilios (entre 18 y 47 entradas por idioma y categoría). Esta aproximación es determinista, rápida y no requiere inferencia. La limitación fundamental es la \textbf{rigidez léxica} debido a que el sistema no puede extraer ninguna entidad que no figure en el diccionario. Esto exige un mantenimiento continuo del vocabulario controlado.
+\textbf{Vía 1 - Diccionarios controlados.} Se realiza una extracción por intersección de los \textit{tokens} normalizados de la consulta con vocabularios culinarios organizados por categoría. Esta aproximación es determinista, rápida y no requiere inferencia. La limitación fundamental es la \textbf{rigidez léxica} debido a que el sistema no puede extraer ninguna entidad que no figure en el diccionario.
 
-\textbf{Vía 2 - Extracción simbólico-semántica con spaCy (implementada).} Una alternativa más flexible consiste en hacer uso de la librería spaCy para extraer todos los sustantivos (\texttt{NOUN}) y nombres propios (\texttt{PROPN}) de la consulta, sin necesidad de vocabulario predefinido.  Esta vía requiere seleccionar el modelo de spaCy apropiado. La biblioteca ofrece tres tamaños para cada idioma:
+\textbf{Vía 2 - Extracción simbólico-semántica con spaCy.} Alternativa más flexible consiste en hacer uso de la librería spaCy para extraer todos los sustantivos (\texttt{NOUN}) y nombres propios (\texttt{PROPN}) de la consulta, sin necesidad de vocabulario predefinido. Esta vía requiere seleccionar el modelo de spaCy apropiado. La biblioteca ofrece tres tamaños para cada idioma:
 
 \begin{itemize}
-    \item \textbf{sm} (\textit{small}, $\approx$12\,MB): incluye tokenizador, etiquetador POS, analizador de dependencias y reconocedor de entidades nombradas (NER), pero \textbf{no incorpora vectores de palabras}. Apto para la extracción de sustantivos por POS, pero incapaz de calcular similitud semántica entre \textit{tokens}.
-    \item \textbf{md} (\textit{medium}, $\approx$43\,MB): añade vectores de palabras sobre un vocabulario de 20\,000 términos (dimensión 300). Permite operaciones de similitud semántica entre \textit{tokens} mediante \texttt{token.similarity()}, además de todas las capacidades del modelo pequeño.
-    \item \textbf{lg} (\textit{large}, $\approx$545\,MB): misma arquitectura que el modelo mediano pero con vectores sobre un vocabulario de 685\,000 términos, ofreciendo mayor cobertura semántica a costa de un tamaño diez veces superior.
+\item \textbf{sm} (\textit{small}, $\approx$12,MB): incluye tokenizador, etiquetador POS, analizador de dependencias y reconocedor de entidades nombradas (NER), pero \textbf{no incorpora vectores de palabras}. Apto para la extracción de sustantivos por POS, pero incapaz de calcular similitud semántica entre \textit{tokens}.
+\item \textbf{md} (\textit{medium}, $\approx$43,MB): añade vectores de palabras sobre un vocabulario de 20,000 términos (dimensión 300). Permite operaciones de similitud semántica entre \textit{tokens} mediante \texttt{token.similarity()}, además de todas las capacidades del modelo pequeño.
+\item \textbf{lg} (\textit{large}, $\approx$545,MB): misma arquitectura que el modelo mediano pero con vectores sobre un vocabulario de 685,000 términos, ofreciendo mayor cobertura semántica a costa de un tamaño diez veces superior.
 \end{itemize}
 
-Para la PoC se ha optado por el \textbf{modelo mediano} como equilibrio entre capacidad y coste. La combinación de extracción de sustantivos por POS con los vectores estáticos del modelo mediano posibilitaría, además, calcular la distancia semántica entre los sustantivos extraídos y los términos canónicos del dominio, ampliando la cobertura de T3 más allá de las limitaciones del vocabulario controlado.
+Para la PoC se propone el \textbf{modelo mediano} como equilibrio entre capacidad y coste.
 
 \subsubsection*{T4 - Propuesta de enrutamiento FAQ}
 
-Al no disponer de una base de datos real de FAQs, la recuperación no puede evaluarse de forma \textit{end-to-end}. Se proponen y comparan dos estrategias de enrutamiento sobre un corpus de FAQs artificial de demostración, bilingüe (12 entradas, 8 en español y 4 en inglés).
+Al no disponer de una base de datos real de FAQs, la recuperación no puede evaluarse de forma \textit{end-to-end}. Se proponen y comparan dos estrategias de enrutamiento sobre un corpus de FAQs artificial.
 
-\textbf{Whoosh + BM25.} \textbf{Whoosh} es un motor de búsqueda de texto completo implementado en Python puro. Indexa el texto de las preguntas de la base de FAQs en un \textbf{índice invertido} y recupera los documentos más relevantes usando el algoritmo \textbf{BM25}, una variante de TF-IDF optimizada para recuperación de información. Aunque esta solución conseguiría un rendimineto muy óptimo, no termina siendo totalmente adecuada ya que esta indexación no permite contemplar el caso en el que el vocabulario de la consulta no coincida con el de la FAQ. Esta dependencia léxica es una limitación estructural de Whoosh que comparte con los diccionarios controlados. \\
+\textbf{Whoosh + BM25.} \textbf{Whoosh} es un motor de búsqueda indexada para Python. Indexa el texto en un \textbf{índice invertido} y recupera los documentos más relevantes usando el algoritmo \textbf{BM25}, una variante de TF-IDF optimizada para recuperación de información. Sin embargo, esta indexación no contempla el caso en el que el vocabulario de la consulta no coincida con el de la FAQ. Esto es una limitación de Whoosh que comparte con los diccionarios controlados. \
 
-\textbf{\textit{Embeddings} + similitud coseno.} Se emplea el modelo \textit{paraphrase-multilingual-MiniLM-L12-v2}, preentrenado en tareas de similitud de en múltiples idiomas. Los vectores de las FAQs se calculan y se almacenan; en tiempo de consulta, se codifica únicamente la consulta y se calcula la similitud coseno contra los vectores precalculados, filtrando previamente por intención. Esta opción sí puede llegar a ser resistente ante reformulaciones. La principal desventaja es su mayor peso computacional. No obstante, al precalcular los \textit{embeddings} de las FAQs y mantenerlos en memoria, la inferencia en producción se reduce a una codificación de la consulta y una multiplicación matricial, operación de coste controlable.
+\textbf{\textit{Embeddings} + similitud coseno.} Se emplea el modelo \textit{paraphrase-multilingual-MiniLM-L12-v2} preentreado en tareas de similitud. Los vectores de las FAQs se calculan y se almacenan, y en tiempo de consulta se codifica la consulta y se calcula la similitud coseno con respecto a los vectores precalculados, filtrando previamente por intención. Esta opción es, en principio, resistente ante reformulaciones. La principal desventaja es su mayor peso computacional. No obstante, al precalcular los \textit{embeddings} de las FAQs y mantenerlos en memoria, el tiempo de consulta en producción se reducirá considerablemente.
 
 
 \newpage
