@@ -78,6 +78,13 @@
 	{¿}{?`}1 {¡}{!`}1,
 }
 
+% Paquetes para dibujar diagramas
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{babel}
+
+
 % Matemáticas
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -399,7 +406,7 @@ Al no disponer de una base de datos real de FAQs, la recuperación no puede eval
 \textbf{\textit{Embeddings} + similitud coseno.} Se emplea el modelo \textit{paraphrase-multilingual-MiniLM-L12-v2}, preentrenado en tareas de similitud de en múltiples idiomas. Los vectores de las FAQs se calculan y se almacenan; en tiempo de consulta, se codifica únicamente la consulta y se calcula la similitud coseno contra los vectores precalculados, filtrando previamente por intención. Esta opción sí puede llegar a ser resistente ante reformulaciones. La principal desventaja es su mayor peso computacional. No obstante, al precalcular los \textit{embeddings} de las FAQs y mantenerlos en memoria, la inferencia en producción se reduce a una codificación de la consulta y una multiplicación matricial, operación de coste controlable.
 
 
-\newpage
+%\newpage
 \section{Datos y protocolo de evaluación}
 \subsection{Dataset seleccionado para la PoC}
 Para la PoC se utilizará el dataset \textbf{CLINC150} (Larson et al., 2019) en su configuración \texttt{plus}, disponible a través de la librería Datasets de Hugging Face. Este corpus es un estándar en la industria para evaluar sistemas de clasificación de intenciones en múltiples dominios.
@@ -432,11 +439,83 @@ Para considerar que la prueba de concepto es exitosa, se deben cumplir los sigui
 
 \newpage
 \section{Arquitectura final del sistema}
-NICO
+El sistema se organiza en cuatro componentes principales que procesan la consulta del usuario de forma secuencial, cubriendo desde la detección del idioma hasta la recuperación final de la FAQ. El flujo de procesamiento es el siguiente:
 
+\begin{itemize}
+    \item \textbf{C1 - Identificador de idioma} (Lingua): Recibe el texto crudo introducido por el usuario y determina si está en español o inglés mediante modelos estadísticos de n-gramas de caracteres. Esta tarea (T1) es el filtro inicial indispensable que enruta la consulta hacia el módulo de normalización y los modelos específicos de la lengua detectada.
 
+    \item \textbf{C2 - Clasificador de intención} (TF-IDF + Modelos Clásicos): Recibe la consulta ya normalizada (sin tildes, lematizada y con sinónimos resueltos) y la transforma en un espacio vectorial para clasificar su intención comunicativa (ej. recipe, ingredient\_substitution) con un coste computacional y tiempo de respuesta mínimos.
 
+	\item \textbf{C3 - Extractor de entidades} (dos vías: diccionarios y spaCy - modelo md): Actúa como componente de contextualización para la intención detectada, estructurando la consulta del usuario. Tal y como se establece en el diseño, este componente contempla dos vías alternativas para su ejecución:
+	\begin{enumerate}
+		\item \textbf{Vía léxica determinista}: Utiliza diccionarios controlados organizados por categorías culinarias (ingredientes, técnicas y utensilios) para extraer las entidades mediante la intersección y coincidencia exacta de \textit{tokens} normalizados.
+		\item \textbf{Vía simbólico-semántica} (con spaCy): Utiliza el modelo mediano de spaCy para extraer todos los sustantivos y nombres propios de la consulta sin depender de un vocabulario rígido. Además, gracias a los vectores estáticos de este modelo, permite calcular la distancia semántica entre los sustantivos extraídos y los términos canónicos del dominio.
+	\end{enumerate}
 
+    \item \textbf{C4 - Motor de recuperación de FAQs} (\textit{embeddings} + similitud coseno): Utilizando el modelo paraphrase-multilingual-MiniLM-L12-v2, este componente final recibe la intención acotada por C2 y las entidades extraídas por C3 para comparar la consulta del usuario con los embeddings precalculados de la base de datos de FAQs, recuperando la respuesta más relevante.
+
+    \begin{enumerate}
+		\item \textbf{Vía léxica} (Whoosh + BM25): Utiliza un motor de búsqueda de texto completo para indexar y recuperar las FAQs mediante el algoritmo estadístico BM25. Es muy rápido, pero presenta limitación estructural por dependencia léxica si las palabras del usuario no coinciden exactamente con la FAQ.
+		\item \textbf{Vía semántica} (\textit{embeddings} + similitud coseno): Utiliza el modelo paraphrase-multilingual-MiniLM-L12-v2 para comparar la consulta con vectores precalculados de las FAQs. Este enfoque es resistente a las reformulaciones y sinónimos, complementando las deficiencias del motor basado en BM25.
+    \end{enumerate}
+\end{itemize}
+Como observamos en el diagrama de flujo, Consulta $\rightarrow$ T1 $\rightarrow$ \{T2, T3\} $\rightarrow$ T4 $\rightarrow$ Respuesta. El componente C1 precede a todos los demás permitiendo cargar los modelos preconfigurados con el idioma correcto. Superada la barrera idiomática, C2 y C3 actúan de forma independiente para estructurar la consulta (intención + entidades), y C4 utiliza esa salida estructurada para devolver la respuesta adecuada.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[
+		node distance=2.5cm,
+		% Estilos de nodos
+		startstop/.style={
+			ellipse, draw, thick,
+			minimum width=2.5cm, minimum height=1.2cm,
+			align=center, fill=gray!10
+		},
+		process/.style={
+			rectangle, draw, thick, rounded corners,
+			minimum width=4cm, minimum height=1.3cm,
+			align=center, fill=blue!10
+		},
+	% 	decision/.style={ %Rombito bonito (mentira :( )
+	%         diamond, draw, thick,
+	%         aspect=3,
+	%         align=center,
+	%         inner sep=2pt,
+	%         fill=yellow!20
+	%     },
+		% Estilo de flechas
+		arrow/.style={->, thick}
+	]
+
+	% Nodos
+	\node (input) [startstop] {Consulta};
+
+	\node (c1) [process, below of= input] {\textbf{C1}\\Identificador de idioma\\(Lingua)};
+
+	\node (c2) [process, below left=1.5cm  of c1] {\textbf{C2}\\Clasificador de intención\\(TF-IDF + LinearSVC)};
+
+	\node (c3) [process, below right=1.5cm  of c1] {\textbf{C3}\\Extractor de entidades\\(spaCy md)};
+
+	\node (c4) [process, below right=1.5cm of c2] {\textbf{C4}\\Motor de FAQs\\(Embeddings + coseno)};
+
+	\node (output) [startstop, below of=c4] {FAQ más relevante};
+
+	% Flechas
+	\draw[arrow] (input) -- (c1);
+
+	\draw[arrow] (c1) -- node[xshift=2.5cm, yshift=-0.5cm, align=center]{Idioma detectado \\ (ES/EN)} (c2);
+
+	\draw[arrow] (c1) --  (c3);
+
+	\draw[arrow] (c2) -- node[right=0.5cm]{Intención} (c4);
+
+	\draw[arrow] (c3) -- node[left=0.5cm]{Entidades} (c4);
+
+	\draw[arrow] (c4) -- (output);
+
+	\end{tikzpicture}
+	\caption{Diagrama de flujo de datos por los componentes}
+\end{figure}
 
 \begin{comment}
 \newpage
