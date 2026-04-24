@@ -78,13 +78,6 @@
 	{¿}{?`}1 {¡}{!`}1,
 }
 
-% Paquetes para dibujar diagramas
-\usepackage{tikz}
-\usetikzlibrary{positioning}
-\usetikzlibrary{shapes.geometric}
-\usetikzlibrary{babel}
-
-
 % Matemáticas
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -107,6 +100,13 @@
 \renewcommand{\labelitemi}{\textbullet}
 \renewcommand{\labelitemii}{-}
 
+% Diagramas
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{calc}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{babel}
+
 % Numeración de página
 \pagenumbering{arabic}
 
@@ -125,6 +125,7 @@
 \usepackage{float} % Colocación de tablas
 \usepackage{tcolorbox}
 \usepackage{listings}
+\captionsetup{labelfont=bf}
 
 % Código
 % Habría que definir aquí un listings
@@ -325,7 +326,7 @@ A partir del diagnóstico lingüístico y el marco de restricciones identificado
 	
 	\item \textbf{T3 (extracción de entidades):} Paradigma simbólico. Esta tarea actúa como un componente de contextualización para la intención detectada en T2. Se implementará mediante un vocabulario controlado (diccionarios culinarios organizados por categorías). Al recibir la consulta ya normalizada desde T1, el sistema realizará una extracción por coincidencia de \textit{tokens} para diferenciar casos con idéntica intención pero distintas entidades. Esta aproximación permite generar vectores de información estructurada para la resolución final en la siguiente etapa del \textit{pipeline}.
 	
-	\item \textbf{T4 (recuperación de FAQs):} Paradigma vectorial. Como la consulta llega estructurada por T2 y T3, la recuperación se resuelve en dos pasos: un filtro por intención que acota el espacio de búsqueda y una búsqueda por similitud coseno sobre las FAQs de esa categoría. 
+	\item \textbf{T4 (recuperación de FAQs):} Paradigma vectorial. Como la consulta llega estructurada por T2 y T3, la recuperación se resuelve en dos pasos: un filtro por intención que acota el espacio de búsqueda y una búsqueda por similitud del coseno sobre las FAQs de esa categoría. 
 \end{itemize}
 
 \newpage
@@ -339,81 +340,86 @@ A partir del diagnóstico lingüístico y el marco de restricciones identificado
 \vspace{0.5pt}
 \noindent \rule{\textwidth}{1pt}
 
-\section{Revisiones respecto a la Entrega 1}
-ÓSCAR
+% Segunda entrega
+\section{Revisiones respecto a la Entrega 1} \label{sec6}
+Tras estudiar los modelos estadísticos, vectoriales y neuronales (Unidades 3, 4 y 5), las hipótesis iniciales del proyecto se actualizan de la siguiente manera.
+\begin{itemize}
+	\item \textbf{T1 se mantiene:} La identificación automática de idiomas se resuelve de forma óptima mediante modelos estadísticos de $n$-gramas de caracteres. Como demuestra la ley de Zipf (Unidad 3), la alta regularidad probabilística del lenguaje convierte a estos patrones en descriptores muy discriminativos. Esta robustez asegura una detección precisa, incluso ante vocabulario especializado o errores ortográficos. Según nuestra investigación preliminar, la librería lingua se ajusta perfectamente a este enfoque.
+	
+	\item \textbf{T2 se modifica ligeramente:} El análisis de los modelos vectoriales (Unidad 4) consolida a TF-IDF como un punto de partida metodológico robusto, por lo que bastará con aplicar posteriormente un algoritmo de clasificación clásico (SVM, Naive Bayes multinomial o regresión logística). Asimismo, descartamos el uso de arquitecturas tipo Transformer debido a su excesiva complejidad para este escenario: las consultas esperadas se limitan al ámbito culinario y el conjunto de datos seleccionado (CLINC150) carece del volumen requerido para aprovechar estas redes con eficacia.
+	
+	\item \textbf{T3 se replantea:} Flexibilizamos el enfoque de la Entrega 1 para la extracción de entidades. La propuesta original, basada en una búsqueda léxica mediante diccionarios culinarios, puede resultar demasiado rígida porque no admite sinónimos. Para solventarlo, planteamos dos alternativas. La primera es mantener esta ruta simbólica inicial. La segunda consiste en definir palabras clave del dominio y extraer los términos de la consulta más cercanos semánticamente utilizando \textit{embeddings} (paradigma vectorial). La decisión definitiva entre ambas opciones se tomará empíricamente durante la fase de implementación.
+	
+	\item \textbf{T4 se simplifica para la PoC:} La falta de un corpus real de preguntas frecuentes (FAQs) impide su integración práctica en la interfaz final. Por consiguiente, el desarrollo de esta funcionalidad en la prueba de concepto se limitará a una exploración ilustrativa mediante ejemplos concretos. A nivel metodológico, proponemos evolucionar el diseño original hacia un modelo híbrido. El sistema conservaría los filtros de idioma e intención junto con la similitud del coseno (paradigma vectorial), bonificando a su vez la puntuación de aquellas FAQs que compartan \textit{tokens} con las entidades extraídas en T3 (paradigma simbólico). Como vía alternativa de recuperación puramente léxica, también se contempla evaluar un motor de búsqueda indexada a través de Whoosh.
+\end{itemize}
 
 
-\newpage
 \section{Decisiones de representación y modelado}
+Esta sección detalla las decisiones tomadas sobre la representación del texto y los modelos elegidos para cada componente del sistema. Las elecciones concretas se justifican en función de las restricciones identificadas en la Sección \ref{sec4}. 
 
-Esta sección detalla las decisiones tomadas sobre la representación del texto y los modelos elegidos para cada componente del \textit{pipeline}. Las elecciones concretas se justifican en función de las restricciones identificadas en la Sección~\ref{sec4} y de los resultados obtenidos durante la experimentación.
+\begin{nota}
+	En vez de sintetizar la información en una tabla (indicando tarea, representación y justificación), hemos optado por un desarrollo textual pormenorizado.
+\end{nota}
 
 \subsection{Representación textual}
-
-La representación vectorial de las consultas se construirá a partir de un \textit{pipeline} de preprocesamiento y normalización que actúe como capa intermedia entre el texto original del usuario y el modelo de clasificación. El propuesto \textit{pipeline} aplica los siguientes pasos en orden:
+La representación vectorial de las consultas se construirá a partir de un \textit{pipeline} de preprocesamiento y normalización que actúa como capa intermedia entre el texto original del usuario y el modelo de clasificación. El \textit{pipeline} propuesto utiliza spaCy como librería principal de PLN, aplicando los siguientes pasos en orden.
 \begin{enumerate}
-    \item \textbf{Expansión de contracciones y \textit{slang}:} en el caso del inglés, expansión de formas contraídas (\textit{I'm} $\rightarrow$ \textit{I am}). % con la librería \texttt{contractions}.
-	Para el español, se normalización de abreviaturas coloquiales (\textit{kiero} $\rightarrow$ \textit{quiero}, \textit{q} $\rightarrow$ \textit{que}).
-    \item \textbf{Lematización con excepciones:} Se propone usar el lematizador de spaCy, protegiendo del lema incorrecto a términos técnico-culinarios (\textit{gluten}, \textit{pizza}, \textit{aove}) mediante un diccionario de excepciones.
-    \item \textbf{Normalización:} Eliminación de tildes y conversión a minúsculas % mediante \texttt{unidecode}
-	, eliminación de palabras funcionales vacías de contenido léxico (artículos, preposiciones...).
-	\item \textbf{Sustitución de sinónimos y regionalismos:} por ejemplo, \textit{papa} $\rightarrow$ \textit{patata}; \textit{palta} $\rightarrow$ \textit{aguacate}; \textit{prawn} $\rightarrow$ \textit{shrimp}, abordando de esta forma la variación dialectal señalada en la Sección~\ref{sec2}.
+    \item \textbf{Expansión de contracciones y \textit{slang}:} En el caso del inglés, se expanden las formas contraídas (\textit{I'm} $\rightarrow$ \textit{I am}). % con la librería \texttt{contractions}. 
+    Para el español, se normalizan las abreviaturas coloquiales (\textit{kiero} $\rightarrow$ \textit{quiero}, \textit{q} $\rightarrow$ \textit{que}). 
+    \item \textbf{Tokenización y conversión a minúsculas:} División del texto en \textit{tokens} y transformación de todos los caracteres a minúsculas.
+    \item \textbf{Lematización con excepciones:} Se extrae el lema de cada palabra, protegiendo ciertos términos culinarios especializados (\textit{gluten}, \textit{aove}) de lematizaciones incorrectas mediante un diccionario de excepciones.
+    \item \textbf{Normalización y filtrado:} Eliminación de tildes y supresión de palabras funcionales vacías de contenido léxico (artículos, preposiciones, etc.).
+	\item \textbf{Sustitución de sinónimos y regionalismos:} Por ejemplo, \textit{palta} $\rightarrow$ \textit{aguacate}; \textit{prawn} $\rightarrow$ \textit{shrimp}. Se aborda así la variación dialectal señalada en la Sección \ref{sec2}.
 \end{enumerate}
 
-% Esta normalización inicial de los textos de entrada se traduce en unareducción significativa del vocabulario: de 855 a 628 tipos únicos en inglés y de 1\,212 a 679 en español, con una reducción media de la longitud de consulta de aproximadamente el 35\% en ambos idiomas.
+% Esta normalización inicial de los textos de entrada se traduce en una reducción significativa del vocabulario: de 855 a 628 tipos únicos en inglés y de 1212 a 679 en español, con una reducción media de la longitud de consulta de aproximadamente el 35 \% en ambos idiomas.
 % Este compactado del vocabulario favorece la generalización del modelo de clasificación.
 
-Una vez tengamos el corpus normalizado, se empleará la medida \textbf{TF-IDF} (\textit{Term Frequency-Inverse Document Frequency}) como representación vectorial para T2.
+Una vez normalizado el corpus, se empleará TF-IDF como representación vectorial para T2 y se entrenará un clasificador de intención independiente por idioma. %en coherencia con la arquitectura de T1. Tras identificar el idioma, la consulta se enruta al vectorizador y clasificador correspondientes.
+
 % Esta elección de este modelo en específico se ha considerado la más adecuada para la tarea de clasicación de la intención porque permite captura los términos discriminativos por intención (por ejemplo, \textit{sustituir} para \textit{ingredient\_substitution} o \textit{caduca}/\textit{last} para \textit{food\_last}).
-% Se entrena un modelo independiente por idioma, en coherencia con la arquitectura de T1: tras detectar el idioma, la consulta se enruta al vectorizador y clasificador correspondiente.
 
 \subsection{Selección de modelos}
+A continuación, se explican los modelos considerados para cada una de las tareas. 
 
 \subsubsection*{T1 - Identificación de idioma}
+Para esta tarea se utilizará \textbf{lingua}, una librería basada en modelos estadísticos que destaca por su alto rendimiento. Su procesamiento se divide en dos fases. Primero, un motor basado en reglas examina el alfabeto y los caracteres exclusivos del texto para descartar opciones incompatibles y reducir el espacio de candidatos. Después, un clasificador Naive Bayes calcula la probabilidad de cada idioma restante a partir de \textbf{$n$-gramas de caracteres} de longitud variable (de 1 a 5). A diferencia de los detectores tradicionales que se limitan a trigramas, combinar desde unigramas hasta quintigramas hace que esta herramienta sea especialmente robusta en textos cortos, como lo son las consultas de un usuario en nuestro sistema.
 
-Para la detección de idioma se propone utilizar la librería \textbf{lingua}, librería basada en modelos estadísticos de $n$-gramas.
 % La evaluación sobre los 480 ejemplos del conjunto de prueba bilingüe ofrece una tasa de aciertos del \textbf{100\,\%}.
-Se ha considerado esta librería en primer lugar por su rendimiento y su forma de detectar los idiomas con n-gramas variables. Usa un procesamiento comprendido en dos fases: primero, un \textbf{motor basado en reglas} examina el alfabeto y los caracteres exclusivos del texto para descartar idiomas incompatibles y podar el espacio de candidatos; después, un \textbf{clasificador Naive Bayes} calcula la probabilidad de cada idioma restante a partir de $n$-gramas de caracteres de longitud variable (de 1 a 5). A diferencia de los detectores tradicionales que se limitan a trigramas, el uso de unigramas hasta quintigramas hace a Lingua especialmente robusto en textos cortos.
 
 \subsubsection*{T2 - Clasificación de intención}
+Tras descartar la arquitectura Transformer (véase la Sección \ref{sec6}), este módulo constará de dos elementos: un vectorizador y un clasificador. El primero aplicará \textbf{TF-IDF} para transformar cada consulta en un vector de dimensión fija. En este proceso, la frecuencia del término (TF) resalta las palabras más representativas del texto, mientras que la frecuencia inversa de documento (IDF) penaliza aquellas demasiado comunes en el corpus. 
 
-La clasificación de intención se implementará mediante dos componentes: un vectorizador \textbf{TF-IDF} y un clasificador. % \textbf{LinearSVC}. Se entrena un modelo independiente por idioma: una vez que T1 determina la lengua de la consulta, ésta se enruta al par vectorizador-clasificador correspondiente.
-
-\textbf{TF-IDF} (\textit{Term Frequency-Inverse Document Frequency}) transformará cada consulta de texto en un vector de dimensión fija. La componente TF (\textit{term frequency}) corresponde a la frecuencia de un término dentro del documento, favoreciendo los términos más representativos de cada consulta. La componente IDF (\textit{inverse document frequency}) penaliza los términos que aparecen en muchos documentos del corpus.
-
-Para el componente de clasificación se evaluarán distintas alternativas. En particular, el \textbf{LinearSVC} (\textit{Support Vector Classifier} lineal) es el principal candidato. Este modelo busca el hiperplano de máximo margen que separa las clases en el espacio vectorial generado por TF-IDF. % El parámetro de regularización se fijará inicialmente en $C = 1$, valor que equilibra margen y tolerancia a errores de entrenamiento.
+Respecto al clasificador, se evaluarán distintas alternativas, siendo \textbf{SVM} el candidato principal. Este algoritmo busca el hiperplano de máximo margen que mejor separa las clases dentro del espacio vectorial generado por TF-IDF. % El parámetro de regularización se fijará inicialmente en $C = 1$, valor que equilibra margen y tolerancia a errores de entrenamiento.
 
 % Los primeros resultados sobre el conjunto de prueba muestran una \textit{accuracy} del \textbf{93\,\%} en inglés y \textbf{94\,\%} en español, con F1 macro de 0,93 y 0,94 respectivamente, superando ampliamente el 12,5\,\% del clasificador trivial. Los errores residuales se concentran en los pares \textit{recipe}/\textit{ingredients\_list} y \textit{calories}/\textit{nutrition\_info}, cuyo solapamiento léxico dificulta la separación mediante representación de bolsa de palabras.
 
 \subsubsection*{T3 - Extracción de entidades}
+La extracción de entidades se contempla desde dos enfoques distintos.
+\begin{enumerate}
+	\item \textbf{Diccionarios controlados:} Se basa en la intersección entre los \textit{tokens} normalizados de la consulta y vocabularios culinarios organizados por categoría. Es una aproximación determinista, rápida y que no requiere inferencia. Su limitación fundamental es la rigidez léxica, ya que el sistema es incapaz de extraer una entidad ausente en los diccionarios.
+	
+	\item \textbf{Extracción semántica con spaCy:} Consiste en definir palabras clave del dominio culinario y extraer los términos de la consulta más cercanos semánticamente mediante el cálculo de la similitud del coseno entre los \textit{embeddings} de dichas palabras y los \textit{tokens} preprocesados. Al no depender de un listado cerrado, ofrece una flexibilidad mucho mayor. Cabe destacar que los vectores de spaCy son estáticos y no contextuales (cada palabra tiene una representación única independientemente de la frase en la que aparezca). Esta vía requiere seleccionar un modelo apropiado entre los tres que ofrece la librería por idioma.
+	\begin{itemize}
+		\item \textbf{sm} (\textit{small}, $\approx$ 12 MB): Incluye tokenizador, etiquetador POS, analizador de dependencias y reconocedor de entidades nombradas (NER). Al no incorporar vectores de palabras, es incapaz de calcular la similitud semántica.
+		\item \textbf{md} (\textit{medium}, $\approx$ 43 MB): Añade \textit{embeddings} sobre un vocabulario de 20.000 términos (dimensión 300). Permite operaciones de similitud semántica entre \textit{tokens}, además de incluir todas las capacidades del modelo pequeño.
+		\item \textbf{lg} (\textit{large}, $\approx$ 545 MB): Mantiene la arquitectura del modelo mediano, pero con vectores sobre un vocabulario de 685.000 términos, ofreciendo mayor cobertura semántica a costa de multiplicar por diez su tamaño.
+	\end{itemize}
+	Para la PoC, en caso de optar por esta vía, se propone el \textbf{modelo mediano} por su equilibrio entre capacidad y coste computacional. 
+\end{enumerate}
 
-La tarea de extracción de entidades se ha contemplado desde dos enfoques distintos:
-
-\textbf{Vía 1 - Diccionarios controlados.} Se realiza una extracción por intersección de los \textit{tokens} normalizados de la consulta con vocabularios culinarios organizados por categoría. Esta aproximación es determinista, rápida y no requiere inferencia. La limitación fundamental es la \textbf{rigidez léxica} debido a que el sistema no puede extraer ninguna entidad que no figure en el diccionario.
-
-\textbf{Vía 2 - Extracción simbólico-semántica con spaCy.} Alternativa más flexible consiste en hacer uso de la librería spaCy para extraer todos los sustantivos (\texttt{NOUN}) y nombres propios (\texttt{PROPN}) de la consulta, sin necesidad de vocabulario predefinido. Esta vía requiere seleccionar el modelo de spaCy apropiado. La biblioteca ofrece tres tamaños para cada idioma:
-
-\begin{itemize}
-\item \textbf{sm} (\textit{small}, $\approx$12,MB): incluye tokenizador, etiquetador POS, analizador de dependencias y reconocedor de entidades nombradas (NER), pero \textbf{no incorpora vectores de palabras}. Apto para la extracción de sustantivos por POS, pero incapaz de calcular similitud semántica entre \textit{tokens}.
-\item \textbf{md} (\textit{medium}, $\approx$43,MB): añade vectores de palabras sobre un vocabulario de 20,000 términos (dimensión 300). Permite operaciones de similitud semántica entre \textit{tokens} mediante \texttt{token.similarity()}, además de todas las capacidades del modelo pequeño.
-\item \textbf{lg} (\textit{large}, $\approx$545,MB): misma arquitectura que el modelo mediano pero con vectores sobre un vocabulario de 685,000 términos, ofreciendo mayor cobertura semántica a costa de un tamaño diez veces superior.
-\end{itemize}
-
-Para la PoC se propone el \textbf{modelo mediano} como equilibrio entre capacidad y coste.
-
-\subsubsection*{T4 - Propuesta de enrutamiento FAQ}
-
-Al no disponer de una base de datos real de FAQs, la recuperación no puede evaluarse de forma \textit{end-to-end}. Se proponen y comparan dos estrategias de enrutamiento sobre un corpus de FAQs artificial.
-
-\textbf{Whoosh + BM25.} \textbf{Whoosh} es un motor de búsqueda indexada para Python. Indexa el texto en un \textbf{índice invertido} y recupera los documentos más relevantes usando el algoritmo \textbf{BM25}, una variante de TF-IDF optimizada para recuperación de información. Sin embargo, esta indexación no contempla el caso en el que el vocabulario de la consulta no coincida con el de la FAQ. Esto es una limitación de Whoosh que comparte con los diccionarios controlados. \
-
-\textbf{\textit{Embeddings} + similitud coseno.} Se emplea el modelo \textit{paraphrase-multilingual-MiniLM-L12-v2} preentreado en tareas de similitud. Los vectores de las FAQs se calculan y se almacenan, y en tiempo de consulta se codifica la consulta y se calcula la similitud coseno con respecto a los vectores precalculados, filtrando previamente por intención. Esta opción es, en principio, resistente ante reformulaciones. La principal desventaja es su mayor peso computacional. No obstante, al precalcular los \textit{embeddings} de las FAQs y mantenerlos en memoria, el tiempo de consulta en producción se reducirá considerablemente.
+\subsubsection*{T4 - Propuesta de enrutamiento al FAQ}
+Como carecemos de una base de datos real de FAQs, la recuperación no puede evaluarse de forma \textit{end-to-end} (extremo a extremo). Por ello, se compararán dos estrategias de enrutamiento sobre un corpus artificial reducido a modo de prueba. 
+\begin{enumerate}
+	\item \textbf{Whoosh + BM25:} Whoosh es un motor de búsqueda indexada para Python que registra el texto en un índice invertido y recupera los documentos más relevantes usando BM25, una variante de TF-IDF optimizada para la recuperación de información. Sin embargo, esta técnica falla si el vocabulario de la consulta no coincide con el de la base de datos de FAQs; una limitación que comparte con los diccionarios controlados.
+	
+	\item \textbf{\textit{Embeddings} + similitud del coseno:} Se emplea el modelo mediano de spaCy para calcular y almacenar previamente los vectores de las preguntas frecuentes. En tiempo de consulta, la entrada del usuario se codifica y se calcula su similitud del coseno respecto a los vectores precalculados, filtrando antes por idioma e intención. Además, se bonificará la puntuación de aquellas FAQs que compartan \textit{tokens} con las entidades extraídas en T3. Esta hibridación resulta especialmente resistente ante las reformulaciones de los usuarios. Aunque su principal desventaja reside en un mayor peso computacional, mantener los \textit{embeddings} de las FAQs en memoria reducirá considerablemente el tiempo de respuesta en producción.
+\end{enumerate}
 
 
-%\newpage
 \section{Datos y protocolo de evaluación}
-\subsection{Dataset seleccionado para la PoC}
-Para la PoC se utilizará el dataset \textbf{CLINC150} (Larson et al., 2019) en su configuración \texttt{plus}, disponible a través de la librería Datasets de Hugging Face. Este corpus es un estándar en la industria para evaluar sistemas de clasificación de intenciones en múltiples dominios.
+\subsection{\textit{Dataset} seleccionado para la PoC}
+Para la PoC se ha escogido el \textit{dataset} \textbf{CLINC150} (Larson et al., 2019) en su configuración \texttt{plus}, disponible a través de la librería Datasets de Hugging Face. Este corpus es un estándar en la industria para evaluar sistemas de clasificación de intenciones en múltiples dominios.
 
 Puesto que el proyecto se centra en un asistente de FAQs de cocina, se ha realizado un filtrado estricto para aislar este dominio, reduciendo el problema a \textbf{8 intenciones} (ejs. \textit{recipe}, \textit{cook\_time}, \textit{ingredient\_substitution}). Este filtrado define las siguientes condiciones operativas para el diseño experimental.
 \begin{itemize}
@@ -424,7 +430,7 @@ Puesto que el proyecto se centra en un asistente de FAQs de cocina, se ha realiz
 \end{itemize}
 
 \subsection{Métricas y criterio de éxito}
-El objetivo final de la arquitectura es actuar como un asistente de preguntas frecuentes de cocina. El sistema debe detectar la intención del usuario y redirigirlo a la respuesta adecuada. Sin embargo, no disponemos de una base de datos real de FAQs estructuradas para este dominio. Por tanto, la evaluación de la PoC no será \textit{end-to-end} (extremo a extremo), sino que se centrará en reportar métricas sobre los módulos de \textbf{identificación de idioma} (T1) y \textbf{clasificación de intención} (T2), evaluados sobre el conjunto de test.
+El objetivo final de la arquitectura es actuar como un asistente de preguntas frecuentes de cocina. El sistema debe detectar la intención del usuario y redirigirlo a la respuesta adecuada. Sin embargo, no disponemos de una base de datos real de FAQs estructuradas para este dominio. Por tanto, la evaluación de la PoC no será \textit{end-to-end}, sino que se centrará en reportar métricas sobre los módulos de \textbf{identificación de idioma} (T1) y \textbf{clasificación de intención} (T2), evaluados sobre el conjunto de test.
 
 Dado el equilibrio perfecto de las clases, se utilizará la \textbf{tasa de aciertos} (\textit{accuracy}) como métrica global en ambas tareas. 
 
@@ -437,90 +443,93 @@ Para considerar que la prueba de concepto es exitosa, se deben cumplir los sigui
 \begin{enumerate}
 	\item \textbf{Superar holgadamente la línea base:} Los modelos deben mejorar significativamente el rendimiento de los clasificadores triviales, esto es, el 50 \% para la identificación de idioma y el 12.5 \% para la clasificación de intención en ambos idiomas. 
 	\item \textbf{Análisis de errores fundamentado:} Identificar los fallos de clasificación y conectarlos directamente con el análisis lingüístico de la entrega anterior.
-	\item\textbf{Exploración empírica para extracción (T3) y enrutamiento (T4):} Como se expuso en la charla de PLN del 14 de abril, ``la intención es necesaria pero no suficiente''. Saber que el usuario busca una receta es inútil si no se extraen los alimentos o términos clave de su consulta. Por ello, el éxito práctico de la PoC consistirá en conformar adecuadamente la tupla \texttt{[Idioma, Intención, Entidades]} a partir de consultas de prueba representativas. Ante la falta de una base de datos de FAQs para evaluar T3 y T4 de forma integral, se explorarán empíricamente dos enfoques: una vía léxica (empleando diccionarios culinarios controlados para la extracción y motores de indexación como Whoosh para el enrutamiento) y una vía semántica (mediante la generación de \textit{embeddings} y el cálculo de similitud coseno para ambos procesos).
+	\item\textbf{Exploración empírica para extracción (T3) y enrutamiento (T4):} Como se expuso en la charla de PLN del 14 de abril, ``la intención es necesaria pero no suficiente''. Saber que el usuario busca una receta es inútil si no se extraen los alimentos o términos clave de su consulta. Por ello, el éxito práctico de la PoC consistirá en conformar adecuadamente la tupla \texttt{[Idioma, Intención, Entidades]} a partir de consultas de prueba representativas. Ante la falta de una base de datos de FAQs para evaluar T3 y T4 de forma integral, se explorarán empíricamente dos enfoques: una vía léxica (empleando diccionarios culinarios controlados para la extracción y motores de indexación como Whoosh para el enrutamiento) y una vía semántica (mediante la generación de \textit{embeddings} y el cálculo de la similitud del coseno para ambos procesos).
 \end{enumerate}
 
 
-\newpage
 \section{Arquitectura final del sistema}
-El sistema se organiza en cuatro componentes principales que procesan la consulta del usuario de forma secuencial, cubriendo desde la detección del idioma hasta la recuperación final de la FAQ. El flujo de procesamiento es el siguiente:
-
+El sistema se organiza en cuatro componentes principales que procesan la consulta de forma secuencial, desde la detección del idioma hasta la recuperación final de la FAQ. En esta sección, se integran los modelos seleccionados previamente para conformar el siguiente flujo de procesamiento.
 \begin{itemize}
-    \item \textbf{C1 - Identificador de idioma} (Lingua): Recibe el texto crudo introducido por el usuario y determina si está en español o inglés mediante modelos estadísticos de n-gramas de caracteres. Esta tarea (T1) es el filtro inicial indispensable que enruta la consulta hacia el módulo de normalización y los modelos específicos de la lengua detectada.
-
-    \item \textbf{C2 - Clasificador de intención} (TF-IDF + Modelos Clásicos): Recibe la consulta ya normalizada (sin tildes, lematizada y con sinónimos resueltos) y la transforma en un espacio vectorial para clasificar su intención comunicativa (ej. recipe, ingredient\_substitution) con un coste computacional y tiempo de respuesta mínimos.
-
-	\item \textbf{C3 - Extractor de entidades} (dos vías: diccionarios y spaCy - modelo md): Actúa como componente de contextualización para la intención detectada, estructurando la consulta del usuario. Tal y como se establece en el diseño, este componente contempla dos vías alternativas para su ejecución:
+	\item \textbf{C1 - Identificador de idioma} (lingua): Recibe el texto crudo del usuario y determina si está en español o inglés mediante modelos estadísticos de $n$-gramas de caracteres. Este componente actúa como un filtro inicial indispensable, ya que que enruta la petición hacia el módulo de normalización y los modelos específicos de la lengua detectada.
+	
+	\item \textbf{C2 - Clasificador de intención} (TF-IDF + Modelos clásicos): Toma la consulta ya normalizada (lematizada, sin tildes y con sinónimos unificados) y la proyecta en un espacio vectorial para asignarle rápidamente una intención comunicativa (ejs. \textit{meal\_suggestion}, \textit{food\_last}). Se prioriza este enfoque por su alta eficiencia y bajo coste computacional en inferencia.
+	
+	\item \textbf{C3 - Extractor de entidades} (diccionarios o spaCy - modelo md): Trabaja con indepencia de C2 para contextualizar la intención detectada y estructurar la consulta. Como se justificó en la selección de modelos, se contemplan dos alternativas.
 	\begin{enumerate}
-		\item \textbf{Vía léxica determinista}: Utiliza diccionarios controlados organizados por categorías culinarias (ingredientes, técnicas y utensilios) para extraer las entidades mediante la intersección y coincidencia exacta de \textit{tokens} normalizados.
-		\item \textbf{Vía simbólico-semántica} (con spaCy): Utiliza el modelo mediano de spaCy para extraer todos los sustantivos y nombres propios de la consulta sin depender de un vocabulario rígido. Además, gracias a los vectores estáticos de este modelo, permite calcular la distancia semántica entre los sustantivos extraídos y los términos usuales del dominio (cocina).
+		\item \textbf{Vía léxica:} Identifica la información de interés apoyándose en diccionarios controlados por categorías culinarias. Es un método muy rápido basado en coincidencias exactas de \textit{tokens}.
+		\item \textbf{Vía semántica:} Emplea el modelo mediano de spaCy. Gracias a sus \textit{embeddings} preentrenados, extrae las entidades relevantes calculando la distancia semántica respecto a los términos del dominio culinario, aportando así la flexibilidad de la que carece un vocabulario rígido.
 	\end{enumerate}
-
-    \item \textbf{C4 - Motor de recuperación de FAQs} (\textit{embeddings} + similitud coseno): Utilizando el modelo paraphrase-multilingual-MiniLM-L12-v2, este componente final recibe la intención acotada por C2 y las entidades extraídas por C3 para comparar la consulta del usuario con los embeddings precalculados de la base de datos de FAQs, recuperando la respuesta más relevante.
-    \begin{enumerate}
-		\item \textbf{Vía léxica} (Whoosh + BM25): Utiliza un motor de búsqueda de texto completo para indexar y recuperar las FAQs mediante el algoritmo estadístico BM25. Es muy rápido, pero presenta limitación estructural por dependencia léxica si las palabras del usuario no coinciden exactamente con la FAQ.
-		\item \textbf{Vía semántica} (\textit{embeddings} + similitud coseno): Utiliza el modelo mediano de spaCy para comparar la consulta con vectores precalculados de las FAQs. Este enfoque es resistente a las reformulaciones y sinónimos, complementando las deficiencias del motor basado en BM25.
-    \end{enumerate}
+	
+	\vspace{1pt}
+	
+	\item \textbf{C4 - Motor de recuperación de FAQs} (Whoosh o \textit{embeddings} + similitud del coseno): Este último componente fusiona la intención delimitada en C2 con las entidades extraídas en C3 para buscar la respuesta óptima en la base de datos de FAQs. Se proponen dos rutas de búsqueda distintas para su evaluación.
+	\begin{enumerate}
+		\item \textbf{Vía léxica} (Whoosh + BM25): Un motor veloz que indexa y recupera el texto mediante métricas estadísticas, aunque sufre dependencia léxica frente a las palabras introducidas por el usuario.
+		\item \textbf{Vía semántica} (\textit{embeddings} + similitud del coseno): Compara los \textit{embeddings} de las entidades extraídas con los vectores precalculados de las FAQs. Esta vía complementa al motor tradicional al ser mucho más resistente frente a reformulaciones y sinónimos. 
+	\end{enumerate}
 \end{itemize}
-Como observamos en el diagrama de flujo, Consulta $\rightarrow$ T1 $\rightarrow$ \{T2, T3\} $\rightarrow$ T4 $\rightarrow$ Respuesta. El componente C1 precede a todos los demás permitiendo cargar los modelos preconfigurados con el idioma correcto. Superada la barrera idiomática, C2 y C3 actúan de forma independiente para estructurar la consulta (intención + entidades), y C4 utiliza esa salida estructurada para devolver la respuesta adecuada.
 
+\subsubsection*{Diagrama de flujo}
+Como ilustra el diagrama de flujo (Consulta $\rightarrow$ T1 $\rightarrow$ \{T2, T3\} $\rightarrow$ T4 $\rightarrow$ Respuesta), el componente C1 precede al resto para superar la barrera idiomática. A continuación, C2 y C3 actúan de forma independiente para construir una representación estructurada de la petición. Finalmente, C4 asimila dicha salida (la tupla \texttt{[Idioma, Intención, Entidades]}) para devolver la FAQ adecuada al usuario.
+
+\definecolor{skblue}{RGB}{85, 145, 242} % azul
+
+\vspace{2pt}
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[
+		scale=0.85, transform shape,
 		node distance=2.5cm,
-		% Estilos de nodos
 		startstop/.style={
 			ellipse, draw, thick,
 			minimum width=2.5cm, minimum height=1.2cm,
-			align=center, fill=gray!10
+			align=center, fill=gray!20
 		},
 		process/.style={
 			rectangle, draw, thick, rounded corners,
 			minimum width=4cm, minimum height=1.3cm,
-			align=center, fill=blue!10
+			align=center, fill=skblue!50
 		},
-	% 	decision/.style={ %Rombito bonito (mentira :( )
-	%         diamond, draw, thick,
-	%         aspect=3,
-	%         align=center,
-	%         inner sep=2pt,
-	%         fill=yellow!20
-	%     },
-		% Estilo de flechas
 		arrow/.style={->, thick}
-	]
-
-	% Nodos
-	\node (input) [startstop] {Consulta};
-
-	\node (c1) [process, below of= input] {\textbf{C1}\\Identificador de idioma\\(Lingua)};
-
-	\node (c2) [process, below left=1.5cm  of c1] {\textbf{C2}\\Clasificador de intención\\(TF-IDF + LinearSVC)};
-
-	\node (c3) [process, below right=1.5cm  of c1] {\textbf{C3}\\Extractor de entidades\\(spaCy md)};
-
-	\node (c4) [process, below right=1.5cm of c2] {\textbf{C4}\\Motor de FAQs\\(Embeddings + coseno)};
-
-	\node (output) [startstop, below of=c4] {FAQ más relevante};
-
-	% Flechas
-	\draw[arrow] (input) -- (c1);
-
-	\draw[arrow] (c1) -- node[xshift=2.5cm, yshift=-0.5cm, align=center]{Idioma detectado \\ (ES/EN)} (c2);
-
-	\draw[arrow] (c1) --  (c3);
-
-	\draw[arrow] (c2) -- node[yshift=-0.1cm, left]{Intención} (c4);
-
-	\draw[arrow] (c3) -- node[yshift=-0.1cm, right]{Entidades} (c4);
-
-	\draw[arrow] (c4) -- (output);
-
+		]
+		
+		\node (input) [startstop] {Consulta};
+		
+		\node (c1) [process, below=1cm of input] {\textbf{C1}\\Identificador de idioma\\(lingua)};
+		
+		\node (c2) [process, below left=1.5cm of c1] {\textbf{C2}\\Clasificador de intención\\(TF-IDF + Modelo clásico)};
+		
+		\node (c3) [process, below right=1.5cm of c1] {\textbf{C3}\\Extractor de entidades\\(diccionarios o spaCy md)};
+		
+		\node (c4) [process, below right=1.5cm of c2] {\textbf{C4}\\Motor de FAQs\\(Whoosh o\\ \textit{embeddings} + coseno)};
+		
+		\node (output) [startstop, below=1cm of c4] {FAQ más relevante};
+		
+		% Etiqueta centrada bajo C1
+		\node [align=center, font=\small, below=0.15cm of c1] (idioma)
+		{Idioma detectado \\ (ES/EN)};
+		
+		\draw[arrow] (input) -- (c1);
+		\draw[arrow] (c1) -- (c2);
+		\draw[arrow] (c1) -- (c3);
+		\draw[arrow] (c2) -- node[yshift=-0.1cm, left]{Intención} (c4);
+		\draw[arrow] (c3) -- node[yshift=-0.1cm, right]{Entidades} (c4);
+		\draw[arrow] (c4) -- (output);
+		
 	\end{tikzpicture}
-	\caption{Diagrama de flujo de datos por los componentes}
+	
+	\vspace{3pt}
+	\caption{Diagrama del flujo de datos entre los componentes del sistema.}
 \end{figure}
 
-Para la implementación de la prueba de concepto se desarrollará el flujo completo de la arquitectura, pero el esfuerzo técnico y la evaluación se centrarán en C1, C2 y C3. Esta decisión se fundamenta en que C1, la detección del idioma, y C2, la extracción de la intención, forman el núcleo habilitador del sistema y pueden evaluarse rigurosamente usando el dataset \textsc{CLINC150} para demostrar empíricamente que superan las líneas base triviales. Asimismo, se pone un especial énfasis en C3 porque el éxito práctico de la extracción radica en conformar la tupla [Idioma, Intención, Entidades] de forma robusta para contextualizar la consulta. Finalmente, como se menciona anteriormente, la inexistencia actual de una base de datos real de FAQs de cocina imposibilita una evaluación rigurosa de extremo a extremo, lo que relega a T4 a una exploración principalmente empírica (comparando vías léxicas y semánticas).
+\subsubsection*{Prueba de concepto}
+De cara a la PoC, la implementación abarcará el flujo completo de la arquitectura, pero el esfuerzo técnico recaerá principalmente sobre \textbf{C1}, \textbf{C2} y \textbf{C3}. El identificador de idioma (C1) y el clasificador de intención (C2) constituyen el núcleo habilitador del sistema, y pueden evaluarse de forma rigurosa utilizando el \textit{dataset} CLINC150. 
+
+Asimismo, se pone un especial énfasis en el extractor de entidades (C3), dado que el éxito práctico de la PoC radica en conformar la tupla \texttt{[Idioma, Intención, Entidades]} de forma robusta. Por este motivo, aunque no sea posible evaluarlo con la misma rigurosidad métrica que los dos primeros, sí se integrará en la \textbf{interfaz final}. 
+
+Por último, y como ya se ha mencionado, la actual inexistencia de una base de datos real de FAQs de cocina impide una evaluación de extremo a extremo, lo que relega al componente C4 a una fase de exploración más reducida, limitando sus pruebas a ejemplos prácticos dentro de un cuaderno Jupyter.
+
+
 
 \begin{comment}
 \newpage
