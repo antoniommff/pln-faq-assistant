@@ -105,3 +105,6 @@ dmypy.json
 
 # macOS
 .DS_Store
+
+#flake8
+.flake8
