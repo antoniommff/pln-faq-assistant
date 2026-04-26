@@ -7,7 +7,7 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [windows-latest, macos-latest, ubuntu-latest]
+        os: [windows-latest, ubuntu-latest] # [windows-latest, macos-latest, ubuntu-latest]
 
     runs-on: ${{ matrix.os }}
 
@@ -54,21 +54,21 @@ jobs:
         --exclude-module="scipy"
         GUI/GUI.py
     # Build Mac, que no para de dar problenmas
-    - name: Build with PyInstaller (macOS)
-      if: runner.os == 'macOS'
-      env:
-          PYINSTALLER_CODESIGN_IDENTITY: ""
-      run: >
-          pyinstaller --noconsole --onedir --name "Extractor_App"
-          --hidden-import="es_core_news_md"
-          --hidden-import="en_core_web_md"
-          --collect-all="spacy"
-          --collect-all="es_core_news_md"
-          --collect-all="en_core_web_md"
-          --collect-all="flet"
-          --exclude-module="matplotlib"
-          --exclude-module="scipy"
-          GUI/GUI.py
+    # - name: Build with PyInstaller (macOS)
+    #   if: runner.os == 'macOS'
+    #   env:
+    #       PYINSTALLER_CODESIGN_IDENTITY: ""
+    #   run: >
+    #       pyinstaller --noconsole --onedir --name "Extractor_App"
+    #       --hidden-import="es_core_news_md"
+    #       --hidden-import="en_core_web_md"
+    #       --collect-all="spacy"
+    #       --collect-all="es_core_news_md"
+    #       --collect-all="en_core_web_md"
+    #       --collect-all="flet"
+    #       --exclude-module="matplotlib"
+    #       --exclude-module="scipy"
+    #       GUI/GUI.py
 
     # Build (Linux) que no tiene mucho sentido pero bueno
     - name: Build with PyInstaller (Linux)
