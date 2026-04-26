@@ -1,0 +1,13 @@
+# Procesamiento de texto
+spacy>=3.7.0
+
+# GUI
+flet[all]=0.84.0
+
+# Build
+pyinstaller
+
+# Librerías estándar de Python (no requieren instalación adicional)
+# os
+# collections
+# warnings
