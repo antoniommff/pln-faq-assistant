@@ -1,1 +1,82 @@
+name: Build App (Windows, macOS, Linux)
 
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [windows-latest, macos-latest, ubuntu-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v4
+
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.12"
+
+    # Cache pip
+    - name: Cache pip
+      uses: actions/cache@v4
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements-build.txt') }}
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pyinstaller
+        python -m spacy download es_core_news_md
+        python -m spacy download en_core_web_md
+    #  Extra Linux deps
+    - name: Install Linux system dependencies
+      if: runner.os == 'Linux'
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libgtk-3-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libmpv-dev
+    # Build (Windows)
+    - name: Build with PyInstaller (Windows)
+      if: runner.os == 'Windows'
+      run: >
+        pyinstaller --noconsole --onefile --name "Extractor_App"
+        --hidden-import="es_core_news_md"
+        --hidden-import="en_core_web_md"
+        --collect-all="spacy"
+        --collect-all="es_core_news_md"
+        --collect-all="en_core_web_md"
+        --collect-all="flet"
+        --exclude-module="matplotlib"
+        --exclude-module="scipy"
+        GUI/GUI.py
+    # Build (macOS + Linux)
+    - name: Build with PyInstaller (Unix)
+      if: runner.os != 'Windows'
+      run: >
+        pyinstaller --noconsole --onefile --name "Extractor_App"
+        --hidden-import="es_core_news_md"
+        --hidden-import="en_core_web_md"
+        --collect-all="spacy"
+        --collect-all="es_core_news_md"
+        --collect-all="en_core_web_md"
+        --collect-all="flet"
+        --exclude-module="matplotlib"
+        --exclude-module="scipy"
+        GUI/GUI.py
+
+    - name: Strip binary (Linux/macOS)
+      if: runner.os != 'Windows'
+      run: |
+        strip dist/Extractor_App
+
+    # Upload artifact
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: FAQ-${{ matrix.os }}-${{ github.sha }}
+        path: dist/
