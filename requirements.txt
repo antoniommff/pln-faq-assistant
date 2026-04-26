@@ -30,6 +30,9 @@ sentence-transformers>=2.2.0
 #   python -m spacy download es_core_news_md
 #   python -m spacy download en_core_web_md
 
+# GUI
+# flet[all]=0.84.0
+
 # Librerías estándar de Python (no requieren instalación adicional)
 # os           
 # collections  
