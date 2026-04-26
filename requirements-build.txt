@@ -2,7 +2,7 @@
 spacy>=3.7.0
 
 # GUI
-flet[all]==0.84.0
+flet[desktop]==0.84.0
 
 # Build
 pyinstaller
