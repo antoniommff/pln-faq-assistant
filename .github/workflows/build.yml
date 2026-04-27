@@ -7,7 +7,7 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [windows-latest, macos-latest, ubuntu-latest]
+        os: [windows-latest, ubuntu-latest] # [windows-latest, macos-latest, ubuntu-latest]
 
     runs-on: ${{ matrix.os }}
 
@@ -25,13 +25,12 @@ jobs:
       uses: actions/cache@v4
       with:
         path: ~/.cache/pip
-        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements-build.txt') }}
+        key: ${{ runner.os }}-py312-pip-${{ hashFiles('requirements-build.txt') }}
 
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        pip install pyinstaller
+        pip install -r requirements-build.txt
         python -m spacy download es_core_news_md
         python -m spacy download en_core_web_md
     #  Extra Linux deps
@@ -54,25 +53,37 @@ jobs:
         --exclude-module="matplotlib"
         --exclude-module="scipy"
         GUI/GUI.py
-    # Build (macOS + Linux)
-    - name: Build with PyInstaller (Unix)
-      if: runner.os != 'Windows'
-      run: >
-        pyinstaller --noconsole --onefile --name "Extractor_App"
-        --hidden-import="es_core_news_md"
-        --hidden-import="en_core_web_md"
-        --collect-all="spacy"
-        --collect-all="es_core_news_md"
-        --collect-all="en_core_web_md"
-        --collect-all="flet"
-        --exclude-module="matplotlib"
-        --exclude-module="scipy"
-        GUI/GUI.py
+    # Build Mac, que no para de dar problenmas
+    # - name: Build with PyInstaller (macOS)
+    #   if: runner.os == 'macOS'
+    #   env:
+    #       PYINSTALLER_CODESIGN_IDENTITY: ""
+    #   run: >
+    #       pyinstaller --noconsole --onedir --name "Extractor_App"
+    #       --hidden-import="es_core_news_md"
+    #       --hidden-import="en_core_web_md"
+    #       --collect-all="spacy"
+    #       --collect-all="es_core_news_md"
+    #       --collect-all="en_core_web_md"
+    #       --collect-all="flet"
+    #       --exclude-module="matplotlib"
+    #       --exclude-module="scipy"
+    #       GUI/GUI.py
 
-    - name: Strip binary (Linux/macOS)
-      if: runner.os != 'Windows'
-      run: |
-        strip dist/Extractor_App
+    # Build (Linux) que no tiene mucho sentido pero bueno
+    - name: Build with PyInstaller (Linux)
+      if: runner.os == 'Linux'
+      run: >
+          pyinstaller --noconsole --onefile --name "Extractor_App"
+          --hidden-import="es_core_news_md"
+          --hidden-import="en_core_web_md"
+          --collect-all="spacy"
+          --collect-all="es_core_news_md"
+          --collect-all="en_core_web_md"
+          --collect-all="flet"
+          --exclude-module="matplotlib"
+          --exclude-module="scipy"
+          GUI/GUI.py
 
     # Upload artifact
     - name: Upload artifact
