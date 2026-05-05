@@ -348,7 +348,7 @@ Tras estudiar los modelos estadísticos, vectoriales y neuronales (Unidades 3, 4
 	
 	\item \textbf{T2 se modifica ligeramente:} El análisis de los modelos vectoriales (Unidad 4) consolida a TF-IDF como un punto de partida metodológico robusto, por lo que bastará con aplicar posteriormente un algoritmo de clasificación clásico (SVM, Naive Bayes multinomial o regresión logística). Asimismo, descartamos el uso de arquitecturas tipo Transformer debido a su excesiva complejidad para este escenario: las consultas esperadas se limitan al ámbito culinario y el conjunto de datos seleccionado (CLINC150) carece del volumen requerido para aprovechar estas redes con eficacia.
 	
-	\item \textbf{T3 se replantea:} Flexibilizamos el enfoque de la Entrega 1 para la extracción de entidades. La propuesta original, basada en una búsqueda léxica mediante diccionarios culinarios, puede resultar demasiado rígida porque no admite sinónimos. Para solventarlo, planteamos dos alternativas. La primera es mantener esta ruta simbólica inicial. La segunda consiste en definir palabras clave del dominio y extraer los términos de la consulta más cercanos semánticamente utilizando \textit{embeddings} (paradigma vectorial). La decisión definitiva entre ambas opciones se tomará empíricamente durante la fase de implementación.
+	\item \textbf{T3 se replantea:} Flexibilizamos el enfoque de la Entrega 1 para la extracción de entidades. La propuesta original, basada en una búsqueda léxica mediante diccionarios culinarios, puede resultar demasiado rígida porque no admite sinónimos. Para solventarlo, planteamos dos alternativas. La primera es mantener esta ruta simbólica inicial. La segunda consiste en definir palabras clave del dominio y extraer los términos de la consulta más cercanos semánticamente utilizando \textit{embeddings} (paradigma vectorial-neuronal\footnote{En concreto, tenemos planteado usar la librería spaCy, que proporciona vectores de palabras preentrenados generados mediante el algoritmo GloVe. Estos \textit{embeddings} son estáticos y no contextuales, lo que significa que a cada palabra se le asigna una representación vectorial única y fija, independientemente del significado que adquiera o de la frase en la que aparezca. Aunque estas representaciones provienen del paradigma neuronal, nuestro sistema no realiza inferencia con redes, sino que aplica operaciones puramente algebraicas (similitud del coseno) sobre el espacio vectorial.}). La decisión definitiva entre ambas opciones se tomará empíricamente durante la fase de implementación.
 	
 	\item \textbf{T4 se simplifica para la PoC:} La falta de un corpus real de preguntas frecuentes (FAQs) impide su integración práctica en la interfaz final. Por consiguiente, el desarrollo de esta funcionalidad en la prueba de concepto se limitará a una exploración ilustrativa mediante ejemplos concretos. A nivel metodológico, proponemos evolucionar el diseño original hacia un modelo híbrido. El sistema conservaría los filtros de idioma e intención junto con la similitud del coseno (paradigma vectorial), bonificando a su vez la puntuación de aquellas FAQs que compartan \textit{tokens} con las entidades extraídas en T3 (paradigma simbólico). Como vía alternativa de recuperación puramente léxica, también se contempla evaluar un motor de búsqueda indexada a través de Whoosh.
 \end{itemize}
@@ -379,6 +379,7 @@ Una vez normalizado el corpus, se empleará TF-IDF como representación vectoria
 
 % Esta elección de este modelo en específico se ha considerado la más adecuada para la tarea de clasicación de la intención porque permite captura los términos discriminativos por intención (por ejemplo, \textit{sustituir} para \textit{ingredient\_substitution} o \textit{caduca}/\textit{last} para \textit{food\_last}).
 
+\vspace{5pt}
 \subsection{Selección de modelos}
 A continuación, se explican los modelos considerados para cada una de las tareas. 
 
@@ -399,7 +400,7 @@ La extracción de entidades se contempla desde dos enfoques distintos.
 \begin{enumerate}
 	\item \textbf{Diccionarios controlados:} Se basa en la intersección entre los \textit{tokens} normalizados de la consulta y vocabularios culinarios organizados por categoría. Es una aproximación determinista, rápida y que no requiere inferencia. Su limitación fundamental es la rigidez léxica, ya que el sistema es incapaz de extraer una entidad ausente en los diccionarios.
 	
-	\item \textbf{Extracción semántica con spaCy:} Consiste en definir palabras clave del dominio culinario y extraer los términos de la consulta más cercanos semánticamente mediante el cálculo de la similitud del coseno entre los \textit{embeddings} de dichas palabras y los \textit{tokens} preprocesados. Al no depender de un listado cerrado, ofrece una flexibilidad mucho mayor. Cabe destacar que los vectores de spaCy son estáticos y no contextuales (cada palabra tiene una representación única independientemente de la frase en la que aparezca). Esta vía requiere seleccionar un modelo apropiado entre los tres que ofrece la librería por idioma.
+	\item \textbf{Extracción semántica con spaCy:} Consiste en definir palabras clave del dominio culinario y extraer los términos de la consulta más cercanos semánticamente mediante el cálculo de la similitud del coseno entre los \textit{embeddings} de dichas palabras y los \textit{tokens} preprocesados. Al no depender de un listado cerrado, ofrece una flexibilidad mucho mayor. Esta vía requiere seleccionar un modelo apropiado entre los tres que ofrece la librería por idioma.
 	\begin{itemize}
 		\item \textbf{sm} (\textit{small}, $\approx$ 12 MB): Incluye tokenizador, etiquetador POS, analizador de dependencias y reconocedor de entidades nombradas (NER). Al no incorporar vectores de palabras, es incapaz de calcular la similitud semántica.
 		\item \textbf{md} (\textit{medium}, $\approx$ 43 MB): Añade \textit{embeddings} sobre un vocabulario de 20.000 términos (dimensión 300). Permite operaciones de similitud semántica entre \textit{tokens}, además de incluir todas las capacidades del modelo pequeño.
@@ -469,16 +470,13 @@ El sistema se organiza en cuatro componentes principales que procesan la consult
 	\end{enumerate}
 \end{itemize}
 
-\subsubsection*{Diagrama de flujo}
-Como ilustra el diagrama de flujo (Consulta $\rightarrow$ T1 $\rightarrow$ \{T2, T3\} $\rightarrow$ T4 $\rightarrow$ Respuesta), el componente C1 precede al resto para superar la barrera idiomática. A continuación, C2 y C3 actúan de forma independiente para construir una representación estructurada de la petición. Finalmente, C4 asimila dicha salida (la tupla \texttt{[Idioma, Intención, Entidades]}) para devolver la FAQ adecuada al usuario.
-
 \definecolor{skblue}{RGB}{85, 145, 242} % azul
 
-\vspace{2pt}
+\vspace{-5pt}
 \begin{figure}[H]
 	\centering
 	\begin{tikzpicture}[
-		scale=0.85, transform shape,
+		scale=0.835, transform shape,
 		node distance=2.5cm,
 		startstop/.style={
 			ellipse, draw, thick,
@@ -521,6 +519,8 @@ Como ilustra el diagrama de flujo (Consulta $\rightarrow$ T1 $\rightarrow$ \{T2,
 	\vspace{3pt}
 	\caption{Diagrama del flujo de datos entre los componentes del sistema.}
 \end{figure}
+
+Como ilustra el diagrama de flujo (Consulta $\rightarrow$ T1 $\rightarrow$ \{T2, T3\} $\rightarrow$ T4 $\rightarrow$ Respuesta), el componente C1 precede al resto para superar la barrera idiomática. A continuación, C2 y C3 actúan de forma independiente para construir una representación estructurada de la petición. Finalmente, C4 asimila dicha salida (la tupla \texttt{[Idioma, Intención, Entidades]}) para devolver la FAQ adecuada al usuario.
 
 \subsubsection*{Prueba de concepto}
 De cara a la PoC, la implementación abarcará el flujo completo de la arquitectura, pero el esfuerzo técnico recaerá principalmente sobre \textbf{C1}, \textbf{C2} y \textbf{C3}. El identificador de idioma (C1) y el clasificador de intención (C2) constituyen el núcleo habilitador del sistema, y pueden evaluarse de forma rigurosa utilizando el \textit{dataset} CLINC150. 
