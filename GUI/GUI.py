@@ -52,7 +52,7 @@ async def main(page: ft.Page):
                 lang=idioma            
                 )
 
-            texto_salida.value = f"Entidades:\n{items}\nIdioma: {idioma.upper()}"
+            texto_salida.value = f"Idioma: {idioma.upper()}\nEntidades:\n{items}"
             texto_salida.color = ft.Colors.GREEN_400
 
         page.update()
