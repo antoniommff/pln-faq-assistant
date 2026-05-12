@@ -1,37 +1,63 @@
 import flet as ft
+import asyncio
 from auxiliar.entidades import EntityExtractor
+import os
+#from auxiliar.preprocesamiento import detector
+from lingua import Language, LanguageDetectorBuilder
 
+def load():
+    detector = LanguageDetectorBuilder.from_languages(Language.SPANISH, Language.ENGLISH).build()
+    extractor = EntityExtractor()
+    extractor.add_vectors()
+    return extractor, detector
 
+def predecir_idioma(texto, detector):
+   lang = detector.detect_language_of(texto) 
+   return 'es' if lang == Language.SPANISH else 'en'
 
-def main(page: ft.Page):
+async def main(page: ft.Page):
+
     extractor = None
-    # 1. Configuración de la página (Ventana)
+
+    # Configuración
     page.title = "FAQs"
-    page.theme_mode = ft.ThemeMode.DARK # Modo oscuro automático
+    page.theme_mode = ft.ThemeMode.DARK
     page.window_width = 450
     page.window_height = 400
+    page.window.icon = os.path.abspath("icon.ico") # "logo.ico" # o "logo.png"
     page.window_resizable = False
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
     page.padding = 40
+    page.update()
+    # Logica de la app
+    async def enviar_click(e):
+        nonlocal extractor
+        nonlocal detector
 
-    # 2. Lógica de la aplicación
-    def enviar_click(e):
         if extractor is None:
-            texto_salida.value = "El modelo aún se está cargando..." # MUY IMPROBABLE QUE PASE LOL
+            texto_salida.value = "El modelo sigue cargando..."
             texto_salida.color = ft.Colors.ORANGE_400
-            return
-        if not campo_entrada.value:
-            texto_salida.value = "Por favor, escribe algo primero."
+
+        elif not campo_entrada.value:
+            texto_salida.value = "Escribe algo primero."
             texto_salida.color = ft.Colors.RED_400
+
         else:
-            items, _ = extractor.extract(campo_entrada.value.rstrip("\r").rstrip("\n"))
-            texto_salida.value = f"Se han extraido las siguientes entidades: {items}"
+            texto = campo_entrada.value.rstrip("\r\n")
+            idioma = predecir_idioma(texto, detector)
+
+            items, _ = extractor.extract(
+                clean_text=texto,
+                lang=idioma            
+                )
+
+            texto_salida.value = f"Idioma: {idioma.upper()}\nEntidades:\n{items}"
             texto_salida.color = ft.Colors.GREEN_400
 
-        page.update() # Refresca la interfaz para mostrar los cambios
+        page.update()
 
-    # 3. Componentes de la interfaz (Widgets)
+    # Elementos de la app
     titulo = ft.Text(
         "Bienvenido",
         size=30,
@@ -41,51 +67,39 @@ def main(page: ft.Page):
 
     campo_entrada = ft.TextField(
         label="Escribe algo aquí...",
-        border_radius=15,
-        border_color=ft.Colors.BLUE_700,
-        focused_border_color=ft.Colors.BLUE_400,
         width=300,
-        text_align=ft.TextAlign.LEFT,
+        border_radius=15,
     )
-
-    boton_enviar = ft.Button(
-        content=ft.Text("Enviar datos"),
-        style=ft.ButtonStyle(
-            color=ft.Colors.WHITE,
-            bgcolor=ft.Colors.BLUE_700,
-            shape=ft.RoundedRectangleBorder(radius=10),
-        ),
+    campo_entrada.on_submit = enviar_click
+    
+    texto_salida = ft.Text(
+        value="Cargando motor IA...",
+        color=ft.Colors.ORANGE_400
+    )
+    
+    boton = ft.ElevatedButton(
+        "Enviar",
         on_click=enviar_click
     )
-
-    texto_salida = ft.Text(
-        value="Esperando entrada...",
-        size=16,
-        italic=True,
-        color=ft.Colors.GREY_500
-    )
-
-    # 4. Agregar componentes a la página
+    # Construccion de la app
     page.add(
         titulo,
-        ft.Divider(height=20, color="transparent"),
         campo_entrada,
-        ft.Divider(height=10, color="transparent"),
-        boton_enviar,
-        ft.Divider(height=30, color="transparent"),
+        boton,
         texto_salida
     )
 
-    # Muestra un mensajito mientras carga # No funciona, quizas un poco de multithreading molaria
-    texto_salida.value = "Cargando motor de IA..."
     page.update()
 
-    # Carga el modelo
-    extractor = EntityExtractor()
-    extractor.add_vectors()
+    # =========================
+    # CARGA EN SEGUNDO PLANO
+    # =========================
 
-    # Avisa que ya terminó
-    texto_salida.value = "Esperando entrada..."
+    extractor, detector = await asyncio.to_thread(load)
+
+    texto_salida.value = "Modelo cargado correctamente."
+    texto_salida.color = ft.Colors.GREEN_400
+
     page.update()
 
 
