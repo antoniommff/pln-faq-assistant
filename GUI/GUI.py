@@ -1,7 +1,7 @@
 import flet as ft
 import asyncio
 from auxiliar.entidades import EntityExtractor
-
+import os
 
 def load():
     extractor = EntityExtractor()
@@ -18,29 +18,12 @@ async def main(page: ft.Page):
     page.theme_mode = ft.ThemeMode.DARK
     page.window_width = 450
     page.window_height = 400
+    page.window.icon = os.path.abspath("icon.ico") # "logo.ico" # o "logo.png"
     page.window_resizable = False
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
     page.padding = 40
-
-    # Elementos de la app
-    titulo = ft.Text(
-        "Bienvenido",
-        size=30,
-        weight=ft.FontWeight.BOLD,
-        color=ft.Colors.BLUE_200
-    )
-
-    campo_entrada = ft.TextField(
-        label="Escribe algo aquí...",
-        width=300,
-        border_radius=15,
-    )
-
-    texto_salida = ft.Text(
-        value="Cargando motor IA...",
-        color=ft.Colors.ORANGE_400
-    )
+    page.update()
     # Logica de la app
     async def enviar_click(e):
         nonlocal extractor
@@ -63,6 +46,26 @@ async def main(page: ft.Page):
 
         page.update()
 
+    # Elementos de la app
+    titulo = ft.Text(
+        "Bienvenido",
+        size=30,
+        weight=ft.FontWeight.BOLD,
+        color=ft.Colors.BLUE_200
+    )
+
+    campo_entrada = ft.TextField(
+        label="Escribe algo aquí...",
+        width=300,
+        border_radius=15,
+    )
+    campo_entrada.on_submit = enviar_click
+    
+    texto_salida = ft.Text(
+        value="Cargando motor IA...",
+        color=ft.Colors.ORANGE_400
+    )
+    
     boton = ft.ElevatedButton(
         "Enviar",
         on_click=enviar_click
