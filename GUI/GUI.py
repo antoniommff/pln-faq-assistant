@@ -2,12 +2,18 @@ import flet as ft
 import asyncio
 from auxiliar.entidades import EntityExtractor
 import os
+#from auxiliar.preprocesamiento import detector
+from lingua import Language, LanguageDetectorBuilder
 
 def load():
+    detector = LanguageDetectorBuilder.from_languages(Language.SPANISH, Language.ENGLISH).build()
     extractor = EntityExtractor()
     extractor.add_vectors()
-    return extractor
+    return extractor, detector
 
+def predecir_idioma(texto, detector):
+   lang = detector.detect_language_of(texto) 
+   return 'es' if lang == Language.SPANISH else 'en'
 
 async def main(page: ft.Page):
 
@@ -27,6 +33,7 @@ async def main(page: ft.Page):
     # Logica de la app
     async def enviar_click(e):
         nonlocal extractor
+        nonlocal detector
 
         if extractor is None:
             texto_salida.value = "El modelo sigue cargando..."
@@ -37,11 +44,15 @@ async def main(page: ft.Page):
             texto_salida.color = ft.Colors.RED_400
 
         else:
-            items, _ = extractor.extract(
-                campo_entrada.value.rstrip("\r\n")
-            )
+            texto = campo_entrada.value.rstrip("\r\n")
+            idioma = predecir_idioma(texto, detector)
 
-            texto_salida.value = f"Entidades:\n{items}"
+            items, _ = extractor.extract(
+                clean_text=texto,
+                lang=idioma            
+                )
+
+            texto_salida.value = f"Entidades:\n{items}\nIdioma: {idioma.upper()}"
             texto_salida.color = ft.Colors.GREEN_400
 
         page.update()
@@ -84,7 +95,7 @@ async def main(page: ft.Page):
     # CARGA EN SEGUNDO PLANO
     # =========================
 
-    extractor = await asyncio.to_thread(load)
+    extractor, detector = await asyncio.to_thread(load)
 
     texto_salida.value = "Modelo cargado correctamente."
     texto_salida.color = ft.Colors.GREEN_400
