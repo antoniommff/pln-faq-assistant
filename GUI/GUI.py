@@ -1,23 +1,17 @@
 import flet as ft
 import asyncio
-from auxiliar.entidades import EntityExtractor
+from auxiliar.utils import predecir_idioma, load, prettify
 import os
+import random
 #from auxiliar.preprocesamiento import detector
-from lingua import Language, LanguageDetectorBuilder
 
-def load():
-    detector = LanguageDetectorBuilder.from_languages(Language.SPANISH, Language.ENGLISH).build()
-    extractor = EntityExtractor()
-    extractor.add_vectors()
-    return extractor, detector
 
-def predecir_idioma(texto, detector):
-   lang = detector.detect_language_of(texto) 
-   return 'es' if lang == Language.SPANISH else 'en'
+
 
 async def main(page: ft.Page):
 
     extractor = None
+    detector = None
 
     # Configuración
     page.title = "FAQs"
@@ -30,12 +24,13 @@ async def main(page: ft.Page):
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
     page.padding = 40
     page.update()
+
     # Logica de la app
     async def enviar_click(e):
         nonlocal extractor
         nonlocal detector
 
-        if extractor is None:
+        if extractor is None or detector is None:
             texto_salida.value = "El modelo sigue cargando..."
             texto_salida.color = ft.Colors.ORANGE_400
 
@@ -47,23 +42,75 @@ async def main(page: ft.Page):
             texto = campo_entrada.value.rstrip("\r\n")
             idioma = predecir_idioma(texto, detector)
 
-            items, _ = extractor.extract(
+            items, entities = extractor.extract(
                 clean_text=texto,
-                lang=idioma            
+                lang=idioma
                 )
 
-            texto_salida.value = f"Idioma: {idioma.upper()}\nEntidades:\n{items}"
+            texto_salida.value = f"Idioma: {idioma.upper()}\n\nEntidades: {"\n" + prettify(entities) if boton_superior.content == "Categorías" else items}"
             texto_salida.color = ft.Colors.GREEN_400
 
         page.update()
 
-    # Elementos de la app
-    titulo = ft.Text(
-        "Bienvenido",
+
+    async def cambiar_texto_boton(e):
+        boton_superior.content = "Lista" if boton_superior.content == "Categorías" else "Categorías"
+        page.update()
+
+    async def rotar_titulo():
+        nonlocal idx_mensaje
+        nonlocal mensajes
+        nuevo_idx = idx_mensaje
+        while nuevo_idx == idx_mensaje:
+            nuevo_idx = random.randint(0, len(mensajes) - 1)
+
+        if random.randint(0, 1000) == 17:
+             titulo_texto.value = "¡Literalmente 1 entre 1000!"
+
+        titulo_texto.value = mensajes[nuevo_idx]
+        titulo_animado.content = ft.Text(
+            titulo_texto.value,
+            size=30,
+            weight=ft.FontWeight.BOLD,
+            color=ft.Colors.BLUE_200,
+        )
+        page.update()
+
+    boton_superior = ft.Button(
+        content="Categorías",
+        on_click=cambiar_texto_boton,
+    )
+
+    # Elementos de la app #
+
+    # Lista de mensajes para el ciclo
+    mensajes = ["Bienvenido", "Welcome", "Ask anything!", "Consulta tus dudas", "FAQ's", "¡Escribe algo!", "Comida comida comida", "Now with 20% less cyanide","Condimentando tus dudas",
+                "Sin grumos en la información", "¿Se te quemó el 'arro'? ¡Pregunta!", "El ingrediente secreto es el FAQ", "La receta del éxito (y del flan)", "From (data) farm to screen",
+                "Don't let your soup get cold!", "Gordon-Ramsay-approved (maybe)"]
+    idx_mensaje = 0
+
+    titulo_texto = ft.Text(
+        mensajes[idx_mensaje],
         size=30,
         weight=ft.FontWeight.BOLD,
-        color=ft.Colors.BLUE_200
+        color=ft.Colors.BLUE_200,
     )
+
+    # Componente que gestiona la animación de deslizamiento
+    titulo_animado = ft.AnimatedSwitcher(
+        titulo_texto,
+        transition=ft.AnimatedSwitcherTransition.FADE, # Desliza hacia la derecha
+        duration=500, # Duración de la animación en ms
+        reverse_duration=500,
+        switch_in_curve=ft.AnimationCurve.EASE_OUT,
+    )
+
+    # titulo = ft.Text(
+    #     "Bienvenido",
+    #     size=30,
+    #     weight=ft.FontWeight.BOLD,
+    #     color=ft.Colors.BLUE_200
+    # )
 
     campo_entrada = ft.TextField(
         label="Escribe algo aquí...",
@@ -71,22 +118,36 @@ async def main(page: ft.Page):
         border_radius=15,
     )
     campo_entrada.on_submit = enviar_click
-    
+
     texto_salida = ft.Text(
         value="Cargando motor IA...",
         color=ft.Colors.ORANGE_400
     )
-    
-    boton = ft.ElevatedButton(
+
+    boton = ft.Button(
         "Enviar",
         on_click=enviar_click
     )
     # Construccion de la app
     page.add(
-        titulo,
-        campo_entrada,
-        boton,
-        texto_salida
+        # Fila superior para el botón izquierdo
+        ft.Row(
+            controls=[boton_superior],
+            alignment=ft.MainAxisAlignment.START
+        ),
+        # Contenedor central para el resto de elementos
+        ft.Column(
+            controls=[
+                titulo_animado,
+                campo_entrada,
+                boton,
+                texto_salida,
+                ft.Container(expand=True),
+            ],
+            horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+            alignment=ft.MainAxisAlignment.CENTER,
+            expand=True # Esto asegura que el contenido se mantenga centrado en el espacio restante
+        )
     )
 
     page.update()
@@ -101,6 +162,11 @@ async def main(page: ft.Page):
     texto_salida.color = ft.Colors.GREEN_400
 
     page.update()
+
+    # Bucle infinito para la rotación cada 15 segundos
+    while True:
+        await asyncio.sleep(15)
+        await rotar_titulo()
 
 
 if __name__ == "__main__":
