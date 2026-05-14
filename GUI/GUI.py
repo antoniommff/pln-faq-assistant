@@ -26,6 +26,9 @@ async def main(page: ft.Page):
     page.update()
 
     # Logica de la app
+    def ir_a_github(e):
+        page.launch_url("https://github.com/tu-usuario/tu-repositorio") # FIXME Añadir la dirección del github
+
     async def enviar_click(e):
         nonlocal extractor
         nonlocal detector
@@ -132,8 +135,14 @@ async def main(page: ft.Page):
     page.add(
         # Fila superior para el botón izquierdo
         ft.Row(
-            controls=[boton_superior],
-            alignment=ft.MainAxisAlignment.START
+            controls=[boton_superior,
+                      ft.IconButton(
+                    icon=ft.Icons.CODE, # O ft.Icons.WEB si prefieres
+                    tooltip="Ver en GitHub",
+                    on_click=ir_a_github
+                    ),
+                      ],
+            alignment=ft.MainAxisAlignment.SPACE_BETWEEN
         ),
         # Contenedor central para el resto de elementos
         ft.Column(
