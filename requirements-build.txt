@@ -1,8 +1,9 @@
 # Procesamiento de texto
 spacy>=3.7.0
+lingua-language-detector>=2.0.0
 
 # GUI
-flet[desktop]==0.84.0
+flet[desktop]==0.85.0
 
 # Build
 pyinstaller
