@@ -360,7 +360,7 @@ Esta sección detalla las decisiones tomadas sobre la representación del texto 
 	En vez de sintetizar la información en una tabla (indicando tarea, representación y justificación), hemos optado por un desarrollo textual pormenorizado.
 \end{nota}
 
-\subsection{Representación textual}
+\subsection{Representación textual}\label{sec7_1}
 La representación vectorial de las consultas se construirá a partir de un \textit{pipeline} de preprocesamiento y normalización que actúa como capa intermedia entre el texto original del usuario y el modelo de clasificación. El \textit{pipeline} propuesto utiliza spaCy como librería principal de PLN, aplicando los siguientes pasos en orden.
 \begin{enumerate}
     \item \textbf{Expansión de contracciones y \textit{slang}:} En el caso del inglés, se expanden las formas contraídas (\textit{I'm} $\rightarrow$ \textit{I am}). % con la librería \texttt{contractions}. 
@@ -541,24 +541,20 @@ Por último, y como ya se ha mencionado, la actual inexistencia de una base de d
 \noindent \rule{\textwidth}{1pt}
 
 \section{Implementación}
-La prueba de concepto (PoC) implementa los componentes C1, C2 y C3 del pipeline al completo implementando a propositos demonstrativos C4 mediante la creación de una base de FAQs sintética. Abarcando desde la consulta del usuario hasta la generación de la tupla semántica y el enrutamiento. Todo el código, documentado y reproducible\footnote{Disponible en el repositorio de github, \href{https://github.com/usuario/repositorio}{https://github.com/usuario/repositorio}}, se organiza en dos fases principales:
+Tal y como se estableció al final de la Entrega 2, el objetivo para esta Prueba de Concepto (PoC) era implementar el flujo completo de la arquitectura, pero concentrando el esfuerzo técnico y analítico en las tareas T1, T2 y T3. Este objetivo se ha llevado a cabo de forma íntegra.
 
-\subsubsection*{Preparación y preprocesamiento de datos}
-Como se mencionó, se ha utilizado el dataset CLINC150, realizando un filtrado estricto para aislar $8$ intenciones pertenecientes al subdominio de la cocina. Debido a la reducción drástica del volumen de datos resultante, se han fusionado las particiones oficiales de entrenamiento y validación (obteniendo $960$ ejemplos), reservando el conjunto de prueba ($240$ ejemplos) para la evaluación final. Para dar soporte al bilingüismo, el corpus original en inglés se ha replicado al español mediante traducción automática usando \textsc{deep\_translator}. A continuación, se ha aplicado un \textit{pipeline} de preprocesamiento robusto empleando \textsc{spaCy}. Este flujo incluye: expansión de contracciones, lematización con diccionarios de excepciones para proteger términos técnicos del dominio (como gluten o aove), eliminación de tildes, estandarización de variaciones dialectales (ej. mapear ``papa'' a ``patata''), y un filtrado de \textit{stopwords} cuidadosamente ajustado para preservar partículas de negación, fundamentales para la correcta comprensión de las consultas.
+En cuanto a la preparación de los datos, el código implementa estrictamente el pipeline de representación textual diseñado en la Sección \ref{sec7_1} de la entrega anterior. Cabe recordar que, al utilizar el dataset CLINC150 (nativo en inglés), el primer paso consistió en generar el corpus bilingüe traduciendo las particiones al español mediante la librería \textsc{deep\_translator}. Sobre estos datos en crudo se aplicaron las etapas de expansión de contracciones, lematización con excepciones para jerga culinaria, filtrado de \textit{stopwords} y unificación de regionalismos.
 
-\subsubsection*{Modelado y evaluación}
-El núcleo de la inferencia se ha implementado de la siguiente manera:
+Todo el trabajo técnico, documentado y reproducible, se encuentra alojado en nuestro repositorio de GitHub: \href{https://github.com/usuario/repositorio}{https://github.com/usuario/repositorio}.
+
+El repositorio incluye un archivo \verb|README.md| que explica en detalle la configuración del entorno y las dependencias, pero el grueso del trabajo operativo de esta PoC se distribuye principalmente en tres archivos:
 \begin{itemize}
-	\item \textbf{C1 (identificador de idioma):} Se ha evaluado la librería \textsc{lingua} sobre una muestra aleatoria bilingüe del conjunto de prueba.
-	\item \textbf{C2 (clasificador de intención):} Se ha realizado una búsqueda de hiperparámetros y selección de modelo mediante validación cruzada estratificada de $5$ pliegues (\textsc{GridSearchCV}) probando \textbf{Naive Bayes}, \textbf{Regresión Logística} y \textbf{LinearSVC}. Finalmente, se ha implementado \textbf{LinearSVC} sobre representaciones de texto \textbf{TF-IDF}, entrenando un modelo totalmente independiente para el español y otro para el inglés utilizando la totalidad de los datos (siguiendo las mejores practicas de entornos de trabajo reales).
-	\item \textbf{C3 (extracción):} se han programado las dos vías propuestas metodológicamente: extracción mediante intersección exacta con diccionarios léxicos, y extracción mediante similitud del coseno usando los \textit{embeddings} estáticos del modelo mediano de spaCy.
-	\item \textbf{C4 (enrutamiento):} se ha construido un entorno de demostración sobre un pequeño corpus artificial de prueba, contrastando un índice BM25 (\textsc{Whoosh}) frente al cruce semántico por \textit{embeddings}
+	\item \verb|Analisis_Datos_PLN.ipynb|: Cuaderno dedicado en la carga y filtrado de CLINC150 al subdominio de la cocina. Contiene el análisis exploratorio de los datos (EDA), la traducción automática de los registros, y la ejecución del pipeline de preprocesamiento completo para exportar los datos limpios.
+	\item \verb|PoC_PLN.ipynb|: Cuaderno principal de modelado. Incluye la evaluación del identificador de idioma (T1), la búsqueda de hiperparámetros y evaluación del clasificador TF-IDF + LinearSVC (T2), la implementación de las vías léxica y semántica para la extracción de entidades (T3), y la exploración comparativa de enrutamiento mediante Whoosh y embeddings (T4).
+	\item \textbf{Interfaz / Script de ejecución:} Se integra los componentes anteriores en un pipeline secuencial unificado. Implementa la función principal que recibe la consulta en texto libre del usuario, la procesa estructurando la tupla de [Idioma, Intención, Entidades], y devuelve la respuesta óptima de la base de datos simulada de FAQs
 \end{itemize}
 
-\subsubsection*{Justificación de la implementación}
 La decisión de focalizar el peso del desarrollo, el entrenamiento y la evaluación cuantitativa en C1 y C2 responde a tres criterios de diseño: (1) son los componentes de enrutamiento habilitadores sin los cuales C3 y C4 carecen de información estructurada para operar; (2) permiten responder a la hipótesis de la entrega 2 comprobando empíricamente si TF-IDF + LinearSVC logran superar de forma consistente el rendimiento de un baseline trivial del $12.5\%$ esperado; y (3) a diferencia de la recuperación de FAQs que requiere bases de datos privativas o inexistentes, el conjunto CLINC150 dispone de etiquetas reales para acometer una evaluación rigurosa del rendimiento en la clasificación de intenciones.
-
-Además por facilitar el uso y demostración se ha implementado tambien una pequeña interfaz interactiva básica en la que se demuestran los componentes C1, C2 y C3. El código e instrucciones de uso, compilación e instalación está disponible en el repositorio de github que acompaña a esta entrega.
 
 \newpage
 \section{Evaluación y resultados}
