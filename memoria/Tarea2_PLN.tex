@@ -1,4 +1,3 @@
-% CLASE
 \documentclass[11pt,a4paper,twoside]{article}
 
 
@@ -531,7 +530,6 @@ Por último, y como ya se ha mencionado, la actual inexistencia de una base de d
 
 
 
-\begin{comment}
 \newpage
 
 % ITERACIÓN 3
@@ -542,15 +540,34 @@ Por último, y como ya se ha mencionado, la actual inexistencia de una base de d
 \vspace{0.5pt}
 \noindent \rule{\textwidth}{1pt}
 
-Comentar secciones antes de entregar. Están de referencia.
-% Tercera entrega
 \section{Implementación}
+La prueba de concepto (PoC) implementa los componentes C1, C2 y C3 del pipeline al completo implementando a propositos demonstrativos C4 mediante la creación de una base de FAQs sintética. Abarcando desde la consulta del usuario hasta la generación de la tupla semántica y el enrutamiento. Todo el código, documentado y reproducible\footnote{Disponible en el repositorio de github, \href{https://github.com/usuario/repositorio}{https://github.com/usuario/repositorio}}, se organiza en dos fases principales:
 
+\subsubsection*{Preparación y preprocesamiento de datos}
+Como se mencionó, se ha utilizado el dataset CLINC150, realizando un filtrado estricto para aislar $8$ intenciones pertenecientes al subdominio de la cocina. Debido a la reducción drástica del volumen de datos resultante, se han fusionado las particiones oficiales de entrenamiento y validación (obteniendo $960$ ejemplos), reservando el conjunto de prueba ($240$ ejemplos) para la evaluación final. Para dar soporte al bilingüismo, el corpus original en inglés se ha replicado al español mediante traducción automática usando \textsc{deep\_translator}. A continuación, se ha aplicado un \textit{pipeline} de preprocesamiento robusto empleando \textsc{spaCy}. Este flujo incluye: expansión de contracciones, lematización con diccionarios de excepciones para proteger términos técnicos del dominio (como gluten o aove), eliminación de tildes, estandarización de variaciones dialectales (ej. mapear ``papa'' a ``patata''), y un filtrado de \textit{stopwords} cuidadosamente ajustado para preservar partículas de negación, fundamentales para la correcta comprensión de las consultas.
+
+\subsubsection*{Modelado y evaluación}
+El núcleo de la inferencia se ha implementado de la siguiente manera:
+\begin{itemize}
+	\item \textbf{C1 (identificador de idioma):} Se ha evaluado la librería \textsc{lingua} sobre una muestra aleatoria bilingüe del conjunto de prueba.
+	\item \textbf{C2 (clasificador de intención):} Se ha realizado una búsqueda de hiperparámetros y selección de modelo mediante validación cruzada estratificada de $5$ pliegues (\textsc{GridSearchCV}) probando \textbf{Naive Bayes}, \textbf{Regresión Logística} y \textbf{LinearSVC}. Finalmente, se ha implementado \textbf{LinearSVC} sobre representaciones de texto \textbf{TF-IDF}, entrenando un modelo totalmente independiente para el español y otro para el inglés utilizando la totalidad de los datos (siguiendo las mejores practicas de entornos de trabajo reales).
+	\item \textbf{C3 (extracción):} se han programado las dos vías propuestas metodológicamente: extracción mediante intersección exacta con diccionarios léxicos, y extracción mediante similitud del coseno usando los \textit{embeddings} estáticos del modelo mediano de spaCy.
+	\item \textbf{C4 (enrutamiento):} se ha construido un entorno de demostración sobre un pequeño corpus artificial de prueba, contrastando un índice BM25 (\textsc{Whoosh}) frente al cruce semántico por \textit{embeddings}
+\end{itemize}
+
+\subsubsection*{Justificación de la implementación}
+La decisión de focalizar el peso del desarrollo, el entrenamiento y la evaluación cuantitativa en C1 y C2 responde a tres criterios de diseño: (1) son los componentes de enrutamiento habilitadores sin los cuales C3 y C4 carecen de información estructurada para operar; (2) permiten responder a la hipótesis de la entrega 2 comprobando empíricamente si TF-IDF + LinearSVC logran superar de forma consistente el rendimiento de un baseline trivial del $12.5\%$ esperado; y (3) a diferencia de la recuperación de FAQs que requiere bases de datos privativas o inexistentes, el conjunto CLINC150 dispone de etiquetas reales para acometer una evaluación rigurosa del rendimiento en la clasificación de intenciones.
+
+Además por facilitar el uso y demostración se ha implementado tambien una pequeña interfaz interactiva básica en la que se demuestran los componentes C1, C2 y C3. El código e instrucciones de uso, compilación e instalación está disponible en el repositorio de github que acompaña a esta entrega.
+
+\newpage
 \section{Evaluación y resultados}
 
+\newpage
 \section{Análisis de errores}
 
+\newpage
 \section{Reflexión crítica}
-\end{comment}
+
 
 \end{document}
