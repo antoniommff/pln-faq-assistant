@@ -559,6 +559,42 @@ La decisión de focalizar el peso del desarrollo, el entrenamiento y la evaluaci
 \newpage
 \section{Evaluación y resultados}
 
+Las métricas de esta sección final corresponden al conjunto de test de CLINC150 (240 ejemplos por idioma, 8 clases balanceadas). La línea base de referencia que se ha tomado
+ha sido un clasificador uniforme "\textit{dummy}", cuyo rendimiento teórico es del \textbf{50\,\%} para T1 (2 clases) y del \textbf{12,5\,\%} para T2 (8 clases).
+
+\subsubsection*{T1: Identificación de idioma (lingua)}
+
+El detector basado en $n$-gramas alcanza una \textbf{tasa de aciertos del 100\,\%} sobre el conjunto de prueba completo (480 ejemplos bilingües), superando el umbral del 50\,\% del clasificador trivial. T1 cumple, pues, 
+con holgura su función de filtro inicial.
+
+\subsubsection*{T2:Clasificación de intención (TF-IDF + LinearSVC)}
+
+Tras optimizar el hiperparámetro de regularización mediante validación cruzada ($C = 0.5$), el modelo obtiene los resultados recogidos en la Tabla~\ref{tab:t2}.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{lccc}
+		\toprule
+		\textbf{Modelo} & \textbf{Accuracy EN} & \textbf{Accuracy ES} & \textbf{F1 macro (EN / ES)} \\
+		\midrule
+		Clasificador trivial & 12,5\,\% & 12,5\,\% & --- \\
+		TF-IDF + LinearSVC  & 92,5\,\% & 94,2\,\% & 0,925 / 0,942 \\
+		\bottomrule
+	\end{tabular}
+	\caption{Comparativa de métricas en el conjunto de prueba para T2.}
+	\label{tab:t2}
+\end{table}
+
+Ambos idiomas superan el umbral de forma consistente, con una mejora absoluta de aproximadamente 80 puntos porcentuales sobre la línea base. A nivel de clase, los pares \textit{recipe}/\textit{ingredients\_list} y \textit{nutrition\_info}/\textit{calories} concentran los errores residuales por solapamiento léxico (F1 de 0,80 y 0,88 en inglés, respectivamente), mientras que intenciones con vocabulario más distintivo (\textit{ingredient\_substitution}, \textit{food\_last}) alcanzan F1 $\geq$ 0,97.
+
+\subsubsection*{T3: Extracción de entidades}
+
+T3 no dispone de un conjunto de prueba anotado, por lo que la evaluación es cualitativa. Se validaron las dos rutas implementadas sobre un conjunto de consultas representativas, comprobando que la tupla \texttt{[Idioma, Intención, Entidades]} se conforma correctamente en los casos prototípicos. La \textbf{vía léxica} (diccionarios controlados) es determinista y rápida, pero falla ante sinónimos no incluidos en el vocabulario. La \textbf{vía semántica} (spaCy md + similitud del coseno) recupera entidades fuera del diccionario a costa de introducir algún falso positivo por palabras semánticamente próximas.
+
+\subsubsection*{T4: Recuperación de FAQs}
+
+Al igual que T3, la ausencia de una base de datos real impidió una evaluación cuantitativa sistemática. Sobre la base de FAQs de demostración, \textbf{Whoosh + BM25} recupera correctamente la FAQ objetivo cuando el vocabulario coincide, pero falla ante reformulaciones. El sistema híbrido de \textbf{\textit{embeddings} + similitud del coseno} mostró mayor robustez semántica, asignando a la FAQ correcta puntuaciones superiores a 0,60 frente a puntuaciones inferiores a 0,40 para el resto de candidatos en los ejemplos explorados.
+
 \newpage
 \section{Análisis de errores}
 
