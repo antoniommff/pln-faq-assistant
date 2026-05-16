@@ -38,3 +38,8 @@ sentence-transformers>=2.2.0
 # os           
 # collections  
 # warnings 
+
+# se usa esto tambien a lo largo del cuaderno de analisis datos
+# import re
+# import string
+# from wordcloud import WordCloud
