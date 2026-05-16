@@ -65,7 +65,7 @@ def apply_synonyms(text: str, lang: str) -> str:
     return ' '.join(synonyms.get(w, w) for w in text.split())
 
 
-def procesar_texto(text: str, lang: str, is_predict: bool = False) -> str:
+def process_text(text: str, lang: str, is_predict: bool = False) -> str:
     if not isinstance(text, str) or not text.strip():
         return ''
     if lang == 'en':
@@ -73,18 +73,18 @@ def procesar_texto(text: str, lang: str, is_predict: bool = False) -> str:
     if lang == 'es':
         for s, c in SLANG_ES.items():
             text = re.sub(rf'\b{s}\b', c, text, flags=re.IGNORECASE)
-    nlp      = nlp_es if lang == 'es' else nlp_en
-    sw       = STOPWORDS_ES if lang == 'es' else STOPWORDS_EN
+    nlp = nlp_es if lang == 'es' else nlp_en
+    sw = STOPWORDS_ES if lang == 'es' else STOPWORDS_EN
     keep_set = KEEP_ES if lang == 'es' else KEEP_EN
-    spell    = spell_es if lang == 'es' else spell_en
-    exc      = EXC_ES if lang == 'es' else EXC_EN
+    spell = spell_es if lang == 'es' else spell_en
+    exc = EXC_ES if lang == 'es' else EXC_EN
     doc = nlp(text)
     tokens = []
     for tok in doc:
         if tok.is_space or tok.is_punct:
             continue
-        sin_tildes = unidecode.unidecode(tok.text).lower()
-        lemma = exc.get(sin_tildes, tok.lemma_.lower())
+        no_accents = unidecode.unidecode(tok.text).lower()
+        lemma = exc.get(no_accents, tok.lemma_.lower())
         if is_predict and spell.unknown([lemma]):
             corr = spell.correction(lemma)
             lemma = corr if corr else lemma
