@@ -35,10 +35,10 @@ FAQS_DEMO = [
      'respuesta': 'Los quesos curados duran 3-4 semanas en nevera; los frescos, 5-7 días tras su apertura.'},
     # English equivalents
     {'faq_id': '9',  'idioma': 'en', 'intencion': 'recipe',
-     'pregunta': 'how to make baked chicken',
+     'pregunta': 'how to make roast chicken',
      'respuesta': 'Preheat oven to 400°F, season chicken with salt, pepper and oil, and bake for 45 min.'},
     {'faq_id': '10', 'idioma': 'en', 'intencion': 'recipe',
-     'pregunta': 'how to cook pasta al dente',
+     'pregunta': 'how to cook pasta',
      'respuesta': 'Boil salted water, add pasta and cook for the time stated on the package.'},
     {'faq_id': '11', 'idioma': 'en', 'intencion': 'cook_time',
      'pregunta': 'how long does chicken take in the oven',
