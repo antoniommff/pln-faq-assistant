@@ -116,7 +116,7 @@ async def main(page: ft.Page):
     # )
 
     campo_entrada = ft.TextField(
-        label="Escribe algo aquí...",
+        label="Como hacer pollo al horno",
         width=300,
         border_radius=15,
     )
