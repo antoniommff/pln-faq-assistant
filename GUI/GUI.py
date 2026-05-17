@@ -157,7 +157,7 @@ async def main(page: ft.Page):
         on_click=enviar_click,
     )
 
-    # Construcción de la app
+# Construcción de la app
     page.add(
         ft.Stack(
             expand=True,
@@ -199,12 +199,12 @@ async def main(page: ft.Page):
                 ),
 
                 # =========================
-                # SWITCH ABAJO DERECHA
+                # SWITCH ABAJO DERECHA (CORREGIDO)
                 # =========================
                 ft.Container(
                     content=theme_switch,
-                    alignment=ft.Alignment(1, 1),
-                    padding=20,
+                    bottom=20,  # Separación desde abajo
+                    right=20,   # Separación desde la derecha
                 ),
             ],
         )
