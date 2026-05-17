@@ -305,7 +305,7 @@ En **Windows y macOS** no hay dependencias adicionales del sistema.
 Una vez instaladas las dependencias, ejecuta desde la raíz del repositorio:
 
 ```sh
-# Linux/Mac
+# Linux/Mac. Nota: si en Mac no funciona probar sustituir --onefile por --onedir
 pyinstaller --onefile --name "FAQ" --noconsole --icon="GUI/icon.ico" \
     --hidden-import="es_core_news_md" \
     --hidden-import="en_core_web_md" \
