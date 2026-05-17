@@ -25,17 +25,17 @@
   - [T4 · Recuperación de FAQs](#t4--recuperación-de-faqs)
   - [Resultados obtenidos](#resultados-obtenidos)
 - [Arquitectura del sistema](#arquitectura-del-sistema)
-- [Dataset](#dataset)
+- [_Dataset_](#dataset)
 - [Estructura del proyecto](#estructura-del-proyecto)
 - [Primeros pasos](#primeros-pasos)
   - [Requisitos previos](#requisitos-previos)
   - [Instalación del entorno](#instalación-del-entorno)
-  - [Ejecutar los notebooks](#ejecutar-los-notebooks)
-    - [Notebook 1 - Análisis de datos y preprocesamiento](#notebook-1---análisis-de-datos-y-preprocesamiento)
-    - [Notebook 2 - Prueba de concepto (PoC)](#notebook-2---prueba-de-concepto-poc)
+  - [Ejecutar los _notebooks_](#ejecutar-los-notebooks)
+    - [_Notebook_ 1 - Análisis de datos y preprocesamiento](#notebook-1---análisis-de-datos-y-preprocesamiento)
+    - [_Notebook 2_ - Prueba de concepto (PoC)](#notebook-2---prueba-de-concepto-poc)
   - [Ejecutar la GUI](#ejecutar-la-gui)
     - [Opción A — Desde el código fuente](#opción-a--desde-el-código-fuente)
-    - [Opción B — Compilar un ejecutable standalone](#opción-b--compilar-un-ejecutable-standalone)
+    - [Opción B — Compilar un ejecutable _standalone_](#opción-b--compilar-un-ejecutable-standalone)
     - [Uso de la GUI](#uso-de-la-gui)
 - [Licencia](#licencia)
 - [Autores](#autores)
@@ -46,13 +46,13 @@
 
 Este proyecto diseña e implementa un **asistente automático de preguntas frecuentes (FAQ)** orientado al dominio de la cocina, con detección de idiomas para **español e inglés**. Dada una consulta en lenguaje natural, determina su idioma, clasifica su intención y extrae las entidades culinarias relevantes, para finalmente recuperar la respuesta más adecuada de una base de FAQs estructurada.
 
-El uso de un dataset de cocina presentan una **variabilidad lingüística inherentemente alta** (*slang*, regionalismos, lenguaje figurado, elipsis), lo que las convierte en un banco de pruebas adecuada para técnicas de PLN. Más allá del interés académico del manejo de téncicas de PLN, el asistente resuelve una necesidad real: las pequeñas empresas carecen de recursos para mantener chatbots sofisticados, pero sí pueden beneficiarse de un sistema ligero que automatice la respuesta a consultas recurrentes.
+El uso de un _dataset_ de cocina presenta una **variabilidad lingüística inherentemente alta** (*slang*, regionalismos, lenguaje figurado, elipsis), lo que lo convierte en un banco de pruebas adecuado para técnicas de PLN. Más allá del interés académico del manejo de téncicas de PLN, el asistente resuelve una necesidad real: las pequeñas empresas carecen de recursos para mantener _chatbots_ sofisticados, pero sí pueden beneficiarse de un sistema ligero que automatice la respuesta a consultas recurrentes.
 
-El proyecto se desarrolló de forma longitudinal en tres entregas:
+El proyecto se desarrolló de forma longitudinal en tres entregas.
 
 | Entrega | Contenido principal |
 |---------|---------------------|
-| **Entrega 1** | Justificación del dominio, caracterización lingüística, descomposición en tareas PLN e hipótesis de diseño inicial |
+| **Entrega 1** | Justificación del dominio, caracterización lingüística, descomposición en tareas PLN, restricciones no técnicas e hipótesis de diseño inicial |
 | **Entrega 2** | Revisión de hipótesis, decisiones de representación y modelado, protocolo de evaluación y arquitectura final |
 | **Entrega 3** | Prueba de concepto (PoC): implementación, evaluación cuantitativa (T1/T2) y exploración empírica (T3/T4), análisis de errores y reflexión crítica |
 
@@ -66,7 +66,7 @@ La memoria completa del proyecto se encuentra en [`memoria/Tarea2_PLN.pdf`](memo
 
 **Objetivo:** Detectar si la consulta está en español o inglés antes de activar cualquier modelo posterior.
 
-**Enfoque:** Modelo estadístico de **n-gramas de caracteres** (longitud 1–5) implementado mediante la librería `lingua`. El detector aplica primero un filtro por reglas (alfabeto, caracteres exclusivos) y luego un clasificador Naive Bayes sobre los n-gramas residuales. Esta representación es robusta ante errores ortográficos, préstamos lingüísticos y *code-switching* (p. ej., `"¿A qué temperatura pongo la airfryer?"`), ya que la distribución de caracteres a nivel de frase sigue siendo discriminativa aunque el vocabulario sea mixto.
+**Enfoque:** Modelo estadístico de **$n$-gramas de caracteres** (longitud 1–5) implementado mediante la librería `lingua`. El detector aplica primero un filtro por reglas (alfabeto, caracteres exclusivos) y luego un clasificador Naive Bayes sobre los $n$-gramas residuales. Esta representación es robusta ante errores ortográficos, préstamos lingüísticos y *code-switching* (p. ej., `"¿A qué temperatura pongo la _airfryer_?"`), ya que la distribución de caracteres a nivel de frase sigue siendo discriminativa aunque el vocabulario sea mixto.
 
 ### T2 · Clasificación de intención
 
@@ -74,7 +74,7 @@ La memoria completa del proyecto se encuentra en [`memoria/Tarea2_PLN.pdf`](memo
 
 **Intenciones disponibles:** `recipe`, `cook_time`, `ingredient_substitution`, `nutrition_info`, `calories`, `food_last`, `ingredients_list`, `meal_suggestion`.
 
-**Enfoque:** Pipeline **TF-IDF + LinearSVC**, con un vectorizador y clasificador independientes por idioma. El preprocesamiento que precede a la vectorización incluye:
+**Enfoque:** _Pipeline_ **TF-IDF + LinearSVC**, con un vectorizador y clasificador independientes por idioma. El preprocesamiento que precede a la vectorización incluye:
 1. Expansión de contracciones (EN) y normalización de *slang* (ES: `kiero -> quiero`, `q -> que`).
 2. Tokenización, lematización con excepciones culinarias (`gluten`, `aove`, `pizza`) y conversión a minúsculas.
 3. Eliminación de tildes y filtrado de *stopwords*, preservando negaciones semánticamente relevantes (`no`, `sin`, `without`).
@@ -88,9 +88,9 @@ Este enfoque fue preferido sobre arquitecturas Transformer por su bajo coste com
 
 **Dos enfoques implementados y comparados:**
 
-- **Vía léxica (diccionarios controlados):** Intersección entre los tokens normalizados de la consulta y vocabularios culinarios organizados por categoría. Es determinista y muy rápida, pero falla ante sinónimos no contemplados.
+- **Vía léxica (diccionarios controlados):** Intersección entre los _tokens_ normalizados de la consulta y vocabularios culinarios organizados por categoría. Es determinista y muy rápida, pero falla ante sinónimos no contemplados.
 
-- **Vía semántica (spaCy + similitud del coseno):** Los tokens de la consulta se comparan vectorialmente con palabras ancla del dominio usando los *embeddings* estáticos del modelo mediano de spaCy (`es_core_news_md` / `en_core_web_md`, 300 dimensiones). Al no depender de un listado cerrado, recupera entidades fuera del diccionario a costa de introducir ocasionalmente falsos positivos.
+- **Vía semántica (spaCy + similitud del coseno):** Los _tokens_ de la consulta se comparan vectorialmente con palabras ancla del dominio usando los *embeddings* estáticos del modelo mediano de spaCy (`es_core_news_md` / `en_core_web_md`, 300 dimensiones). Al no depender de un listado cerrado, recupera entidades fuera del diccionario a costa de introducir ocasionalmente falsos positivos.
 
 ### T4 · Recuperación de FAQs
 
@@ -100,19 +100,19 @@ Este enfoque fue preferido sobre arquitecturas Transformer por su bajo coste com
 
 - **Whoosh + BM25:** Motor de búsqueda indexada. Rápido y sin dependencias de inferencia, pero sufre dependencia léxica: falla si el vocabulario de la consulta no coincide con el de la FAQ.
 
-- ***Embeddings* + similitud del coseno:** Los vectores de las FAQs se precalculan y se almacenan en memoria. En tiempo de consulta, la entrada se codifica y se filtra primero por idioma e intención; después se puntúa por similitud del coseno, bonificando las FAQs cuyos tokens coincidan con las entidades de T3. Más robusto ante reformulaciones.
+- ***Embeddings* + similitud del coseno:** Los vectores de las FAQs se precalculan y se almacenan en memoria. En tiempo de consulta, la entrada se codifica y se filtra primero por idioma e intención; después se puntúa por similitud del coseno, bonificando las FAQs cuyos _tokens_ coincidan con las entidades de T3. Más robusto ante reformulaciones.
 
 > **Nota:** La evaluación de T4 es exploratoria. Al no disponer de una base de datos real de FAQs de cocina, las pruebas se realizan sobre un corpus de demostración de 12 ejemplos (`utils/faqs_demo.py`).
 
 ### Resultados obtenidos
 
-Evaluación sobre el conjunto de test de CLINC150 (240 ejemplos por idioma, 8 clases balanceadas). El *baseline* de referencia es un clasificador uniforme (*dummy*): **50 %** para T1 (2 clases) y **12,5 %** para T2 (8 clases).
+Evaluación sobre el conjunto de test de CLINC150 (240 ejemplos por idioma, 8 clases balanceadas). El *baseline* de referencia es un clasificador uniforme (*dummy*): **50 %** para T1 (2 clases) y **12.5 %** para T2 (8 clases).
 
 | Tarea | Modelo | Accuracy EN | Accuracy ES | F1 macro (EN / ES) |
 |-------|--------|-------------|-------------|---------------------|
-| **T1** | lingua (n-gramas de caracteres) | **100 %** | **100 %** | - |
+| **T1** | lingua ($n$-gramas de caracteres) | **100 %** | **100 %** | - |
 | **T2** | TF-IDF + LinearSVC (*C* = 0.5) | **92,5 %** | **94,2 %** | **0,925 / 0,942** |
-| Baseline (dummy) | - | 12,5 % | 12,5 % | - |
+| _Baseline_ (_dummy_) | - | 12.5 % | 12.5 % | - |
 
 ---
 
@@ -123,22 +123,22 @@ Consulta (texto libre)
         │
         ▼
   ┌────────────┐
-  │     C1     │  lingua - n-gramas de caracteres
+  │     C1     │  lingua (n-gramas de caracteres)
   │   Idioma   │  -> Idioma detectado (ES / EN)
   └──────┬─────┘
          │
    ┌─────┴─────┐
    ▼           ▼
 ┌──────┐   ┌──────┐
-│  C2  │   │  C3  │
-│Intent│   │Entid.│ 
+│  C2  │   │  C3  │  Diccionarios o
+│Intent│   │Entid.│  embeddings
 └──┬───┘   └───┬──┘
    │           │  
    └─────┬─────┘
          ▼
    ┌───────────┐
-   │    C4     │  Whoosh+BM25  o  embeddings+coseno
-   │   FAQs    │
+   │     C4    │  Whoosh+BM25 o  
+   │    FAQs   │  embeddings+coseno
    └─────┬─────┘
          ▼
   FAQ más relevante
@@ -147,9 +147,9 @@ Consulta (texto libre)
 
 ---
 
-## Dataset
+## *Dataset*
 
-Se utiliza el corpus **CLINC150** (Larson et al., 2019), configuración `plus`, disponible en Hugging Face Datasets. CLINC150 es un estándar de la industria para clasificación de intenciones en múltiples dominios.
+Se utiliza el corpus **CLINC150** (Larson et al., 2019) en su configuración `plus`, disponible en Hugging Face Datasets. CLINC150 es un estándar de la industria para clasificación de intenciones en múltiples dominios.
 
 Para este proyecto se aplicó un **filtrado al subdominio culinario**, reduciendo el problema a **8 intenciones**. Dado que CLINC150 es nativo en inglés, las particiones se tradujeron automáticamente al español mediante `deep_translator` para generar el corpus bilingüe.
 
@@ -238,33 +238,33 @@ pln-faq-assistant/
     python -m spacy download en_core_web_md
     ```
 
-### Ejecutar los notebooks
+### Ejecutar los *notebooks*
 
-Se recomienda seguir los notebooks **en orden**, ya que el segundo depende de los datos exportados por el primero.
+Se recomienda seguir los *notebooks* **en orden**, ya que el segundo depende de los datos exportados por el primero.
 
-#### Notebook 1 - Análisis de datos y preprocesamiento
+#### *Notebook* 1 - Análisis de datos y preprocesamiento
 
 ```sh
 jupyter notebook Analisis_Datos_PLN.ipynb
 ```
 
-Este notebook carga el corpus CLINC150, realiza el análisis exploratorio, genera la traducción al español y ejecuta el pipeline de preprocesamiento completo. Al finalizar, exporta los ficheros `clean_data_*.csv` a `data/`.
+Este notebook carga el corpus CLINC150, realiza el análisis exploratorio, genera la traducción al español y ejecuta el *pipeline* de preprocesamiento completo. Al finalizar, exporta los ficheros `clean_data_*.csv` a `data/`.
 
-> Si los ficheros `data/clean_data_*.csv` ya existen en el repositorio, este notebook no es necesario para ejecutar el segundo.
+> Si los ficheros `data/clean_data_*.csv` ya existen en el repositorio, este *notebook* no es necesario para ejecutar el segundo.
 
-#### Notebook 2 - Prueba de concepto (PoC)
+#### *Notebook* 2 - Prueba de concepto (PoC)
 
 ```sh
 jupyter notebook PoC_PLN.ipynb
 ```
 
-Este es el notebook principal del proyecto. Evalúa las cuatro tareas del sistema (T1–T4), entrena los modelos de intención y los guarda en `models/`. Puede ejecutarse de forma completa (`Kernel > Restart & Run All`) o celda a celda para explorar cada tarea de forma independiente.
+Este es el *notebook* principal del proyecto. Evalúa las cuatro tareas del sistema (T1–T4), entrena los modelos de intención y los guarda en `models/`. Puede ejecutarse de forma completa (`Kernel > Restart & Run All`) o celda a celda para explorar cada tarea de forma independiente.
 
 > Los modelos ya entrenados están incluidos en `models/`, por lo que las celdas de evaluación y demostración de T3/T4 pueden ejecutarse directamente sin reentrenar.
 
 ### Ejecutar la GUI
 
-La interfaz gráfica integra el identificador de idioma (T1) y el extractor de entidades semántico (T3) en una aplicación de escritorio.
+La interfaz gráfica integra el identificador de idioma (T1), el clasificador de intención (T2) y el extractor de entidades semántico (T3) en una aplicación de escritorio.
 
 #### Opción A — Desde el código fuente
 
@@ -285,7 +285,7 @@ La interfaz gráfica integra el identificador de idioma (T1) y el extractor de e
 
     La aplicación cargará los modelos de spaCy en segundo plano (puede tardar unos segundos) y mostrará `"Modelo cargado correctamente."` cuando esté lista para recibir consultas.
 
-#### Opción B — Compilar un ejecutable standalone
+#### Opción B — Compilar un ejecutable *standalone*
 
 Es posible empaquetar la GUI como un único ejecutable que no requiere Python instalado. Se usa `pyinstaller`, que ya está incluido en `requirements-build.txt`.
 
@@ -315,19 +315,20 @@ pyinstaller --noconsole --onefile --name "FAQ" --icon="GUI/icon.ico" \
 
 Tras unos minutos se generará el ejecutable en `dist/FAQ` (Linux/macOS) o `dist/FAQ.exe` (Windows), listo para distribuir sin dependencias adicionales.
 
-> **Nota:** No hay build oficial para macOS por falta de firma de desarrollador. En macOS se recomienda usar la Opción A.
+> **Nota:** No hay *build* oficial para macOS por falta de firma de desarrollador. En macOS se recomienda usar la Opción A.
 
 #### Uso de la GUI
 
 1. Escribe una consulta culinaria en el campo de texto (en español o inglés).  
-   *Ejemplos: `"¿cómo hago pollo al horno sin gluten?"`, `"how long to boil rice"`*
+   *Ejemplos: `"¿Cómo hago pollo al horno sin gluten?"`, `"How long to boil rice?"`*
 2. Pulsa **Enviar** o la tecla `Enter`.
 3. La respuesta mostrará:
    - El **idioma detectado** (ES / EN).
-   - Las **entidades extraídas** semánticamente, agrupadas por categoría.
+   - La **intención** clasificada.
+   - Las **entidades extraídas** semánticamente, opcionalmente agrupadas por categoría.
 4. El botón superior alterna entre la vista de entidades por **categorías** (desglosado) o como **lista plana**.
 
-> La GUI implementa T1 y T3. T2 (clasificación de intención) y T4 (recuperación de FAQs) se exploran exclusivamente en `PoC_PLN.ipynb`.
+> La GUI implementa T1, T2 y T3. T4 (recuperación de FAQs) se explora exclusivamente en `PoC_PLN.ipynb`.
 
 ---
 
