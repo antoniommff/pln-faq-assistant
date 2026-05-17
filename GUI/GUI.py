@@ -1,10 +1,8 @@
 import flet as ft
 import asyncio
-from auxiliar.utils import predict_language, load, prettify
+from auxiliar.utils import predict_language, load, prettify, REV_INTENT
 import os
 import random
-
-# from auxiliar.preprocesamiento import detector
 
 
 async def main(page: ft.Page):
@@ -26,12 +24,14 @@ async def main(page: ft.Page):
 
     # Lógica de la app
     async def ir_a_github(e):
-        await page.launch_url("https://github.com/antoniommff/pln-faq-assistant")  # FIXME: añadir la dirección del github
+        await page.launch_url("https://github.com/antoniommff/pln-faq-assistant")
 
     async def enviar_click(e):
         nonlocal extractor
         nonlocal detector
         nonlocal preprocesor
+        nonlocal vectorizers
+        nonlocal intention_models
 
         if extractor is None or detector is None or preprocesor is None:
             texto_salida.value = "El modelo sigue cargando..."
@@ -51,9 +51,12 @@ async def main(page: ft.Page):
                 clean_text=clean_text,
                 lang=lang,
             )
+            vector = vectorizers[lang].transform([clean_text])
+            intent_num = int(intention_models[lang].predict(vector)[0])
+            intent_name = REV_INTENT.get(intent_num, 'unknown')
 
             display = "\n" + prettify(entities) if boton_superior.content == "Categorías" else items
-            texto_salida.value = f"Idioma: {lang.upper()}\n\nEntidades: {display}"
+            texto_salida.value = f"Idioma (T1): {lang.upper()}\n\nIntención (T2): {intent_name}\n\nEntidades (T3): {display}"
             texto_salida.color = ft.Colors.GREEN_400
 
         page.update()
@@ -80,7 +83,7 @@ async def main(page: ft.Page):
         page.update()
 
     boton_superior = ft.Button(
-        content="Categorías",
+        content="Lista",
         on_click=cambiar_texto_boton,
     )
 
@@ -165,7 +168,7 @@ async def main(page: ft.Page):
     # CARGA EN SEGUNDO PLANO
     # =========================
 
-    extractor, detector, preprocesor = await asyncio.to_thread(load)
+    extractor, detector, preprocesor, vectorizers, intention_models = await asyncio.to_thread(load)
 
     texto_salida.value = "Modelo cargado correctamente."
     texto_salida.color = ft.Colors.GREEN_400
