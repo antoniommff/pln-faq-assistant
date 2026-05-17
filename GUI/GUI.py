@@ -25,7 +25,7 @@ async def main(page: ft.Page):
 
     # Lógica de la app
     async def ir_a_github(e):
-        await page.launch_url("https://github.com/tu-usuario/tu-repositorio")  # FIXME: añadir la dirección del github
+        await page.launch_url("https://github.com/antoniommff/pln-faq-assistant")  # FIXME: añadir la dirección del github
 
     async def enviar_click(e):
         nonlocal extractor
