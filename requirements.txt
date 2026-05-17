@@ -30,7 +30,7 @@ whoosh>=2.7.4
 #   python -m spacy download en_core_web_md
 
 # GUI
-# flet[desktop]==0.84.0
+# flet[desktop]==0.85.0
 
 # Librerías estándar de Python (no requieren instalación adicional)
 # os
