@@ -1,6 +1,4 @@
 import warnings
-import es_core_news_md
-import en_core_web_md
 
 
 class EntityExtractor:
@@ -8,20 +6,20 @@ class EntityExtractor:
 
     VECTORS = {
         "es": {
-            "food_base":      "cocina gastronomía receta comida",
-            "culture_origin": "italiana mexicano japonés país cultura tradicional",
-            "diet_type":      "vegano vegetariano celíaco saludable ligero",
-            "ingredient":     "ingredientes lácteo carne pescado verdura tubérculo fruta",
-            "utensil":        "sartén cacerola batidora cubiertos olla",
-            "appliance":      "vitrocerámica nevera congelador horno freidora tostadora",
+            "comida_base":      "cocina gastronomía receta comida",
+            "origen_cultura":   "italiana mexicano japonés país cultura tradicional",
+            "tipo_dieta":       "vegano vegetariano celíaco saludable ligero",
+            "ingrediente":      "ingredientes lácteo carne pescado verdura tubérculo fruta",
+            "utensilio":        "sartén cacerola batidora cubiertos olla",
+            "electrodomestico": "vitrocerámica nevera congelador horno freidora tostadora",
         },
         "en": {
-            "food_base":      "cooking gastronomy recipe food",
-            "culture_origin": "Italian Mexican Japanese country culture traditional",
-            "diet_type":      "vegan vegetarian celiac healthy light",
-            "ingredient":     "ingredients dairy meat fish vegetable tuber fruit",
-            "utensil":        "frying pan saucepan blender cutlery pot",
-            "appliance":      "ceramic hob fridge freezer oven frier toaster",
+            "comida_base":      "cooking gastronomy recipe food",
+            "origen_cultura":   "Italian Mexican Japanese country culture traditional",
+            "tipo_dieta":       "vegan vegetarian celiac healthy light",
+            "ingrediente":      "ingredients dairy meat fish vegetable tuber fruit",
+            "utensilio":        "frying pan saucepan blender cutlery pot",
+            "electrodomestico": "ceramic hob fridge freezer oven frier toaster",
         },
     }
 
@@ -38,8 +36,8 @@ class EntityExtractor:
         },
     }
 
-    def __init__(self, langs={"en": en_core_web_md, "es": es_core_news_md}):
-        self.nlp = {lang: langs[lang].load() for lang in langs}
+    def __init__(self, nlp):
+        self.nlp = nlp
         self.vectors = {}
         self.neg_and_sust = {}
 
