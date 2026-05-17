@@ -1,5 +1,8 @@
 from whoosh import fields
 
+
+# Corpus reducido a modo de prueba
+
 SCHEMA = fields.Schema(
     faq_id=fields.ID(stored=True, unique=True),
     lang=fields.KEYWORD(stored=True),

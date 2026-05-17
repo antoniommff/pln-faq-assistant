@@ -1,10 +1,15 @@
 import warnings
 import spacy
 
+
+# ===================
+# VÍA 1: DICCIONARIOS
+# ===================
+
 ENTITIES = {
     'ingredientes': {
         'es': {
-            # Proteínas Animales y Alternativas
+            # Proteínas animales y Alternativas
             'pollo', 'ternera', 'cerdo', 'cordero', 'salmon', 'atun', 'gambas',
             'merluza', 'bacalao', 'pavo', 'pato', 'tofu', 'seitan', 'tempeh',
             # Lácteos y Huevos
@@ -20,7 +25,7 @@ ENTITIES = {
             'sal', 'pimienta', 'aceite', 'vinagre', 'azucar', 'miel', 'limon', 'lima',
             'oregano', 'tomillo', 'pimenton', 'comino', 'canela', 'perejil', 'albahaca',
             'laurel', 'curcuma', 'jengibre', 'mostaza', 'soja', 'miso',
-            # Frutos Secos
+            # Frutos secos
             'nuez', 'almendra', 'avellana', 'piñon', 'cacahuete', 'sesamo'
         },
         'en': {
@@ -40,9 +45,9 @@ ENTITIES = {
     },
     'tecnicas': {
         'es': {
-            # Calor Seco
+            # Calor seco
             'freir', 'hornear', 'asar', 'saltear', 'gratinar', 'tostar', 'sofreir',
-            # Calor Húmedo
+            # Calor húmedo
             'hervir', 'cocer', 'escaldar', 'pochar', 'vapor', 'guisar', 'estofar',
             # Mecánicas
             'mezclar', 'batir', 'amasar', 'cortar', 'picar', 'triturar', 'moler',
@@ -141,7 +146,6 @@ ENTITIES = {
     },
 }
 
-
 def extract_entities(clean_text: str, lang: str) -> dict:
     """Extrae entidades culinarias por coincidencia de tokens normalizados."""
     tokens = set(clean_text.lower().split())
@@ -152,9 +156,12 @@ def extract_entities(clean_text: str, lang: str) -> dict:
     }
 
 
+# =================
+# VÍA 2: EMBEDDINGS
+# =================
+
 class EntityExtractor:
     """Extractor de entidades mediante similitud del coseno con spaCy."""
-
     VECTORS = {
         "es": {
             "food_base":      "cocina gastronomía receta comida",
