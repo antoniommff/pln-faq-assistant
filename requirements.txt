@@ -15,7 +15,7 @@ deep_translator>=1.11.0
 scikit-learn>=1.3.0
 numpy>=1.24.0
 pandas>=2.0.0
-joblib>=1.5.3 # Para cargar los modelos
+joblib>=1.5.3  # Para cargar los modelos
 
 # Visualización
 matplotlib>=3.7.0
@@ -23,9 +23,6 @@ seaborn>=0.12.0
 
 # Recuperación de información
 whoosh>=2.7.4
-
-# Embeddings semánticos (esto probablemente va fuera porque no lo vamos a usar)
-sentence-transformers>=2.2.0
 
 # Modelos de spaCy (instalar con):
 #   python -m spacy download es_core_news_md
@@ -35,11 +32,8 @@ sentence-transformers>=2.2.0
 # flet[desktop]==0.84.0
 
 # Librerías estándar de Python (no requieren instalación adicional)
-# os           
-# collections  
-# warnings 
-
-# se usa esto tambien a lo largo del cuaderno de analisis datos
-# import re
-# import string
-# from wordcloud import WordCloud
+# os
+# collections
+# warnings
+# re
+# string
