@@ -1,12 +1,20 @@
 from lingua import Language, LanguageDetectorBuilder
 from auxiliar.entidades import EntityExtractor
-
+from auxiliar.preprocesamiento import Preprocessing
+import es_core_news_md
+import en_core_web_md
 
 def load():
+    nlp = {'es': es_core_news_md.load(), 'en': en_core_web_md.load()}
+
     detector = LanguageDetectorBuilder.from_languages(Language.SPANISH, Language.ENGLISH).build()
-    extractor = EntityExtractor()
+
+    preprocesor = Preprocessing(nlp=nlp)
+
+    extractor = EntityExtractor(nlp=nlp)
     extractor.add_vectors()
-    return extractor, detector
+
+    return extractor, detector, preprocesor
 
 
 def predict_language(text, detector):

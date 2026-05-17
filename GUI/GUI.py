@@ -3,6 +3,7 @@ import asyncio
 from auxiliar.utils import predict_language, load, prettify
 import os
 import random
+
 # from auxiliar.preprocesamiento import detector
 
 
@@ -30,8 +31,9 @@ async def main(page: ft.Page):
     async def enviar_click(e):
         nonlocal extractor
         nonlocal detector
+        nonlocal preprocesor
 
-        if extractor is None or detector is None:
+        if extractor is None or detector is None or preprocesor is None:
             texto_salida.value = "El modelo sigue cargando..."
             texto_salida.color = ft.Colors.ORANGE_400
 
@@ -43,8 +45,10 @@ async def main(page: ft.Page):
             text = campo_entrada.value.rstrip("\r\n")
             lang = predict_language(text, detector)
 
+            clean_text = preprocesor.process_text(text=text, lang=lang, is_predict=True)
+
             items, entities = extractor.extract(
-                clean_text=text,
+                clean_text=clean_text,
                 lang=lang,
             )
 
@@ -161,7 +165,7 @@ async def main(page: ft.Page):
     # CARGA EN SEGUNDO PLANO
     # =========================
 
-    extractor, detector = await asyncio.to_thread(load)
+    extractor, detector, preprocesor = await asyncio.to_thread(load)
 
     texto_salida.value = "Modelo cargado correctamente."
     texto_salida.color = ft.Colors.GREEN_400

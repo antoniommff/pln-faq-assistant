@@ -1,6 +1,4 @@
 import warnings
-import es_core_news_md
-import en_core_web_md
 
 
 class EntityExtractor:
@@ -38,8 +36,8 @@ class EntityExtractor:
         },
     }
 
-    def __init__(self, langs={"en": en_core_web_md, "es": es_core_news_md}):
-        self.nlp = {lang: langs[lang].load() for lang in langs}
+    def __init__(self, nlp):
+        self.nlp = nlp
         self.vectors = {}
         self.neg_and_sust = {}
 
