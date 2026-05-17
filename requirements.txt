@@ -20,6 +20,7 @@ joblib>=1.5.3  # Para cargar los modelos
 # Visualización
 matplotlib>=3.7.0
 seaborn>=0.12.0
+wordcloud>=1.9.6
 
 # Recuperación de información
 whoosh>=2.7.4

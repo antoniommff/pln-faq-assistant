@@ -5,6 +5,7 @@ import spacy
 from spellchecker import SpellChecker
 from lingua import Language, LanguageDetectorBuilder
 
+
 # ── Modelos ───────────────────────────────────────────────────────────────────
 nlp_es = spacy.load('es_core_news_md')
 nlp_en = spacy.load('en_core_web_md')
@@ -36,7 +37,7 @@ SLANG_ES = {
     'komo': 'como', 'weno': 'bueno', 'k': 'que', 'x': 'por',
 }
 
-# ── Excepciones al lematizador ────────────────────────────────────────────────
+# ── Excepciones lematizador ───────────────────────────────────────────────────
 EXC_ES = {
     'gluten': 'gluten', 'proteina': 'proteina', 'lactosa': 'lactosa',
     'vegano': 'vegano', 'vegana': 'vegano', 'bizcocho': 'bizcocho',
