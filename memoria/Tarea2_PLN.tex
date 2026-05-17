@@ -182,6 +182,20 @@
 \vspace{12pt}
 \noindent \rule{\textwidth}{0.4pt}
 
+
+% Enlace a GitHub
+\vspace{0.8cm}
+\noindent
+\Large \textbf{Repositorio de GitHub} 
+
+\vspace{10pt}
+\noindent
+\normalsize Nuestro código está disponible en \href{https://github.com/antoniommff/pln-faq-assistant}{https://github.com/antoniommff/pln-faq-assistant}.
+
+\vspace{-3pt}
+\noindent \rule{\textwidth}{0.4pt}
+
+
 % Índice
 \makeatletter
 \renewcommand*\l@section[2]{%
@@ -217,6 +231,7 @@
 
 \vspace{0.5pt}
 \noindent \rule{\textwidth}{1pt}
+
 
 % Primera entrega
 \section{Justificación del dominio}
@@ -341,6 +356,7 @@ A partir del diagnóstico lingüístico y el marco de restricciones identificado
 \vspace{0.5pt}
 \noindent \rule{\textwidth}{1pt}
 
+
 % Segunda entrega
 \section{Revisiones respecto a la Entrega 1} \label{sec6}
 Tras estudiar los modelos estadísticos, vectoriales y neuronales (Unidades 3, 4 y 5), las hipótesis iniciales del proyecto se actualizan de la siguiente manera.
@@ -449,6 +465,8 @@ Para considerar que la prueba de concepto es exitosa, se deben cumplir los sigui
 \end{enumerate}
 
 
+\addtocontents{toc}{\protect\newpage}
+
 \section{Arquitectura final del sistema}
 El sistema se organiza en cuatro componentes principales que procesan la consulta de forma secuencial, desde la detección del idioma hasta la recuperación final de la FAQ. En esta sección, se integran los modelos seleccionados previamente para conformar el siguiente flujo de procesamiento.
 \begin{itemize}
@@ -541,6 +559,7 @@ Por último, y como ya se ha mencionado, la actual inexistencia de una base de d
 \vspace{0.5pt}
 \noindent \rule{\textwidth}{1pt}
 
+
 % Tercera entrega
 \section{Revisiones respecto a la Entrega 2}
 En la entrega anterior quedaron algunos aspectos pendientes. En esta revisión los concretamos, reflejando así las conclusiones obtenidas durante nuestra experimentación.
@@ -553,13 +572,12 @@ En la entrega anterior quedaron algunos aspectos pendientes. En esta revisión l
 \end{itemize}
 
 
-\addtocontents{toc}{\protect\newpage}
 \section{Implementación}
 Tal y como se estableció al final de la Entrega 2, el objetivo para esta prueba de concepto era implementar el flujo completo de la arquitectura, concentrando el esfuerzo técnico y analítico en las tareas T1, T2 y T3. Este objetivo se ha cumplido de forma íntegra.
 
 En cuanto a la \textbf{preparación de los datos}, el código ejecuta estrictamente el \textit{pipeline} de representación textual diseñado en la Sección \ref{sec7_1}. Cabe recordar que, al utilizar el \textit{dataset} CLINC150 (nativo en inglés), el primer paso consistió en generar el corpus bilingüe traduciendo las particiones al español con la librería deep-translator. A estos datos en crudo se les aplicaron las etapas de expansión de contracciones, lematización con excepciones para jerga culinaria, filtrado de \textit{stopwords} y unificación de regionalismos.
 
-Todo el trabajo técnico, documentado y reproducible, se encuentra alojado en nuestro \textbf{repositorio} de GitHub: \href{https://github.com/usuario/repositorio}{https://github.com/usuario/repositorio}.
+Todo el trabajo técnico, documentado y reproducible, se encuentra alojado en nuestro \textbf{repositorio} de GitHub: \href{https://github.com/antoniommff/pln-faq-assistant}{https://github.com/antoniommff/pln-faq-assistant}.
 
 El repositorio incluye un archivo \verb|README.md| que explica en detalle la configuración del entorno y las dependencias. El grueso del desarrollo de esta PoC se distribuye principalmente en tres ficheros.
 \begin{itemize}
@@ -614,7 +632,7 @@ T3 no dispone de un conjunto de prueba anotado, por lo que la evaluación es cua
 
 La \textbf{vía léxica} (diccionarios controlados) es determinista y rápida, pero falla ante sinónimos no incluidos en el vocabulario. Logra extraer al menos una entidad en el 50-85 \% de las consultas para ambos idiomas, dependiendo de la intención.
 
-Por su parte, la \textbf{vía semántica} (spaCy md + similitud del coseno) recupera entidades fuera del diccionario a costa de introducir algún falso positivo por palabras semánticamente próximas. Este enfoque eleva la tasa de extracción al 100 \% en inglés, mientras que en español se sitúa en el rango del 85-100 \%. 
+Por otro lado, la \textbf{vía semántica} (spaCy md + similitud del coseno) recupera entidades fuera del diccionario a costa de introducir algún falso positivo por palabras semánticamente próximas. Este enfoque eleva la tasa de extracción al 100 \% en inglés, mientras que en español se sitúa en el rango del 85-100 \%. 
 
 \subsubsection*{T4 - Recuperación de FAQs}
 Al igual que en T3, la ausencia de una base de datos real de FAQs ha impedido una evaluación cuantitativa sistemática. A partir de un corpus reducido de demostración, \textbf{Whoosh + BM25} recupera correctamente la respuesta objetivo cuando el vocabulario coincide, pero pierde eficacia ante reformulaciones de la consulta. En contraste, el sistema híbrido de \textbf{\textit{embeddings} + similitud del coseno} muestra mayor robustez semántica. En los ejemplos explorados, esta alternativa asigna a la FAQ correcta puntuaciones superiores a 0.60, frente a valores inferiores a 0.40 para el resto de candidatos.
