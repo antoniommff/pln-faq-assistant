@@ -193,6 +193,7 @@ pln-faq-assistant/
 │   ├── GUI.py                    # Aplicación de escritorio (Flet)
 │   └── auxiliar/
 │       ├── entidades.py          # EntityExtractor adaptado para la GUI
+│       ├── preprocesamiento.py   # Pipeline de normalización para la GUI
 │       └── utils.py              # Carga de modelos y detección de idioma para la GUI
 │  
 ├── memoria/

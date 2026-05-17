@@ -42,24 +42,7 @@ jobs:
     # Build (Windows)
     - name: Build with PyInstaller (Windows)
       if: runner.os == 'Windows'
-      run: >
-        pyinstaller --onefile --name "FAQ" --noconsole --icon="GUI/icon.ico"
-            --hidden-import="es_core_news_md"
-            --hidden-import="en_core_web_md"
-            --hidden-import="sklearn"
-            --hidden-import="unidecode"
-            --collect-all="spacy"
-            --collect-all="es_core_news_md"
-            --collect-all="en_core_web_md"
-            --collect-all="flet"
-            --collect-all="sklearn"
-            --collect-all="lingua"
-            --collect-all="spellchecker"
-            --collect-all="contractions"
-            --add-data "models;models"
-            --add-data "GUI/icon.ico;."
-            --exclude-module="matplotlib"
-            GUI/GUI.py
+      run: pyinstaller --onefile --name "FAQ" --noconsole --icon="GUI/icon.ico" --hidden-import="es_core_news_md" --hidden-import="en_core_web_md" --hidden-import="sklearn" --hidden-import="unidecode" --collect-all="spacy" --collect-all="es_core_news_md" --collect-all="en_core_web_md" --collect-all="flet" --collect-all="sklearn" --collect-all="lingua" --collect-all="spellchecker" --collect-all="contractions" --add-data "models;models" --add-data "GUI/icon.ico;." --exclude-module="matplotlib" GUI/GUI.py
     # Build Mac, que no para de dar problenmas
     # - name: Build with PyInstaller (macOS)
     #   if: runner.os == 'macOS'
@@ -87,24 +70,7 @@ jobs:
     # Build (Linux) que no tiene mucho sentido pero bueno
     - name: Build with PyInstaller (Linux)
       if: runner.os == 'Linux'
-      run: >
-        pyinstaller --onefile --name "FAQ" --noconsole --icon="GUI/icon.ico"
-            --hidden-import="es_core_news_md"
-            --hidden-import="en_core_web_md"
-            --hidden-import="sklearn"
-            --hidden-import="unidecode"
-            --collect-all="spacy"
-            --collect-all="es_core_news_md"
-            --collect-all="en_core_web_md"
-            --collect-all="flet"
-            --collect-all="sklearn"
-            --collect-all="lingua"
-            --collect-all="spellchecker"
-            --collect-all="contractions"
-            --add-data "models:models"
-            --add-data "GUI/icon.ico:."
-            --exclude-module="matplotlib"
-            GUI/GUI.py
+      run: pyinstaller --onefile --name "FAQ" --noconsole --icon="GUI/icon.ico" --hidden-import="es_core_news_md" --hidden-import="en_core_web_md" --hidden-import="sklearn" --hidden-import="unidecode" --collect-all="spacy" --collect-all="es_core_news_md" --collect-all="en_core_web_md" --collect-all="flet" --collect-all="sklearn" --collect-all="lingua" --collect-all="spellchecker" --collect-all="contractions" --add-data "models:models" --add-data "GUI/icon.ico:." --exclude-module="matplotlib" GUI/GUI.py
 
     # Upload artifact
     - name: Upload artifact
