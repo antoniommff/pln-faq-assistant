@@ -111,7 +111,7 @@ Evaluación sobre el conjunto de test de CLINC150 (240 ejemplos por idioma, 8 cl
 | Tarea | Modelo | Accuracy EN | Accuracy ES | F1 macro (EN / ES) |
 |-------|--------|-------------|-------------|---------------------|
 | **T1** | lingua ($n$-gramas de caracteres) | **100 %** | **100 %** | - |
-| **T2** | TF-IDF + LinearSVC (*C* = 0.5) | **92,5 %** | **94,2 %** | **0,925 / 0,942** |
+| **T2** | TF-IDF + LinearSVC (*C* = 0.5) | **92.5 %** | **94.2 %** | **0.925 / 0.942** |
 | _Baseline_ (_dummy_) | - | 12.5 % | 12.5 % | - |
 
 ---
@@ -200,9 +200,9 @@ pln-faq-assistant/
 │   ├── Tarea2_PLN.pdf            # Memoria compilada (PDF)
 │   └── images/                   # Imágenes y figuras de la memoria
 │  
-├── docs/        # Enunciado oficial de la tarea y documento de ejemplo 
+├── docs/                         # Enunciado oficial de la tarea y documento de ejemplo 
 │  
-└── .github/     # Pipeline CI/CD para compilar el ejecutable de la GUI
+└── .github/                      # Pipeline CI/CD para compilar el ejecutable de la GUI
 ```
 
 
