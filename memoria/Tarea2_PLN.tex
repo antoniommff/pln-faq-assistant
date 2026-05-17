@@ -1,3 +1,4 @@
+% CLASE
 \documentclass[11pt,a4paper,twoside]{article}
 
 
@@ -125,6 +126,7 @@
 \usepackage{tcolorbox}
 \usepackage{listings}
 \captionsetup{labelfont=bf}
+\addto\captionsspanish{\renewcommand{\tablename}{Tabla}}
 
 % Código
 % Habría que definir aquí un listings
@@ -229,7 +231,7 @@ El dominio elegido es especialmente adecuado para una tarea de Procesamiento del
 Se implementará una PoC contextualizada en un conjunto de datos sobre cocina, ya que contiene consultas breves y variadas sobre recetas y preparación de alimentos, cercanas al tipo de preguntas recurrentes que aparecerían en un sistema FAQ real. Además, el dominio de la cocina es lo suficientemente amplio como para permitir una evaluación significativa de la capacidad del sistema para generalizar a consultas no vistas, y no tan específico como para requerir un conocimiento experto en la materia, lo que facilita el desarrollo y la evaluación del proyecto.
 
 
-\section{Caracterización lingüística}\label{sec2}
+\section{Caracterización lingüística} \label{sec2}
 En esta sección se exponen las dificultades inherentes al lenguaje natural que complican el procesamiento automático en este dominio.
 
 \subsection{Ambigüedad en múltiples niveles}
@@ -360,7 +362,7 @@ Esta sección detalla las decisiones tomadas sobre la representación del texto 
 	En vez de sintetizar la información en una tabla (indicando tarea, representación y justificación), hemos optado por un desarrollo textual pormenorizado.
 \end{nota}
 
-\subsection{Representación textual}\label{sec7_1}
+\subsection{Representación textual} \label{sec7_1}
 La representación vectorial de las consultas se construirá a partir de un \textit{pipeline} de preprocesamiento y normalización que actúa como capa intermedia entre el texto original del usuario y el modelo de clasificación. El \textit{pipeline} propuesto utiliza spaCy como librería principal de PLN, aplicando los siguientes pasos en orden.
 \begin{enumerate}
     \item \textbf{Expansión de contracciones y \textit{slang}:} En el caso del inglés, se expanden las formas contraídas (\textit{I'm} $\rightarrow$ \textit{I am}). % con la librería \texttt{contractions}. 
@@ -452,7 +454,7 @@ El sistema se organiza en cuatro componentes principales que procesan la consult
 \begin{itemize}
 	\item \textbf{C1 - Identificador de idioma} (lingua): Recibe el texto crudo del usuario y determina si está en español o inglés mediante modelos estadísticos de $n$-gramas de caracteres. Este componente actúa como un filtro inicial indispensable, ya que que enruta la petición hacia el módulo de normalización y los modelos específicos de la lengua detectada.
 	
-	\item \textbf{C2 - Clasificador de intención} (TF-IDF + Modelos clásicos): Toma la consulta ya normalizada (lematizada, sin tildes y con sinónimos unificados) y la proyecta en un espacio vectorial para asignarle rápidamente una intención comunicativa (ejs. \textit{meal\_suggestion}, \textit{food\_last}). Se prioriza este enfoque por su alta eficiencia y bajo coste computacional en inferencia.
+	\item \textbf{C2 - Clasificador de intención} (TF-IDF + Modelo clásico): Toma la consulta ya normalizada (lematizada, sin tildes y con sinónimos unificados) y la proyecta en un espacio vectorial para asignarle rápidamente una intención comunicativa (ejs. \textit{meal\_suggestion}, \textit{food\_last}). Se prioriza este enfoque por su alta eficiencia y bajo coste computacional en inferencia.
 	
 	\item \textbf{C3 - Extractor de entidades} (diccionarios o spaCy - modelo md): Trabaja con indepencia de C2 para contextualizar la intención detectada y estructurar la consulta. Como se justificó en la selección de modelos, se contemplan dos alternativas.
 	\begin{enumerate}
@@ -522,15 +524,14 @@ El sistema se organiza en cuatro componentes principales que procesan la consult
 Como ilustra el diagrama de flujo (Consulta $\rightarrow$ T1 $\rightarrow$ \{T2, T3\} $\rightarrow$ T4 $\rightarrow$ Respuesta), el componente C1 precede al resto para superar la barrera idiomática. A continuación, C2 y C3 actúan de forma independiente para construir una representación estructurada de la petición. Finalmente, C4 asimila dicha salida (la tupla \texttt{[Idioma, Intención, Entidades]}) para devolver la FAQ adecuada al usuario.
 
 \subsubsection*{Prueba de concepto}
-De cara a la PoC, la implementación abarcará el flujo completo de la arquitectura, pero el esfuerzo técnico recaerá principalmente sobre \textbf{C1}, \textbf{C2} y \textbf{C3}. El identificador de idioma (C1) y el clasificador de intención (C2) constituyen el núcleo habilitador del sistema, y pueden evaluarse de forma rigurosa utilizando el \textit{dataset} CLINC150. 
+De cara a la PoC, la implementación abarcará el flujo completo de la arquitectura, pero el esfuerzo técnico recaerá principalmente sobre \textbf{C1}, \textbf{C2} y \textbf{C3}. El identificador de idioma (C1) y el clasificador de intención (C2) constituyen el núcleo habilitador del sistema, y pueden evaluarse rigurosamente utilizando el \textit{dataset} CLINC150. 
 
 Asimismo, se pone un especial énfasis en el extractor de entidades (C3), dado que el éxito práctico de la PoC radica en conformar la tupla \texttt{[Idioma, Intención, Entidades]} de forma robusta. Por este motivo, aunque no sea posible evaluarlo con la misma rigurosidad métrica que los dos primeros, sí se integrará en la \textbf{interfaz final}. 
 
 Por último, y como ya se ha mencionado, la actual inexistencia de una base de datos real de FAQs de cocina impide una evaluación de extremo a extremo, lo que relega al componente C4 a una fase de exploración más reducida, limitando sus pruebas a ejemplos prácticos dentro de un cuaderno Jupyter.
 
-
-
 \newpage
+
 
 % ITERACIÓN 3
 \begin{Large}
@@ -540,66 +541,133 @@ Por último, y como ya se ha mencionado, la actual inexistencia de una base de d
 \vspace{0.5pt}
 \noindent \rule{\textwidth}{1pt}
 
-\section{Implementación}
-Tal y como se estableció al final de la Entrega 2, el objetivo para esta Prueba de Concepto (PoC) era implementar el flujo completo de la arquitectura, pero concentrando el esfuerzo técnico y analítico en las tareas T1, T2 y T3. Este objetivo se ha llevado a cabo de forma íntegra.
-
-En cuanto a la preparación de los datos, el código implementa estrictamente el pipeline de representación textual diseñado en la Sección \ref{sec7_1} de la entrega anterior. Cabe recordar que, al utilizar el dataset CLINC150 (nativo en inglés), el primer paso consistió en generar el corpus bilingüe traduciendo las particiones al español mediante la librería \textsc{deep\_translator}. Sobre estos datos en crudo se aplicaron las etapas de expansión de contracciones, lematización con excepciones para jerga culinaria, filtrado de \textit{stopwords} y unificación de regionalismos.
-
-Todo el trabajo técnico, documentado y reproducible, se encuentra alojado en nuestro repositorio de GitHub: \href{https://github.com/usuario/repositorio}{https://github.com/usuario/repositorio}.
-
-El repositorio incluye un archivo \verb|README.md| que explica en detalle la configuración del entorno y las dependencias, pero el grueso del trabajo operativo de esta PoC se distribuye principalmente en tres archivos:
+% Tercera entrega
+\section{Revisiones respecto a la Entrega 2}
+En la entrega anterior quedaron algunos aspectos pendientes. En esta revisión los concretamos, reflejando así las conclusiones obtenidas durante nuestra experimentación.
 \begin{itemize}
-	\item \verb|Analisis_Datos_PLN.ipynb|: Cuaderno dedicado en la carga y filtrado de CLINC150 al subdominio de la cocina. Contiene el análisis exploratorio de los datos (EDA), la traducción automática de los registros, y la ejecución del pipeline de preprocesamiento completo para exportar los datos limpios.
-	\item \verb|PoC_PLN.ipynb|: Cuaderno principal de modelado. Incluye la evaluación del identificador de idioma (T1), la búsqueda de hiperparámetros y evaluación del clasificador TF-IDF + LinearSVC (T2), la implementación de las vías léxica y semántica para la extracción de entidades (T3), y la exploración comparativa de enrutamiento mediante Whoosh y embeddings (T4).
-	\item \textbf{Interfaz / Script de ejecución:} Se integra los componentes anteriores en un pipeline secuencial unificado. Implementa la función principal que recibe la consulta en texto libre del usuario, la procesa estructurando la tupla de [Idioma, Intención, Entidades], y devuelve la respuesta óptima de la base de datos simulada de FAQs
+	\item \textbf{T1 y T2 se consolidan:} Tras realizar las pruebas pertinentes, comprobamos que el identificador de idioma opera de manera óptima. Además, el enfoque propuesto para la clasificación de intención (TF-IDF + SVM) se confirma como la opción más sólida dado el reducido tamaño de nuestro corpus.
+	
+	\item \textbf{T3 se resuelve mediante \textit{embeddings}:} Aunque en la Entrega 2 la estrategia para la extracción de entidades no estaba completamente definida, los experimentos han respaldado nuestra intuición inicial. La búsqueda léxica resultaba demasiado rígida; sin embargo, el uso de \textit{embeddings} y el cálculo de la similitud semántica con respecto a palabras clave ha mejorado el rendimiento de forma notable. Evitamos así depender de diccionarios exhaustivos gracias a la utilización de representaciones vectoriales.
+	
+	\item \textbf{T4 mantiene su carácter exploratorio:} La recuperación de FAQs no se ha integrado en la interfaz por la ausencia de una base de datos real para este dominio. Por tanto, este aspecto no se ha estudiado en profundidad, limitándose a pruebas con ejemplos sintéticos. Los ensayos preliminares sugieren que la similitud del coseno, combinada con una bonificación por coincidencias exactas de entidades, ofrece un comportamiento superior a la indexación tradicional a través de Whoosh. No obstante, al basarse en un entorno simulado (ejemplos ``de juguete''), estos resultados son puramente indicativos y podrían variar ante un conjunto de datos funcional.
 \end{itemize}
 
-La decisión de focalizar el peso del desarrollo, el entrenamiento y la evaluación cuantitativa en C1, C2 y C3 responde a tres criterios de diseño: (1) son los componentes de enrutamiento habilitadores sin los cuales C4 carece de información estructurada para operar; (2), para C1 y C2, permiten responder a la hipótesis de la entrega 2 comprobando empíricamente si TF-IDF + LinearSVC logran superar de forma consistente el rendimiento de un baseline trivial del $12.5\%$ esperado; y (3), también para C1 y C2, a diferencia de la recuperación de FAQs que requiere bases de datos privativas o inexistentes, el conjunto CLINC150 dispone de etiquetas reales para acometer una evaluación rigurosa del rendimiento en la clasificación de intenciones.
 
-\newpage
+\addtocontents{toc}{\protect\newpage}
+\section{Implementación}
+Tal y como se estableció al final de la Entrega 2, el objetivo para esta prueba de concepto era implementar el flujo completo de la arquitectura, concentrando el esfuerzo técnico y analítico en las tareas T1, T2 y T3. Este objetivo se ha cumplido de forma íntegra.
+
+En cuanto a la \textbf{preparación de los datos}, el código ejecuta estrictamente el \textit{pipeline} de representación textual diseñado en la Sección \ref{sec7_1}. Cabe recordar que, al utilizar el \textit{dataset} CLINC150 (nativo en inglés), el primer paso consistió en generar el corpus bilingüe traduciendo las particiones al español con la librería deep-translator. A estos datos en crudo se les aplicaron las etapas de expansión de contracciones, lematización con excepciones para jerga culinaria, filtrado de \textit{stopwords} y unificación de regionalismos.
+
+Todo el trabajo técnico, documentado y reproducible, se encuentra alojado en nuestro \textbf{repositorio} de GitHub: \href{https://github.com/usuario/repositorio}{https://github.com/usuario/repositorio}.
+
+El repositorio incluye un archivo \verb|README.md| que explica en detalle la configuración del entorno y las dependencias. El grueso del desarrollo de esta PoC se distribuye principalmente en tres ficheros.
+\begin{itemize}
+	\item \textbf{\texttt{Analisis\_Datos\_PLN.ipynb}:} Cuaderno dedicado a la carga y filtrado del conjunto CLINC150 para adaptarlo al subdominio de la cocina. Contiene el análisis exploratorio de los datos (EDA), la traducción automática de los registros y la ejecución del \textit{pipeline} de preprocesamiento completo para exportar los datos limpios.
+	
+	\item \textbf{\texttt{PoC\_PLN.ipynb}:} Cuaderno principal de modelado. Incluye la evaluación del identificador de idioma (T1), la optimización de hiperparámetros y evaluación del clasificador TF-IDF + SVM (T2), la implementación de las vías léxica y semántica para la extracción de entidades (T3), y la exploración comparativa de enrutamiento mediante Whoosh y \textit{embeddings} (T4).
+	
+	\item \textbf{Interfaz / \textit{script} de ejecución:} Módulo que unifica los componentes anteriores en un flujo secuencial continuo. Su función principal es recibir la petición en texto libre del usuario y procesarla para estructurar la tupla \texttt{[Idioma, Intención, Entidades]}. Con esta información, el sistema quedaría preparado para consultar una base de datos real de FAQs y devolver la respuesta óptima, aunque esta fase final de recuperación no se ha integrado.
+\end{itemize}
+
+La decisión de implementar los componentes C1, C2 y C3 en la \textbf{interfaz} responde al hecho de que constituyen el núcleo lingüístico habilitador del sistema. Sin su capacidad para extraer y estructurar la información, C4 carece de los datos necesarios para operar. 
+
+En particular, el análisis exhaustivo y cuantitativo de \textbf{C2} se justifica por dos motivos adicionales: (1) permite comprobar empíricamente si la combinación TF-IDF + SVM supera el rendimiento del \textit{baseline} trivial del 12.5 \%, uno de los criterios de éxito de la PoC; y (2) a diferencia de la recuperación de FAQs, que requiere bases de datos privativas o inexistentes, CLINC150 dispone de etiquetas reales para acometer una evaluación rigurosa en la clasificación de intención. Por su parte, la exploración detallada de \textbf{C3} facilita una comparación directa entre los paradigmas simbólico y vectorial, resolviendo así la pregunta de diseño más relevante planteada en la entrega anterior.
+
+
 \section{Evaluación y resultados}
+Las métricas de esta sección corresponden al conjunto de test de CLINC150 (240 ejemplos por idioma, 8 clases balanceadas). Como \textit{baseline} se ha empleado un clasificador uniforme (\textit{dummy}), cuyo rendimiento teórico es del 50 \% para T1 (2 clases) y del 12.5 \% para T2 (8 clases).
 
-Las métricas de esta sección final corresponden al conjunto de test de CLINC150 (240 ejemplos por idioma, 8 clases balanceadas). La línea base de referencia que se ha tomado
-ha sido un clasificador uniforme "\textit{dummy}", cuyo rendimiento teórico es del \textbf{50\,\%} para T1 (2 clases) y del \textbf{12,5\,\%} para T2 (8 clases).
+\subsubsection*{T1 - Identificación de idioma (lingua)}
+El detector basado en $n$-gramas alcanza una \textbf{tasa de aciertos del 100 \%} sobre el conjunto de prueba completo (480 ejemplos bilingües), sobrepasando la marca del 50 \% del clasificador trivial. T1 cumple, pues, con holgura su función de filtro inicial.
 
-\subsubsection*{T1: Identificación de idioma (lingua)}
+\subsubsection*{T2 - Clasificación de intención (TF-IDF + SVM)}
+Tras seleccionar SVM como el mejor clasificador y optimizar su hiperparámetro de regularización mediante validación cruzada ($C$ = 0.5), el modelo obtiene los resultados recogidos en la Tabla \ref{tab:T2}.
 
-El detector basado en $n$-gramas alcanza una \textbf{tasa de aciertos del 100\,\%} sobre el conjunto de prueba completo (480 ejemplos bilingües), superando el umbral del 50\,\% del clasificador trivial. T1 cumple, pues, 
-con holgura su función de filtro inicial.
-
-\subsubsection*{T2:Clasificación de intención (TF-IDF + LinearSVC)}
-
-Tras optimizar el hiperparámetro de regularización mediante validación cruzada ($C = 0.5$), el modelo obtiene los resultados recogidos en la Tabla~\ref{tab:t2}.
-
+\vspace{5pt}
 \begin{table}[H]
 	\centering
 	\begin{tabular}{lccc}
 		\toprule
-		\textbf{Modelo} & \textbf{Accuracy EN} & \textbf{Accuracy ES} & \textbf{F1 macro (EN / ES)} \\
+		\textbf{Modelo} & \textbf{\textit{Accuracy} EN} & \textbf{\textit{Accuracy} ES} & \textbf{F1 macro (EN / ES)} \\
 		\midrule
-		Clasificador trivial & 12,5\,\% & 12,5\,\% & --- \\
-		TF-IDF + LinearSVC  & 92,5\,\% & 94,2\,\% & 0,925 / 0,942 \\
+		Clasificador trivial & 12.5 \% & 12.5 \% & --- \\
+		TF-IDF + SVM  & \textbf{92.5 \%} & \textbf{94.2 \%} & 0.925 / 0.942 \\
 		\bottomrule
 	\end{tabular}
 	\caption{Comparativa de métricas en el conjunto de prueba para T2.}
-	\label{tab:t2}
+	\label{tab:T2}
 \end{table}
 
-Ambos idiomas superan el umbral de forma consistente, con una mejora absoluta de aproximadamente 80 puntos porcentuales sobre la línea base. A nivel de clase, los pares \textit{recipe}/\textit{ingredients\_list} y \textit{nutrition\_info}/\textit{calories} concentran los errores residuales por solapamiento léxico (F1 de 0,80 y 0,88 en inglés, respectivamente), mientras que intenciones con vocabulario más distintivo (\textit{ingredient\_substitution}, \textit{food\_last}) alcanzan F1 $\geq$ 0,97.
+Ambos idiomas superan el umbral de forma consistente, con una mejora absoluta de aproximadamente 80 puntos porcentuales sobre la línea base. A nivel de clase, el par \textit{recipe}/\textit{ingredients\_list} (F1 de 0.80 y 0.88 en inglés, respectivamente) concentra errores por solapamiento léxico, mientras que intenciones con vocabulario más distintivo (\textit{ingredient\_substitution}, \textit{food\_last}) alcanzan un F1 $\geq$ 0.97 tanto en inglés como en español. Las matrices de confusión resultantes se pueden consultar en la Figura \ref{fig:matriz_confusion}.
 
-\subsubsection*{T3: Extracción de entidades}
+\vspace{3pt}
+\begin{figure}[H] 
+	\centering
+	\includegraphics[width=\textwidth]{matriz_confusion.png} 
+	\caption{Matrices de confusión por idioma en el conjunto de prueba para T2.}
+	\label{fig:matriz_confusion} 
+\end{figure}
 
-T3 no dispone de un conjunto de prueba anotado, por lo que la evaluación es cualitativa. Se validaron las dos rutas implementadas sobre un conjunto de consultas representativas, comprobando que la tupla \texttt{[Idioma, Intención, Entidades]} se conforma correctamente en los casos prototípicos. La \textbf{vía léxica} (diccionarios controlados) es determinista y rápida, pero falla ante sinónimos no incluidos en el vocabulario. La \textbf{vía semántica} (spaCy md + similitud del coseno) recupera entidades fuera del diccionario a costa de introducir algún falso positivo por palabras semánticamente próximas.
+\subsubsection*{T3 - Extracción de entidades}
+T3 no dispone de un conjunto de prueba anotado, por lo que la evaluación es cualitativa. Se han validado las dos rutas implementadas sobre un conjunto de consultas representativas, comprobando que la tupla \texttt{[Idioma, Intención, Entidades]} se conforma correctamente en los casos prototípicos.
 
-\subsubsection*{T4: Recuperación de FAQs}
+La \textbf{vía léxica} (diccionarios controlados) es determinista y rápida, pero falla ante sinónimos no incluidos en el vocabulario. Logra extraer al menos una entidad en el 50-85 \% de las consultas para ambos idiomas, dependiendo de la intención.
 
-Al igual que T3, la ausencia de una base de datos real impidió una evaluación cuantitativa sistemática. Sobre la base de FAQs de demostración, \textbf{Whoosh + BM25} recupera correctamente la FAQ objetivo cuando el vocabulario coincide, pero falla ante reformulaciones. El sistema híbrido de \textbf{\textit{embeddings} + similitud del coseno} mostró mayor robustez semántica, asignando a la FAQ correcta puntuaciones superiores a 0,60 frente a puntuaciones inferiores a 0,40 para el resto de candidatos en los ejemplos explorados.
+Por su parte, la \textbf{vía semántica} (spaCy md + similitud del coseno) recupera entidades fuera del diccionario a costa de introducir algún falso positivo por palabras semánticamente próximas. Este enfoque eleva la tasa de extracción al 100 \% en inglés, mientras que en español se sitúa en el rango del 85-100 \%. 
 
-\newpage
+\subsubsection*{T4 - Recuperación de FAQs}
+Al igual que en T3, la ausencia de una base de datos real de FAQs ha impedido una evaluación cuantitativa sistemática. A partir de un corpus reducido de demostración, \textbf{Whoosh + BM25} recupera correctamente la respuesta objetivo cuando el vocabulario coincide, pero pierde eficacia ante reformulaciones de la consulta. En contraste, el sistema híbrido de \textbf{\textit{embeddings} + similitud del coseno} muestra mayor robustez semántica. En los ejemplos explorados, esta alternativa asigna a la FAQ correcta puntuaciones superiores a 0.60, frente a valores inferiores a 0.40 para el resto de candidatos.
+
+
 \section{Análisis de errores}
+Los fallos identificados en el modelo se pueden agrupar en dos categorías principales: los derivados de limitaciones técnicas y los asociados a la complejidad intrínseca del lenguaje.
 
-\newpage
+\subsection{Errores de carácter técnico}
+Esta categoría engloba las deficiencias que responden a la arquitectura del sistema, el procesamiento de los datos y la falta de recursos, más que a fenómenos propios del lenguaje. 
+\begin{itemize}
+	\item \textbf{Anomalías en el preprocesamiento:} Se observan resultados atípicos durante la normalización y lematización textual. Ciertos términos comunes (``receta'', ``tarta'') derivan a veces en vocablos inexistentes (``receto'', ``tarto''). En español, la lematización de verbos conjugados puede producir formas erróneas. Por ejemplo, ``dime'' se convierte en ``dimar'' y no en ``decir''.
+	
+	\item \textbf{Déficit en la clasificación de intención:} Aunque su dimensión lingüística se detalla más adelante, el desempeño técnico del clasificador en producción se ve lastrado por la escasez de datos de entrenamiento. En consecuencia, peticiones directas y aparentemente sencillas (``¿Qué lleva una fajita mexicana?'') se catalogan de forma equivocada bajo \textit{ingredient\_substitution} en vez de \textit{ingredients\_list}. Curiosamente, el sistema sí logra procesar estructuras más extensas y complejas, asignando adecuadamente la intención \textit{recipe} a frases como ``Para celebrar el cumpleaños de mi tía quiero hacer un pastel de chocolate''.
+\end{itemize}
+
+\subsection{Errores de carácter lingüístico}
+Esta tipología está intrínsecamente ligada a las dificultades del Procesamiento del Lenguaje Natural expuestas en la caracterización lingüística (véase la Sección \ref{sec2}).
+\begin{itemize}
+	\item \textbf{Ambigüedad a nivel semántico:} El modelo tiende a equivocarse cuando la línea de separación entre dos clases es muy fina, como ocurre entre \textit{calories} y \textit{nutrition\_info}. Ante la consulta ``¿El pollo frito engorda mucho?'', el sistema duda al decantarse por una categoría, sin comprender que el objetivo del usuario es específicamente el aporte calórico y no un desglose nutricional completo. Este solapamiento también se da entre \textit{recipe} e \textit{ingredients\_list}, donde el enunciado ``¿Qué lleva una fajita mexicana?'' no devuelve la intención esperada.
+	
+	\item \textbf{Ambigüedades a nivel pragmático:} Las consultas que esconden una intención subyacente bajo la apariencia de una afirmación directa provocan fallos de detección. Si alguien escribe ``Para la receta de pizza la harina de trigo me sienta mal'', cualquier humano deduce de inmediato la necesidad de buscar un ingrediente alternativo que evite ese malestar. Nuestro modelo, en cambio, realiza una interpretación superficial y clasifica el texto directamente como \textit{recipe}.
+	
+	\item \textbf{Sesgo idiomático en C3:} La disponibilidad de recursos favorece claramente al inglés, lo que penaliza el rendimiento en español. Esto se anticipó correctamente en la Entrega 1. Por ejemplo, mientras que el modelo logra identificar entidades para todas las muestras del conjunto de prueba anglosajón, existen casos hispanohablantes donde no se detecta ninguna. Esto podría considerarse un fallo técnico, provocado a veces por malas traducciones automáticas, pero resulta mucho más interesante analizarlo como una carencia lingüística de los modelos preentrenados de spaCy.
+\end{itemize}
+
+
 \section{Reflexión crítica}
+\subsection{Brecha entre la PoC y un sistema en producción}
+Aunque la prueba de concepto demuestra la viabilidad del núcleo lingüístico del sistema, existe una distancia significativa respecto a lo que requeriría un despliegue en un entorno de producción real.
+\begin{itemize}
+	\item \textbf{Ausencia de C4 en la interfaz final:} Como se ha mencionado a lo largo del proyecto, la falta de una base de datos real con FAQs culinarias estructuradas ha impedido implementar la recuperación de respuestas. En producción, este componente es indispensable, ya que constituye el valor final que se entrega al usuario.
+	
+	\item \textbf{Arquitectura experimental:} La implementación actual tiene un carácter exploratorio, desarrollada en cuadernos Jupyter y con una interfaz artesanal y poco escalable. Un escenario real exige profesionalizar el sistema aplicando estándares de la industria: desacoplar el \textit{frontend} del \textit{backend}, desplegar los modelos mediante APIs y gestionar la información en un motor de bases de datos robusto.
+	
+	\item \textbf{Sobreajuste en el preprocesamiento:} El \textit{pipeline} de normalización de texto está excesivamente adaptado a las particularidades del corpus CLINC150. En un contexto abierto, la variabilidad de las entradas sería mucho mayor, por lo que estas reglas predefinidas podrían resultar insuficientes para abarcar la diversidad de consultas inéditas.
+	
+	\item \textbf{Limitaciones del modelo TF-IDF:} El clasificador de intención (C2) alcanza un rendimiento excelente sobre el conjunto de prueba, pero opera bajo condiciones muy restringidas. En producción, un sistema basado en TF-IDF presentaría deficiencias notables al enfrentarse a ambigüedades, sarcasmo o lenguaje figurado, dada su carencia de comprensión semántica profunda.
+	
+	\item \textbf{Validación de latencia inconclusa:} No ha sido posible certificar de forma definitiva el requisito de tiempo de respuesta fijado en la Entrega 1. Si bien la interfaz actual reacciona con rapidez, la no integración del componente C4 impide medir con precisión la latencia real del flujo completo de extremo a extremo.
+\end{itemize}
 
+\subsection{¿Qué habría decidido el grupo de forma diferente?}
+Tras concluir el desarrollo de la PoC y evaluar los resultados, identificamos varias decisiones que abordaríamos de otro modo.
+
+En primer lugar, la elección del dominio fue demasiado restrictiva. Los \textit{datasets} de acceso público centrados en cocina son escasos tanto en volumen como en variedad. Habría sido más conveniente seleccionar un dominio más amplio o estandarizado en la literatura de PLN para disponer de una mayor cantidad de textos desde el inicio. 
+
+En segundo lugar, nos conformamos con los datos disponibles cuando podríamos haber explorado técnicas de generación sintética o aumento de datos para engrosar el corpus. Además, depender de la traducción automática introdujo errores de literalidad graves en nuestro contexto (\textit{egg} $\rightarrow$ óvulo). Asimismo, la librería de corrección ortográfica básica añade en ocasiones más ruido del que elimina. Para el alcance de esta PoC, habría sido más sensato asumir desde el principio que el usuario escribe correctamente.
+
+En tercer lugar, de haber optado por una temática con un conjunto de ejemplos mucho mayor, habríamos contemplado el uso de modelos basados en arquitecturas Transformer. Estas redes nos habrían ayudado a mitigar los problemas de ambigüedad semántica y, probablemente, nos habrían permitido rediseñar el flujo para unificar las tareas de clasificación de intención (T2) y extracción de entidades (T3) en un solo proceso.
+
+Resumiendo, la gran mayoría de nuestras dificultades se derivan de la escasez de registros, un obstáculo que no supimos anticipar a tiempo y del que fuimos conscientes cuando el dominio del proyecto ya no se podía modificar.
+
+No obstante, también ha habido grandes aciertos. Consideramos un éxito la solidez del diseño inicial, ya que gran parte de los fallos no técnicos detectados responden directamente a la caracterización lingüística y a las restricciones que identificamos en la Entrega 1. Además, la planificación ha sido muy efectiva, lo que nos ha permitido cumplir con los plazos e implementar toda la funcionalidad propuesta. Esto incluye haber llevado a cabo, tal y como estaba previsto, la exploración y comparación exhaustiva de las vías léxica y semántica para varias de nuestras tareas. En definitiva, estamos satisfechos con el trabajo realizado, aunque somos conscientes de la transformación que requeriría el proyecto para evolucionar de un prototipo de laboratorio a un producto comercial.  
 
 \end{document}
