@@ -305,11 +305,42 @@ En **Windows y macOS** no hay dependencias adicionales del sistema.
 Una vez instaladas las dependencias, ejecuta desde la raíz del repositorio:
 
 ```sh
-pyinstaller --noconsole --onefile --name "FAQ" --icon="GUI/icon.ico" \
-    --hidden-import="es_core_news_md" --hidden-import="en_core_web_md" \
-    --collect-all="spacy" --collect-all="es_core_news_md" \
-    --collect-all="en_core_web_md" --collect-all="flet" \
-    --exclude-module="matplotlib" --exclude-module="scipy" \
+# Linux/Mac
+pyinstaller --onefile --name "FAQ" --noconsole --icon="GUI/icon.ico" \
+    --hidden-import="es_core_news_md" \
+    --hidden-import="en_core_web_md" \
+    --hidden-import="sklearn" \
+    --hidden-import="unidecode" \
+    --collect-all="spacy" \
+    --collect-all="es_core_news_md" \
+    --collect-all="en_core_web_md" \
+    --collect-all="flet" \
+    --collect-all="sklearn" \
+    --collect-all="lingua" \
+    --collect-all="spellchecker" \
+    --collect-all="contractions" \
+    --add-data "models:models" \
+    --add-data "GUI/icon.ico:." \
+    --exclude-module="matplotlib" \
+    GUI/GUI.py
+
+# Windows
+pyinstaller --onefile --name "FAQ" --noconsole --icon="GUI/icon.ico" \
+    --hidden-import="es_core_news_md" \
+    --hidden-import="en_core_web_md" \
+    --hidden-import="sklearn" \
+    --hidden-import="unidecode" \
+    --collect-all="spacy" \
+    --collect-all="es_core_news_md" \
+    --collect-all="en_core_web_md" \
+    --collect-all="flet" \
+    --collect-all="sklearn" \
+    --collect-all="lingua" \
+    --collect-all="spellchecker" \
+    --collect-all="contractions" \
+    --add-data "models;models" \
+    --add-data "GUI/icon.ico;." \
+    --exclude-module="matplotlib" \
     GUI/GUI.py
 ```
 
