@@ -3,7 +3,7 @@ import asyncio
 from auxiliar.utils import predict_language, load, prettify, REV_INTENT
 import os
 import random
-
+import sys
 
 async def main(page: ft.Page):
 
@@ -15,7 +15,11 @@ async def main(page: ft.Page):
     page.theme_mode = ft.ThemeMode.DARK
     page.window_width = 450
     page.window_height = 400
-    page.window.icon = os.path.abspath("icon.ico")
+    # Para no estroperar rutas al compilar
+    if hasattr(sys, '_MEIPASS'):
+        page.window.icon = os.path.join(sys._MEIPASS, "icon.ico")
+    else:
+        page.window.icon = os.path.abspath("icon.ico")
     page.window_resizable = False
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
