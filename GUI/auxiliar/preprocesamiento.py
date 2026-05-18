@@ -17,19 +17,23 @@ class Preprocessing():
 		    ['bbq', 'thermomix', 'airfryer', 'umami', 'keto', 'ramen'])
 
 		# ── Stopwords personalizadas ──────────────────────────────────────────────────
-		self.KEEP = {'es':
-				{'no', 'sin', 'excepto', 'nunca', 'cuando', 'como', 'cuanto',
+		self.KEEP = {
+			'es': {
+				'no', 'sin', 'excepto', 'nunca', 'cuando', 'como', 'cuanto',
 				'antes', 'despues', 'hacer', 'estar', 'ser', 'buen', 'mal',
-				'gluten', 'lactosa', 'proteina', 'vegano', 'vegana', 'keto', 'umami'},
-			     'en':
-				{'no', 'not', 'without', 'never', 'free', 'when', 'how',
+				'gluten', 'lactosa', 'proteina', 'vegano', 'vegana', 'keto', 'umami'
+			},
+			'en': {
+				'no', 'not', 'without', 'never', 'free', 'when', 'how',
 				'before', 'after', 'make', 'good', 'bad',
-				'gluten', 'lactose', 'vegan', 'keto', 'umami', 'bbq'}
-				}
+				'gluten', 'lactose', 'vegan', 'keto', 'umami', 'bbq'
+			}
+		}
 
-		self.STOPWORDS = {'es': {unidecode.unidecode(w).lower() for w in nlp['es'].Defaults.stop_words} - self.KEEP['es'],
-				  'en': {unidecode.unidecode(w).lower() for w in nlp['en'].Defaults.stop_words} - self.KEEP['en']
-			         }
+		self.STOPWORDS = {
+			'es': {unidecode.unidecode(w).lower() for w in nlp['es'].Defaults.stop_words} - self.KEEP['es'],
+			'en': {unidecode.unidecode(w).lower() for w in nlp['en'].Defaults.stop_words} - self.KEEP['en']
+		}
 
 		# ── Normalización de jerga ────────────────────────────────────────────────────
 		self.SLANG_ES = {
@@ -38,27 +42,33 @@ class Preprocessing():
 		}
 
 		# ── Excepciones lematizador ───────────────────────────────────────────────────
-		self.EXC = {'es':
-			      {'gluten': 'gluten', 'proteina': 'proteina', 'lactosa': 'lactosa',
-			       'vegano': 'vegano', 'vegana': 'vegano', 'bizcocho': 'bizcocho',
-			       'aove': 'aove', 'pizza': 'pizza',},
-		            'en':
-			      {'gluten': 'gluten', 'ramen': 'ramen', 'vegan': 'vegan'}
-			    }
+		self.EXC = {
+			'es': {
+				'gluten': 'gluten', 'proteina': 'proteina', 'lactosa': 'lactosa',
+				'vegano': 'vegano', 'vegana': 'vegano', 'bizcocho': 'bizcocho',
+				'aove': 'aove', 'pizza': 'pizza',
+			},
+			'en': {
+				'gluten': 'gluten', 'ramen': 'ramen', 'vegan': 'vegan'
+			}
+		}
 
 		# ── Sinónimos regionales ──────────────────────────────────────────────────────
-		self.SYN = { 'es':
-				  {'papa': 'patata', 'papas': 'patata', 'durazno': 'melocoton',
-				   'palta': 'aguacate', 'frutilla': 'fresa', 'choclo': 'maiz',
-				   'elote': 'maiz', 'anana': 'pina', 'jugo': 'zumo',
-				   'banana': 'platano', 'jitomate': 'tomate', 'batata': 'boniato',
-				   'camaron': 'gamba', 'mani': 'cacahuete', 'aji': 'chile',},
-				'en':
-				  {'aubergine': 'eggplant', 'courgette': 'zucchini',
-		                   'coriander': 'cilantro', 'rocket': 'arugula',
-			           'biscuit': 'cookie', 'yoghurt': 'yogurt',
-			           'beetroot': 'beet', 'prawn': 'shrimp',}
-				}
+		self.SYN = {
+			'es': {
+				'papa': 'patata', 'papas': 'patata', 'durazno': 'melocoton',
+				'palta': 'aguacate', 'frutilla': 'fresa', 'choclo': 'maiz',
+				'elote': 'maiz', 'anana': 'pina', 'jugo': 'zumo',
+				'banana': 'platano', 'jitomate': 'tomate', 'batata': 'boniato',
+				'camaron': 'gamba', 'mani': 'cacahuete', 'aji': 'chile',
+			},
+			'en': {
+				'aubergine': 'eggplant', 'courgette': 'zucchini',
+				'coriander': 'cilantro', 'rocket': 'arugula',
+				'biscuit': 'cookie', 'yoghurt': 'yogurt',
+				'beetroot': 'beet', 'prawn': 'shrimp',
+			}
+		}
 
 
 	def apply_synonyms(self, text: str, lang: str) -> str:
