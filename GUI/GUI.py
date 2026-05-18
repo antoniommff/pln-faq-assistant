@@ -5,6 +5,7 @@ import os
 import random
 import sys
 
+
 async def main(page: ft.Page):
 
     extractor = None
@@ -99,9 +100,7 @@ async def main(page: ft.Page):
 
         page.update()
 
-
     # Elementos de la app
-
     upper_button = ft.Button(
         content="Lista",
         on_click=change_text_button,
@@ -162,6 +161,7 @@ async def main(page: ft.Page):
         ft.Stack(
             expand=True,
             controls=[
+
                 # =========================
                 # CONTENIDO PRINCIPAL
                 # =========================
@@ -197,9 +197,9 @@ async def main(page: ft.Page):
                     ],
                     expand=True,
                 ),
-
+                
                 # =========================
-                # SWITCH ABAJO DERECHA (CORREGIDO)
+                # SWITCH ABAJO DERECHA 
                 # =========================
                 ft.Container(
                     content=theme_switch,

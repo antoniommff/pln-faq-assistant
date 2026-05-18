@@ -12,7 +12,6 @@ import sys
 REV_INTENT = {1: 'meal_suggestion', 2: 'recipe', 3: 'ingredients_list', 4: 'ingredient_substitution', 5: 'nutrition_info', 6: 'calories', 7: 'cook_time', 8: 'food_last'}
 
 
-
 def load():
     # Comprobamos si estamos dentro del ejecutable de PyInstaller
     if hasattr(sys, '_MEIPASS'):
@@ -33,7 +32,7 @@ def load():
     extractor = EntityExtractor(nlp=nlp)
     extractor.add_vectors()
 
-    return extractor, detector, preprocesor, vectorizers ,intention_models
+    return extractor, detector, preprocesor, vectorizers, intention_models
 
 
 def predict_language(text, detector):
