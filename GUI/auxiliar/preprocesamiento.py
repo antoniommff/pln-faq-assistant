@@ -3,6 +3,7 @@ import unidecode
 import contractions
 from spellchecker import SpellChecker
 
+
 class Preprocessing():
 	def __init__(self, nlp):
 		self.spell = {'es': SpellChecker(language='es'),  'en': SpellChecker(language='en')}
@@ -43,7 +44,7 @@ class Preprocessing():
 			       'aove': 'aove', 'pizza': 'pizza',},
 		            'en':
 			      {'gluten': 'gluten', 'ramen': 'ramen', 'vegan': 'vegan'}
-			      }
+			    }
 
 		# ── Sinónimos regionales ──────────────────────────────────────────────────────
 		self.SYN = { 'es':
@@ -61,39 +62,40 @@ class Preprocessing():
 
 
 	def apply_synonyms(self, text: str, lang: str) -> str:
-	    synonyms = self.SYN[lang]
-	    return ' '.join(synonyms.get(w, w) for w in text.split())
+		synonyms = self.SYN[lang]
+		return ' '.join(synonyms.get(w, w) for w in text.split())
 
 
 	def process_text(self, text: str, lang: str, is_predict: bool = False) -> str:
-	    if not isinstance(text, str) or not text.strip():
-	        return ''
-	    if lang == 'en':
-	        text = contractions.fix(text)
-	    if lang == 'es':
-	        for s, c in self.SLANG_ES.items():
-	            text = re.sub(rf'\b{s}\b', c, text, flags=re.IGNORECASE)
+		if not isinstance(text, str) or not text.strip():
+			return ''
+		if lang == 'en':
+			text = contractions.fix(text)
+		if lang == 'es':
+			for s, c in self.SLANG_ES.items():
+				text = re.sub(rf'\b{s}\b', c, text, flags=re.IGNORECASE)
 
+		nlp = self.nlp[lang]
+		sw = self.STOPWORDS[lang]
+		keep_set = self.KEEP[lang]
+		spell = self.spell[lang]
+		exc = self.EXC[lang]
 
-	    nlp = self.nlp[lang]
-	    sw = self.STOPWORDS[lang]
-	    keep_set = self.KEEP[lang]
-	    spell = self.spell[lang]
-	    exc = self.EXC[lang]
+		doc = nlp(text)
+		tokens = []
 
-	    doc = nlp(text)
-	    tokens = []
-	    for tok in doc:
-	        if tok.is_space or tok.is_punct:
-	            continue
-	        no_accents = unidecode.unidecode(tok.text).lower()
-	        lemma = exc.get(no_accents, tok.lemma_.lower())
-	        if is_predict and spell.unknown([lemma]):
-	            corr = spell.correction(lemma)
-	            lemma = corr if corr else lemma
-	        norm = unidecode.unidecode(lemma)
-	        if norm in keep_set:
-	            tokens.append(norm)
-	        elif norm not in sw and len(norm) > 1:
-	            tokens.append(norm)
-	    return self.apply_synonyms(' '.join(tokens), lang)
+		for tok in doc:
+			if tok.is_space or tok.is_punct:
+				continue
+			no_accents = unidecode.unidecode(tok.text).lower()
+			lemma = exc.get(no_accents, tok.lemma_.lower())
+			if is_predict and spell.unknown([lemma]):
+				corr = spell.correction(lemma)
+				lemma = corr if corr else lemma
+			norm = unidecode.unidecode(lemma)
+			if norm in keep_set:
+				tokens.append(norm)
+			elif norm not in sw and len(norm) > 1:
+				tokens.append(norm)
+
+		return self.apply_synonyms(' '.join(tokens), lang)
