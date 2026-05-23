@@ -42,41 +42,9 @@
 % Comentarios
 \usepackage{comment}
 
-% Código de Python .py
+% Código 
 \usepackage{listings}
 \usepackage{xcolor}
-  % Configuración de colores
-\definecolor{graybg}{RGB}{245,245,245} % Fondo gris
-\definecolor{pycomment}{RGB}{1,128,20} % Verde
-\definecolor{pystring}{RGB}{160,55,44} % Rojo
-\definecolor{pykeyword}{RGB}{42,0,255} % Azul oscuro
-  % Recuadro del código
-\lstdefinelanguage{py}{
-	morekeywords={def,None,if,else,not,raise,is,return,for,in,while,and,False,True},
-	sensitive=true,
-	morecomment=[l]\#,
-	morestring=[m]',
-	morestring=[m]",
-}
-\lstdefinestyle{py}{
-	language=py,
-	backgroundcolor=\color{graybg},
-	basicstyle=\linespread{0.97}\ttfamily\footnotesize,
-	keywordstyle=\color{pykeyword},
-	commentstyle=\color{pycomment}\bfseries,
-	stringstyle=\color{pystring},
-	showstringspaces=false,
-	breaklines=true,
-	frame=none,
-	inputencoding=utf8,
-	keepspaces=true,
-	columns=flexible,
-	literate=
-	{á}{\'a}1 {é}{\'e}1 {í}{\'i}1 {ó}{\'o}1 {ú}{\'u}1
-	{Á}{\'A}1 {É}{\'E}1 {Í}{\'I}1 {Ó}{\'O}1 {Ú}{\'U}1
-	{ñ}{\~n}1 {Ñ}{\~N}1
-	{¿}{?`}1 {¡}{!`}1,
-}
 
 % Matemáticas
 \usepackage{amsmath}
@@ -127,9 +95,6 @@
 \usepackage{listings}
 \captionsetup{labelfont=bf}
 \addto\captionsspanish{\renewcommand{\tablename}{Tabla}}
-
-% Código
-% Habría que definir aquí un listings
 
 
 % PORTADA
@@ -389,12 +354,7 @@ La representación vectorial de las consultas se construirá a partir de un \tex
 	\item \textbf{Sustitución de sinónimos y regionalismos:} Por ejemplo, \textit{palta} $\rightarrow$ \textit{aguacate}; \textit{prawn} $\rightarrow$ \textit{shrimp}. Se aborda así la variación dialectal señalada en la Sección \ref{sec2}.
 \end{enumerate}
 
-% Esta normalización inicial de los textos de entrada se traduce en una reducción significativa del vocabulario: de 855 a 628 tipos únicos en inglés y de 1212 a 679 en español, con una reducción media de la longitud de consulta de aproximadamente el 35 \% en ambos idiomas.
-% Este compactado del vocabulario favorece la generalización del modelo de clasificación.
-
-Una vez normalizado el corpus, se empleará TF-IDF como representación vectorial para T2 y se entrenará un clasificador de intención independiente por idioma. %en coherencia con la arquitectura de T1. Tras identificar el idioma, la consulta se enruta al vectorizador y clasificador correspondientes.
-
-% Esta elección de este modelo en específico se ha considerado la más adecuada para la tarea de clasicación de la intención porque permite captura los términos discriminativos por intención (por ejemplo, \textit{sustituir} para \textit{ingredient\_substitution} o \textit{caduca}/\textit{last} para \textit{food\_last}).
+Una vez normalizado el corpus, se empleará TF-IDF como representación vectorial para T2 y se entrenará un clasificador de intención independiente por idioma. 
 
 \vspace{5pt}
 \subsection{Selección de modelos}
@@ -403,14 +363,10 @@ A continuación, se explican los modelos considerados para cada una de las tarea
 \subsubsection*{T1 - Identificación de idioma}
 Para esta tarea se utilizará \textbf{lingua}, una librería basada en modelos estadísticos que destaca por su alto rendimiento. Su procesamiento se divide en dos fases. Primero, un motor basado en reglas examina el alfabeto y los caracteres exclusivos del texto para descartar opciones incompatibles y reducir el espacio de candidatos. Después, un clasificador Naive Bayes calcula la probabilidad de cada idioma restante a partir de \textbf{$n$-gramas de caracteres} de longitud variable (de 1 a 5). A diferencia de los detectores tradicionales que se limitan a trigramas, combinar desde unigramas hasta quintigramas hace que esta herramienta sea especialmente robusta en textos cortos, como lo son las consultas de un usuario en nuestro sistema.
 
-% La evaluación sobre los 480 ejemplos del conjunto de prueba bilingüe ofrece una tasa de aciertos del \textbf{100\,\%}.
-
 \subsubsection*{T2 - Clasificación de intención}
 Tras descartar la arquitectura Transformer (véase la Sección \ref{sec6}), este módulo constará de dos elementos: un vectorizador y un clasificador. El primero aplicará \textbf{TF-IDF} para transformar cada consulta en un vector de dimensión fija. En este proceso, la frecuencia del término (TF) resalta las palabras más representativas del texto, mientras que la frecuencia inversa de documento (IDF) penaliza aquellas demasiado comunes en el corpus. 
 
-Respecto al clasificador, se evaluarán distintas alternativas, siendo \textbf{SVM} el candidato principal. Este algoritmo busca el hiperplano de máximo margen que mejor separa las clases dentro del espacio vectorial generado por TF-IDF. % El parámetro de regularización se fijará inicialmente en $C = 1$, valor que equilibra margen y tolerancia a errores de entrenamiento.
-
-% Los primeros resultados sobre el conjunto de prueba muestran una \textit{accuracy} del \textbf{93\,\%} en inglés y \textbf{94\,\%} en español, con F1 macro de 0,93 y 0,94 respectivamente, superando ampliamente el 12,5\,\% del clasificador trivial. Los errores residuales se concentran en los pares \textit{recipe}/\textit{ingredients\_list} y \textit{calories}/\textit{nutrition\_info}, cuyo solapamiento léxico dificulta la separación mediante representación de bolsa de palabras.
+Respecto al clasificador, se evaluarán distintas alternativas, siendo \textbf{SVM} el candidato principal. Este algoritmo busca el hiperplano de máximo margen que mejor separa las clases dentro del espacio vectorial generado por TF-IDF. 
 
 \subsubsection*{T3 - Extracción de entidades}
 La extracción de entidades se contempla desde dos enfoques distintos.
@@ -461,7 +417,7 @@ Para considerar que la prueba de concepto es exitosa, se deben cumplir los sigui
 \begin{enumerate}
 	\item \textbf{Superar holgadamente la línea base:} Los modelos deben mejorar significativamente el rendimiento de los clasificadores triviales, esto es, el 50 \% para la identificación de idioma y el 12.5 \% para la clasificación de intención tanto en español como en inglés. 
 	\item \textbf{Análisis de errores fundamentado:} Identificar los fallos de clasificación y conectarlos directamente con el análisis lingüístico de la entrega anterior.
-	\item\textbf{Exploración empírica para extracción (T3) y enrutamiento (T4):} Como se expuso en la charla de PLN del 14 de abril, ``la intención es necesaria pero no suficiente''. Saber que el usuario busca una receta es inútil si no se extraen los alimentos o términos clave de su consulta. Por ello, el éxito práctico de la PoC consistirá en conformar adecuadamente la tupla \texttt{[Idioma, Intención, Entidades]} a partir de consultas de prueba representativas. Ante la falta de una base de datos de FAQs para evaluar T3 y T4 de forma integral, se explorarán empíricamente dos enfoques: una vía léxica (empleando diccionarios culinarios controlados para la extracción y motores de indexación como Whoosh para el enrutamiento) y una vía semántica (mediante la generación de \textit{embeddings} y el cálculo de la similitud del coseno para ambos procesos).
+	\item \textbf{Exploración empírica para extracción (T3) y enrutamiento (T4):} Como se expuso en la charla de PLN del 14 de abril, ``la intención es necesaria pero no suficiente''. Saber que el usuario busca una receta es inútil si no se extraen los alimentos o términos clave de su consulta. Por ello, el éxito práctico de la PoC consistirá en conformar adecuadamente la tupla \texttt{[Idioma, Intención, Entidades]} a partir de consultas de prueba representativas. Ante la falta de una base de datos de FAQs para evaluar T3 y T4 de forma integral, se explorarán empíricamente dos enfoques: una vía léxica (empleando diccionarios culinarios controlados para la extracción y motores de indexación como Whoosh para el enrutamiento) y una vía semántica (mediante la generación de \textit{embeddings} y el cálculo de la similitud del coseno para ambos procesos).
 \end{enumerate}
 
 
@@ -654,7 +610,7 @@ Esta tipología está intrínsecamente ligada a las dificultades del Procesamien
 \begin{itemize}
 	\item \textbf{Ambigüedad a nivel semántico:} El modelo tiende a equivocarse cuando la línea de separación entre dos clases es muy fina, como ocurre entre \textit{calories} y \textit{nutrition\_info}. Ante la consulta ``¿El pollo frito engorda mucho?'', el sistema duda al decantarse por una categoría, sin comprender que el objetivo del usuario es específicamente el aporte calórico y no un desglose nutricional completo. Este solapamiento también se da entre \textit{recipe} e \textit{ingredients\_list}, donde el enunciado ``¿Qué lleva una fajita mexicana?'' no devuelve la intención esperada.
 	
-	\item \textbf{Ambigüedades a nivel pragmático:} Las consultas que esconden una intención subyacente bajo la apariencia de una afirmación directa provocan fallos de detección. Si alguien escribe ``Para la receta de pizza la harina de trigo me sienta mal'', cualquier humano deduce de inmediato la necesidad de buscar un ingrediente alternativo que evite ese malestar. Nuestro modelo, en cambio, realiza una interpretación superficial y clasifica el texto directamente como \textit{recipe}.
+	\item \textbf{Ambigüedad a nivel pragmático:} Las consultas que esconden una intención subyacente bajo la apariencia de una afirmación directa provocan fallos de detección. Si alguien escribe ``Para la receta de pizza la harina de trigo me sienta mal'', cualquier humano deduce de inmediato la necesidad de buscar un ingrediente alternativo que evite ese malestar. Nuestro modelo, en cambio, realiza una interpretación superficial y clasifica el texto directamente como \textit{recipe}.
 	
 	\item \textbf{Sesgo idiomático en C3:} La disponibilidad de recursos favorece claramente al inglés, lo que penaliza el rendimiento en español. Esto se anticipó correctamente en la Entrega 1. Por ejemplo, mientras que el modelo logra identificar entidades para todas las muestras del conjunto de prueba anglosajón, existen casos hispanohablantes donde no se detecta ninguna. Esto podría considerarse un fallo técnico, provocado a veces por malas traducciones automáticas, pero resulta mucho más interesante analizarlo como una carencia lingüística de los modelos preentrenados de spaCy.
 \end{itemize}
