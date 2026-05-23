@@ -108,7 +108,7 @@ Este enfoque fue preferido sobre arquitecturas Transformer por su bajo coste com
 
 Evaluación sobre el conjunto de test de CLINC150 (240 ejemplos por idioma, 8 clases balanceadas). El *baseline* de referencia es un clasificador uniforme (*dummy*): **50 %** para T1 (2 clases) y **12.5 %** para T2 (8 clases).
 
-| Tarea | Modelo | Accuracy EN | Accuracy ES | F1 macro (EN / ES) |
+| Tarea | Modelo | *Accuracy* EN | *Accuracy* ES | F1 macro (EN / ES) |
 |-------|--------|-------------|-------------|---------------------|
 | **T1** | lingua ($n$-gramas de caracteres) | **100 %** | **100 %** | - |
 | **T2** | TF-IDF + LinearSVC (*C* = 0.5) | **92.5 %** | **94.2 %** | **0.925 / 0.942** |
