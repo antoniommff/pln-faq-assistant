@@ -384,7 +384,7 @@ Tras unos minutos se generará el ejecutable en `dist/FAQ` (Linux/macOS) o `dist
 
 ## Licencia
 
-Este proyecto está protegido bajo la Licencia [Apache 2.0](https://choosealicense.com/licenses/apache-2.0/). Consulta el archivo [LICENSE](LICENSE) para más detalles.
+Este proyecto está protegido bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
 
 ---
 
