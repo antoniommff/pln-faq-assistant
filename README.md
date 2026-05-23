@@ -151,7 +151,7 @@ Consulta (texto libre)
 
 Se utiliza el corpus **CLINC150** (Larson et al., 2019) en su configuración `plus`, disponible en Hugging Face Datasets. CLINC150 es un estándar de la industria para clasificación de intenciones en múltiples dominios.
 
-Para este proyecto se aplicó un **filtrado al subdominio culinario**, reduciendo el problema a **8 intenciones**. Dado que CLINC150 es nativo en inglés, las particiones se tradujeron automáticamente al español mediante `deep_translator` para generar el corpus bilingüe.
+Para este proyecto, se ha aplicado un **filtrado al subdominio culinario**, reduciendo el problema a **8 intenciones**. Dado que CLINC150 es nativo en inglés, las particiones se tradujeron automáticamente al español mediante `deep_translator` para generar el corpus bilingüe.
 
 Los datos en crudo y preprocesados se encuentran en la carpeta [`data/`](data/).
 
@@ -161,6 +161,7 @@ Los datos en crudo y preprocesados se encuentran en la carpeta [`data/`](data/).
 
 ```
 pln-faq-assistant/
+│
 ├── Analisis_Datos_PLN.ipynb      # Notebook 1: EDA, traducción y preprocesamiento
 │  
 ├── PoC_PLN.ipynb                 # Notebook 2: Modelado y evaluación (T1–T4)
@@ -206,7 +207,6 @@ pln-faq-assistant/
 └── .github/                      # Pipeline CI/CD para compilar el ejecutable de la GUI
 ```
 
-
 ---
 
 ## Primeros pasos
@@ -215,7 +215,7 @@ pln-faq-assistant/
 
 - **Python 3.10+** (recomendado 3.12)
 - **pip** o cualquier gestor de entornos compatible (`pyenv`, `conda`, `venv`)
-- Conexión a internet en la primera ejecución (descarga de modelos de spaCy y dataset de Hugging Face)
+- Conexión a internet en la primera ejecución (descarga de modelos de spaCy y *dataset* de Hugging Face)
 
 ### Instalación del entorno
 
@@ -249,7 +249,7 @@ Se recomienda seguir los *notebooks* **en orden**, ya que el segundo depende de 
 jupyter notebook Analisis_Datos_PLN.ipynb
 ```
 
-Este notebook carga el corpus CLINC150, realiza el análisis exploratorio, genera la traducción al español y ejecuta el *pipeline* de preprocesamiento completo. Al finalizar, exporta los ficheros `clean_data_*.csv` a `data/`.
+Este *notebook* carga el corpus CLINC150, realiza el análisis exploratorio, genera la traducción al español y ejecuta el *pipeline* de preprocesamiento completo. Al finalizar, exporta los ficheros `clean_data_*.csv` a `data/`.
 
 > Si los ficheros `data/clean_data_*.csv` ya existen en el repositorio, este *notebook* no es necesario para ejecutar el segundo.
 
@@ -396,4 +396,3 @@ Proyecto realizado por:
 - **Elsa Domínguez González** - <a href="https://github.com/elsdomgon">@elsdomgon</a>
 - **Óscar Niño Robles** - <a href="https://github.com/oscninrob">@oscninrob</a>
 - **Nicolás Rodríguez Ruiz** - <a href="https://github.com/nicolasrodriguezruiz">@nicolasrodriguezruiz</a>
-
