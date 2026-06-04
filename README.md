@@ -268,7 +268,7 @@ Este es el *notebook* principal del proyecto. Evalúa las cuatro tareas del sist
 
 La interfaz gráfica integra el identificador de idioma (C1), el clasificador de intención (C2) y el extractor de entidades semántico (C3) en una aplicación de escritorio.
 
-> **Aviso sobre macOS:** Al tratarse de una Prueba de Concepto (PoC) académica/de proyecto, el alcance se ha mantenido simple y el soporte se limita de forma exclusiva a Linux y Windows. No se dispone de un entorno Mac para realizar pruebas, la configuración de dependencias en dicho sistema es más compleja y desconocemos los pasos exactos para garantizar un despliegue exitoso. Por ello, macOS queda fuera de esta PoC.
+> **Aviso sobre macOS:** Al tratarse de una prueba de concepto académica, el alcance se ha mantenido simple y el soporte se limita de forma exclusiva a Linux y Windows. No se dispone de un entorno Mac para realizar pruebas, la configuración de dependencias en dicho sistema es más compleja y desconocemos los pasos exactos para garantizar un despliegue exitoso. Por ello, macOS queda fuera de esta PoC.
 
 #### Opción A — Descargar el ejecutable (Recomendado)
 
