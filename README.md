@@ -265,9 +265,22 @@ Este es el *notebook* principal del proyecto. Evalúa las cuatro tareas del sist
 
 ### Ejecutar la GUI
 
-La interfaz gráfica integra el identificador de idioma (T1), el clasificador de intención (T2) y el extractor de entidades semántico (T3) en una aplicación de escritorio.
+La interfaz gráfica integra el identificador de idioma (C1), el clasificador de intención (C2) y el extractor de entidades semántico (C3) en una aplicación de escritorio.
 
-#### Opción A — Desde el código fuente
+> **Aviso sobre macOS:** Al tratarse de una Prueba de Concepto (PoC) académica/de proyecto, el alcance se ha mantenido simple y el soporte se limita de forma exclusiva a Linux y Windows. No se dispone de un entorno Mac para realizar pruebas, la configuración de dependencias en dicho sistema es más compleja y desconocemos los pasos exactos para garantizar un despliegue exitoso. Por ello, macOS queda fuera de esta PoC.
+
+#### Opción A — Descargar el ejecutable (Recomendado)
+
+Si solo quieres probar la aplicación sin tener que instalar Python ni compilar código, puedes usar la versión ya empaquetada:
+
+1. Ve a la sección _Releases_ en este repositorio de GitHub (en el panel derecho).
+
+2. Descarga el ejecutable correspondiente a tu sistema operativo (por ejemplo, el archivo .exe para Windows).
+
+3. Haz doble clic en el archivo para ejecutar la GUI. (Nota: En Windows, es posible que SmartScreen te lance una advertencia de seguridad al no estar firmado digitalmente; simplemente pulsa en "Más información" y "Ejecutar de todas formas").
+
+#### Opción B — Desde el código fuente
+_(Solo Linux/Windows)_ 
 
 1. Instala las dependencias de la GUI (incluye `flet` y sus dependencias de escritorio). Se puede usar cualquier gestor de entornos; aquí se muestra con `pyenv+virtualenv`:
     ```sh
@@ -286,9 +299,9 @@ La interfaz gráfica integra el identificador de idioma (T1), el clasificador de
 
     La aplicación cargará los modelos de spaCy en segundo plano (puede tardar unos segundos) y mostrará `"Modelo cargado correctamente."` cuando esté lista para recibir consultas.
 
-#### Opción B — Compilar un ejecutable *standalone*
+#### Opción C — Compilar un ejecutable *standalone*
 
-Es posible empaquetar la GUI como un único ejecutable que no requiere Python instalado. Se usa `pyinstaller`, que ya está incluido en `requirements-build.txt`.
+Si has realizado pequeños cambios en el código y quieres empaquetar tu propia versión de la GUI como un único ejecutable que no requiere Python instalado, puedes usar `pyinstaller` (incluido en `requirements-build.txt`).
 
 Antes de empaquetar, en **Linux** es necesario tener las dependencias del sistema actualizadas:
 
@@ -301,12 +314,12 @@ sudo apt update && sudo apt install -y libgtk-3-dev libgstreamer1.0-dev \
     libgstreamer-plugins-base1.0-dev libgstreamer-plugins-good1.0-dev libmpv-dev
 ```
 
-En **Windows y macOS** no hay dependencias adicionales del sistema.
+En **Windows** no hay dependencias adicionales del sistema.
 
 Una vez instaladas las dependencias, ejecuta desde la raíz del repositorio:
 
 ```sh
-# Linux/Mac. Nota: si en Mac no funciona probar sustituir --onefile por --onedir
+# Linux
 pyinstaller --onefile --name "FAQ" --noconsole --icon="GUI/icon.ico" \
     --hidden-import="es_core_news_md" \
     --hidden-import="en_core_web_md" \
@@ -343,6 +356,7 @@ pyinstaller --onefile --name "FAQ" --noconsole --icon="GUI/icon.ico" ^
     --add-data "GUI/icon.ico;." ^
     --exclude-module="matplotlib" ^
     GUI/GUI.py
+
 # Windows (PowerShell)
 pyinstaller --onefile --name "FAQ" --noconsole --icon="GUI/icon.ico" `
     --hidden-import="es_core_news_md" `
@@ -363,9 +377,7 @@ pyinstaller --onefile --name "FAQ" --noconsole --icon="GUI/icon.ico" `
     GUI/GUI.py
 ```
 
-Tras unos minutos se generará el ejecutable en `dist/FAQ` (Linux/macOS) o `dist/FAQ.exe` (Windows), listo para distribuir sin dependencias adicionales.
-
-> **Nota:** No hay *build* oficial para macOS por falta de firma de desarrollador. En macOS se recomienda usar la Opción A.
+Tras unos minutos se generará el ejecutable en `dist/FAQ` (Linux) o `dist/FAQ.exe` (Windows), listo para distribuir sin dependencias adicionales.
 
 #### Uso de la GUI
 
@@ -378,7 +390,7 @@ Tras unos minutos se generará el ejecutable en `dist/FAQ` (Linux/macOS) o `dist
    - Las **entidades extraídas** semánticamente, opcionalmente agrupadas por categoría.
 4. El botón superior alterna entre la vista de entidades por **categorías** (desglosado) o como **lista plana**.
 
-> La GUI implementa T1, T2 y T3. T4 (recuperación de FAQs) se explora exclusivamente en `PoC_PLN.ipynb`.
+> La GUI implementa T1, T2 y T3. La recuperación de FAQs (T4) se explora exclusivamente en `PoC_PLN.ipynb`.
 
 ---
 
